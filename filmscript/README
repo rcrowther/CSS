@@ -1,0 +1,303 @@
+= Filmscript
+This is a now-complete adaptation of the BBC Screenplay format for HTML/CSS display.
+
+Trickier than it looks.
+
+BBC Screenplay at [a{http://downloads.bbc.co.uk/writersroom/scripts/screenplay.pdf}]
+
+
+== State of play
+The source material is complete, all screenplay items have been implemented.
+
+The title page has been stripped down to a title, as publishing personal data on the web is not a good idea.
+
+A few items have been modified:
+
+++
+- Simutaneous coversation example is slightly extended, to show how the CSS rendering looks if conversations are extended.
+
+- Shot-list CSS uses outside-list marks, which are possible on the web, unlike on a typewriter. They may be preferable to the original (I think so, anyway).
++
+
+== Aims
+Semantic HTML. I fall short of actually implementing a [a{http://microformats.org/} microformat], because I do not wish to be tied to specifics. But the markup is POSH, i.e. semantically meaningful, with conventional and simple naming. I have also used much implication for efficiency i.e. if I know what the paragraph is, because of where it is, then it doesn't need a class. CSS can sort out presentation.
+
+This exercise targets a very highly and formally stuctured text---the screenplay. This means  I can guess a lot, That said, the guesses may depend on how typographical decisions are made. My decisions, implemented in HTML and leveraged by CSS, are explained below.
+
+
+== A convention
+An 'instruction' is a direction, 'transition' is a specific film instruction about how to move between shots. Complete list from source,
+
+==== Scene level (see later)
+instruction
+++
+@ NOTE: THE DIALOGUE IN THIS SCENE IS SPOKEN IN HUNGARIAN AND
+SUBTITLED IN ENGLISH. (probably R.C.)
+@ END OF SUBTITLES.
+@ LATER
+@ THE CORNER OF THE ROOM
+@ SERIES OF SHOTS:
+@ END FLASHBACK.
++
+
+transition 
+++
+@ FADE TO:
+@ FADE OUT.
+@ INTERCUT:
+@ DISSOLVE TO:
++
+
+==== Dialogue level (see later)
+instruction
+++
+@ (in French)
+@ (in Russian;
+English subtitles)
+@ (pause)
+@ (beat)
+@ (into phone)
+@ (hangs up)
++
+
+The first ""FADE IN:" is an anomaly, a transition left-aligned (like an instruction). For, I suspect, the typographical reason that it has no preceeding item. See open/close.
+ 
+
+== HTML
+HTML is semantic. Much reduced by implication. So dialogue is assumed to contain only character titles, dialogue instructions, and... dialogue.
+
+
+=== Generalities
+
+==== Convention - titling
+Decision: Character cues are titles. So, following WC3 recommendation to impose headline ordering,
+
+h1 = Script title 
+h5 = Scene head
+h6 = Character cue
+
+Cann't see a use for titles in character dialogue, so they are lowest. Can't see a use for subscenes (source seems to discourage this), so scenes are next. This leaves possibilities for an h2--h4 tags e.g. for Acts, or other super-structure.
+
+==== Paragraphing
+All paragraphs are unclassed ''p'. Usage should be deducable from context.
+
+
+=== Overall
+Is the entire piece an ''article'/''main', or what? A long script may be split. Clearly, a complete script is an ''article', but a script may not be published in one part. So the HTML and CSS should not rely on that.
+
+Also, the HTML may be supplemented with navigation bars, credits, and other webpage information. Where a ''main' would be used. 
+
+Well, it sems to me ''main' is outside scope (users can wrap and embelish as they wish). So the presentation is a ''section' or an ''article', depending on completeness.
+
+A second issue is that we use ''section' heavily within the markup.
+
+And finally, that the HTML must not stand alone, a wrap must be defined.  Presentation of scripts depends heavily on adhering to visual layout. Scripts have strict width requirements, for timing. So CSS designers need a resizable wrap class, with semantic meaning, to play with.
+
+Decision: Obligatory wrap of ''article' or ''section'. Class must be ''filmscript-en'.
+
+
+==== Format
+The wrap has an optional header. This represents an overall script ''title', like a title page,
+
+
+body
+  article class=filmscript-en
+    header (optional, title page)
+      h1 (title)
+      p (credits)
+
+
+
+==== Contents
+The only current contents of the wrap are a string of scenes, see below.
+
+However, space has been left in the headings (h2--h4) for supplementary structuring such as ''acts'. CSS should not rely on this structure---it may change levels by becoming nested.
+
+
+=== Scenes
+Are assumed to be ''section'. These have no class (if we ever cover long scripts; Act 1, Act 2, etc. we'll need ''section class=act'). 
+
+==== Format
+Sections have obligatory headers. The reason for this is because scene titles can be decorated e.g. scene transition marks, such as "Fade in:". Also, not mentioned in the BBC spec., and supposed to be reserved for shooting scripts (so maybe discouraged), are scene descriptions. These do make their way into scripts, for good enough reasons e.g. the title is too long; "EXT LAKE", description "Swans (in reality, disguised video cameras) and people walking". Could be dramatically significant if a script is about covert surveillence.
+
+      section
+        header
+          p class=transition (optional, transition)
+          h3 (title)
+          p class=description
+
+Note that scene action should not be in the header, only the (optional) scene description.
+
+==== Contents
+Anonymous paragraph children of "scene" are assumed to be "scene action". Also possible is scene "instruction", for statements like "LATER"
+
+      section
+        header
+          ...
+        p (an action)
+        p (an action)
+        p class=instruction (an instruction)
+
+
+=== Dialogue
+Is dialogue set on relevant items, per-character, or blocked? 
+
+I decided on block, but see later in [a simutaneous conversation]. But the block is not a section (no outline). So I figure a ''div'. I figure this is too structurally essential for implicit guesswork, so class ""dialogue".
+
+
+This leads to an nteresting situation---dialogue can wrap on a per-character basis, or round streams of dialogue. I don't bother differentiating---per-character may suit automation better, but streams may suit handwriting. Anyhow, it has meaning.
+
+
+==== Format
+The header in dialogue is a character cue. No header needed, an anonymous headline,
+
+      section
+        header
+          ...
+        div class=dialogue
+          h4 (character cue/title)
+
+==== Contents
+Anonymous paragraphs are dialogue. Also possible is an "instruction" class paragraph, for instructions like (pause/beat),
+
+      section
+        header
+          ...
+        div class=dialogue
+          h4 (character cue/title)
+          p 
+          p class=instruction (optional instruction e.g. (pause))
+          p
+
+
+== HTML - Specific elements
+
+=== The end (and start)
+The start,
+
+FADE IN:
+
+is a transition, but has different presentation. It's criminal to make it special due to content, but not making it special leads to awkward presentatinal CSS overrides/tricks. However, we do it, here's the HTML,
+
+      section
+        header
+	  p class="transition open" FADE IN:
+	  h3 EXT. LOCATION - LONDON
+
+The end,
+
+THE END
+
+is an anomaly, a final flourish of the typewriter. I decided it is a transition, but a special one, which sits outside scenes, on the script level, same as the title. So the HTML to close is,
+
+
+      (last section)
+      p class="transition close" THE END
+    (end of document)
+
+These have been renamed ''open' and ''close'---a choice between web and screenplay languages---web wins.
+
+There are numerous ways of covering this in CSS, all dubious/inefficient (my current version is a targeting trick), but at least the HTML is solid. 
+
+
+
+
+
+== In-script text
+Decision: Text is a form of dialoge (if only with the viewer), so needs wrapping as such,
+
+      section class="scene"
+        header
+          ...
+        div class=dialogue
+          bq
+
+
+== INTERCUT is a transition, not an instruction
+There's temptation to think it is, but it isn't. Think about it.
+
+
+=== Simultaneous conversation
+The source says "sparing". Try telling Caryl Churchill. Needs more examples, and not clear what this is typographically.
+
+I assume we have dialog blocks lined up, at the top. Seems like we move line by line, with tops lined up.
+
+B11 B12
+.   .
+    .
+B12 B22
+.   .
+.  
+
+etc.
+
+
+Even the HTML is not obvious. ''left' and ''right' classes? ' ''simultaneous' on the second comment?
+
+Given the use of a ''dialogue' block, it seems natural that that has an adaptor? No, I don't think so. I think it's time for a ''div' wrap. We ask that ''dialogue' is closed round each character (as it probably should be),
+
+        div class=dialogue
+          h4 (character #1)
+          p 
+
+        div class=dialogue
+          h4 (character #2)
+          p 
+
+Then wrap in a simultaneous div,
+
+      div class=simultaneous
+        div class=dialogue
+          h4 (character #1)
+          p 
+
+        div class=dialogue
+          h4 (character #2)
+          p 
+
+      ...
+
+Ok.
+
+
+
+== CSS
+
+The supplied CSS is defended a little against surrunding code. It's not fully namespaced, but all common tags are.
+ 
+
+
+=== Sizing
+Scripts have strict width requirements, for timing. Whether this effort will hold fast in all circumstances I do not know. 
+
+The font is genericly momospaced. 
+
+Then the size is set in points. Usually, this is to be avoided, due to browser variation in sizing, but here it should I hope work to ensure widths are adhered to.
+
+
+=== Paragraphing
+Paragraphing is generally by (typewritten) empty lines. However, this is not the case for character dialogue, where no spacing follows a title (no statement is made about especially long speeches i.e. character dialogue paragraphing).
+
+There are many ways to tackle this, with various degrees of efficiency and robustness. For example, scene headlines could have special lower indents. The current method is to remove paragraph spacing within a dialogue block (see below).
+
+
+== Simultaneous conversation
+They're not columns, not tables, and not a float. I guess in the future this will be ''flexbox' or something. Right now, it's inline-block, which is efficient, typographically meaningful, and lines up correctly. It can't do more than two coloumns though (needs a width).
+
+== Lists of shots
+The given list opens with a double newline introduced "SERIES OF SHOTS". The double newline is inconsistent, a series of shots is a scene instruction. I've reduced the intro space to one newline.
+ 
+The given list is upper-case alphabetical, inside orientated, with bracket mark.
+
+A)
+B)
+C)
+
+This is not possible in CSS. Not automatically, anyhow (especially the bracket marker).
+
+So, for once, I switch styles. Nothing wrong with outside marks, visually superior (unless stressing the mark itself, which a script is not). I assume they are never used on typewriters because they are a pig to create, requiring a back indent.
+
+As for the marks, they are stock CSS period/full stop. Nothing bad in that, either.
+
+Niether adjustment changes implied script running time. Indeed, outside marks are, in this respect, insignificantly but structurall superior.
+

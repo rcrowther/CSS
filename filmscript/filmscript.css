@@ -1,0 +1,132 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+.filmscript-en {
+    font-size:12pt;
+    font-family:monospace;
+    line-height:12pt;
+    margin: 0 auto;
+    max-width: 445pt;
+}
+
+
+/* General */
+
+/* Covers internal dialogue and directions 
+   Will not work round divs, which is significant e.g. dialogue instructions 
+   */
+.filmscript-en p, .filmscript-en ol, .filmscript-en li, .filmscript-en blockquote {
+    margin-top: 12pt;
+}
+
+/* Typewriter style... */
+.filmscript-en h1, .filmscript-en h2, .filmscript-en h3, .filmscript-en h4, .filmscript-en h5, .filmscript-en h6 {
+    font-size:12pt;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* Not titles, but asserted uppercased elements */
+section > .instruction, .transition, .filmscript-en > section > header > .open, .filmscript-en > .close {
+    text-transform: uppercase;
+}
+
+
+/* Script */
+
+/* script title */
+.filmscript-en > header > h1 {
+    font-weight: bold;
+    margin-top: 36pt;
+    text-align:center;
+}
+
+/* script title subhead */
+.filmscript-en > header > p {
+    margin: 24pt 0;
+    text-align:center;
+}
+
+
+
+/* Scene */
+
+/* assumes scene */
+.filmscript-en > section {
+    margin-top: 24pt;
+}
+
+/* assumed to be scene title */
+.filmscript-en > section > header > h5 {
+    margin-top: 12pt;
+}
+
+/* This is a trick. It's more specific than the .transition class (which this class will be paired with) and thus overrides */
+.filmscript-en > section > header > .open {
+    text-align:left;
+}
+
+/* This is a trick. It's more specific than the .transition class (which this class will be paired with) and thus overrides. Depends on 'filmscript-en', but that is specified */
+.filmscript-en > .close {
+    margin-top: 36pt;
+    text-align:center;
+    text-decoration:underline;
+}
+
+
+/* transitions are right aligned, aside from the two delimiters. */
+.filmscript-en > section > .transition{
+    text-align:right;
+}
+
+.filmscript-en > section > header > .description{
+    font-style: italic;
+}
+
+
+/* Dialogue */
+
+/* assumed to be character title */
+.dialogue > h6 {
+    margin-left: 38%;
+    margin-top: 12pt;
+}
+
+/* dialogue paragraphing (kill margin-top) */
+.dialogue > p {
+    margin: 0 21%;
+}
+
+/* assumes dialogue instruction */
+.dialogue > .instruction{
+    margin: 0 29%;
+}
+
+
+
+/* Extra elements */
+
+.simultaneous > .dialogue {
+    display:inline-block;
+    vertical-align: text-top;
+    margin: 0;
+    width: 49%;
+}
+
+.simultaneous > .dialogue > p {
+    margin: 0;
+}
+
+/* Shot sequences */
+.filmscript-en ol {
+    list-style-type: upper-latin;
+}
+
+/* On-screen text */
+/* (Same margin as dialogue > p) */
+.filmscript-en blockquote {
+    margin-left: 21%;
+    margin-right: 21%;
+}
