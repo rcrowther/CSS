@@ -14,10 +14,10 @@
 
 /* General */
 
-/* Covers internal dialogue and directions 
-   Will not work round divs, which is significant e.g. dialogue instructions 
+/* Covers internal action and directions 
+   Will not work round divs, which is significant e.g. action instructions 
    */
-.filmscript-en p, .filmscript-en ol, .filmscript-en li, .filmscript-en blockquote {
+.filmscript-en p, .filmscript-en ol, .filmscript-en li {
     margin-top: 12pt;
 }
 
@@ -86,21 +86,21 @@ section > .instruction, .transition, .filmscript-en > section > header > .open, 
 }
 
 
-/* Dialogue */
+/* action */
 
 /* assumed to be character title */
-.dialogue > h6 {
+.action > h6 {
     margin-left: 38%;
     margin-top: 12pt;
 }
 
-/* dialogue paragraphing (kill margin-top) */
-.dialogue > p {
+/* action paragraphing (kill margin-top) */
+.action > p {
     margin: 0 21%;
 }
 
-/* assumes dialogue instruction */
-.dialogue > .instruction{
+/* assumes action instruction */
+.action > .instruction{
     margin: 0 29%;
 }
 
@@ -108,14 +108,14 @@ section > .instruction, .transition, .filmscript-en > section > header > .open, 
 
 /* Extra elements */
 
-.simultaneous > .dialogue {
+.simultaneous > .action {
     display:inline-block;
     vertical-align: text-top;
     margin: 0;
     width: 49%;
 }
 
-.simultaneous > .dialogue > p {
+.simultaneous > .action > p {
     margin: 0;
 }
 
@@ -125,8 +125,7 @@ section > .instruction, .transition, .filmscript-en > section > header > .open, 
 }
 
 /* On-screen text */
-/* (Same margin as dialogue > p) */
-.filmscript-en blockquote {
-    margin-left: 21%;
-    margin-right: 21%;
+/* (Same margins as action > p) */
+.on-screen-text > p {
+    margin-top: 12pt;
 }

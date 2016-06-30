@@ -48,7 +48,7 @@ transition
 @ DISSOLVE TO:
 +
 
-==== Dialogue level (see later)
+==== Action level (see later)
 instruction
 ++
 @ (in French)
@@ -64,7 +64,7 @@ The first ""FADE IN:" is an anomaly, a transition left-aligned (like an instruct
  
 
 == HTML
-HTML is semantic. Much reduced by implication. So dialogue is assumed to contain only character titles, dialogue instructions, and... dialogue.
+The HTML is semantic. Much reduced by implication. So dialogue (charater-spoken-action) is assumed to contain only character titles, dialogue instructions, and... dialogue.
 
 
 === Generalities
@@ -139,31 +139,31 @@ Anonymous paragraph children of "scene" are assumed to be "scene action". Also p
         p class=instruction (an instruction)
 
 
-=== Dialogue
-Is dialogue set on relevant items, per-character, or blocked? 
+=== Action
+Is dialogue set on items, per-character, or blocked? 
 
-I decided on block, but see later in [a simutaneous conversation]. But the block is not a section (no outline). So I figure a ''div'. I figure this is too structurally essential for implicit guesswork, so class ""dialogue".
+I decided on block ''action' class. But the block is not a section (no outline), so I figure a ''div'. I figure this is too structurally essential for implicit guesswork, so class ""action".
 
 
-This leads to an nteresting situation---dialogue can wrap on a per-character basis, or round streams of dialogue. I don't bother differentiating---per-character may suit automation better, but streams may suit handwriting. Anyhow, it has meaning.
+This leads to an nteresting situation---action can wrap on a per-character basis, or round streams of dialogue. I don't bother differentiating---per-character may suit automation better, but streams may suit handwriting. Anyhow, it has meaning. See later in [a simutaneous conversation], where action must be constrained to one unit ''an action', not ''actions'. 
 
 
 ==== Format
-The header in dialogue is a character cue. No header needed, an anonymous headline,
+The header in action is a character cue. No header needed, an anonymous headline,
 
       section
         header
           ...
-        div class=dialogue
+        div class=action
           h4 (character cue/title)
 
 ==== Contents
-Anonymous paragraphs are dialogue. Also possible is an "instruction" class paragraph, for instructions like (pause/beat),
+Anonymous paragraphs are character-spoken-action. Also possible is an "instruction" class paragraph, for instructions like (pause/beat),
 
       section
         header
           ...
-        div class=dialogue
+        div class=action
           h4 (character cue/title)
           p 
           p class=instruction (optional instruction e.g. (pause))
@@ -204,12 +204,12 @@ There are numerous ways of covering this in CSS, all dubious/inefficient (my cur
 
 
 == In-script text
-Decision: Text is a form of dialoge (if only with the viewer), so needs wrapping as such,
+Decision: Text is a form of action (if only with the viewer), so needs wrapping as such,
 
-      section class="scene"
+      section
         header
           ...
-        div class=dialogue
+        div class=action on-screen-text
           bq
 
 
@@ -234,24 +234,24 @@ etc.
 
 Even the HTML is not obvious. ''left' and ''right' classes? ' ''simultaneous' on the second comment?
 
-Given the use of a ''dialogue' block, it seems natural that that has an adaptor? No, I don't think so. I think it's time for a ''div' wrap. We ask that ''dialogue' is closed round each character (as it probably should be),
+Given the use of a ''action' block, it seems natural that that has an adaptor? No, I don't think so. I think it's time for a ''div' wrap. We ask that ''action' is closed round each character (as it probably should be),
 
-        div class=dialogue
+        div class=action
           h4 (character #1)
           p 
 
-        div class=dialogue
+        div class=action
           h4 (character #2)
           p 
 
 Then wrap in a simultaneous div,
 
       div class=simultaneous
-        div class=dialogue
+        div class=action
           h4 (character #1)
           p 
 
-        div class=dialogue
+        div class=action
           h4 (character #2)
           p 
 
