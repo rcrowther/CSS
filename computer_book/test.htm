@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>HTML5 Computer Book CSS Test Page</title>    
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="computerbook.css">
+  </head>
+
+  <body>
+
+    <article>
+      <h1>Code, code, code</h1>
+
+
+      <h2>General Text</h2>
+      <p>
+	Open and close with 'article' or 'section'. Headlines 1--5 are provided:
+      </p>
+      <h3>Headline h3</h3>
+      <h4>Headline h4</h4>
+      <h5>Headline h5</h5>
+      <p>
+	So are definition lists (formatted for word specifications/explanations),
+      </p>
+
+      <dl><dd>BYTE</dd><dt>8‐bit</dt><dd>WORD</dd><dt>(following Microsoft fix) 16‐bit</dt><dd>DWORD</dd><dt>double natural size, 32‐bit</dt><dd>QWORD</dd><dt>quad natural size, 64‐bit</dt></dl>
+
+      <p>
+	And blockquotes:
+      </p>
+
+      <blockquote>
+	I know what you're thinking: "Did he fire six shots, or only five?"
+      </blockquote>
+
+      <p>
+	Blockquoting is intended for referenced texts.
+      </p>
+      <p>
+	General text is in paragraph tags. As can be seen, it uses a first-line indent. Continuing with sample text, "The typical access pattern for a list is recursive. For instance, to increment every..."
+      </p>
+
+      <h2>Code blocks and illustrations</h2>
+      <p>
+	For direct illustration, use an inline code block. These are 'pre' to allow free formatting:
+      </p>
+
+      <pre><code>def fileForeach() =
+	  for (file <- filesHere)
+		       yield file
+		       </code></pre>
+
+
+      <p>
+	Code formatting may be used for errors, script results, also:
+      </p>
+
+      <pre class="result"><code>.../Shapes.scala:6: error: error overriding method</code></pre>
+
+      <p>
+	A complete, independent block of code (correct or incorrect) should be a listing (typographical figure):
+      </p>
+
+      <figure>
+	<pre><code>class ColoredPoint(x: Int, y: Int, val color: Color.Value)
+	    extends Point(x, y) {
+
+	    override def hashCode = 41 * super.hashCode + color.hashCode
+	    }
+	</code></pre>
+	<figcaption>Listing 11.2 ‧  Prepending a supertype.</figcaption>
+      </figure>
+
+      <p>
+	Figures can also contain images, such as the illustrative display below,
+      </p>
+
+      <figure>
+	<p>
+	  <img class="small" src="../images/usbstick.jpg"/>
+	</p>
+	<figcaption>Figure 1 ‧  USB stick</figcaption>
+      </figure>
+
+      <p>
+	Don't forget to close the 'article' or 'section'.
+      </p>
+    </article>
+
+
+
+
+    <footer style="margin:48pt 0 12pt 0; text-align:center;">
+      <p>Original model for most formatting is 'Step into Scala'</p>
+      <p>HTML/CSS by Robert Crowther, 2016</p>
+    </footer>
+
+  </body>
+</html>

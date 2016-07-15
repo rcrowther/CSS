@@ -1,0 +1,133 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+body{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    letter-spacing: 0.20px;
+    font-family: georgia, serif;    
+}
+
+body article, body section {
+    /*width: 600px;*/
+    max-width: 600px;
+    margin: 0 auto 21px auto;
+}
+
+h1 {
+    font-size: 28px;
+    line-height: 48px;
+    margin: 84px 0 84px 0;
+}
+
+h2 {
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 32px;
+    margin-top: 48px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 35px;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 24px;
+    margin-top: 35px;
+}
+
+h5 {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 35px;
+}
+
+pre {
+    display: block;
+}
+
+
+p {
+    margin-top: 12px;
+}
+
+dd{
+    font-style: italic;
+}
+
+code {
+    font-family: monospace;
+}
+
+blockquote {
+    margin-left: 42px;
+    margin-right: 42px;
+}
+
+figure{
+    margin: 18px 0;
+}
+
+/* spacing */
+
+blockquote, pre, ul, ol, dl, p {
+    margin-top: 24px;
+}
+
+p + p, figure + p {
+    margin-top: 0;
+    text-indent: 18px;
+}
+
+dd, pre {
+    padding-left: 14px;
+}
+
+ul, ol, dl {
+    padding-left: 7px;
+}
+
+
+/* figures */
+figure img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:450px;
+}
+
+figure pre{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-top: 1px dashed gray;
+    border-bottom: 1px dashed gray;
+}
+
+figcaption {
+    text-align:center;
+}
+
+
+
+.text_right{
+    text-align:right;
+}
+
+.center{
+    text-align: center;
+}
