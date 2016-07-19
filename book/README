@@ -1,0 +1,111 @@
+= Book
+Max-width print-orientated text for books.
+
+Book is a bit of an oddity. It is based in the 'Memoir' subclass of the ''Latex' subclass of Tex. Of course, it has nothing of the flexibility or quality of that code. It copies the rough formatting of the default settings into CSS.
+
+The Memoir package is an odd but useful package, which covers the idea of sections in a book, addding many heading and layout options, and a few other extras. It is useful both for text books, and fictional works. It's major lack, or the items it does not cover, are figures, and technical diagrams.
+
+This CSS is rough approximation of the ''Demo2' heading style, with the ''memman' subheading styles.
+
+Titles and blockqotes provided.
+
+
+== State of play
+Needs adding:
+Figures (from Latex?)
+more heading options
+lists
+cite 
+
+Chapter fonts look too big, by far?
+
+
+== HTML
+
+=== Generalities
+
+All content should be surrounded by ''article'.
+
+All text should be surrounded by ''p'
+
+=== Significant Memoir omissions
+Memoir is modest in claims and sophisticated at setting verse. This would require a seperate module, so nothing is done with ''pre'.
+
+=== Titles
+Memoir provides ''book' part, and six levels of titling. This is impossible in the HTML six levels.
+
+We could force the issue using nested sections/articles, but HTML Spec recommends using heading rank to represent nesting level.
+
+The solution is to drop /subsubhead and /subparagraph. This leaves h1 as the general title, good for search engines.
+
+
+==== Book title, h1
+
+Memoir has simple main taiting, inherited from Latex. For a front page, custom titling is recommended. Following this model, the title HTML structure recommended is sophisticated, but the rendering is CSS is basic.
+
+H1 can be simple, or expanded,
+
+#.cb
+header
+     h1  Book
+     p  CSS for articles and books</p> 
+     div
+       author  Robert Crowther
+       date  July 2016
+#
+
+The ''div' contains the metadata
+
+#.cb
+  h1
+    span class="name" Chapter
+    span class="num" 7
+    span class="title" title text...
+#
+
+== h2/h3 Part/chapter
+H2, H3 can optionally be,
+
+#.cb
+   h2
+     span class="name" Part
+     span class="num" 4
+     span class="title" title text...
+#
+
+== h3 alternatives
+Commented out are some quick shots at alternate styles. So far, Default and Chappel.
+
+
+== h4/h5 section/subsection
+H2, H3 can optionally be,
+
+#.cb
+   h4
+     span class="num" 4
+     title text...
+#
+
+=== Figures
+
+==== Images
+A lightly-padded page-width image.
+
+figure
+  img
+  figcaption (optional)
+ 
+
+
+
+
+== CSS Notes
+Serif font is used, except for local effects (some section headers).
+ 
+
+
+=== Sizing
+Is by point.
+
+
+
