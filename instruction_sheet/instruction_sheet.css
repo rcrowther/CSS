@@ -80,7 +80,6 @@ header > p {
 
 /* Part P81 */
 h2 {
-
     font-size:25pt;
     font-weight: bold;
     margin-top: 96pt;
@@ -158,7 +157,6 @@ h5 {
 /* para */
 h6 {
     font-size: 12pt;
-    /* font-style: italic; */
     float: left;
     font-weight: bold;
     margin-right: 1em;
