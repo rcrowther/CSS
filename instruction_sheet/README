@@ -1,0 +1,70 @@
+= Instruction Sheet
+A4 width print-orientated text for instruction sheets.
+
+Most of the general text layout is based in ''book'. A new, very simple ''h1' is added, and a fancy footer to hold contact information, etc. The chapter heading is set as ''komalike', and all text is sans.
+
+Through ''book', several text-layout features are present.
+
+
+== State of play
+?
+
+
+== HTML
+
+=== Generalities
+
+All content should be surrounded by ''article' or ''section'.
+
+All text should be surrounded by ''p'
+
+=== Titles
+Book provides six levels of titling. Most instruction sheets will need an h1, h5 for stepped instructions. h3 could be used for parts.
+
+
+
+== The footer
+In an instruction leaflet, the footer carries much of the meta-data,
+
+#.cb
+footer
+	div  class="person"
+	  author Robert Crowther
+#
+
+or,
+
+#.cb
+footer
+  div class="organisation"
+	img class="logo"
+    h2 Sensor Systems
+    address Aimless Boulevard
+    address class="printer"
+#
+
+Either of the above can be followed by,
+
+#.cb
+  div class="doc-data"
+    div class="copyright" Registered trademark of ...
+    div class="reference"  HC 58746
+	date July 2016
+#
+
+
+
+
+
+
+
+== CSS Notes
+Sans font is used, except for local effects (some section headers).
+ 
+
+
+=== Sizing
+Is by point.
+
+
+

@@ -1,0 +1,373 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+/*
+  DIN A4 standard paper size 
+  width: 210mm;
+  height: 297mm; 
+
+*/
+/*
+  DIN A4 printable space approx. 
+  For display margin-: 5mm 5mm 5mm 10mm; 
+  x-10mm  y -15mm; 
+  width: 200mm;
+  height: 282mm; 
+
+*/
+
+/* margin: 2cm;*/
+@media screen {
+    body > article, body > section {
+	width: 160mm;
+	/* height: 242mm; */
+
+	margin: 0 auto 21px auto;
+    }
+}
+
+@media print {
+    body > article, body > section {
+	width: 170mm;
+    /*  height: 257mm; */
+
+    }
+}
+
+/* basic text size */
+body, h5, h6 {
+    font-size: 12pt;
+    line-height: 18pt;
+}
+
+body{
+    font-weight: normal;
+    font-family: sans;    
+}
+
+
+
+/* Top title */
+
+h1 {
+    font-size: 36pt;
+    line-height: 36pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 60pt;
+    margin-bottom: 12pt;
+}
+
+header > p {
+    font-size: 17pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+/* pad all nums and names from each other and titles (titles last in list, no padding required) */
+.num, .name {
+    padding-right: 0.25em;
+}
+
+/* Part P81 */
+h2 {
+
+    font-size:25pt;
+    font-weight: bold;
+    margin-top: 96pt;
+    margin-bottom: 24pt;
+}
+
+
+h2 > .name {
+    font-size: 25pt;
+    margin-bottom: 12pt;
+}
+
+h2 > .num {
+    font-size: 25pt;
+    margin-bottom: 12pt;
+}
+
+
+h2 > .title {    
+    margin-top: 12pt;
+    margin-bottom: 12pt;
+    display: block;
+}
+
+
+/* chapter */
+/* kormalike P88, P319 */
+h3 {
+    margin-top: 120pt;
+    font-size: 17pt;
+    line-height: 45pt;
+    font-weight: bold;
+    font-family: sans;    
+    margin-bottom: 6pt;
+}
+
+h3 > .name {
+    display: none;
+}
+
+h3 > .num {
+    padding: 0;
+}
+
+
+h3 > .title {
+    margin-left: 0.4em;
+}
+
+
+
+/* section */
+/*  default P102 memman P103*/
+h4 {
+    font-size: 12pt;
+    font-variant: small-caps;
+    font-weight: normal;
+    margin-top: 18pt;
+    margin-bottom: 6pt;
+}
+
+
+
+/* subsect */
+h5 {
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 6pt;
+    margin-bottom: 3pt;
+}
+
+
+
+/**Should be runin, but non-Mozilla. runins 1em P95*/
+/* para */
+h6 {
+    font-size: 12pt;
+    /* font-style: italic; */
+    float: left;
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+
+
+pre {
+    display: block;
+}
+
+code {
+    font-family: monospace;
+}
+
+
+
+/* Paragraphs */
+
+/** except chapter or section heading? */
+p + p, .boxout + p , .wide-boxout + p, .note + p, .warning + p, .tip + p {
+    text-indent: 1em;
+}
+
+
+
+
+/* Boxouts */
+
+div.boxout, div.wide-boxout, div.note, div.warning, div.tip {
+    border: 1px solid black;
+}
+
+/* wide boxing */
+div.wide-boxout, div.note, div.warning,  div.tip {
+    padding: 4pt 4em;
+    margin: 4pt 0;
+}
+
+/* narrow boxing */
+div.boxout {
+    padding: 2pt 2em;
+    margin: 4pt 3em;
+}
+
+div.note::before {
+    content: "Note:";
+    font-weight: bolder;
+}
+
+div.warning::before {
+    content: "Warning:";
+    font-weight: bolder;
+}
+
+div.tip::before {
+    content: "Tip:";
+    font-weight: bolder;
+}
+
+/* create run-in */
+div.note > p:first-child, div.warning > p:first-child, div.tip > p:first-child {
+    display: inline;
+    margin-left: 0.5em;
+}
+
+
+
+/* figure contents, blockquote, same padding */
+figure > div, blockquote > div {
+    padding: 6pt 2em;
+}
+
+
+
+/* blockquote */
+
+/* P126 */
+blockquote {
+    margin: 12pt 0;
+}
+
+
+/* spacing */
+/*
+  blockquote, pre, ul, ol, dl {
+  margin-top: 12pt;
+  }
+  */
+
+
+
+/* Lists */
+
+/* P145 P182 p212 for examples */
+ul, ol, dl {
+    padding-left: 2em;
+}
+
+/* tips list */
+ul.tips{
+    list-style-type: square;
+}
+
+/* wide-spaced list */
+.wide-list, ul.tips {
+    padding-left: 0;
+    margin-bottom: 12pt;
+}
+
+.wide-list > li, .wide-list > dd, ul.tips > li {
+    margin-top: 12pt;
+}
+
+
+/* should be runin, but non-Mozilla. float will work with similar text heights P133 */
+dd{
+    float: left;
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+
+
+/* Figures */
+
+figure{
+    margin: 18px 0;
+}
+
+figure > .text {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+figure img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:450px;
+}
+
+
+/* captions P183 defaults */
+figcaption {
+    margin-top: 6pt;
+    text-align:center;
+}
+
+figcaption > .name:after {
+    content: ": ";
+}
+
+
+
+/* Footers */
+
+article > footer {
+    margin-top: 30pt;
+    border-top: silver solid 4px;
+}
+
+footer > .person {
+    text-align: center;
+    margin-top: 4pt;
+}
+
+footer > .organisation {
+    margin-top: 10pt;
+}
+
+footer > .organisation > .logo {
+    margin: 0 10pt;
+    float: right;
+}
+
+footer > .organisation > h2 {
+    text-transform: uppercase;
+    font-size: 17pt;
+    font-weight: bold;
+    margin: 0 10pt;
+    padding: 0;
+    float: right;
+}
+
+footer > .organisation > address {
+    font-size: 10pt;
+    font-style: normal;
+    margin: 0 10pt;
+    float: left;
+}
+
+footer > .doc-data {
+    font-size: 10pt;
+    margin-top: 10pt;
+    clear: both;
+}
+
+footer > .doc-data > .copyright {
+    margin: 0 10pt;
+    float: left;
+}
+
+footer > .doc-data > date {
+    margin: 0 10pt;
+    float: right;
+}
+
+footer > .doc-data > .reference {
+    text-transform: uppercase;
+    float: right;
+}

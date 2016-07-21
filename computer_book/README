@@ -9,7 +9,8 @@ Codeblock and image (only full width) figures with captions can be made. Inline 
 == State of play
 Needs fixing:
 text_right, center
-
+some form of print-block
+figure/paragraphing
 
 == HTML
 

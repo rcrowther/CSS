@@ -15,11 +15,191 @@ From the top folder,
 
 tml -v -uml -g markdown "text/README"
 
+
+
+
 == Some HTML generalities
 As the files have been developed, some gneralities have become apparent.
 
 === Text should be paragraphed
-The CSS will not work without expicit paragraphing.
+The CSS will be unreliable without expicit paragraphing. However...
+
+
+
+
+=== The use of ''p' is not semantic
+HTML Spec seems to define the semantics,
+
+#bq
+==== 3.2.4.3 Paragraphs
+A paragraph is typically a run of phrasing content that forms a block of text with one or more sentences that discuss a particular topic, as in typography, but can also be used for more general thematic grouping. For instance, an address is also a paragraph, as is a part of a form, a byline, or a stanza in a poem.
+#
+
+But backs out with this note (same section),
+
+#bq
+The term paragraph as defined in this section is used for more than just the definition of the p element. The paragraph concept defined here is used to describe how to interpret documents. The p element is merely one of several ways of marking up a paragraph.
+#
+
+Then this definition of ''p' makes clear, ''p' is a ''logical' paragraph,
+
+#bq
+===== 4.4.1 The p element
+...
+The solution is to realise that a paragraph, in HTML terms, is not a logical concept, but a structural one.
+...
+#
+
+This is fine most of the time. But goes wrong round illustrative content.
+
+
+
+==== Where ''p' goes wrong
+HTML5 Spec example, boosted to show what a browser will do,
+
+#cb
+<p>For instance, this fantastic sentence has bullets relating to</p>
+<ul>
+ <li><p>wizards,</p>
+ <li><p>faster-than-light travel, and</p>
+ <li><p>telepathy,</p>
+</ul>
+<p>and is further discussed below.</p>
+#
+
+Oh dear, oh dear. Five paragraphs, each representing a logical unit in the tree of text data. But semantically, we mean a single paragraph with an inserted list,
+
+#cb
+<p>For instance, this fantastic sentence has bullets relating to
+<ul>
+ <li>wizards,
+ <li>faster-than-light travel, and
+ <li>telepathy,
+</ul>
+and is further discussed below.</p>
+#
+
+Try sending the above and a browser will parse, but only because HTML allows implicit closure of ''p' element lines. The example above will be parsed to create the first example.
+
+
+
+
+==== Parsing (and rendering) issues with ''p'
+More problems. For example, CSS can float a paragraph. But let's take the HTML Spec blindly, and use ''p' as a grouping element, here to produce a ''warning' boxout (admittedly, h4 is likely incorrect),
+
+#cb
+<p>For instance, jumping the gun
+<p>
+<h4>warning</h4>
+<p>Not a good idea!</p>
+</p>
+will result in disqualification.</p>
+#
+
+Let's assume you want to float the ''warning' title left. I guarantee caos.
+
+The spec itself (should be a good reference, huh?) handles the above using code which parses as this (sometimes ''p' is used, not ''div'),
+
+#cb
+<p>For instance, jumping the gun</p>
+<div class="warning">
+<p>Not a good idea!</p>
+</div>
+<p>will result in disqualification.</p>
+#
+
+Oh, very cute, using a '':before' content insertion to create the ''warning' title. That ducks rendering issues,
+
+#cb
+div.example::before {
+    content: "Code Example: ";
+    font-weight: bolder;
+}
+#
+
+But means we do not have general markup. We need seperate classes for ''note', ''warning', ''tip' etc.
+
+
+==== A conclusion: ''p' should not be used for grouping
+
+...nor nested, nor used for grouping anything but text and a few links.
+
+''p' represents a logical unit in parsing, not a semantic paragraph. Whatever the HTML5 standard half hints, ""...an address is also a paragraph,...", but keeps bacxking out, ""The term paragraph as defined in this section is used for more than just the definition of the p element".
+
+''p' is not a ''grouping' element, except in underlying purpose as a parsing construct. 
+
+And I havn't talked about elements straddling paragraph boundaries...
+
+
+
+==== What to do with ''p'?
+I figure ''p' can still be used, as seen so often, to group text sentences and a few text-like/alternative inline/text-flow items such as links or inline images.
+
+But as soon as you need to handle a group of data like links/figures/objects in text, then resort to ''div'. It will not break up when rendering, nor behave strangely in the face of CSS selectors. HTML5 spec,
+
+#bq
+<h4>4.4.1 The p element</h4>
+Authors wishing to conveniently style such "logical" paragraphs consisting of multiple "structural" paragraphs can use the div element instead of the p element.
+#
+
+However, following from the fact this is not semantically clean, this creates problems for styles.
+
+
+==== Styling problems caused by ''logical' paragraphs
+Not having a semantic paragraph tag, and using div as a substitute, can cause all sorts of styling problems with paragraphing. 
+
+Let's use an example. The standard way to fmark a paragraph on a webpage is to use a newline, but typographers would never do this. They use an indented first line.
+
+
+""Well", you may say, ""the reason for the indenteed line is so the bottom of a page is never ambiguous. You always know if a paragraph finishes or continues on the next page. The web doesn't use pages, not the proper web standard, so there is no need. And the seperate line is so much easier to style."
+
+True. But the indented line is still preferable as a visual continuation, as opposd to a downwards jerk. And more compact. So can it be done with modern CSS?
+
+===== The paragraph indent, Version 1
+Indent the start of all paragraphs,
+
+p {
+text-indent: 1em;
+}
+
+
+If we don't want semantic paragraph breaks round logical paragraphs, we need to account for paragraphs following headlines, 
+
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+text-indent: 0;
+}
+ 
+And other inside-paragraph flow-content elements which force logical paragraphs such as figures, 
+
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p, figure + p {
+text-indent: 0;
+}
+
+This is an unholy mess, caused by the lack of semantics in the paragrah marks.
+
+So,
+
+===== The paragraph indent, Version 2
+This has the disadvantage that if additional elements are concieved as paragraph substitutes
+
+Let's try the new CSS selectors, and indent every paragrah preceeded by a paragraph,
+
+p + p {
+text-indent: 1em;
+}
+
+This is good because all elements no a paragraph are ruled out. But that means we also need to include paragraph substitutes, such as the div boxouts I argue myself into elsewhere,
+
+p + p, .boxout + p {
+text-indent: 1em;
+}
+
+And assumes figures and similar items are inline elements.
+
+Somewhat tidier, but less robust, requiring strong and unintuitive conceptualisation.
+
+
+
 
 === Figures are an inline item
 This is intriguing.
@@ -30,13 +210,47 @@ However, HTML5 defines them as a grouping element. Of necessity, most browsers d
 
 The HTML5 staandard stresses the ''float' nature of a figure. Yet examples show paragraph breaks before and after the figure.
 
-This is prbably wrong semantically, because most figurtes are an illustration of some text, like an adittional sub-sentence; ""The structure of a tree---nodes joined to nodes". So ""The structure of a tree figure 2 tree".
+This is prbably wrong semantically, because most figures are an illustration of some text, like an adittional sub-sentence; ""The structure of a tree---nodes joined to nodes". So ""The structure of a tree figure 2 tree".
 
 And splitting paragraphs across figures will produce display errors, starting paragraphs below figures where they should not be.
 
 The current decision is that a ''figure' element is inserted into a paragraph. Inline. This also saves on HTML.
 
 
+
+==== All self-contained illustrative inline data is also a ''figure'
+For example, an inline code listing. HTML 5 Spec suggests,
+
+pre
+  code
+
+but now leaning towards,
+
+figure
+  pre
+    code
+
+==== Figures must be split using class
+While classes are avoided, no CSS selector really allows ""Do this if contains...". Besiddes which, such selectors are likely to be unreliable, compared to parent and sucessor selectors.
+
+So classes must be used.
+
+
+=== Boxouts
+What is a boxout? It appears like a figure. I think I saw some somewhere which had external titling.
+
+Yet, it seems to me, a boxout is not a figure. It is not an illustration of text, it is a part of text flow. For example, I could continue text by writing, ""A good tip here is, even if you do not plan to place a border round CSS, it much easier to see how the CSS is interpreted...". Or, ""We should here give the user a warning...". Another way to look at this is to say that if warnings, a common content for boxouts, are ommited, the text is not only lacking illustration, but is incomplete.
+
+I'm somewhat supported in this in that a highly-typographically informed environment like the ''memoir' package for Tex treats boxes as a kind of text decoration, to be inserted anywhere. Though I would not take that as deffinitive argument.
+
+Boxouts are also complete in themselves. They express a single idea like ''tip' or ''warning'. I guess they are, semantically, a substitute for a paragraph. So I'm adding them as a class to paragraph ''p' tags.
+
+You may note how this idea means they are not an HTML ''figure' or an ''aside'.
+ 
 == CSS generalities
+=== Avoid classes
+Most of the CSS avoids use of classing. And where assumptions can be made due to parentage, no class is used.
+
+
 === selection
 While CSS selectors have become more sophisticated, some guesses are either difficult or impossible. While classes are avoided, in some situations they must be used, e.g. there are often different classes for figures depending on content.

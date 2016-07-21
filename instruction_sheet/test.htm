@@ -1,0 +1,183 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>HTML5 Instruction Sheet CSS Test Page</title>    
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="instruction_sheet.css">
+  </head>
+
+  <body>
+
+    <article>
+      <header>
+	<h1>Instruction Sheet</h1>
+	<p>CSS for instruction sheets</p> 
+      </header>
+
+      <h4>General Text</h4>
+      <p>
+	Open and close with 'article' or 'section'. 
+      </p>
+
+      <p>
+	Headlines 1--5 are provided:
+      </p>
+      <h1>(Headline h1) Title</h1>
+      <p>Following text...</p>
+
+      <h2><span class="name">Part</span><span class="num">7</span><span class="title">(Headline h2) Book Part</span></h2>
+      <p>Following text...</p>
+
+      <h3><span class="name">Chapter</span><span class="num">7</span><span class="title">(Headline h3) Chapter</span></h3>
+      <p>Following text...</p>
+
+      <h4><span class="num">7.3.1</span>(Headline h4) Section</h4>
+      <p>Following text...</p>
+
+      <h5><span class="num">7.3.1</span>(Headline h5) SubSection</h5>
+      <p>Following text...</p>
+
+      <h6>(Headline h6) Paragraph</h6>
+      <p>
+	“Land of Darkness?” exclaimed Monkey, at last coming fully awake. “But that’s the realm of Yama, Lord of the Dead! I don’t belong here!”
+      </p>
+      <p>
+	“That’s what they all say!” said Horse Face.
+      </p>
+
+      <h4>Other Text elements</h4>
+      <p>
+	Lists,
+      </p>
+      <ul><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+
+      <p>
+	Wide-spaced lists,
+      </p>
+      <ul  class="wide-list"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+
+      <p>
+	Definition lists (formatted for word specifications/explanations),
+      </p>
+      <dl><dd>BYTE</dd><dt>8‐bit</dt><dd>WORD</dd><dt>(following Microsoft fix) 16‐bit</dt><dd>DWORD</dd><dt>double natural size, 32‐bit</dt><dd>QWORD</dd><dt>quad natural size, 64‐bit</dt></dl>
+
+      <p>
+	Blockquotes:
+      </p>
+      <blockquote>
+	<div>
+	  <p>
+	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
+	  </p>
+	  <p>
+	    Nulla elementum nisi a efficitur scelerisque. Donec sed purus sem. Morbi in vestibulum nisi. 
+	  </p>
+	  <p>
+	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
+	  </p>
+	</div>
+      </blockquote>
+      <p>
+	Blockquoting is intended for referenced texts.
+      </p>
+
+      <p>
+	General text is in paragraph tags. As can be seen, paragraphs use a first-line indent. Continuing with sample text, "The typical access pattern for a list is recursive. For instance, to increment every..."
+      </p>
+
+      <p>
+	Text can be decorated with boxes,
+      </p>
+      <div class="boxout">
+	<p>Div classed as 'boxout'.</p>
+      </div>
+
+      <p>
+	And set wide,
+      </p>
+      <div class="wide-boxout">
+	<p>Div classed as 'wide-boxout'.</p>
+      </div>
+
+      <p>
+	Wide boxouts have a small range with built-in run-in titles,
+      </p>
+      <div class="note">
+	<p>Div classed as 'note'.</p>
+      </div>
+      <div class="warning">
+	<p>Div classed as 'warning'.</p>
+      </div>
+      <div class="tip">
+	<p>Div classed as 'tip'.</p>
+      </div>
+
+      <p>
+	Boxouts can be paragraphed,
+      </p>
+      <div class="tip">
+	<p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
+	<p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
+      </div>
+
+
+      <h4>Figures and illustrations</h4>
+
+      <p>
+	A complete, independent block of text (typographical figure):
+      </p>
+      <figure>
+	<div class="text">
+	  <p>
+	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+	  </p>
+	</div>
+	<figcaption><span class="name">Listing 11.2</span><span class="title">Prepending a supertype.</span></figcaption>
+      </figure>
+
+      <p>
+	Figures can also contain images, such as the illustrative display below,
+      </p>
+      <figure>
+	<div>
+	  <img class="small" src="../images/usbstick.jpg"/>
+	</div>
+	<figcaption><span class="name">Figure 1</span><span class="title">USB stick</span></figcaption>
+      </figure>
+
+      <p>
+	Don't forget to close the 'article' or 'section'.
+      </p>
+
+
+      <footer>
+	<div  class="person">
+	  <author>Robert Crowther</author>
+	</div>
+	<div class="organisation">
+	  <img class="logo" src="../images/usbstick.jpg"/>
+	  <h2>Sensor Systems</h2>
+	  <address>Aimless Boulevard</address>
+	  <address class="printer"></address>
+	</div>
+	<div class="doc-data">
+	  <div class="copyright">Registered trademark of ...</div>
+	  <div class="reference">HC 58746</div>
+	  <date>July 2016</date>
+	</div>
+      </footer>
+    </article>
+
+
+
+
+    <footer style="margin:48pt 0 12pt 0; text-align:center;">
+      <p>Sources are various</p>
+      <p>HTML/CSS by Robert Crowther, 2016</p>
+    </footer>
+
+  </body>
+</html>

@@ -3,7 +3,7 @@ Max-width print-orientated text for books.
 
 Book is a bit of an oddity. It is based in the 'Memoir' subclass of the ''Latex' subclass of Tex. Of course, it has nothing of the flexibility or quality of that code. It copies the rough formatting of the default settings into CSS.
 
-The Memoir package is an odd but useful package, which covers the idea of sections in a book, addding many heading and layout options, and a few other extras. It is useful both for text books, and fictional works. It's major lack, or the items it does not cover, are figures, and technical diagrams.
+The Memoir package is an odd but useful package, which covers the idea of sections in a book, addding many heading and layout options, and a few other extras. It is useful both for technical books/papers and fictional works. It's major lack, or the items it does not cover, are figures, and technical diagrams.
 
 This CSS is rough approximation of the ''Demo2' heading style, with the ''memman' subheading styles.
 
@@ -12,12 +12,12 @@ Titles and blockqotes provided.
 
 == State of play
 Needs adding:
-Figures (from Latex?)
+proper print-block sizes
 more heading options
-lists
 cite 
 
 Chapter fonts look too big, by far?
+
 
 
 == HTML
@@ -41,7 +41,7 @@ The solution is to drop /subsubhead and /subparagraph. This leaves h1 as the gen
 
 ==== Book title, h1
 
-Memoir has simple main taiting, inherited from Latex. For a front page, custom titling is recommended. Following this model, the title HTML structure recommended is sophisticated, but the rendering is CSS is basic.
+Memoir has simple main titling, inherited from Latex. For a front page, custom titling is recommended. Following this model, the title HTML structure recommended is sophisticated, but the rendering in CSS is basic.
 
 H1 can be simple, or expanded,
 
