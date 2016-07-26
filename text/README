@@ -1,10 +1,10 @@
 = CSS
 Why havn't I done this before? There is a question.
 
-Mostly simple CSS (no animations here), but covering a lot of time and research.
+Mostly simple CSS (no animations here), but a lot of time and research.
 
 All HTML5. Most of the HTML is semantically-inclined, if not adhering to a published microformat standard.
 
-All CSS3. Much work here not possible in earlier versions.
+All CSS3 (but stable and supported). Much work here not possible in earlier versions.
 
 CSS files come with READMEs and test HTML pages.

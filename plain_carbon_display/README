@@ -1,0 +1,85 @@
+= Plain Carbon Display
+A4 width display-orientated text for wiki/instruction sheets.
+
+Inspiration from Mozilla wiki. 
+
+== Changes from original
+Layout is A4 20cm margin
+
+Headers are pressed into a ''book'-like system.
+
+The footer is from instruction-book, with the logo and title to the left, not right.
+
+boxouts are reinvented as tip, note, and warning, then colored as per original (tip colour is new)
+
+blockquote added
+
+The interesting list structure, heavily used on the wiki, with levels differentiated by bullets, is formalized.
+
+
+definition lists are added from instruction sheet
+
+A simple left aligned image, as per original. But width has been limited (not original).
+
+== State of play
+May need better image handling
+
+
+== HTML
+
+=== Generalities
+
+All content should be surrounded by ''article' or ''section'.
+
+All text should be surrounded by ''p'
+
+=== Titles
+The headings are pressed into a system like ''book' (the original only has three headings of any intent). Most instruction sheets will need an h1, h3 for sections, and then sequentially deeper.
+
+
+
+== The footer
+In an instruction leaflet, the footer carries much of the meta-data,
+
+#.cb
+footer
+	div  class="person"
+	  author Robert Crowther
+#
+
+or,
+
+#.cb
+footer
+  div class="organisation"
+	img class="logo"
+    h2 Sensor Systems
+    address Aimless Boulevard
+    address class="printer"
+#
+
+Either of the above can be followed by,
+
+#.cb
+  div class="doc-data"
+    div class="copyright" Registered trademark of ...
+    div class="reference"  HC 58746
+	date July 2016
+#
+
+
+
+
+
+
+
+== CSS Notes
+Sans font, normal weight, is used, except for local effects.
+ 
+
+
+=== Sizing
+Is by pixel.
+
+
+

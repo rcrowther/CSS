@@ -55,14 +55,16 @@ body{
 
 
 
-
+/*
 h3 {
     font-weight: normal;
 }
+*/
 
 /* book */
 h1 {
     font-size: 30pt;
+    line-height: 36pt;
     text-align: center;
     margin-top: 60pt;
     margin-bottom: 6pt;
@@ -95,6 +97,7 @@ header {
 /* Part P81 */
 h2 {
     font-size:25pt;
+    line-height: 30pt;
     font-weight: bold;
     margin-top: 96pt;
     margin-bottom: 24pt;
@@ -182,7 +185,7 @@ margin-top: 20pt;
 }
 */
 
-/* kormalike P88, P319 */
+/* komalike P88, P319 */
 /*
 h3 {
     margin-top: 120pt;
@@ -201,7 +204,6 @@ h3 > .num {
     padding: 0;
 }
 
-
 h3 > .title {
     margin-left: 0.4em;
 }
@@ -213,7 +215,7 @@ h3 {
     font-family: sans; 
     margin-top: 120pt;
     font-size: 30pt;
-    line-height: 45pt;
+    line-height: 36pt;
     font-weight: normal;
     margin-bottom: 36pt;
 }
@@ -226,6 +228,7 @@ h3 > .num {
     display: block;
     text-align: center;
     font-size: 25pt;
+    line-height: 30pt;
     margin-bottom: 12pt;
 }
 
@@ -242,6 +245,7 @@ h3 > .title {
 /*  default P102 memman P103*/
 h4 {
     font-size: 12pt;
+    line-height: 14pt;
     font-variant: small-caps;
     font-weight: normal;
     margin-top: 18pt;
@@ -252,6 +256,7 @@ h4 {
 /* subsect */
 h5 {
     font-size: 12pt;
+    line-height: 14pt;
     font-weight: bold;
     margin-top: 6pt;
     margin-bottom: 3pt;
