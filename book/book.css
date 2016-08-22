@@ -58,10 +58,10 @@ body{
 
 
 /*
-h3 {
-    font-weight: normal;
-}
-*/
+  h3 {
+  font-weight: normal;
+  }
+  */
 
 /* title/book */
 
@@ -82,9 +82,9 @@ h1 {
 
 header {
     font-size:14pt;
-   line-height:25pt;
+    line-height:25pt;
     text-align: center;
-        margin-bottom: 60pt;
+    margin-bottom: 60pt;
 }
 
 header > p {
@@ -123,33 +123,7 @@ h2 > .title {
 
 
 
-/* Default P88 */
-/*
-  h3 {
-  margin-top: 120pt;
-  font-size: 30pt;
-  line-height: 45pt;
-  font-weight: bold;
-  margin-bottom: 36pt;
-  }
 
-
-
-h3 > .name {
-font-size: 25pt;
-}
-
-h3 > .num {
-text-align: center;
-font-size: 25pt;
-}
-
-
-h3 > .title {
-margin-top: 20pt;
-display: block;
-}
-*/
 
 
 /* Chappel P88 */
@@ -183,39 +157,185 @@ margin-top: 20pt;
 }
 */
 
-/* komalike P88, P319 */
+/* alternate titling */
+/* The following are full sets of h3--h6 titles
+ * Memman is the default, uncomment the others to try.
+ */
+/* Dowding */
 /*
+  h3, h4, h5, h6 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: normal;
+  text-align: center;
+  }
+
+h4, h5 {
+font-variant: small-caps;
+text-transform: lowercase;
+}
+
+h3, h6 {
+font-style: italic;
+}
+
 h3 {
-    margin-top: 120pt;
-    font-size: 17pt;
-    line-height: 45pt;
-    font-weight: bold;
-    font-family: sans;    
-    margin-bottom: 6pt;
+
+margin-top: 120pt;
+margin-bottom: 30pt;
 }
 
 h3 > .name {
-    display: none;
+font-style: normal;
+padding-right: 0.5em;
 }
 
 h3 > .num {
-    padding: 0;
+font-style: normal;
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+margin-bottom: 25pt;
+
 }
 
+
 h3 > .title {
-    margin-left: 0.4em;
+display: block;
+font-size:25pt;
+line-height: 36pt;
+text-transform: lowercase;
+
+margin-top: 36pt;
+}
+
+
+h4 {
+font-size: 17pt;
+line-height: 25pt;
+margin: 20pt 0 20pt 0;
+}
+
+
+h5 {
+font-size: 12pt;
+line-height: 17pt;
+margin: 6pt 0;
+}
+
+
+h6 {
+font-size: 12pt;
+line-height: 17pt;
+margin: 6pt 0;
 }
 */
 
-/* alternate titling */
-/* memman  */
-h3 {
-    font-family: sans;
-        font-weight: normal;
+/* Brighurst */
+/*
+  .num, .name {
+  display: none;
+
 }
 
+h4, h5, h6 {
+font-size: 12pt;
+line-height: 17pt;
+margin: 6pt 0;
+}
+
+h3, h4, h6 {
+font-variant: small-caps;
+}
+
+h3, h4, h5, h6 {
+text-transform: lowercase;
+font-weight: normal;
+}
+
+h3 {
+margin-top: 120pt;
+font-size: 17pt;
+line-height: 25pt;
+margin-bottom: 20pt;
+}
+
+
+
+h3 > .name {
+font-size: 25pt;
+}
+
+h3 > .num {
+text-align: center;
+font-size: 25pt;
+}
+
+
+h3 > .title {
+margin-top: 20pt;
+display: block;
+padding: 12pt 0;
+border-bottom: 1px solid black;
+
+}
+
+h5 {
+font-style: italic;
+}
+*/
+
+/* komalike */
+/* P88, P319 */
+/*
+  h3, h4, h5, h6 {
+  font-family: sans;
+  font-weight: bold;   
+  }
+
+h3 {
+margin-top: 120pt;
+font-size: 17pt;
+line-height: 25pt;
+margin-bottom: 20pt;
+}
+
+h3 > .name {
+display: none;
+}
+
+h3 > .num {
+padding: 0;
+margin-right: 0.5em;
+}
+
+h3 > .title {
+}
+
+h4 {
+font-size: 14pt;
+line-height: 20pt;
+margin: 20pt 0 17pt 0;
+text-indent: 0.5em;
+}
+h5 {
+font-size: 12pt;
+line-height: 17pt;
+margin: 6pt 0;
+}
+
+h6 {
+font-size: 11pt;
+line-height: 14pt;
+margin: 6pt 0;
+}
+*/
+
+/* memman  */
 /* Demo2 P88, P389 */
-/* chapter */
+
+h3 {
+    font-family: sans;
+    font-weight: normal;
+}
+
 
 h3 {
     font-size:20pt;
@@ -231,9 +351,9 @@ h3 > .name {
 h3 > .num {
     display: block;
     font-size: 25pt;
-        line-height: 30pt;
-     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-        font-style: italic;
+    line-height: 30pt;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-style: italic;
     text-align: center;
     margin-bottom: 25pt;
 }
@@ -248,8 +368,7 @@ h3 > .title {
 }
 
 
-/* section */
-/*  default P102 memman P103*/
+
 h4 {
     font-size: 12pt;
     line-height: 17pt;
@@ -260,26 +379,21 @@ h4 {
 }
 
 
-/* subsect */
 h5 {
     font-size: 12pt;
     line-height: 17pt;
     font-weight: bold;
-        margin: 6pt 0;
+    margin: 6pt 0;
 }
 
 
-
-/**Should be runin, but non-Mozilla. runins 1em P95*/
-/* para */
 h6 {
     font-size: 12pt;
     line-height: 17pt;
     font-weight: normal;
-            font-style: italic;
-        margin: 6pt 0;
+    font-style: italic;
+    margin: 6pt 0;
 }
-
 
 
 
