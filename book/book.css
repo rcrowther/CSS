@@ -42,6 +42,7 @@
 }
 
 /* basic text size */
+/* at 12pt, the series is (9, 10) 11, 12, 14, 17, 20, 25, 30 */
 body, h5, h6 {
     font-size: 12pt;
     line-height: 18pt;
@@ -55,24 +56,39 @@ body{
 
 
 
+
 /*
 h3 {
     font-weight: normal;
 }
 */
 
-/* book */
-h1 {
-    font-size: 30pt;
+/* title/book */
+
+/* original 30pt */
+h1, h2 {
+    font-family: sans;
+    font-size:25pt;
+    font-weight: normal;
     line-height: 36pt;
     text-align: center;
+    margin-bottom: 30pt;
+}
+
+h1 {
     margin-top: 60pt;
-    margin-bottom: 6pt;
+    margin-bottom: 14pt;
+}
+
+header {
+    font-size:14pt;
+   line-height:25pt;
+    text-align: center;
+        margin-bottom: 60pt;
 }
 
 header > p {
     font-style: italic;
-    text-align: center;
 }
 
 header > div {
@@ -80,14 +96,11 @@ header > div {
 }
 
 header date, header author {
-    margin-top: 12pt;
     display: block;
     text-align: center;
 }
 
-header {
-    margin-bottom: 24pt;
-}
+
 
 /* pad all nums and names from each other and titles (titles last in list, no padding required) */
 .num, .name {
@@ -95,28 +108,13 @@ header {
 }
 
 /* Part P81 */
+
 h2 {
-    font-size:25pt;
-    line-height: 30pt;
-    font-weight: bold;
     margin-top: 96pt;
-    margin-bottom: 24pt;
-}
-
-
-h2 > .name {
-    font-size: 25pt;
-    margin-bottom: 12pt;
-}
-
-h2 > .num {
-    font-size: 25pt;
-    margin-bottom: 12pt;
 }
 
 h2 > .title {    
     margin-top: 12pt;
-    margin-bottom: 12pt;
     display: block;
 }
 
@@ -209,15 +207,21 @@ h3 > .title {
 }
 */
 
+/* alternate titling */
+/* memman  */
+h3 {
+    font-family: sans;
+        font-weight: normal;
+}
 
 /* Demo2 P88, P389 */
+/* chapter */
+
 h3 {
-    font-family: sans; 
-    margin-top: 120pt;
-    font-size: 30pt;
+    font-size:20pt;
     line-height: 36pt;
-    font-weight: normal;
-    margin-bottom: 36pt;
+    margin-top: 120pt;
+    margin-bottom: 25pt;
 }
 
 h3 > .name {
@@ -226,18 +230,21 @@ h3 > .name {
 
 h3 > .num {
     display: block;
-    text-align: center;
     font-size: 25pt;
-    line-height: 30pt;
-    margin-bottom: 12pt;
+        line-height: 30pt;
+     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        font-style: italic;
+    text-align: center;
+    margin-bottom: 25pt;
 }
 
 
 h3 > .title {
     display: block;
     text-align: right;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
+    padding: 12pt 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 
@@ -245,21 +252,20 @@ h3 > .title {
 /*  default P102 memman P103*/
 h4 {
     font-size: 12pt;
-    line-height: 14pt;
+    line-height: 17pt;
     font-variant: small-caps;
     font-weight: normal;
-    margin-top: 18pt;
-    margin-bottom: 6pt;
+    margin: 20pt 0 12pt 0;
+    text-indent: 0.5em;
 }
 
 
 /* subsect */
 h5 {
     font-size: 12pt;
-    line-height: 14pt;
+    line-height: 17pt;
     font-weight: bold;
-    margin-top: 6pt;
-    margin-bottom: 3pt;
+        margin: 6pt 0;
 }
 
 
@@ -268,10 +274,13 @@ h5 {
 /* para */
 h6 {
     font-size: 12pt;
-    float: left;
-    font-weight: bold;
-    margin-right: 1em;
+    line-height: 17pt;
+    font-weight: normal;
+            font-style: italic;
+        margin: 6pt 0;
 }
+
+
 
 
 
