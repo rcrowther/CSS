@@ -9,7 +9,7 @@ tml -v -uml -g htmlCB -wp "../css/.../doc.css" SRC DST
 
 README file compiled with,
 
-tml -v -uml -g markdown ".../css/text/README" ".../css/README"
+tml -v -uml -g markdown ".../css/text/README" ".../css/"
 
 From the top folder,
 

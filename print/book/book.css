@@ -110,114 +110,11 @@ h2 > .title {
 }
 
 
-/* chapter */
 
-
-
-
-
-
-/* Chappel P88 */
-/*
-  h3 {
-  font-size: 20pt;
-  line-height: 50pt;
-  font-style: italic;
-  text-align: center;
-  margin-top: 120pt;
-  margin-bottom: 36pt;
-  }
-
-
-
-h3 > .name {
-font-style: normal;
-}
-
-h3 > .num {
-font-style: normal;
-}
-
-
-h3 > .title {
-display: block;
-text-align: center;
-border-top: 1px solid black;
-margin-top: 20pt;
-
-}
-*/
-
-/* alternate titling */
+/* alternate title sets */
 /* The following are full sets of h3--h6 titles
  * Memman is the default, uncomment the others to try.
  */
-/* Dowding */
-/*
-  h3, h4, h5, h6 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-weight: normal;
-  text-align: center;
-  }
-
-h4, h5 {
-font-variant: small-caps;
-text-transform: lowercase;
-}
-
-h3, h6 {
-font-style: italic;
-}
-
-h3 {
-
-margin-top: 120pt;
-margin-bottom: 30pt;
-}
-
-h3 > .name {
-font-style: normal;
-padding-right: 0.5em;
-}
-
-h3 > .num {
-font-style: normal;
-font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-margin-bottom: 25pt;
-
-}
-
-
-h3 > .title {
-display: block;
-font-size:25pt;
-line-height: 36pt;
-text-transform: lowercase;
-
-margin-top: 36pt;
-}
-
-
-h4 {
-font-size: 17pt;
-line-height: 25pt;
-margin: 20pt 0 20pt 0;
-}
-
-
-h5 {
-font-size: 12pt;
-line-height: 17pt;
-margin: 6pt 0;
-}
-
-
-h6 {
-font-size: 12pt;
-line-height: 17pt;
-margin: 6pt 0;
-}
-*/
 
 /* Brighurst */
 /*
@@ -272,6 +169,121 @@ h5 {
 font-style: italic;
 }
 */
+
+
+/* Crosshead */
+/*
+  h3, h4, h5, h6 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: normal;
+  text-align: center;
+  }
+
+h3 {
+font-weight: bold;
+line-height: 30pt;
+margin-top: 120pt;
+margin-bottom: 25pt;
+}
+
+h3 > .name {
+display: none;
+}
+
+h3 > .num {
+font-size:25pt;
+margin-right: 1em;
+}
+
+
+h3 > .title {
+font-size:20pt;
+}
+
+
+h4 {
+font-size: 14pt;
+line-height: 20pt;
+font-variant: small-caps;
+text-transform: uppercase;
+margin: 17pt 0 20pt 0;
+}
+
+h5, h6 {
+font-size: 12pt;
+line-height: 17pt;
+text-transform: lowercase;
+margin: 6pt 0;
+}
+
+h5 {
+font-weight: bold;
+}
+
+
+h6 {
+font-variant: small-caps;
+}
+*/
+
+/* Dowding */
+/*
+  h3, h4, h5, h6 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: normal;
+  text-align: center;
+  }
+
+h4, h5 {
+font-variant: small-caps;
+text-transform: lowercase;
+}
+
+h3, h6 {
+font-style: italic;
+}
+
+h3 {
+margin-top: 120pt;
+margin-bottom: 30pt;
+}
+
+h3 > .name {
+font-style: normal;
+padding-right: 0.5em;
+}
+
+h3 > .num {
+font-style: normal;
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+margin-bottom: 25pt;
+}
+
+
+h3 > .title {
+display: block;
+font-size:25pt;
+line-height: 36pt;
+text-transform: lowercase;
+margin-top: 36pt;
+}
+
+
+h4 {
+font-size: 17pt;
+line-height: 25pt;
+margin: 20pt 0 20pt 0;
+}
+
+
+h5, h6 {
+font-size: 12pt;
+line-height: 17pt;
+margin: 6pt 0;
+}
+*/
+
+
 
 /* komalike */
 /* P88, P319 */
@@ -387,6 +399,106 @@ h6 {
 }
 
 
+/* tandh  */
+/*
+  h3 {
+  font-size:25pt;
+  font-weight: bold;
+  line-height: 36pt;
+  margin-bottom: 30pt;
+  margin-top: 120pt;
+  }
+
+h3 > .name {
+display: none;
+}
+
+h3 > .num {
+font-size: 30pt;
+margin-right: 1.5em;
+}
+
+
+h4 {
+font-size: 14pt;
+line-height: 20pt;
+font-variant: small-caps;
+text-transform: uppercase;
+font-weight: normal;
+margin: 25pt 0 14pt 0;
+text-indent: 0.5em;
+}
+
+
+h5 {
+font-size: 17pt;
+line-height: 25pt;
+text-transform: lowercase;
+font-weight: normal;
+font-style: italic;
+margin: 6pt 0;
+}
+
+
+h6 {
+font-size: 12pt;
+line-height: 17pt;
+text-transform: lowercase;
+font-weight: bold;
+margin: 6pt 0;
+}
+*/
+
+/* wilsondob  */
+/*
+h4, h5, h6 {
+    font-weight: normal;
+}
+
+  h3 {
+  font-size:25pt;
+  font-style: italic;
+  line-height: 36pt;
+  text-align: right;
+  margin-bottom: 30pt;
+  margin-top: 120pt;
+  }
+
+h3 > .name {
+display: none;
+}
+
+h3 > .num {
+margin-right: 1.5em;
+}
+
+
+h4 {
+    font-size: 17pt;
+    line-height: 25pt;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    margin: 25pt 0 17pt 0;
+    text-indent: 0.5em;
+}
+
+
+h5 {
+    font-size: 17pt;
+    line-height: 25pt;
+    font-style: italic;
+    margin: 6pt 0;
+}
+
+
+h6 {
+    font-size: 12pt;
+    line-height: 17pt;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    margin: 6pt 0;
+}
+*/
 
 
 pre {
@@ -396,6 +508,77 @@ pre {
 code {
     font-family: monospace;
 }
+
+
+/* alternate chapter titles */
+
+/* The following are fancy chapter titles
+ * Comment out the h3s in the title set, uncomment a title to try.
+ */
+
+
+/* Bianchi */
+/*
+  h3 {
+  font-size: 17pt;
+  line-height: 50pt;
+  font-style: italic;
+  font-family: sans;
+
+font-weight: normal;
+text-align: center;
+margin-top: 120pt;
+margin-bottom: 36pt;
+}
+
+
+h3 > .name {
+}
+
+h3 > .num {
+font-size: 25pt;
+
+}
+
+
+h3 > .title {
+display: block;
+font-size: 25pt;
+line-height: 60pt;
+font-style: normal;
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+
+font-weight: bold;
+
+margin-top: 6pt;
+}
+*/
+
+/* Chappel P88 */
+/*
+  h3 {
+  font-size: 17pt;
+  line-height: 50pt;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 120pt;
+  margin-bottom: 36pt;
+  }
+
+h3 > .name {
+}
+
+
+h3 > .title {
+display: block;
+text-align: center;
+border-top: 1px solid black;
+margin-top: 6pt;
+}
+*/
+
 
 
 

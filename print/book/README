@@ -27,9 +27,8 @@ Ordered lists do not have enough space before number and item. However, CSS fixe
 TODO: non-memman header margins
 Needs adding:
 proper print-block sizes
-more heading options
-should figure control image width?
-caption sub-elements
+more chapter heading options
+some of the heading spacing (and maybe font size) is off. Check against code in manual.
 Are the image boxes, in particular, cross-browser?
 Sould image figures have more vertical space?
 
