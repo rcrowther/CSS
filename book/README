@@ -15,6 +15,11 @@ pdflatex memoir_sample
 
 Titles and blockqotes provided.
 
+== Not right
+
+Definition lists use float, so multi-lines do not display with hanging indewnt.
+
+Ordered lists do not have enough space before number and item. However, CSS fixes are etreme.
 
 == State of play
 
@@ -23,7 +28,7 @@ Needs adding:
 proper print-block sizes
 more heading options
 should figure control image width?
-
+caption sub-elements
 
 
 == HTML

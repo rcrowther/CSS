@@ -337,6 +337,10 @@ but this will not (and what follows is very common markup),
 
 Any following block-level item, particularly a paragraph tag, will cause the run-in to fail.
 
+=== Workaround: element insertion?
+Well, it would be cool to erase or append with elements to control the effect, such as removing ''p' tags. But exept by extreme browser hack, CSS can not modify the document tree. Javascript ca, but for a simple presentational effect, that is not what we want.
+
+
 === Any work-around at all?
 Yes, there is one run-in method which will work on any modern browser. It depends on a reduced concept of run-ins, spcifically, the title can only be one word long, and the run-in depends on a surrounding boxout, but the boxed, one word run-in is possible. It can also be implemented with the preset titles mentioned before,
 

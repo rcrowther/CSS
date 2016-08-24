@@ -5,7 +5,7 @@
 
     margin: 0;
     padding: 0;
-    list-style-position: inside;
+   /* list-style-position: inside; */
 }
 
 /*
@@ -412,7 +412,7 @@ code {
 
 /** except chapter or section heading? */
 p + p, .boxout + p , .wide-boxout + p, .note + p, .warning + p, .tip + p {
-    text-indent: 1em;
+    text-indent: 2em;
 }
 
 
@@ -472,7 +472,7 @@ blockquote.blockparagraph > p {
 }
 
 
-/* blockquote framed */
+/* blockquote decoration */
 figure > blockquote.framed  {
     border: 1px solid black;
         padding: 6pt 1em;
@@ -493,6 +493,7 @@ figure img {
     width:450px;
 }
 
+/* image decoration */
 figure > img.framed  {
     border: 1px solid black;
 }
@@ -502,7 +503,8 @@ figure > img.ruled  {
         border-bottom: 1px solid black;
         }
 
-/* captions P183 defaults */
+
+/* figure captions P183 defaults */
 figure > figcaption {
     margin-top: 12pt;
 text-align:center;
@@ -515,50 +517,41 @@ figure > cite {
     text-align:right;
 }
 
-/*
-figcaption > .name:after {
-    content: ": ";
-}
-*/
-
-/* spacing */
-/*
-  blockquote, pre, ul, ol, dl {
-  margin-top: 12pt;
-  }
-  */
-
 
 
 /* Lists */
 
 /* P145 P182 p212 for examples */
-ul, ol, dl {
-    padding-left: 2em;
+/* Not dl */
+ul, ol {
+    margin: 12pt 0 12pt 3em;
 }
 
-/* tips list */
-ul.tips{
-    list-style-type: square;
+dl {
+    margin: 12pt 0;
+}
+
+
+
+
+/* should be runin on 'dt', but non-Mozilla. float will work on
+ *  for single lines.
+ */
+dd {
+  font-weight: bold;
+margin-right: 0.5em;
+    float: left;
 }
 
 /* wide-spaced list */
-.wide-list, ul.tips {
-    padding-left: 0;
+/* margin bottom more reliable for floats.
+ * outer list margins hold overall position. 
+*/
+ol.wide > li, ul.wide > li, dl.wide > dt {
     margin-bottom: 12pt;
 }
 
-.wide-list > li, .wide-list > dd, ul.tips > li {
-    margin-top: 12pt;
-}
 
-
-/* should be runin, but non-Mozilla. float will work with similar text heights P133 */
-dd{
-    float: left;
-    font-weight: bold;
-    margin-right: 0.5em;
-}
 
 
 
