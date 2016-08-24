@@ -27,7 +27,7 @@
       </p>
 
       <p>
-	Headlines 1--5 are provided:
+	Headlines 1--5 are provided (several alternative sets of heading style can be uncommented, see the CSS file). All headings can handle line-wripping:
       </p>
       <h1>(Headline h1) Title</h1>
       <h1>Exceedingly long title which may split lines</h1>
@@ -38,22 +38,12 @@
       <p>Following text...</p>
 
       <h3><span class="name">Chapter</span><span class="num">7</span><span class="title">(Headline h3) Chapter</span></h3>
-      <h3><span class="name">Chapter</span><span class="num">7</span><span class="title">Exceedingly long chapter... and in these and the like kinds, it often
-falls out, that somewhat is produced of
-nothing</span></h3>
       <p>Following text...</p>
 
       <h4><span class="num">7.3.1</span>(Headline h4) Section</h4>
-      <h4>In militar commanders and soldiers, vain-glory is an essential
-point; for as iron sharpens iron, so by glory, one courage
-sharpeneth another</h4>
-
       <p>Following text...</p>
 
       <h5><span class="num">7.3.1</span>(Headline h5) SubSection</h5>
-      <h5>In cases of great enterprise upon charge and adventure, a
-composition of glorious natures, doth put life into business</h5>
-
       <p>Following text...</p>
 
       <h6>(Headline h6) SubSubSection</h6>
@@ -67,6 +57,12 @@ composition of glorious natures, doth put life into business</h5>
 
 
       <h4>Other Text elements</h4>
+      <p>
+	General text is in paragraph tags. Paragraphs use a first-line indent.
+      </p>
+      <p> Continuing with sample text, "They are the best-known unknown persons that have ever drawn breath upon the planet".
+      </p>
+
       <p>
 	Lists,
       </p>
@@ -82,11 +78,16 @@ composition of glorious natures, doth put life into business</h5>
       </p>
       <dl><dd>BYTE</dd><dt>8‐bit</dt><dd>WORD</dd><dt>(following Microsoft fix) 16‐bit</dt><dd>DWORD</dd><dt>double natural size, 32‐bit</dt><dd>QWORD</dd><dt>quad natural size, 64‐bit</dt></dl>
 
+
+
+     <h4>Figures and illustrations</h4>
+
       <p>
-	Blockquotes:
+	Figures can contain blockquotes (must be in a figure):
       </p>
+<figure>
       <blockquote>
-	<div>
+
 	  <p>
 	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
 	  </p>
@@ -96,55 +97,126 @@ composition of glorious natures, doth put life into business</h5>
 	  <p>
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
-	</div>
+
       </blockquote>
-      <p>
-	Blockquoting is intended for referenced texts.
-      </p>
+</figure>
+
+Adding the "blockparagraph" class alters the paragraphing style,
+
+<figure>
+      <blockquote class="blockparagraph">
+
+	  <p>
+	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
+	  </p>
+	  <p>
+	    Nulla elementum nisi a efficitur scelerisque. Donec sed purus sem. Morbi in vestibulum nisi. 
+	  </p>
+	  <p>
+	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
+	  </p>
+
+      </blockquote>
+</figure>
 
       <p>
-	General text is in paragraph tags. As can be seen, paragraphs use a first-line indent. Continuing with sample text, "The typical access pattern for a list is recursive. For instance, to increment every..."
+	Blockquoting is intended for referenced texts. Blockquotes can have styled cite(ations),
       </p>
 
-      <p>
-	Text can be decorated with boxes,
-      </p>
-      <div class="boxout">
-	<p>Div classed as 'boxout'.</p>
-      </div>
+<figure>
+      <blockquote>
+	  <p>
+	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
+	  </p>
+
+      </blockquote>
+	<cite>Lorem Ipsum</cite>
+</figure>
 
       <p>
-	And set wide,
+	...or full figurecaptions,
       </p>
-      <div class="wide-boxout">
-	<p>Div classed as 'wide-boxout'.</p>
-      </div>
+
+<figure>
+      <blockquote>
+	  <p>
+	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
+	  </p>
+
+      </blockquote>
+	<figcaption>Figure 0.1: Lorem Ipsum</figcaption>
+</figure>
+
+
 
       <p>
-	Wide boxouts have a small range with built-in run-in titles,
+	Blockquotes can be decorated with boxes,
       </p>
-      <div class="note">
-	<p>Div classed as 'note'.</p>
-      </div>
-      <div class="warning">
-	<p>Div classed as 'warning'.</p>
-      </div>
-      <div class="tip">
-	<p>Div classed as 'tip'.</p>
-      </div>
+<figure>
+      <blockquote  class="framed">
+	<p>Blockquote classed as 'framed'.</p>
+      </blockquote>
+</figure>
 
       <p>
-	Boxouts can be paragraphed,
+	...or ruled,
       </p>
-      <div class="tip">
+<figure>
+      <blockquote  class="ruled">
+	<p>Blockquote classed as 'ruled'.</p>
+      </blockquote>
+</figure>
+
+      <p>
+	... and set wide,
+      </p>
+
+<figure class="wide">
+      <blockquote class="framed">
+	<p>Figure classed as 'wide', blockquote as 'framed'.</p>
+      </blockquote>
+</figure>
+
+      <p>
+	...framed blockquotes can also be given cites/captions,
+      </p>
+      <figure>
+      <blockquote class="frame">
 	<p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
 	<p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
-      </div>
-
-
-     <h4>Figures and illustrations</h4>
+      </blockquote>
+	<figcaption>Figure 0.2: Francis Bacon</figcaption>
+      </figure>
 
       <p>
+	Figures can also contain images, such as the illustrative display below,
+      </p>
+
+      <figure>
+	  <img  src="../images/usbstick.jpg"/>
+	<figcaption><span class="name">Figure 3</span><span class="title">USB stick</span></figcaption>
+      </figure>
+
+      <p>
+	and be framed,
+      </p>
+
+      <figure>
+	  <img class="framed" src="../images/usbstick.jpg"/>
+	<figcaption><span class="name">Figure 4</span><span class="title">USB stick</span></figcaption>
+      </figure>
+
+      <p>
+	...or ruled,
+      </p>
+
+      <figure>
+	  <img class="ruled" src="../images/usbstick.jpg"/>
+	<cite>rcrowther</cite>
+      </figure>
+
+<!--
+<p>
 	A complete, independent block of text (typographical figure):
       </p>
       <figure>
@@ -155,16 +227,9 @@ composition of glorious natures, doth put life into business</h5>
 	</div>
 	<figcaption><span class="name">Listing 11.2</span><span class="title">Prepending a supertype.</span></figcaption>
       </figure>
+-->
 
-      <p>
-	Figures can also contain images, such as the illustrative display below,
-      </p>
-      <figure>
-	<div>
-	  <img class="small" src="../images/usbstick.jpg"/>
-	</div>
-	<figcaption><span class="name">Figure 1</span><span class="title">USB stick</span></figcaption>
-      </figure>
+
 
       <p>
 	Don't forget to close the 'article' or 'section'.

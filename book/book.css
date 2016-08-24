@@ -419,12 +419,12 @@ p + p, .boxout + p , .wide-boxout + p, .note + p, .warning + p, .tip + p {
 
 /* Boxouts */
 
-div.boxout, div.wide-boxout, div.note, div.warning, div.tip {
+div.boxout, div.wide-boxout {
     border: 1px solid black;
 }
 
 /* wide boxing */
-div.wide-boxout, div.note, div.warning,  div.tip {
+div.wide-boxout {
     padding: 4pt 4em;
     margin: 4pt 0;
 }
@@ -435,43 +435,91 @@ div.boxout {
     margin: 4pt 3em;
 }
 
-div.note::before {
-    content: "Note:";
-    font-weight: bolder;
+
+
+
+
+
+
+
+/* Figures */
+
+figure{
+    margin: 12pt 3em;
 }
 
-div.warning::before {
-    content: "Warning:";
-    font-weight: bolder;
-}
-
-div.tip::before {
-    content: "Tip:";
-    font-weight: bolder;
-}
-
-/* create run-in */
-div.note > p:first-child, div.warning > p:first-child, div.tip > p:first-child {
-    display: inline;
-    margin-left: 0.5em;
-}
-
-
-
-/* figure contents, blockquote, same padding */
-figure > div, blockquote > div {
-    padding: 6pt 2em;
-}
-
-
-
-/* blockquote */
-
-/* P126 */
-blockquote {
+/* wide frames */
+figure.wide {
     margin: 12pt 0;
 }
 
+
+/* blockquote */
+/* P126 */
+blockquote {
+    margin: 8pt 3em;
+}
+
+/* override if in figure */
+figure > blockquote {
+    margin: 0;
+}
+
+/* kill indented paragraphing for blockparagraph */
+blockquote.blockparagraph > p {
+    text-indent: 0;
+    margin-top: 6pt;
+}
+
+
+/* blockquote framed */
+figure > blockquote.framed  {
+    border: 1px solid black;
+        padding: 6pt 1em;
+}
+
+figure > blockquote.ruled  {
+    border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 6pt 1em;
+}
+
+
+/* images */
+figure img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:450px;
+}
+
+figure > img.framed  {
+    border: 1px solid black;
+}
+
+figure > img.ruled  {
+    border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        }
+
+/* captions P183 defaults */
+figure > figcaption {
+    margin-top: 12pt;
+text-align:center;
+}
+
+
+figure > cite {
+    display: block;
+    font-style: normal;
+    text-align:right;
+}
+
+/*
+figcaption > .name:after {
+    content: ": ";
+}
+*/
 
 /* spacing */
 /*
@@ -513,35 +561,6 @@ dd{
 }
 
 
-
-/* Figures */
-
-figure{
-    margin: 18px 0;
-}
-
-figure > .text {
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
-}
-
-figure img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width:450px;
-}
-
-
-/* captions P183 defaults */
-figcaption {
-    margin-top: 6pt;
-    text-align:center;
-}
-
-figcaption > .name:after {
-    content: ": ";
-}
 
 
 

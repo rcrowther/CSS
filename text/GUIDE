@@ -199,18 +199,52 @@ And assumes figures and similar items are inline elements.
 Somewhat tidier, but less robust, requiring strong and unintuitive conceptualisation.
 
 
+=== Should we use ''figure', and where?
+Typographically, a ''figure' is a floating item. A quote, even a ''blockquote', is not necessarily a figure, I suspect (though can not prove).
 
+Webpages do not need, and have no concept, of floating a figure to a page top or bottom. However, the grouping nature of the ''figure', and it's link to a reference in text, are clearly stated.
 
-=== Figures are an inline item
+I'm thinking, ignore the typographical use, keep it ssemantic--all block level referenced inserts are ''figure'. So,
+
+#cb
+figure
+  blockquote
+#
+
+#cb
+figure
+  image
+#
+
+#cb
+figure
+  p
+#
+
+#cb
+figure
+  pre
+    code
+#
+
+etc.
+
+=== Figures are an inline-placed item
 This is intriguing.
 
 In typography, a figure is a ''float' item. They float where the layout allows best placement, often ''top center'.
 
 However, HTML5 defines them as a grouping element. Of necessity, most browsers default render as display ''block', as the concept of a ''page' does not exist on the web.
 
-The HTML5 staandard stresses the ''float' nature of a figure. Yet examples show paragraph breaks before and after the figure.
+The HTML5 standard stresses the ''float' nature of a figure. It also states flatly that a ''figure' is,
 
-This is prbably wrong semantically, because most figures are an illustration of some text, like an adittional sub-sentence; ""The structure of a tree---nodes joined to nodes". So ""The structure of a tree figure 2 tree".
+#cb
+Flow content.
+#
+
+Yet examples show paragraph breaks before and after the figure.
+
+This is probably wrong semantically, because most figures are an illustration of some text, like an additional sub-sentence; ""The structure of a tree---e.g. nodes joined to nodes". So ""The structure of a tree e.g. figure 2 tree".
 
 And splitting paragraphs across figures will produce display errors, starting paragraphs below figures where they should not be.
 
@@ -231,7 +265,7 @@ figure
     code
 
 ==== Figures must be split using class
-While classes are avoided, no CSS selector really allows ""Do this if contains...". Besiddes which, such selectors are likely to be unreliable, compared to parent and sucessor selectors.
+While classes are avoided, no CSS selector really allows ""Do this if contains...". Besides which, such selectors are likely to be unreliable, compared to parent and sucessor selectors.
 
 So classes must be used.
 
@@ -241,12 +275,204 @@ What is a boxout? It appears like a figure. I think I saw some somewhere which h
 
 Yet, it seems to me, a boxout is not a figure. It is not an illustration of text, it is a part of text flow. For example, I could continue text by writing, ""A good tip here is, even if you do not plan to place a border round CSS, it much easier to see how the CSS is interpreted...". Or, ""We should here give the user a warning...". Another way to look at this is to say that if warnings, a common content for boxouts, are ommited, the text is not only lacking illustration, but is incomplete.
 
-I'm somewhat supported in this in that a highly-typographically informed environment like the ''memoir' package for Tex treats boxes as a kind of text decoration, to be inserted anywhere. Though I would not take that as deffinitive argument.
+I'm somewhat supported in this in that a highly-typographically informed environment like the ''memoir' package for Tex treats boxes as a kind of text decoration, to be inserted anywhere. Though I would not take that as definitive argument.
 
 Boxouts are also complete in themselves. They express a single idea like ''tip' or ''warning'. I guess they are, semantically, a substitute for a paragraph. So I'm adding them as a class to paragraph ''p' tags.
 
 You may note how this idea means they are not an HTML ''figure' or an ''aside'.
  
+== Run in
+This is a title which is inline with content, such as ""warning:...", or ""The health issue with slugs".
+ 
+What is this semantically? Typograpically, it is long established practice that low-level/deeply nested headlines, such as after a depth of four, are written inline with distinugishing styling. But there has also been a style, which can be found in instructionn leaftets, where a boxout contains text, headed by ""warning:...", for esxample, or ""info:...". The status of these boxouts and their titles is not clear (and I dont have typographical books to clarify thier status, either). After all, a series of warning boxouts will all have a similar title, they function as a semantic wrap of flow text---as you may surround a date with ''date' tags, you may surround a warning with ''warning' tags (which then generate the boxout and title). Anyway, it seems cconsistent semantically to assume that the tags that run in to a boxout are titles.
+
+Generating these titles is not at all easy. Like indented paragraphs, coloums, CSS has had no natural handline.
+
+=== The run-in block control
+Well, a CSS3 module has some handling,
+
+#.cb
+  display: run-in;
+#
+
+Good things: You can set this on a ''hx' headline tag, independant of HTML semantics, and get the result you were after.
+
+So do we have run-in titles? I'm afraid, no. Mozilla do not support ''run-in', saying there are problems with the specification. Which there are, as it happens. So this is not cross-browser supported. Moreover, while style should not matter, in this case it does substancially complicate the intended effect when the style would be so different in different browsers (i.e not working in Firefox).
+
+
+=== Float workrounds
+It would seem the effect is a float. Or could be made to work with headlines by using ''float: left'.
+
+Well, you won't often hear me say this, but in this case, the answer really is ""no, don't do this". CSS designers have used floats to work round missing concepts which would be useful for years. First, it becomes an immense and strict tangle as the following text, by now unrelated to the original title, will need to be float-cleared. Second, the CSS will fail extended cases, because a true run-in should handle uneven sized runins, aligning text baselines---a float element will wander into some middle area. Third, floated elements are unreliable---they are intended to find their own placement, not be positioned ...how long before this breaks? Fourth, I don't know if you care about the semantics of CSS, but a runin is not a float element.
+
+Best stay away.
+
+
+=== Inline workrounds
+Another solution, for modern browsers, is to use,
+
+#cb    display: inline;
+#
+
+or,
+
+#cb 
+    display: inline-block;
+#
+
+which at least covers the problem of good methodology. Treated like this, runin blocks will line up, whatever size, and the CSS makes sense. But it leaves another large problem, that the HTML is almost certainally not semantic. To make this work, the following block of text must be anonymous marked HTML. This will work,
+
+#cb
+ h5
+   And then I ran and ran...
+#
+
+but this will not (and what follows is very common markup),
+
+#cb
+ h5
+   p
+     And then I ran and ran...
+#
+
+Any following block-level item, particularly a paragraph tag, will cause the run-in to fail.
+
+=== Any work-around at all?
+Yes, there is one run-in method which will work on any modern browser. It depends on a reduced concept of run-ins, spcifically, the title can only be one word long, and the run-in depends on a surrounding boxout, but the boxed, one word run-in is possible. It can also be implemented with the preset titles mentioned before,
+
+#cb
+ div class="waring"
+   ...
+#
+
+What we do is insert the title content (if you wish to do this), then grab the first child and inline it. You'll want to adjust this for spacing, etc,
+
+#cb
+div.boxout, div.wide-boxout, div.note, div.warning, div.tip {
+    border: 1px solid black;
+}
+
+div.note::before {
+    content: "Note:";
+    font-weight: bolder;
+}
+
+div.warning::before {
+    content: "Warning:";
+    font-weight: bolder;
+}
+
+div.note > p:first-child, div.warning > p:first-child, div.tip > p:first-child {
+    display: inline;
+}
+
+
+You may try to put the headline into the HTML text. But this is another idea that will not work. Yet again, you do not want headlines embedded inside a block tag like ''p'. 
+
++dl
+~ Good discussion of the run-in command,
+: [a{https://css-tricks.com/run-in/}]
++
+
+= General tag comments
+It's clear HTML5 is strung-out between the old simple HTML, and an increased need for HTML to be stuctured data.
+
+== blockquote
+Nothing simpler than a blockquote, right? It's a quote too long to go into text.
+
+Well, blockquote has been caught up. Becuse, blockquote is clearly, at some times, a figure. HTML5 Spec example,
+
+#cb
+<figure>
+ <blockquote>
+  <p>The truth may be puzzling. It may take some work to grapple with.
+  It may be counterintuitive. It may contradict deeply held
+  prejudices. It may not be consonant with what we desperately want to
+  be true. But our preferences do not determine what's true. We have a
+  method, and that method helps us to reach not absolute truth, only
+  asymptotic approaches to the truth — never there, just closer
+  and closer, always finding vast new oceans of undiscovered
+  possibilities. Cleverly designed experiments are the key.</p>
+ </blockquote>
+ <figcaption><cite>Carl Sagan</cite>, in "<cite>Wonder and Skepticism</cite>", from
+ the <cite>Skeptical Enquirer</cite> Volume 19, Issue 1 (January-February
+ 1995)</figcaption>
+</figure>
+#
+
+Yet the old ''blockauote', even minus paragtraph tags, is still quoted,
+
+#cb
+<blockquote>One should never assume that his side of 
+the issue will be recognized, let alone that it will 
+be conceded to have merits.</blockquote>
+#
+
+The only thing clear here is meta-information. That is ''cite' tags or a microformat layout. Optionally wrapped in ''footer' tags.
+
+
+==== Captioning
+As for captions, then ''figcaption' works. Without it, the recommended way is to use ''cite' tags. This produces quite a muddle, there are examples, of course, with ''figcaption' larded with ''cite'.
+
+
+== q tag
+The old tag for inline quote. This horrible tag renders with quotes and for years was not advised. Now it renders ok,  but still with quotes. This is horrible because what business has a tag got with that kind of micro rendering? How do you get it to render with quote marks from various languages? Like this...
+
+q {quotes: '“' '”' '‘' '’';} /* opening followed by closing quote pairs */
+/* The equivalent using Unicode escapes:
+  q {quotes: '\201C' '\201D' '\2018' '\2019';} */
+q:before {content: open-quote;}
+q:after {content: close-quote;}
+
+No good solution. Generally awful. I'd just avoid. Which is a shame, because the tag semantic is of value.
+
+== cite
+Oh dear. I figure it should be a general catch all for metatdata-on-a-figure. But it's not. For a while, in HTML5, it was relegated  to the ''title' of metatdata-on-a-figure. This is worse than useless, as a title is a title is a title.
+
+I figure use it for a catch all visible label/caption where a full figurecaption (with numbering) is not appropriate. Use a span and microformats for full metadata. This fits current HTML5 spec, fits old usage, but is clear what it is for (non-mumeric captions). 
+
+The biggesst difficulty is that, used like this, a ''cite' may wind up repeating metadata. However, this again is clear enough, if your data is ample and in metadata, style the metadata. Restrict ''cite' as the smaller, non-numeric caption alternative (as in typographic practice).
+
+=== Placement of ''cite'
+If cite is used as above, and the ''figure' element used as suggested, there is one deviation from historical practice---''cite' material is placed outside a blockquote/media object, not inside. This can be done and remain semantic because both the object and the cite/caption are wrapped in a ''figure',
+
+#cb
+figure
+  blockquote
+    ...
+  cite
+#
+
+While unhistorical, this is consistent treatment of all material, for example, these fit into the form,
+
+#cb
+figure
+  img
+  cite 
+#
+
+#cb
+figure
+  img
+  figcaption
+#
+
+
+one CSS note. ''cite' is a flow content tag. Used as above, the visible display will nearly always require,
+
+#cb
+cite {
+    display: block;
+    ...
+}
+# 
+
+[a(http://html5doctor.com/blockquote-q-cite/}]
+[a{http://html5doctor.com/cite-and-blockquote-reloaded/}]
+
+== the new general ''b' tag
+
+
 == CSS generalities
 === Avoid classes
 Most of the CSS avoids use of classing. And where assumptions can be made due to parentage, no class is used.
