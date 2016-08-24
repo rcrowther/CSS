@@ -66,35 +66,41 @@
       <p>
 	Lists,
       </p>
+
       <ul><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
 
       <p>
 	and ordered lists,
       </p>
+
       <ol><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ol>
 
       <p>
 	Wide-spaced lists,
       </p>
+
       <ul  class="wide"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
 
       <p>
 	Definition lists (formatted for word specifications/explanations). Note that the preferred effect of hanging indent is not possible, so avoid multi-line definition list items,
       </p>
+
       <dl><dd>BYTE</dd><dt>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise</dt><dd>WORD</dd><dt>(following Microsoft fix) 16‐bit</dt><dd>DWORD</dd><dt>double natural size, 32‐bit</dt><dd>QWORD</dd><dt>quad natural size, 64‐bit</dt></dl>
 
       <p>
 	...and wide,
       </p>
+
       <dl  class="wide"><dd>BYTE</dd><dt>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.</dt><dd>WORD</dd><dt>(following Microsoft fix) 16‐bit</dt><dd>DWORD</dd><dt>double natural size, 32‐bit</dt><dd>QWORD</dd><dt>quad natural size, 64‐bit</dt></dl>
 
-     <h4>Figures and illustrations</h4>
+      <h4>Figures and illustrations</h4>
 
       <p>
 	Figures can contain blockquotes (must be in a figure):
       </p>
-<figure>
-      <blockquote>
+
+      <figure>
+	<blockquote>
 
 	  <p>
 	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
@@ -106,13 +112,13 @@
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
 
-      </blockquote>
-</figure>
+	</blockquote>
+      </figure>
 
-Adding the "blockparagraph" class alters the paragraphing style,
+      Adding the "blockparagraph" class alters the paragraphing style,
 
-<figure>
-      <blockquote class="blockparagraph">
+      <figure>
+	<blockquote class="blockparagraph">
 
 	  <p>
 	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
@@ -124,75 +130,78 @@ Adding the "blockparagraph" class alters the paragraphing style,
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
 
-      </blockquote>
-</figure>
+	</blockquote>
+      </figure>
 
       <p>
 	Blockquoting is intended for referenced texts. Blockquotes can have styled cite(ations),
       </p>
 
-<figure>
-      <blockquote>
+      <figure>
+	<blockquote>
 	  <p>
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
 
-      </blockquote>
+	</blockquote>
 	<cite>Lorem Ipsum</cite>
-</figure>
+      </figure>
 
       <p>
 	...or full figurecaptions,
       </p>
 
-<figure>
-      <blockquote>
+      <figure>
+	<blockquote>
 	  <p>
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
 
-      </blockquote>
+	</blockquote>
 	<figcaption>Figure 0.1: Lorem Ipsum</figcaption>
-</figure>
+      </figure>
 
 
 
       <p>
 	Blockquotes can be decorated with boxes,
       </p>
-<figure>
-      <blockquote  class="framed">
-	<p>Blockquote classed as 'framed'.</p>
-      </blockquote>
-</figure>
+
+      <figure>
+	<blockquote  class="framed">
+	  <p>Blockquote classed as 'framed'.</p>
+	</blockquote>
+      </figure>
 
       <p>
 	...or ruled,
       </p>
-<figure>
-      <blockquote  class="ruled">
-	<p>Blockquote classed as 'ruled'.</p>
-      </blockquote>
-</figure>
+
+      <figure>
+	<blockquote  class="ruled">
+	  <p>Blockquote classed as 'ruled'.</p>
+	</blockquote>
+      </figure>
 
       <p>
 	... and set wide,
       </p>
 
-<figure class="wide">
-      <blockquote class="framed">
-	<p>Figure classed as 'wide', blockquote as 'framed'.</p>
-      </blockquote>
-</figure>
+      <figure class="wide">
+	<blockquote class="framed">
+	  <p>Figure classed as 'wide', blockquote as 'framed'.</p>
+	</blockquote>
+      </figure>
 
       <p>
 	...framed blockquotes can also be given cites/captions,
       </p>
+
       <figure>
-      <blockquote class="frame">
-	<p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
-	<p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
-      </blockquote>
+	<blockquote class="frame">
+	  <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
+	  <p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
+	</blockquote>
 	<figcaption>Figure 0.2: Francis Bacon</figcaption>
       </figure>
 
@@ -201,7 +210,7 @@ Adding the "blockparagraph" class alters the paragraphing style,
       </p>
 
       <figure>
-	  <img  src="../images/usbstick.jpg"/>
+	<img  src="../images/bird.jpg"/>
 	<figcaption><span class="name">Figure 3</span><span class="title">USB stick</span></figcaption>
       </figure>
 
@@ -210,32 +219,32 @@ Adding the "blockparagraph" class alters the paragraphing style,
       </p>
 
       <figure>
-	  <img class="framed" src="../images/usbstick.jpg"/>
+	<img class="framed" src="../images/bird.jpg"/>
 	<figcaption><span class="name">Figure 4</span><span class="title">USB stick</span></figcaption>
       </figure>
 
       <p>
-	...or ruled,
+	...or ruled. Book illustrations are nealy always full width, but 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
       </p>
 
-      <figure>
-	  <img class="ruled" src="../images/usbstick.jpg"/>
+      <figure class="xx-narrow">
+	<img class="ruled" src="../images/bird.jpg"/>
 	<cite>rcrowther</cite>
       </figure>
 
-<!--
-<p>
-	A complete, independent block of text (typographical figure):
-      </p>
-      <figure>
-	<div class="text">
+      <!--
 	  <p>
-	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+	    A complete, independent block of text (typographical figure):
 	  </p>
-	</div>
-	<figcaption><span class="name">Listing 11.2</span><span class="title">Prepending a supertype.</span></figcaption>
-      </figure>
--->
+	  <figure>
+	    <div class="text">
+	      <p>
+		That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+	      </p>
+	    </div>
+	    <figcaption><span class="name">Listing 11.2</span><span class="title">Prepending a supertype.</span></figcaption>
+	  </figure>
+	  -->
 
 
 

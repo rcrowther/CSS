@@ -17,9 +17,10 @@ Titles and blockqotes provided.
 
 == Not right
 
-Definition lists use float, so multi-lines do not display with hanging indewnt.
+Definition lists use float, so multi-lines do not display with hanging indent.
 
-Ordered lists do not have enough space before number and item. However, CSS fixes are etreme.
+Ordered lists do not have enough space before number and item. However, CSS fixes are extreme.
+
 
 == State of play
 
@@ -29,6 +30,8 @@ proper print-block sizes
 more heading options
 should figure control image width?
 caption sub-elements
+Are the image boxes, in particular, cross-browser?
+Sould image figures have more vertical space?
 
 
 == HTML

@@ -5,7 +5,6 @@
 
     margin: 0;
     padding: 0;
-   /* list-style-position: inside; */
 }
 
 /*
@@ -57,15 +56,7 @@ body{
 
 
 
-/*
-  h3 {
-  font-weight: normal;
-  }
-  */
-
 /* title/book */
-
-/* original 30pt */
 h1, h2 {
     font-family: sans;
     font-size:25pt;
@@ -411,48 +402,33 @@ code {
 /* Paragraphs */
 
 /** except chapter or section heading? */
-p + p, .boxout + p , .wide-boxout + p, .note + p, .warning + p, .tip + p {
+p + p {
     text-indent: 2em;
 }
 
 
-
-/* Boxouts */
-
-div.boxout, div.wide-boxout {
-    border: 1px solid black;
-}
-
-/* wide boxing */
-div.wide-boxout {
-    padding: 4pt 4em;
-    margin: 4pt 0;
-}
-
-/* narrow boxing */
-div.boxout {
-    padding: 2pt 2em;
-    margin: 4pt 3em;
-}
-
-
-
-
-
-
-
-
 /* Figures */
 
+/* sizes */
 figure{
     margin: 12pt 3em;
 }
 
-/* wide frames */
 figure.wide {
     margin: 12pt 0;
 }
 
+figure.narrow {
+    margin: 12pt 6em;
+}
+
+figure.x-narrow {
+    margin: 12pt 9em;
+}
+
+figure.xx-narrow {
+    margin: 12pt 12em;
+}
 
 /* blockquote */
 /* P126 */
@@ -475,22 +451,23 @@ blockquote.blockparagraph > p {
 /* blockquote decoration */
 figure > blockquote.framed  {
     border: 1px solid black;
-        padding: 6pt 1em;
+    padding: 6pt 1em;
 }
 
 figure > blockquote.ruled  {
     border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        padding: 6pt 1em;
+    border-bottom: 1px solid black;
+    padding: 6pt 1em;
 }
 
 
 /* images */
+
+/* settings to ensure image fit to block. I hope. */
 figure img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width:450px;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 /* image decoration */
@@ -500,14 +477,14 @@ figure > img.framed  {
 
 figure > img.ruled  {
     border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        }
+    border-bottom: 1px solid black;
+}
 
 
 /* figure captions P183 defaults */
 figure > figcaption {
     margin-top: 12pt;
-text-align:center;
+    text-align:center;
 }
 
 
@@ -522,7 +499,7 @@ figure > cite {
 /* Lists */
 
 /* P145 P182 p212 for examples */
-/* Not dl */
+/* dl not left-indented */
 ul, ol {
     margin: 12pt 0 12pt 3em;
 }
@@ -535,25 +512,18 @@ dl {
 
 
 /* should be runin on 'dt', but non-Mozilla. float will work on
- *  for single lines.
+ * for single lines.
  */
 dd {
-  font-weight: bold;
-margin-right: 0.5em;
+    font-weight: bold;
+    margin-right: 0.5em;
     float: left;
 }
 
 /* wide-spaced list */
 /* margin bottom more reliable for floats.
  * outer list margins hold overall position. 
-*/
+ */
 ol.wide > li, ul.wide > li, dl.wide > dt {
     margin-bottom: 12pt;
 }
-
-
-
-
-
-
-
