@@ -108,7 +108,7 @@ header date, header author {
  * (titles last in list, no padding required) 
  */
  /* is \quad in low titles*/
-.num, .name {
+.num {
     padding-right: 0.5em;
 }
 
@@ -116,6 +116,10 @@ header date, header author {
 
 h2 {
     margin-top: 96pt;
+}
+
+h2 > .num:before {
+content: "Part ";
 }
 
 h2 > .title {    
@@ -154,7 +158,7 @@ h3 {
 
 /* Bringhurst */
 /*
-  .num, .name {
+  .num {
   display: none;
 }
 
@@ -242,6 +246,7 @@ margin: 0pt 0 4pt 0;
 /* Dowding */ 
  /* margin-top: 24pt; */
 /* margin-bottom: 18pt; */
+/* number as word */
 /*
   h3, h4, h5, h6 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -258,10 +263,10 @@ h3, h6 {
 font-style: italic;
 }
 
-h3 > .name {
-font-style: normal;
-padding-right: 0.5em;
+h3 > .num:before {
+content: "Chapter ";
 }
+
 
 h3 > .num {
 font-style: normal;
@@ -309,9 +314,6 @@ font-size: 20pt;
 line-height: 30pt;
 }
 
-h3 > .name {
-display: none;
-}
 
 h3 > .num {
 padding: 0;
@@ -356,9 +358,7 @@ margin-top: 120pt;
 margin-bottom: 25pt;
 }
 
-h3 > .name {
-display: none;
-}
+
 
 h3 > .num {
 display: block;
@@ -371,6 +371,7 @@ margin-bottom: 25pt;
 }
 
 
+
 h3 > .title {
 display: block;
 text-align: right;
@@ -379,9 +380,7 @@ border-top: 1px solid black;
 border-bottom: 1px solid black;
 }
 
-
 h4 {
-
     font-variant: small-caps;
     font-weight: normal;
     margin: 16pt 0 8pt 0;
@@ -402,6 +401,7 @@ h6 {
 }
 
 
+
 /* tandh  */
 /* use roman numerals */
   /* margin-top: 12pt; */
@@ -413,9 +413,7 @@ h6 {
   line-height: 36pt;
   }
 
-h3 > .name {
-display: none;
-}
+
 
 h3 > .num {
 margin-right: 1em;
@@ -483,9 +481,7 @@ font-style: italic;
 text-align: right;
 }
 
-h3 > .name {
-display: none;
-}
+
 
 h3 > .num {
 margin-right: 1em;
@@ -534,16 +530,19 @@ code {
 /* Bianchi */
 /*
 h3 {
-    font-size: 17pt;
-    line-height: 25pt;
-    font-style: italic;
     font-family: sans;
-    font-weight: normal;
     text-align: center;
 }
 
+h3 > .num:before {
+    font-size: 17pt;
+content: "Chapter ";
+}
 
 h3 > .num {
+    line-height: 25pt;
+    font-weight: normal;
+    font-style: italic;
     font-size: 20pt;
 }
 
@@ -572,6 +571,10 @@ h3 {
         font-style: normal;
 }
 
+h3 > .num:before {
+content: "Chapter ";
+}
+
 h3 > .title {
     display: block;
     font-size: 30pt;
@@ -590,6 +593,10 @@ h3 {
     line-height: 20pt;
     font-weight: normal;
     text-align: center;
+}
+
+h3 > .num:before {
+content: "Chapter ";
 }
 
 h3 > .title {
@@ -613,9 +620,7 @@ h3 > .title {
   text-align: center;
   }
 
-h3 > .name{
-display: none;
-}
+
 
 h3 > .num:before {
 content: '\2015';
@@ -625,7 +630,6 @@ margin-right: 0.25em;
 h3 > .num:after {
 content: '\2015';
 margin-left: 0.25em;
-
 } 
 
 h3 > .title {
@@ -661,6 +665,10 @@ h3 > .num:after{
     margin: 12pt auto 0 auto;
 } 
 
+h3 > .num:before {
+content: "Chapter ";
+}
+
 h3 > .title {
     display: block;
     font-size: 14pt;
@@ -668,7 +676,6 @@ h3 > .title {
     text-transform: uppercase;
 }
 */
-
 
 /* Paragraphs */
 

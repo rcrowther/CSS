@@ -24,7 +24,9 @@ Ordered lists do not have enough space before number and item. However, CSS fixe
 
 == State of play
 
-TODO: non-memman header margins
+TODO: 
+Gap between names and number in headers probably wrong
+
 Needs adding:
 proper print-block sizes
 more chapter heading options
