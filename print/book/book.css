@@ -71,8 +71,8 @@ body{
 h1, h2 {
     font-family: sans;
     font-size:25pt;
+        line-height: 36pt;
     font-weight: normal;
-    line-height: 36pt;
     text-align: center;
     margin-bottom: 30pt;
 }
@@ -104,7 +104,10 @@ header date, header author {
 
 
 
-/* pad all nums and names from each other and titles (titles last in list, no padding required) */
+/* pad all nums and names from each other and titles 
+ * (titles last in list, no padding required) 
+ */
+ /* is \quad in low titles*/
 .num, .name {
     padding-right: 0.5em;
 }
@@ -116,7 +119,9 @@ h2 {
 }
 
 h2 > .title {    
-    margin-top: 12pt;
+    font-size: 30pt;
+        line-height: 48pt;
+    margin-top: 24pt;
     display: block;
 }
 
@@ -151,13 +156,10 @@ h3 {
 /*
   .num, .name {
   display: none;
-
 }
 
 h4, h5, h6 {
-font-size: 12pt;
-line-height: 17pt;
-margin: 6pt 0;
+margin: 12pt 0;
 }
 
 h3, h4, h6 {
@@ -174,8 +176,6 @@ font-size: 17pt;
 line-height: 25pt;
 }
 
-
-
 h3 > .title {
 margin-top: 20pt;
 display: block;
@@ -187,7 +187,6 @@ h5 {
 font-style: italic;
 }
 */
-
 
 
 
@@ -221,27 +220,22 @@ h3 > .title {
 
 
 h4 {
-font-size: 14pt;
-line-height: 20pt;
 font-variant: small-caps;
 text-transform: uppercase;
-margin: 17pt 0 20pt 0;
+margin: 16pt 0 8pt 0;
 }
 
-h5, h6 {
-font-size: 12pt;
-line-height: 17pt;
-text-transform: lowercase;
-margin: 6pt 0;
-}
 
 h5 {
+text-transform: lowercase;
 font-weight: bold;
+margin: 14pt 0 8pt 0;
 }
 
 
 h6 {
 font-variant: small-caps;
+margin: 0pt 0 4pt 0;
 }
 */
 
@@ -264,9 +258,6 @@ h3, h6 {
 font-style: italic;
 }
 
-h3 {
-}
-
 h3 > .name {
 font-style: normal;
 padding-right: 0.5em;
@@ -287,18 +278,22 @@ line-height: 36pt;
 
 
 h4 {
-font-size: 17pt;
+    text-transform: uppercase;
 line-height: 25pt;
-margin: 20pt 0 20pt 0;
+margin: 24pt 0 12pt 0;
 }
 
+h5 {
+    text-transform: lowercase;
+    margin: 14pt 0 10pt 0;
+}
 
-h5, h6 {
-font-size: 12pt;
-line-height: 17pt;
-margin: 6pt 0;
+h6 {
+margin: 8pt 0 4pt 0;
 }
 */
+
+
 
 /* komalike */
   /* margin-top: 24pt; */
@@ -310,7 +305,6 @@ margin: 6pt 0;
   }
 
 h3 {
-margin-top: 120pt;
 font-size: 20pt;
 line-height: 30pt;
 }
@@ -328,27 +322,27 @@ h3 > .title {
 }
 
 h4 {
+font-size: 17pt;
+line-height: 25pt;
+text-indent: 0.5em;
+margin: 3.5ex 0 2.3ex 0;
+
+}
+
+h5 {
 font-size: 14pt;
 line-height: 20pt;
-margin: 20pt 0 17pt 0;
-text-indent: 0.5em;
-}
-h5 {
-font-size: 12pt;
-line-height: 17pt;
-margin: 6pt 0;
+margin: 3.25ex 0 1.5ex 0;
 }
 
 h6 {
-font-size: 11pt;
-line-height: 14pt;
-margin: 6pt 0;
+margin: 3.25ex 0 1.5ex 0;
 }
 */
 
 /* memman  */
-/* Demo2 P88, P389 */
-/*
+/* Should be numbers as words */
+
   h3 {
   font-family: sans;
   font-weight: normal;
@@ -356,8 +350,8 @@ margin: 6pt 0;
 
 
 h3 {
-font-size:20pt;
-line-height: 36pt;
+font-size:30pt;
+line-height: 48pt;
 margin-top: 120pt;
 margin-bottom: 25pt;
 }
@@ -368,8 +362,8 @@ display: none;
 
 h3 > .num {
 display: block;
-font-size: 25pt;
-line-height: 30pt;
+font-size: 36pt;
+line-height: 64pt;
 font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 font-style: italic;
 text-align: center;
@@ -387,41 +381,36 @@ border-bottom: 1px solid black;
 
 
 h4 {
-    font-size: 12pt;
-    line-height: 17pt;
+
     font-variant: small-caps;
     font-weight: normal;
-    margin: 20pt 0 12pt 0;
+    margin: 16pt 0 8pt 0;
     text-indent: 0.5em;
 }
 
 
 h5 {
-    font-size: 12pt;
-    line-height: 17pt;
     font-weight: bold;
-    margin: 6pt 0;
+    margin: 8pt 0 4pt 0;
 }
 
 
 h6 {
-    font-size: 12pt;
-    line-height: 17pt;
     font-weight: normal;
     font-style: italic;
-    margin: 6pt 0;
+    margin: 8pt 0 4pt 0;
 }
-*/
+
 
 /* tandh  */
 /* use roman numerals */
   /* margin-top: 12pt; */
-  /* margin-bottom: 12pt; */
+  /* margin-bottom: 24pt; */
 /*
   h3 {
-  font-size: 20pt;
+  font-size: 25pt;
   font-weight: bold;
-  line-height: 30pt;
+  line-height: 36pt;
   }
 
 h3 > .name {
@@ -434,12 +423,10 @@ margin-right: 1em;
 
 
 h4 {
-font-size: 14pt;
-line-height: 20pt;
 font-variant: small-caps;
 text-transform: uppercase;
 font-weight: normal;
-margin: 25pt 0 14pt 0;
+margin: 24pt 0 12pt 0;
 text-indent: 0.5em;
 }
 
@@ -450,16 +437,13 @@ line-height: 25pt;
 text-transform: lowercase;
 font-weight: normal;
 font-style: italic;
-margin: 6pt 0;
+margin: 14pt 0 9pt 0;
 }
 
 
 h6 {
-font-size: 12pt;
-line-height: 17pt;
-text-transform: lowercase;
 font-weight: bold;
-margin: 6pt 0;
+margin: 7pt 0 4pt 0;
 }
 */
 /* 
@@ -473,6 +457,16 @@ margin: 6pt 0;
  * 36 \HUGE
  * 48
  */
+/*
+ * sec
+font-size: 17pt;
+line-height: 25pt;
+* subsec
+font-size: 14pt;
+line-height: 20pt;
+*  subsubsec
+* ---
+*/
 /* wilsondob  */
 /* use roman numerals */
   /* margin-top: 24pt; */
@@ -499,11 +493,9 @@ margin-right: 1em;
 
 
 h4 {
-font-size: 17pt;
-line-height: 25pt;
 font-variant: small-caps;
-text-transform: lowercase;
-margin: 25pt 0 17pt 0;
+text-transform: uppercase;
+margin: 16pt 0 7pt 0;
 text-indent: 0.5em;
 }
 
@@ -512,19 +504,17 @@ h5 {
 font-size: 17pt;
 line-height: 25pt;
 font-style: italic;
-margin: 6pt 0;
+margin: 7pt 0 4pt 0;
 }
 
 
 h6 {
-font-size: 12pt;
-line-height: 17pt;
 text-transform: lowercase;
 font-variant: small-caps;
-margin: 6pt 0;
+margin: 7pt 0 4pt 0;
 }
-*/
 
+*/
 
 pre {
     display: block;
