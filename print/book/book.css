@@ -120,6 +120,7 @@ h2 > .title {
     display: block;
 }
 
+
 /* beforechapskip = 50pt
  * A base, sometimes modified
  * Modified to an outraageous 120pt for no-page layout.
@@ -128,8 +129,9 @@ h2 > .title {
  * No need for the skip, as this is a margin.
  * A base, sometimes modified
  */
+ /* \midchapskip: 20pt */
 h3 { 
-    /* margin-top: 50pt; */
+    /*original: margin-top: 50pt; */
     margin-top: 120pt;
     margin-bottom: 40pt;
 }
@@ -139,6 +141,11 @@ h3 {
 /* The following are full sets of h3--h6 titles
  * Memman is the default, uncomment the others to try.
  */
+/* NB: commented top/bottom margins are originals,
+ * replaced by overall settings above
+  */
+/* \quad is set to 1em */
+
 
 /* Bringhurst */
 /*
@@ -163,22 +170,10 @@ font-weight: normal;
 }
 
 h3 {
-margin-top: 120pt;
 font-size: 17pt;
 line-height: 25pt;
-margin-bottom: 20pt;
 }
 
-
-
-h3 > .name {
-font-size: 25pt;
-}
-
-h3 > .num {
-text-align: center;
-font-size: 25pt;
-}
 
 
 h3 > .title {
@@ -186,7 +181,6 @@ margin-top: 20pt;
 display: block;
 padding: 12pt 0;
 border-bottom: 1px solid black;
-
 }
 
 h5 {
@@ -195,7 +189,11 @@ font-style: italic;
 */
 
 
+
+
 /* Crosshead */
+ /* margin-top: 24pt; */
+/* margin-bottom: 24pt; */
 /*
   h3, h4, h5, h6 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -205,9 +203,8 @@ font-style: italic;
 
 h3 {
 font-weight: bold;
+font-size:20pt;
 line-height: 30pt;
-margin-top: 120pt;
-margin-bottom: 25pt;
 }
 
 h3 > .name {
@@ -215,13 +212,11 @@ display: none;
 }
 
 h3 > .num {
-font-size:25pt;
 margin-right: 1em;
 }
 
 
 h3 > .title {
-font-size:20pt;
 }
 
 
@@ -250,7 +245,9 @@ font-variant: small-caps;
 }
 */
 
-/* Dowding */
+/* Dowding */ 
+ /* margin-top: 24pt; */
+/* margin-bottom: 18pt; */
 /*
   h3, h4, h5, h6 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -268,8 +265,6 @@ font-style: italic;
 }
 
 h3 {
-margin-top: 120pt;
-margin-bottom: 30pt;
 }
 
 h3 > .name {
@@ -280,16 +275,14 @@ padding-right: 0.5em;
 h3 > .num {
 font-style: normal;
 font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-margin-bottom: 25pt;
 }
 
 
 h3 > .title {
 display: block;
 font-size:25pt;
+margin-top: 20pt;
 line-height: 36pt;
-text-transform: lowercase;
-margin-top: 36pt;
 }
 
 
@@ -307,10 +300,9 @@ margin: 6pt 0;
 }
 */
 
-
-
 /* komalike */
-/* P88, P319 */
+  /* margin-top: 24pt; */
+/* margin-bottom: 18pt; */
 /*
   h3, h4, h5, h6 {
   font-family: sans;
@@ -319,9 +311,8 @@ margin: 6pt 0;
 
 h3 {
 margin-top: 120pt;
-font-size: 17pt;
-line-height: 25pt;
-margin-bottom: 20pt;
+font-size: 20pt;
+line-height: 30pt;
 }
 
 h3 > .name {
@@ -357,7 +348,7 @@ margin: 6pt 0;
 
 /* memman  */
 /* Demo2 P88, P389 */
-
+/*
   h3 {
   font-family: sans;
   font-weight: normal;
@@ -420,16 +411,17 @@ h6 {
     font-style: italic;
     margin: 6pt 0;
 }
-
+*/
 
 /* tandh  */
+/* use roman numerals */
+  /* margin-top: 12pt; */
+  /* margin-bottom: 12pt; */
 /*
   h3 {
-  font-size:25pt;
+  font-size: 20pt;
   font-weight: bold;
-  line-height: 36pt;
-  margin-bottom: 30pt;
-  margin-top: 120pt;
+  line-height: 30pt;
   }
 
 h3 > .name {
@@ -437,8 +429,7 @@ display: none;
 }
 
 h3 > .num {
-font-size: 30pt;
-margin-right: 1.5em;
+margin-right: 1em;
 }
 
 
@@ -471,20 +462,31 @@ font-weight: bold;
 margin: 6pt 0;
 }
 */
-
+/* 
+ * 11 \small
+ * 12  
+ * 14 \large
+ * 17 \Large
+ * 20 \LARGE
+ * 25 \huge
+ * 30 \Huge
+ * 36 \HUGE
+ * 48
+ */
 /* wilsondob  */
+/* use roman numerals */
+  /* margin-top: 24pt; */
+/* margin-bottom: 48pt; */
 /*
-  h4, h5, h6 {
+  h3, h4, h5, h6 {
   font-weight: normal;
   }
 
 h3 {
-font-size:25pt;
+font-size:30pt;
+line-height: 48pt;
 font-style: italic;
-line-height: 36pt;
 text-align: right;
-margin-bottom: 30pt;
-margin-top: 120pt;
 }
 
 h3 > .name {
@@ -492,7 +494,7 @@ display: none;
 }
 
 h3 > .num {
-margin-right: 1.5em;
+margin-right: 1em;
 }
 
 
@@ -567,17 +569,31 @@ h3 > .title {
     margin-top: 25pt;
 }
 */
-/* 
- * 11 \small
- * 12  
- * 14 \large
- * 17 \Large
- * 20 \huge
- * 25 \Huge
- * 30 
- */
+
+/* Brotherton */
+/* margin-top: 50pt; */
+/* margin-bottom: 40pt; */
+/*
+h3 {
+    font-size: 25pt;
+    line-height: 36pt;
+    font-family: sans;
+    font-weight: bold;
+        font-style: normal;
+}
+
+h3 > .title {
+    display: block;
+    font-size: 30pt;
+    line-height: 48pt;
+    font-weight: bold;
+    margin-top: 20pt;
+}
+*/
 
 /* Chappel */
+/*     margin-top: 12pt; */
+
 /*
 h3 {
     font-size: 14pt;
