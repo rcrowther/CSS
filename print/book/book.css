@@ -8,37 +8,198 @@
 }
 
 /*
-  DIN A4 standard paper size 
+  ISO A4  
   width: 210mm;
-  height: 297mm; 
-
-*/
+  height: 297mm;
+  */
 /*
-  DIN A4 printable space approx. 
-  For display margin-: 5mm 5mm 5mm 10mm; 
-  x-10mm  y -15mm; 
-  width: 200mm;
-  height: 282mm; 
+  ISO A5  
+  width: 148mm;
+  height: 210mm;
+  */
+/*
+  ANSI Letter 
+  width: 215.9mm;
+  height: 279.4mm; 
+  */
 
+/* Simple print rules:
+ * - h2, h3 break before
+ * - Avoid break after titles
+ * - Avoid break in figures, tables, or lists
+ */
+article > header, section > header, h2 {
+    page-break-after: always;
+}
+
+h2, h3 {
+    page-break-before: always;
+}
+
+h3, h4, h5, h6 {
+    page-break-after: avoid;
+}
+
+table, figure, ol, ul, dl {
+    page-break-before: avoid;
+    page-break-inside: avoid;
+}
+
+
+/* The page layouts below establish widths and optional heights
+ * for print and display.
+ * 
+ * Beware running with no margins at all. Some printers/software will
+ * reject these due to unprintable margins, resizing to cope.
+ * 
+ * A typeblock width is established of 130mm. For many fonts, at 12pt,
+ * this should give a number of characters per line near 66. This is
+ * ideal, but +-10 characters is ok If the font is particularly wide
+ * or narrow, then adjust the left/right margins (e.g. the Times Roman
+ * font, devised for compact layout in columns, can go down to 47
+ * characters per line).
+ * 
+ * If the margin width is changed, to maintain aspect ratios, the top
+ * and bottom margins must be recalculated according to the given
+ * formulae.
+ * 
+ */
+
+/* Formulae */
+/*
+ * Full page, unprintable  clearance
+ * 
+ * margin =  5mm 5mm 5mm 10mm
+ */
+/* A4 Medieval centred 
+ * 
+ * basemargin = (pagewidth - char width)/2
+ * top/left/rightmargin = basemargin 
+ * bottommargin = basemargin * 2
+ */
+/* A4 ISO centred
+ * 
+ * basemargin = (pagewidth - charwidth)/2
+ * left/rightmargin = basemargin 
+ * topmargin = pageheight*((basemargin*2/3)/pagewidth)
+ * bottommargin = topmargin * 2
+ */
+
+/* To print page numbers,
+ * add to any print block
+ */
+/* @bottom-right { content: counter(page); } */
+
+
+/* A4 centre print.
+ */
+/* Full page, unprintable  clearance */
+/* margin: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/*  margin: 40mm 40mm 80mm 40mm; */
+/* ISO centred */
+/* margin: 36mm 40mm 73mm 40mm; */
+@media print {
+    @page { 
+	margin:  40mm 40mm 80mm 40mm;
+    }
+}
+
+
+/* A4 centre screen 
 */
+/* Full page, unprintable  clearance */
+/* padding: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* padding:  40mm 40mm 80mm 40mm; */
+/* ISO centred */
+/* padding:  36mm 40mm 73mm 40mm; */
 
-/* margin: 2cm;*/
 @media screen {
     body > article, body > section {
-	width: 160mm;
-	/* height: 242mm; */
-
-	margin: 0 auto 21px auto;
+	margin: 0 auto 0 auto;
+	width: 210mm;
+	padding:  40mm 40mm 80mm 40mm;
+	border:  1px solid red;
     }
 }
 
-@media print {
-    body > article, body > section {
-	width: 170mm;
-    /*  height: 257mm; */
 
-    }
-}
+
+/* A5 centre print.
+ * 
+ * (uses classical dimensions, rather than establishing 
+ * a character count)
+ */
+/* Full page, unprintable  clearance */
+/* margin: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* margin: 25mm 25mm 50mm 25mm; */
+/* ISO centred */
+/* margin: 24mm 25mm 48mm 25mm; */
+/*
+  @media print {
+  @page { 
+  margin: 16mm 35mm 32mm 70mm;
+  }
+  }
+*/
+
+/* A5 centre screen 
+*/
+/* Full page, unprintable  clearance */
+/* padding: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* padding: 25mm 25mm 50mm 25mm;*/
+/* ISO centred */
+/* padding: 16mm 35mm 32mm 70mm;  */
+/*
+  @media screen {
+  body > article, body > section {
+  margin: 0 auto 0 auto;
+  width: 148mm;
+  padding: 23mm 25mm 46mm 25mm;
+  border:  1px solid red;
+  }
+  }
+  */
+
+/* Letter centre print.
+ */
+/* Full page, unprintable  clearance */
+/* margin: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* margin: 43mm 43mm 86mm 43mm; */
+/* ISO centred */
+/* margin: 37mm 43mm 74mm 43mm; */
+/*
+  @media print {
+  @page { 
+  margin: 37mm 43mm 74mm 43mm; 
+  }
+  }
+  */
+
+
+
+/* Letter centre screen 
+*/
+/* Full page, unprintable  clearance */
+/* padding: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* padding: 43mm 43mm 86mm 43mm*/
+/* ISO centred */
+/* padding: 37mm 43mm 74mm 43mm; */
+/*
+  @media screen {
+  body > article, body > section {
+  margin: 0 auto 0 auto;
+  width: 215mm;
+  padding: 37mm 43mm 74mm 43mm;
+  border:  1px solid red;
+  }
+  }
+  */
 
 /* basic text size */
 /* at 12pt, the series is (9, 10) 11, 12, 14, 17, 20, 25, 30 */
@@ -71,7 +232,7 @@ body{
 h1, h2 {
     font-family: sans;
     font-size:25pt;
-        line-height: 36pt;
+    line-height: 36pt;
     font-weight: normal;
     text-align: center;
     margin-bottom: 30pt;
@@ -107,7 +268,7 @@ header date, header author {
 /* pad all nums and names from each other and titles 
  * (titles last in list, no padding required) 
  */
- /* is \quad in low titles*/
+/* is \quad in low titles*/
 .num {
     padding-right: 0.5em;
 }
@@ -119,12 +280,12 @@ h2 {
 }
 
 h2 > .num:before {
-content: "Part ";
+    content: "Part ";
 }
 
 h2 > .title {    
     font-size: 30pt;
-        line-height: 48pt;
+    line-height: 48pt;
     margin-top: 24pt;
     display: block;
 }
@@ -138,7 +299,7 @@ h2 > .title {
  * No need for the skip, as this is a margin.
  * A base, sometimes modified
  */
- /* \midchapskip: 20pt */
+/* \midchapskip: 20pt */
 h3 { 
     /*original: margin-top: 50pt; */
     margin-top: 120pt;
@@ -152,7 +313,7 @@ h3 {
  */
 /* NB: commented top/bottom margins are originals,
  * replaced by overall settings above
-  */
+ */
 /* \quad is set to 1em */
 
 
@@ -160,7 +321,7 @@ h3 {
 /*
   .num {
   display: none;
-}
+  }
 
 h4, h5, h6 {
 margin: 12pt 0;
@@ -195,7 +356,7 @@ font-style: italic;
 
 
 /* Crosshead */
- /* margin-top: 24pt; */
+/* margin-top: 24pt; */
 /* margin-bottom: 24pt; */
 /*
   h3, h4, h5, h6 {
@@ -244,7 +405,7 @@ margin: 0pt 0 4pt 0;
 */
 
 /* Dowding */ 
- /* margin-top: 24pt; */
+/* margin-top: 24pt; */
 /* margin-bottom: 18pt; */
 /* number as word */
 /*
@@ -283,14 +444,14 @@ line-height: 36pt;
 
 
 h4 {
-    text-transform: uppercase;
+text-transform: uppercase;
 line-height: 25pt;
 margin: 24pt 0 12pt 0;
 }
 
 h5 {
-    text-transform: lowercase;
-    margin: 14pt 0 10pt 0;
+text-transform: lowercase;
+margin: 14pt 0 10pt 0;
 }
 
 h6 {
@@ -301,7 +462,7 @@ margin: 8pt 0 4pt 0;
 
 
 /* komalike */
-  /* margin-top: 24pt; */
+/* margin-top: 24pt; */
 /* margin-bottom: 18pt; */
 /*
   h3, h4, h5, h6 {
@@ -345,39 +506,39 @@ margin: 3.25ex 0 1.5ex 0;
 /* memman  */
 /* Should be numbers as words */
 
-  h3 {
-  font-family: sans;
-  font-weight: normal;
-  }
+h3 {
+    font-family: sans;
+    font-weight: normal;
+}
 
 
 h3 {
-font-size:30pt;
-line-height: 48pt;
-margin-top: 120pt;
-margin-bottom: 25pt;
+    font-size:30pt;
+    line-height: 48pt;
+    margin-top: 120pt;
+    margin-bottom: 25pt;
 }
 
 
 
 h3 > .num {
-display: block;
-font-size: 36pt;
-line-height: 64pt;
-font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-font-style: italic;
-text-align: center;
-margin-bottom: 25pt;
+    display: block;
+    font-size: 36pt;
+    line-height: 64pt;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 25pt;
 }
 
 
 
 h3 > .title {
-display: block;
-text-align: right;
-padding: 12pt 0;
-border-top: 1px solid black;
-border-bottom: 1px solid black;
+    display: block;
+    text-align: right;
+    padding: 12pt 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 h4 {
@@ -404,8 +565,8 @@ h6 {
 
 /* tandh  */
 /* use roman numerals */
-  /* margin-top: 12pt; */
-  /* margin-bottom: 24pt; */
+/* margin-top: 12pt; */
+/* margin-bottom: 24pt; */
 /*
   h3 {
   font-size: 25pt;
@@ -457,17 +618,17 @@ margin: 7pt 0 4pt 0;
  */
 /*
  * sec
-font-size: 17pt;
-line-height: 25pt;
-* subsec
-font-size: 14pt;
-line-height: 20pt;
-*  subsubsec
-* ---
-*/
+ font-size: 17pt;
+ line-height: 25pt;
+ * subsec
+ font-size: 14pt;
+ line-height: 20pt;
+ *  subsubsec
+ * ---
+ */
 /* wilsondob  */
 /* use roman numerals */
-  /* margin-top: 24pt; */
+/* margin-top: 24pt; */
 /* margin-bottom: 48pt; */
 /*
   h3, h4, h5, h6 {
@@ -529,33 +690,33 @@ code {
 
 /* Bianchi */
 /*
-h3 {
-    font-family: sans;
-    text-align: center;
-}
+  h3 {
+  font-family: sans;
+  text-align: center;
+  }
 
 h3 > .num:before {
-    font-size: 17pt;
+font-size: 17pt;
 content: "Chapter ";
 }
 
 h3 > .num {
-    line-height: 25pt;
-    font-weight: normal;
-    font-style: italic;
-    font-size: 20pt;
+line-height: 25pt;
+font-weight: normal;
+font-style: italic;
+font-size: 20pt;
 }
 
 
 h3 > .title {
-    display: block;
-    font-size: 25pt;
-    line-height: 60pt;
-    font-style: normal;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    font-weight: bold;
-    margin-top: 25pt;
+display: block;
+font-size: 25pt;
+line-height: 60pt;
+font-style: normal;
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+font-weight: bold;
+margin-top: 25pt;
 }
 */
 
@@ -563,24 +724,24 @@ h3 > .title {
 /* margin-top: 50pt; */
 /* margin-bottom: 40pt; */
 /*
-h3 {
-    font-size: 25pt;
-    line-height: 36pt;
-    font-family: sans;
-    font-weight: bold;
-        font-style: normal;
-}
+  h3 {
+  font-size: 25pt;
+  line-height: 36pt;
+  font-family: sans;
+  font-weight: bold;
+  font-style: normal;
+  }
 
 h3 > .num:before {
 content: "Chapter ";
 }
 
 h3 > .title {
-    display: block;
-    font-size: 30pt;
-    line-height: 48pt;
-    font-weight: bold;
-    margin-top: 20pt;
+display: block;
+font-size: 30pt;
+line-height: 48pt;
+font-weight: bold;
+margin-top: 20pt;
 }
 */
 
@@ -588,25 +749,25 @@ h3 > .title {
 /*     margin-top: 12pt; */
 
 /*
-h3 {
-    font-size: 14pt;
-    line-height: 20pt;
-    font-weight: normal;
-    text-align: center;
-}
+  h3 {
+  font-size: 14pt;
+  line-height: 20pt;
+  font-weight: normal;
+  text-align: center;
+  }
 
 h3 > .num:before {
 content: "Chapter ";
 }
 
 h3 > .title {
-    display: block;
-    font-size: 17pt;
-    line-height: 50pt;
-    font-style: italic;
-    text-align: center;
-    border-top: 1px solid black;
-    margin-top: 20pt;
+display: block;
+font-size: 17pt;
+line-height: 50pt;
+font-style: italic;
+text-align: center;
+border-top: 1px solid black;
+margin-top: 20pt;
 }
 */
 
@@ -646,23 +807,23 @@ margin-top: 14pt;
  * use margins to centre and space downwards, 
  */
 /*
-h3 {
-    font-size: 12pt;
-    line-height: 12pt;
-    font-weight: normal;
-    font-variant: small-caps;
-    text-transform: lowercase;
-    text-align: center;
-}
+  h3 {
+  font-size: 12pt;
+  line-height: 12pt;
+  font-weight: normal;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  text-align: center;
+  }
 
 
 h3 > .num:after{
-    display:block;
-    content: '';
-    width:0.5in;
-    height:1px;
-    background-color: black;
-    margin: 12pt auto 0 auto;
+display:block;
+content: '';
+width:0.5in;
+height:1px;
+background-color: black;
+margin: 12pt auto 0 auto;
 } 
 
 h3 > .num:before {
@@ -670,10 +831,10 @@ content: "Chapter ";
 }
 
 h3 > .title {
-    display: block;
-    font-size: 14pt;
-    line-height: 14pt;
-    text-transform: uppercase;
+display: block;
+font-size: 14pt;
+line-height: 14pt;
+text-transform: uppercase;
 }
 */
 

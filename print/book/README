@@ -26,13 +26,16 @@ Ordered lists do not have enough space before number and item. However, CSS fixe
 
 TODO: 
 Gap between names and number in headers probably wrong
+Little section text-indent not checked.
+No num?
+Autonum?
+remopve title attr?
 
 Needs adding:
 proper print-block sizes
-more chapter heading options
-some of the heading spacing (and maybe font size) is off. Check against code in manual.
+fancy chapter heading options
 Are the image boxes, in particular, cross-browser?
-Sould image figures have more vertical space?
+Should image figures have more vertical space?
 
 
 == HTML
@@ -56,7 +59,7 @@ The solution is to drop \book, \paragraph, and \subparagraph. This leaves h1 as 
 
 ==== Book title, h1
 
-Memoir has simple main titling, inherited from Latex. For a front page, custom titling is recommended. Following this model, the title HTML structure recommended is sophisticated, but the rendering CSS is basic.
+Memoir has simple main titling, inherited from Latex---for a front page, custom titling is recommended. Following this model, the title HTML structure recommended is sophisticated, but the rendering CSS is basic.
 
 The CSS is a fabricated from Memoir ''book' and ''title'.
 
@@ -75,7 +78,6 @@ The ''div' contains the metadata
 
 #.cb
   h1
-    span class="name" Chapter
     span class="num" 7
     span class="title" title text...
 #
@@ -88,16 +90,18 @@ H2, H3 can optionally be,
 
 #.cb
    h2
-     span class="name" Part
      span class="num" 4
      span class="title" title text...
 #
+
+NB: The name of the heading i.e. ''chapter', or ''part', appears in some heading styles e.g. ''Chapter 4'.  The data does not appear in HTML. This data is written by, and can be changed in, CSS.
+
 
 == h3 alternatives
 Commented out are some quick shots at alternate styles. So far, Default and Chappel.
 
 
-== h4/h5 section/subsection
+== h4/h5 section/subsection/subsubsection
 H2, H3 can optionally be,
 
 #.cb
