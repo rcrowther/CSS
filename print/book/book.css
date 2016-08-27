@@ -107,7 +107,7 @@ table, figure, ol, ul, dl {
 
 
 /* A4 centre screen 
-*/
+ */
 /* Full page, unprintable  clearance */
 /* padding: 5mm 5mm 10mm 5mm; */
 /* Medieval centred */
@@ -143,10 +143,10 @@ table, figure, ol, ul, dl {
   margin: 16mm 35mm 32mm 70mm;
   }
   }
-*/
+  */
 
 /* A5 centre screen 
-*/
+ */
 /* Full page, unprintable  clearance */
 /* padding: 5mm 5mm 10mm 5mm; */
 /* Medieval centred */
@@ -183,7 +183,7 @@ table, figure, ol, ul, dl {
 
 
 /* Letter centre screen 
-*/
+ */
 /* Full page, unprintable  clearance */
 /* padding: 5mm 5mm 10mm 5mm; */
 /* Medieval centred */
@@ -247,7 +247,7 @@ header {
     font-size:14pt;
     line-height:25pt;
     text-align: center;
-    margin-bottom: 60pt;
+    margin-bottom: 84pt;
 }
 
 header > p {
@@ -265,12 +265,13 @@ header date, header author {
 
 
 
-/* pad all nums and names from each other and titles 
- * (titles last in list, no padding required) 
+/* pad all nums from next elem, usually a title 
+ * Can't find source code, but seems a little more convincing with
+ * this in place.
  */
-/* is \quad in low titles*/
+/* is \quad in some titles*/
 .num {
-    padding-right: 0.5em;
+    padding-right: 0.2em;
 }
 
 /* Part P81 */
@@ -298,19 +299,20 @@ h2 > .title {
  * Otherwise,
  *  beforechapskip = 50pt
  * afterchapskip = 40pt
+ * 
+ * Delare early so later selectors win.
  */
 /* \midchapskip: 20pt */
 
-   @media screen {
-h3 { 
-    margin-top: 120pt;
-}
-}
-
-
-   @media print {
+@media screen {
     h3 { 
-    margin-top: 50pt;
+	margin-top: 120pt;
+    }
+}
+
+@media print {
+    h3 { 
+	margin-top: 50pt;
     }
 }
 
@@ -368,12 +370,12 @@ font-style: italic;
 
 /* Crosshead */
 /*
- @media print {
-    h3 { 
-    margin-top: 24pt;
-    margin-bottom: 24pt;
-    }
-}
+  @media print {
+  h3 { 
+  margin-top: 24pt;
+  margin-bottom: 24pt;
+  }
+  }
   h3, h4, h5, h6 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: normal;
@@ -386,9 +388,6 @@ font-size:20pt;
 line-height: 30pt;
 }
 
-h3 > .name {
-display: none;
-}
 
 h3 > .num {
 margin-right: 1em;
@@ -422,18 +421,18 @@ margin: 0pt 0 4pt 0;
 /* Dowding */ 
 /* number as word */
 /*
- @media print {
-    h3 { 
-    margin-top: 24pt;
-    margin-bottom: 18pt;
-    }
-}
-
-  h3, h4, h5, h6 {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-weight: normal;
-  text-align: center;
+  @media print {
+  h3 { 
+  margin-top: 24pt;
+  margin-bottom: 18pt;
   }
+  }
+
+h3, h4, h5, h6 {
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+font-weight: normal;
+text-align: center;
+}
 
 h4, h5 {
 font-variant: small-caps;
@@ -483,13 +482,13 @@ margin: 8pt 0 4pt 0;
 
 /* komalike */
 /*
-@media print {
-    h3 { 
-    margin-top: 24pt;
-    margin-bottom: 18pt;
-    }
-}
- 
+  @media print {
+  h3 { 
+  margin-top: 24pt;
+  margin-bottom: 18pt;
+  }
+  }
+  
   h3, h4, h5, h6 {
   font-family: sans;
   font-weight: bold;   
@@ -531,6 +530,12 @@ margin: 3.25ex 0 1.5ex 0;
 /* memman  */
 /* Should be numbers as words */
 
+ @media print {
+h3 { 
+margin-top: 0pt;
+margin-top: 24pt;
+}
+}
 h3 {
     font-family: sans;
     font-weight: normal;
@@ -591,18 +596,18 @@ h6 {
 /* tandh  */
 /* use roman numerals */
 /*
-@media print {
-    h3 { 
-    margin-top: 12pt;
-    margin-bottom: 24pt;
-    }
-}
-
-  h3 {
-  font-size: 25pt;
-  font-weight: bold;
-  line-height: 36pt;
+  @media print {
+  h3 { 
+  margin-top: 12pt;
+  margin-bottom: 24pt;
   }
+  }
+
+h3 {
+font-size: 25pt;
+font-weight: bold;
+line-height: 36pt;
+}
 
 
 
@@ -660,12 +665,12 @@ margin: 7pt 0 4pt 0;
 /* wilsondob  */
 /* use roman numerals */
 /*
- @media print {
-    h3 { 
-    margin-top: 24pt;
-    margin-bottom: 48pt;
-    }
-}
+  @media print {
+  h3 { 
+  margin-top: 24pt;
+  margin-bottom: 48pt;
+  }
+  }
   h3, h4, h5, h6 {
   font-weight: normal;
   }
@@ -721,6 +726,27 @@ code {
 /* The following are fancy chapter titles
  * Comment out the h3s in the title set, uncomment a title to try.
  */
+/* Article */
+/*
+  @media print {
+  h3 { 
+  margin-top: 3.5ex;
+  margin-bottom: 2.3ex;
+  }
+  }
+
+
+h3 {
+font-weight: bold;
+font-size:17pt;
+line-height: 25pt;
+}
+
+
+h3 > .num {
+margin-right: 1em;
+}
+*/
 
 /* Bianchi */
 /*
@@ -757,11 +783,11 @@ margin-top: 25pt;
 /* Brotherton */
 /*
   @media print {
-    h3 { 
-    margin-top: 50pt;
-    margin-bottom: 40pt;
-    }
-}
+  h3 { 
+  margin-top: 50pt;
+  margin-bottom: 40pt;
+  }
+  }
   h3 {
   font-size: 25pt;
   line-height: 36pt;
@@ -786,18 +812,18 @@ margin-top: 20pt;
 /* Chappel */
 /*
 
-   @media print {
-    h3 { 
-    margin-top: 12pt;
-    }
+@media print {
+h3 { 
+margin-top: 0pt;
+}
 }
 
-  h3 {
-  font-size: 14pt;
-  line-height: 20pt;
-  font-weight: normal;
-  text-align: center;
-  }
+h3 {
+font-size: 14pt;
+line-height: 20pt;
+font-weight: normal;
+text-align: center;
+}
 
 h3 > .num:before {
 content: "Chapter ";
@@ -817,6 +843,11 @@ margin-top: 20pt;
 
 /* Dash */
 /*
+ * @media print {
+h3 { 
+margin-top: 60pt;
+}
+}
   h3 {
   font-size: 14pt;
   line-height: 14pt;
@@ -969,6 +1000,13 @@ figure > figcaption {
     text-align:center;
 }
 
+figure > figcaption:before {
+content: "Figure "
+}
+
+figure > figcaption > span.num:after {
+content: ": "
+}
 
 figure > cite {
     display: block;
