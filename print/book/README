@@ -29,13 +29,23 @@ Gap between names and number in headers probably wrong
 Little section text-indent not checked.
 No num?
 Autonum?
-remopve title attr?
+remove title attr?
+responsive display?
+
 
 Needs adding:
 proper print-block sizes
 fancy chapter heading options
 Are the image boxes, in particular, cross-browser?
 Should image figures have more vertical space?
+
+== Printing
+''book' takes a tangental approach to print and display.
+
+Despite being a ''print' implementation, the style does not implement more advanced page CSS---verso/recto pages, counted titling etc. Reason being, ''book' is designed to be a printable view, WISYWIG, not a complete book design package.
+
+It provides some printblock alternatives, but these are all centred, as would be expected for such a purpose.
+
 
 
 == HTML

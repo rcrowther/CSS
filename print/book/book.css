@@ -291,21 +291,32 @@ h2 > .title {
 }
 
 
-/* beforechapskip = 50pt
- * A base, sometimes modified
- * Modified to an outraageous 120pt for no-page layout.
+/*
+ * Base h3 margins, sometimes modified, especially for print.
+ * Onscreen, an outraageous 120pt for no-page layout.
  * 
- * afterchapskip = 40pt + baseline skip (18pt)
- * No need for the skip, as this is a margin.
- * A base, sometimes modified
+ * Otherwise,
+ *  beforechapskip = 50pt
+ * afterchapskip = 40pt
  */
 /* \midchapskip: 20pt */
+
+   @media screen {
 h3 { 
-    /*original: margin-top: 50pt; */
     margin-top: 120pt;
-    margin-bottom: 40pt;
+}
 }
 
+
+   @media print {
+    h3 { 
+    margin-top: 50pt;
+    }
+}
+
+h3 { 
+    margin-bottom: 40pt;
+}
 
 /* alternate title sets */
 /* The following are full sets of h3--h6 titles
@@ -356,9 +367,13 @@ font-style: italic;
 
 
 /* Crosshead */
-/* margin-top: 24pt; */
-/* margin-bottom: 24pt; */
 /*
+ @media print {
+    h3 { 
+    margin-top: 24pt;
+    margin-bottom: 24pt;
+    }
+}
   h3, h4, h5, h6 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: normal;
@@ -405,10 +420,15 @@ margin: 0pt 0 4pt 0;
 */
 
 /* Dowding */ 
-/* margin-top: 24pt; */
-/* margin-bottom: 18pt; */
 /* number as word */
 /*
+ @media print {
+    h3 { 
+    margin-top: 24pt;
+    margin-bottom: 18pt;
+    }
+}
+
   h3, h4, h5, h6 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: normal;
@@ -462,9 +482,14 @@ margin: 8pt 0 4pt 0;
 
 
 /* komalike */
-/* margin-top: 24pt; */
-/* margin-bottom: 18pt; */
 /*
+@media print {
+    h3 { 
+    margin-top: 24pt;
+    margin-bottom: 18pt;
+    }
+}
+ 
   h3, h4, h5, h6 {
   font-family: sans;
   font-weight: bold;   
@@ -565,9 +590,14 @@ h6 {
 
 /* tandh  */
 /* use roman numerals */
-/* margin-top: 12pt; */
-/* margin-bottom: 24pt; */
 /*
+@media print {
+    h3 { 
+    margin-top: 12pt;
+    margin-bottom: 24pt;
+    }
+}
+
   h3 {
   font-size: 25pt;
   font-weight: bold;
@@ -605,6 +635,7 @@ font-weight: bold;
 margin: 7pt 0 4pt 0;
 }
 */
+
 /* 
  * 11 \small
  * 12  
@@ -628,9 +659,13 @@ margin: 7pt 0 4pt 0;
  */
 /* wilsondob  */
 /* use roman numerals */
-/* margin-top: 24pt; */
-/* margin-bottom: 48pt; */
 /*
+ @media print {
+    h3 { 
+    margin-top: 24pt;
+    margin-bottom: 48pt;
+    }
+}
   h3, h4, h5, h6 {
   font-weight: normal;
   }
@@ -670,7 +705,6 @@ text-transform: lowercase;
 font-variant: small-caps;
 margin: 7pt 0 4pt 0;
 }
-
 */
 
 pre {
@@ -721,9 +755,13 @@ margin-top: 25pt;
 */
 
 /* Brotherton */
-/* margin-top: 50pt; */
-/* margin-bottom: 40pt; */
 /*
+  @media print {
+    h3 { 
+    margin-top: 50pt;
+    margin-bottom: 40pt;
+    }
+}
   h3 {
   font-size: 25pt;
   line-height: 36pt;
@@ -746,9 +784,14 @@ margin-top: 20pt;
 */
 
 /* Chappel */
-/*     margin-top: 12pt; */
-
 /*
+
+   @media print {
+    h3 { 
+    margin-top: 12pt;
+    }
+}
+
   h3 {
   font-size: 14pt;
   line-height: 20pt;
