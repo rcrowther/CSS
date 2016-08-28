@@ -16,7 +16,6 @@ pdflatex memoir_sample
 Titles and blockqotes provided.
 
 == Not right
-
 Definition lists use float, so multi-lines do not display with hanging indent.
 
 Ordered lists do not have enough space before number and item. However, CSS fixes are extreme.
@@ -25,8 +24,7 @@ Ordered lists do not have enough space before number and item. However, CSS fixe
 == State of play
 
 TODO: 
-Gap between names and number in headers probably wrong
-Little section text-indent not checked.
+Little 'section' text-indent not checked.
 No num?
 Autonum?
 remove title attr?
@@ -34,8 +32,7 @@ responsive display?
 
 
 Needs adding:
-proper print-block sizes
-fancy chapter heading options
+some chapter heading missing
 Are the image boxes, in particular, cross-browser?
 Should image figures have more vertical space?
 
@@ -57,7 +54,10 @@ All content should be surrounded by ''article'.
 All text should be surrounded by ''p'
 
 === Significant Memoir omissions
+Titles default to title font, but need ''title' and ''num' tags to display decorations. 
+
 Memoir is modest in claims and sophisticated at setting verse. This would require a seperate module, so nothing is done with ''pre'.
+
 
 === Titles
 Memoir provides ''book', part, and six levels of titling. It also offers a ''title' macro. This is impossible in the HTML six levels.

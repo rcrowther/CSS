@@ -201,18 +201,31 @@ table, figure, ol, ul, dl {
   }
   */
 
-/* basic text size */
-/* at 12pt, the series is (9, 10) 11, 12, 14, 17, 20, 25, 30 */
+/* basic text size
+ * 
+ * at 12pt, the series is:
+ */
 /* 
  * 11 \small
  * 12  
  * 14 \large
  * 17 \Large
- * 20 \huge
- * 25 \Huge
- * 30 
+ * 20 \LARGE
+ * 25 \huge
+ * 30 \Huge
+ * 36 \HUGE
+ * 48
  */
-
+/*
+ * sec
+ font-size: 17pt;
+ line-height: 25pt;
+ * subsec
+ font-size: 14pt;
+ line-height: 20pt;
+ *  subsubsec
+ * ---
+ */
 
 body, h5, h6 {
     font-size: 12pt;
@@ -352,12 +365,7 @@ font-weight: normal;
 h3 {
 font-size: 17pt;
 line-height: 25pt;
-}
-
-h3 > .title {
-margin-top: 20pt;
-display: block;
-padding: 12pt 0;
+padding-bottom: 17pt;
 border-bottom: 1px solid black;
 }
 
@@ -376,6 +384,7 @@ font-style: italic;
   margin-bottom: 24pt;
   }
   }
+  
   h3, h4, h5, h6 {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: normal;
@@ -388,15 +397,9 @@ font-size:20pt;
 line-height: 30pt;
 }
 
-
 h3 > .num {
 margin-right: 1em;
 }
-
-
-h3 > .title {
-}
-
 
 h4 {
 font-variant: small-caps;
@@ -404,13 +407,11 @@ text-transform: uppercase;
 margin: 16pt 0 8pt 0;
 }
 
-
 h5 {
 text-transform: lowercase;
 font-weight: bold;
 margin: 14pt 0 8pt 0;
 }
-
 
 h6 {
 font-variant: small-caps;
@@ -427,7 +428,7 @@ margin: 0pt 0 4pt 0;
   margin-bottom: 18pt;
   }
   }
-
+  
 h3, h4, h5, h6 {
 font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 font-weight: normal;
@@ -443,22 +444,21 @@ h3, h6 {
 font-style: italic;
 }
 
+h3 {
+font-size: 25pt;
+line-height: 36pt;
+}
+
 h3 > .num:before {
 content: "Chapter ";
 }
 
-
 h3 > .num {
-font-style: normal;
-font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
-
-
-h3 > .title {
 display: block;
-font-size:25pt;
-margin-top: 20pt;
-line-height: 36pt;
+font-size:12pt;
+line-height: 17pt;
+margin-bottom: 20pt;
+font-style: normal;
 }
 
 
@@ -467,12 +467,10 @@ text-transform: uppercase;
 line-height: 25pt;
 margin: 24pt 0 12pt 0;
 }
-
 h5 {
 text-transform: lowercase;
 margin: 14pt 0 10pt 0;
 }
-
 h6 {
 margin: 8pt 0 4pt 0;
 }
@@ -493,19 +491,15 @@ margin: 8pt 0 4pt 0;
   font-family: sans;
   font-weight: bold;   
   }
-
+  
 h3 {
 font-size: 20pt;
 line-height: 30pt;
 }
 
-
 h3 > .num {
 padding: 0;
 margin-right: 0.5em;
-}
-
-h3 > .title {
 }
 
 h4 {
@@ -513,7 +507,6 @@ font-size: 17pt;
 line-height: 25pt;
 text-indent: 0.5em;
 margin: 3.5ex 0 2.3ex 0;
-
 }
 
 h5 {
@@ -536,20 +529,14 @@ margin-top: 0pt;
 margin-top: 24pt;
 }
 }
+
 h3 {
     font-family: sans;
     font-weight: normal;
-}
-
-
-h3 {
-    font-size:30pt;
+    font-size: 30pt;
     line-height: 48pt;
-    margin-top: 120pt;
-    margin-bottom: 25pt;
+    text-align: right;
 }
-
-
 
 h3 > .num {
     display: block;
@@ -561,11 +548,8 @@ h3 > .num {
     margin-bottom: 25pt;
 }
 
-
-
 h3 > .title {
     display: block;
-    text-align: right;
     padding: 12pt 0;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -609,12 +593,9 @@ font-weight: bold;
 line-height: 36pt;
 }
 
-
-
 h3 > .num {
 margin-right: 1em;
 }
-
 
 h4 {
 font-variant: small-caps;
@@ -623,7 +604,6 @@ font-weight: normal;
 margin: 24pt 0 12pt 0;
 text-indent: 0.5em;
 }
-
 
 h5 {
 font-size: 17pt;
@@ -634,34 +614,14 @@ font-style: italic;
 margin: 14pt 0 9pt 0;
 }
 
-
 h6 {
 font-weight: bold;
 margin: 7pt 0 4pt 0;
 }
 */
 
-/* 
- * 11 \small
- * 12  
- * 14 \large
- * 17 \Large
- * 20 \LARGE
- * 25 \huge
- * 30 \Huge
- * 36 \HUGE
- * 48
- */
-/*
- * sec
- font-size: 17pt;
- line-height: 25pt;
- * subsec
- font-size: 14pt;
- line-height: 20pt;
- *  subsubsec
- * ---
- */
+
+
 /* wilsondob  */
 /* use roman numerals */
 /*
@@ -671,10 +631,11 @@ margin: 7pt 0 4pt 0;
   margin-bottom: 48pt;
   }
   }
+  
   h3, h4, h5, h6 {
   font-weight: normal;
   }
-
+  
 h3 {
 font-size:30pt;
 line-height: 48pt;
@@ -682,12 +643,9 @@ font-style: italic;
 text-align: right;
 }
 
-
-
 h3 > .num {
 margin-right: 1em;
 }
-
 
 h4 {
 font-variant: small-caps;
@@ -696,14 +654,12 @@ margin: 16pt 0 7pt 0;
 text-indent: 0.5em;
 }
 
-
 h5 {
 font-size: 17pt;
 line-height: 25pt;
 font-style: italic;
 margin: 7pt 0 4pt 0;
 }
-
 
 h6 {
 text-transform: lowercase;
@@ -734,49 +690,49 @@ code {
   margin-bottom: 2.3ex;
   }
   }
-
-
+  * 
 h3 {
 font-weight: bold;
 font-size:17pt;
 line-height: 25pt;
 }
-
-
+* 
 h3 > .num {
 margin-right: 1em;
 }
 */
 
 /* Bianchi */
+/*Very large? Down from 17 25 30 to 14 20 25 */
 /*
   h3 {
+  font-size: 25pt;
+  line-height: 36pt;
   font-family: sans;
+  font-style: normal;
+  font-weight: bold;
   text-align: center;
   }
-
+  
 h3 > .num:before {
-font-size: 17pt;
+font-size: 14pt;
 content: "Chapter ";
 }
 
 h3 > .num {
+display: block;
+font-size: 20pt;
 line-height: 25pt;
 font-weight: normal;
 font-style: italic;
-font-size: 20pt;
+margin-bottom: 20pt;
 }
-
 
 h3 > .title {
 display: block;
-font-size: 25pt;
-line-height: 60pt;
-font-style: normal;
 border-top: 1px solid black;
 border-bottom: 1px solid black;
-font-weight: bold;
-margin-top: 25pt;
+padding: 12pt 0;
 }
 */
 
@@ -788,9 +744,10 @@ margin-top: 25pt;
   margin-bottom: 40pt;
   }
   }
+  
   h3 {
-  font-size: 25pt;
-  line-height: 36pt;
+font-size: 30pt;
+line-height: 48pt;
   font-family: sans;
   font-weight: bold;
   font-style: normal;
@@ -800,18 +757,19 @@ h3 > .num:before {
 content: "Chapter ";
 }
 
+h3 > .num {
+  font-size: 25pt;
+  line-height: 36pt;
+  margin-bottom: 20pt;
+}
+
 h3 > .title {
 display: block;
-font-size: 30pt;
-line-height: 48pt;
-font-weight: bold;
-margin-top: 20pt;
 }
 */
 
 /* Chappel */
 /*
-
 @media print {
 h3 { 
 margin-top: 0pt;
@@ -819,10 +777,19 @@ margin-top: 0pt;
 }
 
 h3 {
+font-size: 17pt;
+line-height: 17pt;
+font-weight: normal;
+font-style: italic;
+text-align: center;
+}
+
+h3 > .num {
+display: block;
 font-size: 14pt;
 line-height: 20pt;
-font-weight: normal;
-text-align: center;
+font-style: normal;
+margin-bottom: 17pt;
 }
 
 h3 > .num:before {
@@ -831,32 +798,35 @@ content: "Chapter ";
 
 h3 > .title {
 display: block;
-font-size: 17pt;
-line-height: 50pt;
-font-style: italic;
-text-align: center;
+padding-top: 14pt;
 border-top: 1px solid black;
-margin-top: 20pt;
 }
 */
 
-
 /* Dash */
+/* roman numerals */
 /*
- * @media print {
+ @media print {
 h3 { 
 margin-top: 60pt;
 }
 }
-  h3 {
-  font-size: 14pt;
-  line-height: 14pt;
+
+h3 {
+font-size: 17pt;
+line-height: 25pt;
   font-weight: normal;
   text-align: center;
+
+}
+
+  h3  > .num {
+  display: block;
+  font-size: 14pt;
+  line-height: 14pt;
+  margin-bottom: 14pt;
   }
-
-
-
+  
 h3 > .num:before {
 content: '\2015';
 margin-right: 0.25em;
@@ -866,49 +836,44 @@ h3 > .num:after {
 content: '\2015';
 margin-left: 0.25em;
 } 
-
-h3 > .title {
-display: block;
-font-size: 17pt;
-line-height: 25pt;
-margin-top: 14pt;
-}
 */
 
+
+
 /* Thatcher */
-/* annoyimgly tricky:
+/* annoyimgly tricky to provide sized line:
  * .num:after a block element the size of the line,
  * use margins to centre and space downwards, 
  */
 /*
-  h3 {
+h3 {
+font-size: 14pt;
+line-height: 14pt;
+text-transform: uppercase;
+  font-variant: small-caps;
+    font-weight: normal;
+
+  text-align: center;
+}
+
+  h3  > .num{
+  display: block;
   font-size: 12pt;
   line-height: 12pt;
-  font-weight: normal;
-  font-variant: small-caps;
   text-transform: lowercase;
-  text-align: center;
+  margin-bottom: 12pt;
   }
-
 
 h3 > .num:after{
 display:block;
 content: '';
 width:0.5in;
-height:1px;
-background-color: black;
+border-top: 1px solid black;
 margin: 12pt auto 0 auto;
 } 
 
 h3 > .num:before {
 content: "Chapter ";
-}
-
-h3 > .title {
-display: block;
-font-size: 14pt;
-line-height: 14pt;
-text-transform: uppercase;
 }
 */
 
