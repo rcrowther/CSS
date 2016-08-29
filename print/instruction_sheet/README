@@ -3,10 +3,18 @@ A4 width print-orientated text for instruction sheets.
 
 A few ideas from technical sheets, including the format of the footer and header. 
 
-Most of the general text layout is inherited from ''book'. A new, very simple ''h1' is added, and a fancy footer to hold contact information, etc. The chapter heading is set as ''komalike', and all text is sans.
+This sheet is only an additional package---for general formatting, it depends on ''book'. The intended effect will not be visible unless ''book', in some form, is imported before this sheet.
+
+A version of ''book' is provided in this folder, for use in ''test.htm'. The only difference between this stylesheet and the main ''book' stylesheet is that ''komalike' headers are enabled.
+
+The ''instruction_sheet' package overrides book with a wider stock, a ''h1' with a new, very simple style,  and a few other tweaks ...and adds special lead-in boxouts for warnings and notes, and a fancy footer to hold cite information. All text is overridden to sans.
 
 Through ''book', several text-layout features are present.
 
+=== Use of ''instruction sheet'
+Link to (or @import) a version of ''book' first.
+
+For an instruction sheet, it is neatest to stick to a title, then use headings below h4 (in ''book', a ''section' heading). You must work awfully hard to justify more than two heaadings, and the boxouts help. If the disparity in heading size seems unusual, check commercial instruction and spec sheets, they use this effect.
 
 == State of play
 ?

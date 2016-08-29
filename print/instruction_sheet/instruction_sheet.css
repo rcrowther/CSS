@@ -1,0 +1,167 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+/* override the auto paging after large titles */
+article > header, section > header, h2 {
+    page-break-after: auto;
+}
+
+h2, h3 {
+    page-break-before: auto;
+    page-break-after: avoid;
+}
+
+/* override with a general margin */
+@media screen {
+    body > article, body > section {
+    width: 210mm;
+	margin: 0 auto 0 auto;
+    padding: 10mm 40mm 15mm 40mm;
+border: 1px solid red;
+    }
+}
+
+@media print {
+  @page { 
+    margin: 10mm 40mm 15mm 40mm;
+  }
+}
+
+
+/* override to sans */
+body{
+    font-family: sans;    
+}
+
+
+
+/* override to a very simple title */
+h1 {
+    font-size: 36pt;
+    line-height: 36pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 48pt;
+    margin-bottom: 12pt;
+}
+
+header > p {
+    font-size: 17pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+/* override to blocky paragraphs */
+p + p {
+    text-indent: 0;
+}
+
+p {
+    margin-top: 6pt;
+}
+
+blockquote > p:first-child {
+    margin-top: 0;
+}
+
+/* tips list */
+ul.tips {
+    list-style-type: square;
+}
+
+/* Add run-in blockquotes for boxouts */
+blockquote.note::before {
+    content: "Note:";
+    font-weight: bolder;
+}
+
+blockquote.warning::before {
+    content: "Warning:";
+    font-weight: bolder;
+}
+
+blockquote.tip::before {
+    content: "Tip:";
+    font-weight: bolder;
+}
+
+/* create run-in */
+blockquote.note > p:first-child, blockquote.warning > p:first-child, blockquote.tip > p:first-child {
+    display: inline;
+    margin-left: 0.5em;
+}
+
+
+
+
+
+
+/* Add fancy footer */
+
+article > footer {
+    margin-top: 30pt;
+    border-top: silver solid 4px;
+}
+
+footer > .person {
+    text-align: center;
+    margin-top: 4pt;
+}
+
+footer > .organisation {
+    margin-top: 10pt;
+}
+
+footer > .organisation > .logo {
+    margin: 0 10pt;
+    float: right;
+}
+
+footer > .organisation > h2 {
+    text-transform: uppercase;
+    font-size: 17pt;
+    line-height: 17pt;
+    font-weight: bold;
+    margin: 0 10pt;
+    padding: 0;
+    float: right;
+}
+
+footer > .organisation > address {
+    font-size: 10pt;
+    font-style: normal;
+    margin: 0 10pt;
+    float: left;
+}
+
+footer > cite {
+display: block;
+    font-size: 10pt;
+    margin-top: 10pt;
+    clear: both;
+}
+
+footer > cite > .copyright {
+    margin: 0 10pt;
+    float: left;
+}
+
+footer > cite > date {
+    margin: 0 10pt;
+    float: right;
+}
+
+footer > cite > .reference {
+    margin: 0 10pt;
+    text-transform: uppercase;
+    float: right;
+}

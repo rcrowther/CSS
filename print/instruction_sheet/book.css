@@ -482,7 +482,7 @@ margin: 8pt 0 4pt 0;
 
 
 /* komalike */
-/*
+
   @media print {
   h3 { 
   margin-top: 24pt;
@@ -521,11 +521,11 @@ margin: 3.25ex 0 1.5ex 0;
 h6 {
 margin: 3.25ex 0 1.5ex 0;
 }
-*/
+
 
 /* memman  */
 /* Should be numbers as words */
-
+/*
  @media print {
 h3 { 
 margin-top: 0pt;
@@ -577,7 +577,7 @@ h6 {
     font-style: italic;
     margin: 8pt 0 4pt 0;
 }
-
+*/
 
 
 /* tandh  */
