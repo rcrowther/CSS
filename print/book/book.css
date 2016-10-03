@@ -1,4 +1,4 @@
-*{
+*, html, body, h3 {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -1015,3 +1015,33 @@ dd {
 ol.wide > li, ul.wide > li, dl.wide > dt {
     margin-bottom: 12pt;
 }
+
+/* Table of contents */
+
+/*
+ * = 2.55em
+ * */
+.toc{
+ margin:0 4em;
+}
+
+
+.toc > ul{
+  list-style-type: none;
+  margin: 0 0 12pt 1.5em;
+}
+
+
+.toc span{
+display: inline-block;
+}
+
+.toc h4 .num, .toc h5 .num{
+width: 1.55em;
+
+}
+.toc ul .num{
+width: 3em;
+}
+
+

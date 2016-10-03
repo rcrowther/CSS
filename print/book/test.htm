@@ -7,6 +7,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="book.css">
+    <link rel="stylesheet" type="text/css" href="toc.css">
   </head>
 
   <body>
@@ -250,8 +251,41 @@
 
     </article>
 
+<section>
+      <p>
+	This markup is set in a new 'section'.
+      </p>
+      <p>
+	A table of contents (TOC). In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography,  
+      </p>
+      <h3><span class="title">Table of contents</span></h3>
+<nav  class="toc">
 
-
+      <h5>Rabbits</h5>
+<ul>
+<li><a href="hares">hares</a></li>
+<li><a href="levrets">levrets</a></li>
+<li><a href="bucks">rabbits</a></li>
+</ul>
+      <h5><span class="num">7</span><span class="title">Deer</span></h5>
+<ul>
+<li><a href="bucks"><span class="num">1</span><span class="title">bucks</span></a></li>
+<li><a href="deer"><span class="num">4</span><span class="title">deer</span></a></li>
+<li><a href="reindeer"><span class="num">155</span><span class="title">reindeer</span></a></li>
+</ul>
+</nav>
+      <p>
+	A TOC can be classed 'wide',
+      </p>
+<nav  class="toc">
+      <h5><span class="num">20</span><span class="title">Web</span></h5>
+<ul class="wide">
+<li><a href="bucks"><span class="num">1</span><span class="title">bucks</span></a></li>
+<li><a href="deer"><span class="num">4</span><span class="title">deer</span></a></li>
+<li><a href="reindeer"><span class="num">155</span><span class="title">raindeer</span></a></li>
+</ul>
+</nav>
+</section>
 
     <footer style="margin:48pt 0 12pt 0; text-align:center;">
       <p>Original model for most formatting, however crude the translation, is <a href="http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/memoir/memman.pdf">'Memoir'</a> </p>

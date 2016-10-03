@@ -20,6 +20,8 @@ Definition lists use float, so multi-lines do not display with hanging indent.
 
 Ordered lists do not have enough space before number and item. However, CSS fixes are extreme.
 
+For Table of Contents, HTML is unable to provide the same information (see below).
+
 
 == State of play
 
@@ -131,7 +133,26 @@ figure
  
 
 
+== Table of Contents
+HTML has a concept of paging, but the spec outline for paging remains undeveloped in any browser. So page numbers, the primary form of navigation in a book, remain undeveloped.
 
+With this loss of information, the layout of a TOC makes no sense in HTML --- it is a list of contents jambed to a left margin, without the dot separator. Moreover, much of the 'memoir' class is simply concerned with providing control over elements of theb table, not with providing pre-defined styles.
+
+
+The current TOC is restructured into,
+
+section
+  h3
+  nav class="toc"
+    h5
+    ul
+      li
+        span class="num"
+        span (title)
+      li
+        ...
+
+This layout respects the usual connventions for a book index, using chapter and sub-section titles. It retrieves several conventions from 'memoir', for example, the separation of mumbers. It also respects current web markup semantics, and considers wrapping the li items in an anchor.
 
 == CSS Notes
 Serif font is used, except for local effects (some section headers).
