@@ -123,7 +123,6 @@ article > footer, section > footer {
 	margin: 0 auto 0 auto;
 	width: 210mm;
 	padding:  40mm 40mm 80mm 40mm;
-	border:  1px solid red;
     }
 }
 
@@ -259,7 +258,6 @@ h1 {
     margin-bottom: 14pt;
 }
 
-/* this for??? */
 header {
     font-size:14pt;
     line-height:25pt;

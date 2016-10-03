@@ -1,0 +1,33 @@
+An override for book.css when used on the web.
+
+== TOC
+Typographic tables of content present considerable problems when transfered to the web. While translation of typographic standards may be instructive, and usable, the TOC layout fails in several ways. First, it must be adjusted to work without page numbers. After that, the layout will be deficient. Human interface guidelines tell us,
+
+@ Even for able users, link areas are preferred to be large.
+@ Web links must be clearly demarked as links
+@ Different colours are not enough, as they are unusable by the colourblind --- shapes must change
+
+Of these, the adjusted old layout in the printable 'book.css' succeeds in only one aspect --- it is clearly laid out. And it fails in yet another --- book TOCs must often contain a great deal of content, so were designed to be compact; but a web TOC will not have much content.
+
+I suspect old printers would have objected to current typography. Not because they could not manage colour, animation or scaling (they took pleasure in demonstrating their effects), but because a TOC is not that important. Titles are nothing, a navigation aid to content.
+
+I'm not saying I've solved the problem, but some styles are presented here as a start.
+
+All styles assume an internal anchor inside the list tag wrapping the visible contents.
+
+Unless the TOC fills the page, contained 'ul' tags should be classed 'wide'. That's a start, as the override wide styling provides extend internal padding, so the anchor becomes larger.
+
+
+
+== Navigation topbars
+Navbars are not part of a containing article or section. They belong to the site. In W3 HTML5 draft spec they are shown as a first child of the body tag.
+
+This means they sit above the stock, wheras in typography they would be inside the stock, and at the top of the block, too. This probably means we have to compensate on stock size. And if we anted to be part of the block, we need to slice that out and replace it over the topbar.
+
+And, much as I would like a navbar to replicate a book by borrowing, say, subhead styling, using h? tags is web-bad.
+
+Also, a navbar can be either a 'header' or a 'nav' tag. Both of which can occur plentifully elsewhere. Time for an 'id'.
+
+At least the styling is strightforward. Headers are nearly always two lines high, of a slightly enlarged font.
+
+The typography decision are not simple,either. 

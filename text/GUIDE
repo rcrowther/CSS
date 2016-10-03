@@ -474,6 +474,25 @@ cite {
 [a(http://html5doctor.com/blockquote-q-cite/}]
 [a{http://html5doctor.com/cite-and-blockquote-reloaded/}]
 
+
+== headers
+The new header, matching the footer tag, has arrived.
+
+Like 'footer', header is connected to 'nearest ancestor section'.
+
+Yes, but where do headline elements go?
+Anser: inside the header, along with tagline, header related links, and other header associated ephemera. 
+
+This is depite the 'implied section initializing' of a lone header element.
+
+== nav
+It sounds useful, but W3 recommend use sparingly, for major navigation blocks. What I do not know is about indexes, should it be used for an index body? Probably, yes.
+
+I wouldn't use it as decoration, as a semantic wrap for other information, more as a block level links/headline/list grouper. Explicity, 
+
+#bq
+Not all groups of links on a page need to be in a nav element — the element is primarily intended for sections that consist of major navigation blocks
+#
 == the new general ''b' tag
 
 
