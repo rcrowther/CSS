@@ -1,3 +1,25 @@
+@media screen {
+
+/* Palatino can look horrible on the web. Switch to something more generic */
+body{
+    font-family: Lora, Georgia, serif;    
+    line-height: 20pt;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6, dd, a {
+color: #222;
+}
+
+/* Medieval centred, widened for generic fonts */
+    body > article, body > section {
+	padding:  30mm 30mm 60mm 30mm;
+    }
+}
+
+
+
+/* Responsive design */
 
 /* Less than the locked width, go flexible */
 @media screen and (max-width: 800px) {
@@ -29,18 +51,20 @@ nav li {
 /* wide screen, display the menu in line */
 @media screen and (min-width: 480px) {
 
-/* Navbar Alterntives:
- * screen-width (all commented)
- * full-width
- * block-width
- */
-#site-nav {
-    margin: 0 auto 12pt auto;
-	/*width: 210mm;*/
-    width: 130mm;
+
+
+/* Navbar */
+body > article, body > section {
+    /* top must be 0 */
+	padding-top: 0;
+}
+
+#site-nav ul {
+    margin: 0;
 }
 
 #site-nav li {
+/* background-color: orange; */
     display: inline-block;
     }
 }
@@ -53,42 +77,44 @@ nav li {
 }
 
 
-
-/* Navbar */
-
-
-body > article, body > section {
-    /* top must be 0 */
-	padding-top: 0;
-}
-
-#site-nav ul {
-    margin: 0;
-}
-
-/* Other navbar styles:
- * Use small caps/italic
- * background-color: orange;
- * etc.
- */
- 
-/* ruled style (usually poetry/imaginative essays) 
- * plain style - comment out border and text decoration reset.
- * 
+/* Navbar 
  * If the font size changes:
+ * 
  * line height = line-height*2
  * nav-bottom-margin= line-height/2
  * a.padding = line-height+2
+ * 
+ * Changing the size is probably not ok. Change shape or weight
+ * if you must.
+ *  
+ * width alterntives:
+ * screen-width (all commented)
+ * full-width
+ * block-width
+ *
+ * border alternatives:
+ * ruled style (usually poetry/imaginative essays) 
+ * plain style - comment out border and text decoration reset.
+ * 
+ * Other styles: use bullets not rules. Orange background (see above)
+ * Rule and underscore is probably overkill.
  */
 #site-nav {
     font-size: 12pt;  
     line-height: 36pt;
+    margin: 0 auto 12pt auto;
+	/*width: 210mm;*/
+    width: 130mm;
     border-bottom: black solid 1px;
 }
 
 #site-nav ul a {
-	  padding: 14px 1em;
-      color: black;
+    padding: 14px 1em;
+    text-decoration: none;
+}
+
+#site-nav ul a:hover {
+ color: #b85051;
 }
 
 
@@ -126,11 +152,12 @@ body > article, body > section {
     /* dash of gray-green and blacker */
     /* color: 10307a; */
     /* blacker */
-    color: 000060; 
+    /* color: 000060; */
+        text-decoration: none;
 }
 
 /* bullet-symbol decoration
- * The space is needed as styling is impossiblee through CSS.
+ * The space is needed as styling is impossible through CSS.
  * Alternatives:
  * typographical section mark
  * scribe mark 

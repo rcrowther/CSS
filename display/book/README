@@ -22,12 +22,12 @@ Unless the TOC fills the page, contained 'ul' tags should be classed 'wide'. Tha
 == Navigation topbars
 Navbars are not part of a containing article or section. They belong to the site. In W3 HTML5 draft spec they are shown as a first child of the body tag.
 
-This means they sit above the stock, wheras in typography they would be inside the stock, and at the top of the block, too. This probably means we have to compensate on stock size. And if we anted to be part of the block, we need to slice that out and replace it over the topbar.
+This means they sit above the stock, wheras in typography they would be inside the stock, and at the top of the block, too. This probably means we have to compensate on stock size. And if we want them to be part of the block, we need to trium the block top and replace it over the topbar.
 
 And, much as I would like a navbar to replicate a book by borrowing, say, subhead styling, using h? tags is web-bad.
 
 Also, a navbar can be either a 'header' or a 'nav' tag. Both of which can occur plentifully elsewhere. Time for an 'id'.
 
-At least the styling is strightforward. Headers are nearly always two lines high, of a slightly enlarged font.
+At least the styling is straightforward. Headers are nearly always two lines high, in a slightly enlarged font.
 
-The typography decision are not simple,either. 
+The typography decision are not simple, either. 
