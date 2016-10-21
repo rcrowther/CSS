@@ -96,7 +96,7 @@ body > article, body > section {
 @media screen and (max-width: 800px) {
     body > article, body > section {
     width: 100%;
-	border:  1px solid red;
+	/* border:  1px solid red; */
     }
 }
     
