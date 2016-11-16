@@ -47,9 +47,11 @@
 
 @media screen {
 
-/* Palatino can look horrible on the web. Switch to something more generic */
+/* Palatino can look horrible on the web. 
+ * Switch to something more generic 
+ */
 body{
-    font-family: Lora, Georgia, serif;    
+    font-family: Lora, Georgia, serif;
     line-height: 20pt;
     color: #333;
 }
@@ -58,16 +60,26 @@ h1, h2, h3, h4, h5, h6, dd, a {
 color: #222;
 }
 
+/* Get first headline in body
+ * then crush.
+ *  
+ * was 60pt, 96pt, 120pt default 
+ */
+h1:first-child, h2:first-child, h3:first-child {
+margin-top: 28pt;
+}
+
+
+
 /* Medieval centred, widened for generic fonts
  * NB: Padding for stock on top of a webpage is irritating.
  * But removing stock for the header doesn't make for a
- * conventional navbar, so 6pt
+ * conventional navbar, so 6pt. Bottom space to space under default
+ * Chapter headlines, 40pt.
  */
 body > article, body > section {
-	padding: 6pt 30mm 60mm 30mm;
+	padding: 6pt 30mm 40pt 30mm;
     }
-    
-
 }
 
 
@@ -75,11 +87,12 @@ body > article, body > section {
 /* Responsive design */
 
 /* Whatever the width... */
-/* typographical margins need removing for placement */
+/* typographical margins need removing for navbar placement */
 #site-nav ul {
     margin: 0;
     }
     
+
 
 
 /* Greater than a desktop/tablet, display the menu inline */
@@ -107,7 +120,7 @@ body > article, body > section {
  * 120pt is the space above sections, the widest used
  */
     body > article, body > section {
-	padding: 0 4mm 120pt 4mm;
+	padding: 0 4mm 40pt 4mm;
     }
 }
     
@@ -132,9 +145,22 @@ body > article, body > section {
 }
 
 
+/* High res screens */
+/* assuming a small screen, which should hold for a while? 
+ * The below is generic. Apples retina screens are more dense.
+ */
+ /* @media (webkit-min-device-pixel-ratio: 2), (min-resoltion:192dpi) {
+ */
+@media (webkit-min-device-pixel-ratio: 1.25), (min-resoltion:120dpi) {
+/* flex width and crush stock padding, same as stock-intrusive widths */
+    body > article, body > section {
+    width: 100%;
+	padding: 0 4mm 40pt 4mm;
+    }
+}
 
 
-/* for printing, hide */
+/* for printing, hide navbars */
 @media print {
 #site-nav {
     display: none;
