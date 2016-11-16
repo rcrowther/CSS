@@ -66,10 +66,20 @@ color: #222;
  * was 60pt, 96pt, 120pt default 
  */
 h1:first-child, h2:first-child, h3:first-child {
-margin-top: 28pt;
+margin-top: 17pt;
 }
 
-
+ /* 
+  * was (h1 = 14pt,) 30pt, 40pt default 
+ */
+h2:first-child{
+margin-top: 25pt;
+margin-bottom: 17pt;
+}
+h3:first-child {
+margin-top: 33pt;
+margin-bottom: 19pt;
+}
 
 /* Medieval centred, widened for generic fonts
  * NB: Padding for stock on top of a webpage is irritating.
@@ -120,7 +130,7 @@ body > article, body > section {
  * 120pt is the space above sections, the widest used
  */
     body > article, body > section {
-	padding: 0 4mm 40pt 4mm;
+	padding: 0 4mm 48pt 4mm;
     }
 }
     
@@ -155,7 +165,7 @@ body > article, body > section {
 /* flex width and crush stock padding, same as stock-intrusive widths */
     body > article, body > section {
     width: 100%;
-	padding: 0 4mm 40pt 4mm;
+	padding: 0 4mm 48pt 4mm;
     }
 }
 
