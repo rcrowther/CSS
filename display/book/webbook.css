@@ -47,6 +47,12 @@
 
 @media screen {
 
+/* For now, IE, for the future, everyone else */
+@viewport{
+  width:device-width;
+  zoom:1.0;
+}
+
 /* Palatino can look horrible on the web. 
  * Switch to something more generic 
  */
@@ -63,19 +69,18 @@ color: #222;
 /* Get first headline in body
  * then crush.
  *  
- * was 60pt, 96pt, 120pt default 
+ * top margins were 60pt, 96pt, 120pt default 
+ * bottom margins were (h1 = 14pt,) 30pt, 40pt default 
  */
 h1:first-child, h2:first-child, h3:first-child {
 margin-top: 17pt;
 }
 
- /* 
-  * was (h1 = 14pt,) 30pt, 40pt default 
- */
 h2:first-child{
 margin-top: 25pt;
 margin-bottom: 17pt;
 }
+
 h3:first-child {
 margin-top: 33pt;
 margin-bottom: 19pt;
@@ -159,9 +164,9 @@ body > article, body > section {
 /* assuming a small screen, which should hold for a while? 
  * The below is generic. Apples retina screens are more dense.
  */
- /* @media (webkit-min-device-pixel-ratio: 2), (min-resoltion:192dpi) {
+ /* @media (webkit-min-device-pixel-ratio: 2), (min-resolution:192dpi) {
  */
-@media (webkit-min-device-pixel-ratio: 1.25), (min-resoltion:120dpi) {
+@media (webkit-min-device-pixel-ratio: 1.25), (min-resolution:120dpi) {
 /* flex width and crush stock padding, same as stock-intrusive widths */
     body > article, body > section {
     width: 100%;
