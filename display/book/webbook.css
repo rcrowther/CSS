@@ -135,7 +135,7 @@ body > article, body > section {
  * 120pt is the space above sections, the widest used
  */
     body > article, body > section {
-	padding: 0 4mm 48pt 4mm;
+	padding: 0 2em 48pt 2em;
     }
 }
     
@@ -170,7 +170,7 @@ body > article, body > section {
 /* flex width and crush stock padding, same as stock-intrusive widths */
     body > article, body > section {
     width: 100%;
-	padding: 0 4mm 48pt 4mm;
+	padding: 0 4em 48pt 4em;
     }
 }
 
