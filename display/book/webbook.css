@@ -1,44 +1,3 @@
-/* Navbar 
- * If the font size changes:
- * 
- * line height = line-height*2
- * nav-bottom-margin= line-height/2
- * a.padding = line-height+2
- * 
- * Changing the size is probably not ok. Change shape or weight
- * if you must.
- *  
- * width alterntives:
- * screen-width (all commented)
- * full-width
- * block-width
- *
- * border alternatives:
- * ruled style (usually poetry/imaginative essays) 
- * plain style - comment out border and text decoration reset.
- * 
- * Other styles: use bullets not rules. Orange background (see above)
- * Rule and underscore is probably overkill.
- */
-#site-nav {
-    font-size: 12pt;  
-    line-height: 36pt;
-    margin: 0 auto 12pt auto;
-	/*width: 210mm;*/
-    width: 130mm;
-    border-bottom: black solid 1px;
-}
-
-#site-nav ul a {
-    padding: 14px 1em;
-    text-decoration: none;
-}
-
-#site-nav ul a:hover {
- color: #b85051;
-}
-
-
 
 /* Media queries */
 /* since some of these rules modify the navbar to become responsive, 
@@ -47,10 +6,10 @@
 
 @media screen {
 
-/* For now, IE, for the future, everyone else */
+/* For now, IE. For the future, everyone else */
 @viewport{
-  width:device-width;
-  zoom:1.0;
+  width: device-width;
+  zoom: 1.0;
 }
 
 /* Palatino can look horrible on the web. 
@@ -58,6 +17,7 @@
  */
 body{
     font-family: Lora, Georgia, serif;
+    font-size: 12pt;
     line-height: 20pt;
     color: #333;
 }
@@ -67,7 +27,7 @@ color: #222;
 }
 
 /* Get first headline in body
- * then crush.
+ * then crush margin-top.
  *  
  * top margins were 60pt, 96pt, 120pt default 
  * bottom margins were (h1 = 14pt,) 30pt, 40pt default 
@@ -93,32 +53,13 @@ margin-bottom: 19pt;
  * Chapter headlines, 40pt.
  */
 body > article, body > section {
-	padding: 6pt 30mm 40pt 30mm;
+	padding: 6pt 30mm 40pt 30mm; 
     }
 }
 
 
 
 /* Responsive design */
-
-/* Whatever the width... */
-/* typographical margins need removing for navbar placement */
-#site-nav ul {
-    margin: 0;
-    }
-    
-
-
-
-/* Greater than a desktop/tablet, display the menu inline */
-@media screen and (min-width: 480px) {
-
-/* inline site-nav */
-#site-nav li {
-/* background-color: orange; */
-    display: inline-block;
-    }
-}
 
 /* Less than the locked width, make the page flexible */
 @media screen and (max-width: 800px) {
@@ -139,25 +80,6 @@ body > article, body > section {
     }
 }
     
-/* Less than a desktop/tablet, stack the menu */
-@media screen and (max-width: 480px) {
-/* stack site-nav */
-/* site nav needs some padding/margin killing for vertical stacking */
-
-#site-nav {
-    width: auto;
-    margin: 0 0 12pt 0;
-    }
-
-#site-nav li {
-    display: block;
-    }
-    
-#site-nav ul a {
-    padding:14px 0;
-    display: block;
-    }
-}
 
 
 /* High res screens */
@@ -173,15 +95,6 @@ body > article, body > section {
 	padding: 0 4em 48pt 4em;
     }
 }
-
-
-/* for printing, hide navbars */
-@media print {
-#site-nav {
-    display: none;
-    }
-}
-
 
 
 
