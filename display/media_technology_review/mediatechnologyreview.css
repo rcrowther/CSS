@@ -1,0 +1,411 @@
+*, html, body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* When one page per article/section, only these print rules needed */
+ 
+table, figure, ol, ul, dl {
+    page-break-before: avoid;
+    page-break-inside: avoid;
+}
+
+header{
+    page-break-inside: avoid;
+}
+
+header, h3, h4, h5, h6 {
+    page-break-after: avoid;
+}
+
+body {
+    font-size: 12pt;
+    line-height: 18pt;
+    font-family: sans-serif;
+    font-weight: normal;
+    color: #555;
+}
+
+article, section {
+/* 6 * line bottom */
+margin: 18pt auto 108pt auto;
+width: 430pt;
+}
+
+header {
+margin-bottom:32pt;
+}
+
+header p {
+font-size: 17pt;
+    text-align: center;
+}
+
+date{
+display:block;
+text-align:right;
+}
+h1, h2, h3, h4, h5, h6, dd, author {
+color: #000;
+font-weight: normal;
+}
+
+/*
+ * Try,
+003E GREATER-THAN SIGN
+203A SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+232A  RIGHT-POINTING ANGLE 
+276D MEDIUM RIGHT-POINTING ANGLE
+276F HEAVY RIGHT-POINTING ANGLE QUOTATION
+2771 HEAVY RIGHT-POINTING ANGLE BRACKET
+27E9 MATHEMATICAL RIGHT ANGLE
+* 3009 RIGHT ANGLE BRACKET
+* best are greater-than, heavy angles, or the right angle bracket.
+*/
+/*p:first-letter*/
+/*p:first-of-type */
+/*article > p:first-child:first-letter{*/
+
+article > p:first-of-type:before{
+content: '> ';
+float: left;
+font-weight:bold;
+color:#999;
+font-size:24pt;
+line-height:36pt;
+}
+
+/* If first line may be single, line-height decoration */
+/*
+article > p:first-of-type:before{
+content: '> ';
+font-weight:bold;
+color:#999;
+}
+*/
+/* basic text size
+ * 
+ * at 12pt, the series is:
+ */
+/* 
+ * 11 \small
+ * 12  
+ * 14 \large
+ * 17 \Large
+ * 20 \LARGE
+ * 25 \huge
+ * 30 \Huge
+ * 36 \HUGE
+ * 48
+ */
+
+h1{
+font-size:96pt;
+line-height:96pt;
+font-weight: bold;
+letter-spacing: -4pt;
+text-align: center;
+}
+
+h2:before{
+content:"> ";
+color: #000;
+font-weight: bold;
+padding-left:0.1em;
+}
+
+h2{
+font-size:48pt;
+line-height:64pt;
+letter-spacing: -4pt;
+color: #999;
+margin-top:18pt;
+margin-bottom:18pt;
+}
+/* 2.5 lines as text?*/
+
+.chapter .creator{
+font-size:42pt;
+line-height:42pt;
+font-weight: normal;
+letter-spacing: -2pt;
+margin-top:10pt;
+padding-left:0.1em;
+}
+
+/* five lines as text?*/
+h3{
+font-size:48pt;
+line-height:48pt;
+font-weight: bold;
+letter-spacing: -1pt;
+margin-top:6pt;
+padding-left:0.1em;
+}
+
+/* = 54pt*/
+.chapter .tagline {
+font-size:25pt;
+line-height:25pt;
+letter-spacing: -1pt;
+color: #999;
+margin-top:9pt;
+margin-bottom:38pt;
+padding-left:0.1em;
+}
+
+
+h4{
+font-size:20pt;
+line-height:20pt;
+letter-spacing: -1pt;
+margin-top:16pt;
+}
+
+
+h5{
+font-size:17pt;
+line-height:17pt;
+letter-spacing: -0.75pt;
+margin-top:19pt;
+}
+
+
+h6{
+font-size:14pt;
+line-height:14pt;
+letter-spacing: -0.25pt;
+margin-top:22pt;
+}
+
+
+
+/* Paragraphs */
+
+/** except chapter or section heading? */
+p + p {
+    text-indent: 2em;
+}
+
+div.verdict{
+margin-top:18pt;
+color:#999;
+}
+
+/*************
+ * print css
+ */
+/* Figures */
+
+/* sizes */
+figure{
+    margin: 18pt 0;
+}
+
+figure.narrow {
+    width: 50%;
+    margin: 18pt auto;
+}
+
+/* images */
+
+/* settings to ensure image fit to block. I hope. */
+figure img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+figure > cite {
+    display: block;
+    font-size:11pt;
+    font-style: normal;
+    text-align:right;
+}
+
+/* figure captions P183 defaults */
+figure > figcaption {
+    margin-top: 12pt;
+    text-align:center;
+    font-weight: bold;
+}
+
+
+
+/* lists */
+li {
+ list-style-position: inside;
+}
+ 
+.spec li{
+ color: #000;
+}
+ 
+.refs li {
+ color: #666;
+ margin-bottom: 12pt;
+}
+ 
+dl {
+ margin-bottom: 18pt;
+}
+
+dl.spec dd {
+ color: #999;
+ float: left;
+ padding-right:0.5em;
+}
+
+dl.spec dt{
+ color: #000;
+ border-bottom: medium dotted #999;
+}
+ 
+ 
+dl.refs dd {
+ color: #000;
+ font-weight:bold;
+}
+
+dl.refs dt{
+ color: #666;
+ margin-bottom: 12pt;
+}
+
+
+.pro, .con{
+ list-style-position: inside;
+ list-style-type: square;
+ /*summed to before:content height  2 * line-height = 36pt */
+ margin-top: 22pt;
+}
+
+.pro::before {
+ font-size: 14pt;
+ line-height: 14pt;
+ content: 'pro';
+ font-weight:bold;
+ background-color: #000;
+ color: #fff;
+ padding: 0 4pt;
+}
+
+.con::before {
+ font-size: 14pt;
+ line-height: 14pt;
+ content: 'con';
+ font-weight:bold;
+ background-color: #000;
+ color: #fff;
+ padding: 0 4pt;
+}
+
+
+/* links */
+
+a {
+text-decoration: none;
+color: #0645ad;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #8d009c80;
+}
+
+author{
+text-transform:uppercase;
+font-weight:bold;
+}
+
+
+
+
+@media screen {
+
+/* For now, IE, for the future, everyone else */
+@viewport{
+  width:device-width;
+  zoom:1.0;
+}
+}
+ 
+
+
+
+/* Less than the locked width, make the page flexible */
+@media screen and (max-width: 430pt) {
+body > article, body > section {
+ width: 100%;
+ padding: 0 2em 48pt 2em;
+ /* border:  1px solid red; */
+ }
+    
+/* hide these (informative) displays */
+h1, h2 {
+ display:none;
+ }
+
+/* Same as h5 */
+.chapter .creator{
+ font-size:17pt;
+ line-height:17pt;
+ letter-spacing: -0.75pt;
+ margin-top:19pt;
+ }
+
+/* Like h4, but bold */
+h3 {
+ font-size:20pt;
+ line-height:20pt;
+ letter-spacing: -1pt;
+ font-weight:bold;
+ margin-top:16pt;
+ }
+    
+/* like h6, but light gray */
+.chapter .tagline {
+ font-size:14pt;
+ line-height:14pt;
+ letter-spacing: -0.25pt;
+ color: #999;
+ margin-bottom:4pt;
+ padding-left:0.1em;
+ }
+}
+    
+/* Less than 40 chars per line (or so), crush stock padding */
+/*
+ * @media screen and (max-width: 600px) {
+
+    body > article, body > section {
+	padding: 0 2em 48pt 2em;
+    }
+}
+*/
+
+/* High res screens */
+/* assuming a small screen, which should hold for a while? 
+ * The below is generic. Apples retina screens are more dense.
+ */
+ /* @media (webkit-min-device-pixel-ratio: 2), (min-resolution:192dpi) {
+ */
+@media (webkit-min-device-pixel-ratio: 1.25), (min-resolution:120dpi) {
+/* flex width and crush stock padding */
+    body > article, body > section {
+    width: 100%;
+	padding: 0 4em 48pt 4em;
+    }
+}
+
+
+

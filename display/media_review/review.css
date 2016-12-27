@@ -1,0 +1,222 @@
+*, html, body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12pt;
+    line-height: 18pt;
+    font-family: sans-serif;
+    line-height: 20pt;
+    font-weight: normal;
+    color: #000;
+}
+
+article, section {
+/* 6 * line bottom */
+margin: 18pt auto 108pt auto;
+width: 430pt;
+}
+/*
+p:first-letter{
+font-weight:bold;
+color:blue;
+font-size:24pt;
+}
+*/
+/* basic text size
+ * 
+ * at 12pt, the series is:
+ */
+/* 
+ * 11 \small
+ * 12  
+ * 14 \large
+ * 17 \Large
+ * 20 \LARGE
+ * 25 \huge
+ * 30 \Huge
+ * 36 \HUGE
+ * 48
+ */
+
+h1{
+font-size:96pt;
+line-height:96pt;
+font-weight: bold;
+letter-spacing: -4pt;
+text-align: center;
+}
+
+h2:before{
+content:"part ";
+color: black;
+padding-left:0.5em;
+}
+h2{
+font-size:48pt;
+line-height:64pt;
+text-transform: uppercase;
+font-weight: bold;
+letter-spacing: -2pt;
+color: #9898CB;
+border-top:dashed 2px #000;
+border-bottom:dashed 2px #000;
+margin-top:18pt;
+margin-bottom:18pt;
+}
+
+.chapter{
+margin-bottom:36pt;
+}
+
+h3{
+font-size:48pt;
+line-height:64pt;
+/*font-weight:bold; */
+letter-spacing: -2pt;
+font-weight: bold;
+text-align: center;
+margin-top:96pt;
+margin-bottom:9pt;
+}
+
+.chapter p {
+font-size:20pt;
+line-height:20pt;
+letter-spacing: -1pt;
+color: #f5c814;
+text-align: center;
+}
+
+
+.section{
+margin-bottom:4pt;
+}
+
+h4{
+font-size:25pt;
+line-height:36pt;
+letter-spacing: -1pt;
+font-weight: bold;
+/*margin-bottom:2pt;*/
+}
+
+.section p {
+font-size:14pt;
+line-height:20pt;
+letter-spacing: -1pt;
+color: #f5c814;
+}
+
+
+.subsection{
+margin-bottom:4pt;
+}
+
+h5{
+font-size:14pt;
+line-height:17pt;
+letter-spacing: -0.75pt;
+font-weight: bold;
+}
+
+.subsection p {
+font-size:9pt;
+line-height:11pt;
+letter-spacing: -1pt;
+color: #f5c814;
+}
+
+h6{
+/*???*/
+}
+
+
+
+/* Paragraphs */
+
+/** except chapter or section heading? */
+p + p {
+    text-indent: 2em;
+}
+
+/* Figures */
+
+/* sizes */
+figure{
+    margin: 12pt 3em;
+}
+
+/* images */
+
+/* settings to ensure image fit to block. I hope. */
+figure img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* image decoration */
+figure > img.framed  {
+    border: 1px solid black;
+}
+
+figure > img.ruled  {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+/* figure captions P183 defaults */
+figure > figcaption {
+    margin-top: 12pt;
+    text-align:center;
+}
+
+figure > figcaption:before {
+content: "Figure "
+}
+
+figure > figcaption > span.num:after {
+content: ": "
+}
+
+figure > cite {
+    display: block;
+    font-style: normal;
+    text-align:right;
+}
+
+/* lists */
+.pro, .con{
+ list-style-position: inside;
+ list-style-type: square;
+ /*summed to content insert height  2 * line-height = 36pt */
+ margin-top: 12pt;
+}
+
+.pro::before {
+    font-size: 14pt;
+    line-height: 24pt;
+content: 'pro';
+font-weight:bold;
+background-color: #000;
+color: #fff;
+padding: 4pt;
+}
+.con::before {
+    font-size: 14pt;
+    line-height: 20pt;
+content: 'con';
+font-weight:bold;
+
+background-color: #000;
+color: #fff;
+padding: 4pt;
+
+}
