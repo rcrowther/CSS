@@ -37,19 +37,23 @@ margin: 18pt auto 108pt auto;
 width: 430pt;
 }
 
-header {
+.tagline, date {
+display: block;
+}
+
+.book > .title {
 margin-bottom:32pt;
 }
 
-header p {
-font-size: 17pt;
-    text-align: center;
+.book > .tagline {
+ font-size: 17pt;
+ text-align: center;
 }
 
 date{
-display:block;
 text-align:right;
 }
+
 h1, h2, h3, h4, h5, h6, dd, author {
 color: #000;
 font-weight: normal;
@@ -78,6 +82,7 @@ font-weight:bold;
 color:#999;
 font-size:24pt;
 line-height:36pt;
+padding-right:0.25em;
 }
 
 /* If first line may be single, line-height decoration */
@@ -129,7 +134,8 @@ margin-bottom:18pt;
 }
 /* 2.5 lines as text?*/
 
-.chapter .creator{
+
+.review .brand{
 font-size:42pt;
 line-height:42pt;
 font-weight: normal;
@@ -139,7 +145,7 @@ padding-left:0.1em;
 }
 
 /* five lines as text?*/
-h3{
+.review .product{
 font-size:48pt;
 line-height:48pt;
 font-weight: bold;
@@ -149,7 +155,7 @@ padding-left:0.1em;
 }
 
 /* = 54pt*/
-.chapter .tagline {
+.review .tagline {
 font-size:25pt;
 line-height:25pt;
 letter-spacing: -1pt;
@@ -197,9 +203,7 @@ margin-top:18pt;
 color:#999;
 }
 
-/*************
- * print css
- */
+
 /* Figures */
 
 /* sizes */
@@ -221,12 +225,32 @@ figure img {
     max-width: 100%;
 }
 
+figure blockquote {
+margin: 36pt 2em 0;
+}
+
+blockquote p:before {
+position:relative;
+font-size:24pt;
+content:'\201C ';
+vertical-align:top;
+color: #999;
+}
+
+blockquote:after {
+display:block;
+font-size:24pt;
+text-align:right;
+content:'\201D ';
+vertical-align:top;
+color: #999;
+}
 
 figure > cite {
     display: block;
     font-size:11pt;
     font-style: normal;
-    text-align:right;
+    text-align:center;
 }
 
 /* figure captions P183 defaults */
@@ -283,7 +307,10 @@ dl.refs dt{
  list-style-position: inside;
  list-style-type: square;
  /*summed to before:content height  2 * line-height = 36pt */
- margin-top: 22pt;
+}
+
+.pro {
+  margin-top: 4pt;
 }
 
 .pro::before {
@@ -294,6 +321,10 @@ dl.refs dt{
  background-color: #000;
  color: #fff;
  padding: 0 4pt;
+}
+
+.con {
+  margin-top: 22pt;
 }
 
 .con::before {
