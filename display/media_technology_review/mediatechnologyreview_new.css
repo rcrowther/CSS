@@ -59,7 +59,43 @@ color: #000;
 font-weight: normal;
 }
 
+/*
+ * Try,
+003E GREATER-THAN SIGN
+203A SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+232A  RIGHT-POINTING ANGLE 
+276D MEDIUM RIGHT-POINTING ANGLE
+276F HEAVY RIGHT-POINTING ANGLE QUOTATION
+2771 HEAVY RIGHT-POINTING ANGLE BRACKET
+27E9 MATHEMATICAL RIGHT ANGLE
+* 3009 RIGHT ANGLE BRACKET
+* best are greater-than, heavy angles, or the right angle bracket.
+*/
+/*p:first-letter*/
+/*p:first-of-type */
+/*article > p:first-child:first-letter{*/
 
+
+/*
+article > p:first-of-type:before{
+content: '> ';
+float: left;
+font-weight:bold;
+color:#999;
+font-size:24pt;
+line-height:36pt;
+padding-right:0.25em;
+}
+*/
+
+/* If first line may be single, line-height decoration */
+/*
+article > p:first-of-type:before{
+content: '> ';
+font-weight:bold;
+color:#999;
+}
+*/
 /* basic text size
  * 
  * at 12pt, the series is:
@@ -84,7 +120,81 @@ letter-spacing: -4pt;
 text-align: center;
 }
 
+/*
+h2:before{
+content:"> ";
+color: #000;
+font-weight: bold;
+padding-left:0.1em;
+}
+*/
+/*
+h2{
+font-size:48pt;
+line-height:64pt;
+letter-spacing: -4pt;
+color: #999;
+margin-top:18pt;
+margin-bottom:18pt;
+}
+*/
+/* 2.5 lines as text?*/
 
+
+.review .brand{
+font-size:42pt;
+line-height:42pt;
+font-weight: normal;
+letter-spacing: -2pt;
+margin-top:10pt;
+padding-left:0.1em;
+}
+
+/* five lines as text?*/
+.review .product{
+font-size:64pt;
+line-height:64pt;
+font-weight: bold;
+letter-spacing: -2pt;
+padding-left:0.1em;
+}
+
+/* = 54pt*/
+.review .tagline {
+font-size:25pt;
+line-height:25pt;
+letter-spacing: -1pt;
+color: #999;
+margin-top:9pt;
+margin-bottom:38pt;
+padding-left:0.1em;
+}
+
+/*
+h4{
+font-size:20pt;
+line-height:20pt;
+letter-spacing: -1pt;
+margin-top:16pt;
+}
+
+
+h5{
+font-size:17pt;
+line-height:17pt;
+letter-spacing: -0.75pt;
+margin-top:19pt;
+}
+
+
+h6{
+font-size:14pt;
+line-height:14pt;
+letter-spacing: -0.25pt;
+margin-top:22pt;
+}
+
+*/
 
 /* Paragraphs */
 
@@ -201,6 +311,7 @@ dl.refs dt{
 .pro, .con{
  list-style-position: inside;
  list-style-type: square;
+ /*summed to before:content height  2 * line-height = 36pt */
 }
 
 .pro {
@@ -255,217 +366,6 @@ font-weight:bold;
 
 
 
-/* Stock theme */
-/*
- * Try,
-003E GREATER-THAN SIGN
-203A SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
-232A  RIGHT-POINTING ANGLE 
-276D MEDIUM RIGHT-POINTING ANGLE
-276F HEAVY RIGHT-POINTING ANGLE QUOTATION
-2771 HEAVY RIGHT-POINTING ANGLE BRACKET
-27E9 MATHEMATICAL RIGHT ANGLE
-* 3009 RIGHT ANGLE BRACKET
-* best are greater-than, heavy angles, or the right angle bracket.
-*/
-/* If first line may be single, line-height decoration */
-/*
-article > p:first-of-type:before{
-content: '> ';
-font-weight:bold;
-color:#999;
-}
-*/
-
-h2:before{
-content:"> ";
-color: #000;
-font-weight: bold;
-padding-left:0.1em;
-}
-
-h2{
-font-size:48pt;
-line-height:64pt;
-letter-spacing: -4pt;
-color: #999;
-margin-top:18pt;
-margin-bottom:18pt;
-}
-
-h4{
-font-size:20pt;
-line-height:20pt;
-letter-spacing: -1pt;
-margin-top:16pt;
-}
-
-
-h5{
-font-size:17pt;
-line-height:17pt;
-letter-spacing: -0.75pt;
-margin-top:19pt;
-}
-
-
-h6{
-font-size:14pt;
-line-height:14pt;
-letter-spacing: -0.25pt;
-margin-top:22pt;
-}
-
-
-article > p:first-of-type:before{
-content: '> ';
-float: left;
-font-weight:bold;
-color:#999;
-font-size:24pt;
-line-height:36pt;
-padding-right:0.25em;
-}
-
-
-
-.review .brand{
-font-size:42pt;
-line-height:42pt;
-font-weight: normal;
-letter-spacing: -2pt;
-margin-top:10pt;
-padding-left:0.1em;
-}
-
-
-.review .product{
-font-size:48pt;
-line-height:48pt;
-font-weight: bold;
-letter-spacing: -1pt;
-margin-top:6pt;
-padding-left:0.1em;
-}
-
-
-.review .tagline {
-font-size:25pt;
-line-height:25pt;
-letter-spacing: -1pt;
-color: #999;
-margin-top:9pt;
-margin-bottom:38pt;
-padding-left:0.1em;
-}
-
-
-
-
-
-
-
-/*
-Colored theme
-Good with refs and spec class lists
-*/
-/*
-h2 {
-font-size:20pt;
-line-height:20pt;
-letter-spacing: -1pt;
-margin-top:19pt;
-margin-bottom:18pt;
-}
-
-h3 {
-font-size:48pt;
-line-height:48pt;
-letter-spacing: -1pt;
-margin-top:6pt;
-padding-left:0.1em;
- font-weight:bold;
- margin-top:16pt;
- }
-
-h4 {
-font-size:14pt;
-line-height:14pt;
-letter-spacing: -0.25pt;
-margin-top:27pt;
-font-weight: bold;
-}
-
-h5 {
-font-size:12pt;
-line-height:12pt;
-letter-spacing: -0.25pt;
-margin-top:27pt;
-font-weight: bold;
-}
-
-h6 {
-font-size:12pt;
-line-height:12pt;
-letter-spacing: -0.25pt;
-margin-top:27pt;
-font-style: italic;
-}
-
-author{
-color: #942d31;
-}
-
-article > p:first-of-type:first-letter{
-font-weight:bold;
-color:#999;
-font-size:20pt;
-line-height:20pt;
-padding-right:0.1em;
-}
-
-.review .brand{
-font-size:22pt;
-line-height:30pt;
- background-color: #942d31;
- color: #FFF;
-padding: 9pt;
-}
-
-.review .tagline {
-font-size:25pt;
-line-height:25pt;
-color: #555;
-}
-
-.pro::before {
- color: #942d31;
- background-color: #FFF;
-}
-
-.con::before {
- color: #942d31;
- background-color: #FFF;
-}
-
-div.verdict::before{
- content: 'verdict';
- color: #FFF;
- background-color: #942d31;
-font-size:20pt;
-line-height:36pt;
-letter-spacing: 1pt;
-padding: 4pt 8pt;
-
-}
-
-div.verdict {
- color: #555;
-}
-*/
-
-
-/* Responsive */
 @media screen {
 
 /* For now, IE, for the future, everyone else */
@@ -499,11 +399,10 @@ h1, h2 {
  margin-top:19pt;
  }
 
-/* Like h4, but bold */
 h3 {
- font-size:20pt;
- line-height:20pt;
- letter-spacing: -1pt;
+font-size:64pt;
+line-height:64pt;
+letter-spacing: -2pt;
  font-weight:bold;
  margin-top:16pt;
  }
@@ -541,5 +440,106 @@ h3 {
     width: 100%;
 	padding: 0 4em 48pt 4em;
     }
+}
+
+
+/**********************************/
+/*
+Colored theme
+Use refs class lists
+*/
+.review .brand{
+font-size:22pt;
+line-height:30pt;
+ background-color: #942d31;
+ color: #FFF;
+padding: 9pt;
+}
+
+.review .tagline {
+font-size:25pt;
+line-height:25pt;
+color: #555;
+}
+
+/* like h4 */
+h2 {
+font-size:20pt;
+line-height:20pt;
+letter-spacing: -1pt;
+margin-top:19pt;
+margin-bottom:18pt;
+}
+
+h3 {
+font-size:48pt;
+line-height:48pt;
+letter-spacing: -1pt;
+margin-top:6pt;
+padding-left:0.1em;
+ font-weight:bold;
+ margin-top:16pt;
+ }
+
+/* like h6, but bold */
+h4 {
+font-size:14pt;
+line-height:14pt;
+letter-spacing: -0.25pt;
+margin-top:27pt;
+font-weight: bold;
+}
+
+h5 {
+font-size:12pt;
+line-height:12pt;
+letter-spacing: -0.25pt;
+margin-top:27pt;
+font-weight: bold;
+}
+
+h6 {
+font-size:12pt;
+line-height:12pt;
+letter-spacing: -0.25pt;
+margin-top:27pt;
+font-style: italic;
+}
+
+author{
+color: #942d31;
+}
+
+.pro::before {
+ color: #942d31;
+ background-color: #FFF;
+}
+
+.con::before {
+ color: #942d31;
+ background-color: #FFF;
+}
+
+div.verdict::before{
+ content: 'verdict';
+ color: #FFF;
+ background-color: #942d31;
+font-size:20pt;
+line-height:36pt;
+letter-spacing: 1pt;
+padding: 4pt 8pt;
+
+}
+
+div.verdict {
+ color: #555;
+}
+
+article > p:first-of-type:first-letter{
+font-weight:bold;
+color:#999;
+font-size:20pt;
+line-height:20pt;
+padding-right:0.1em;
 }
 
