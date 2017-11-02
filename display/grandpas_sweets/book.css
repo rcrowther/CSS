@@ -1,0 +1,1046 @@
+*, html, body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+/*
+  ISO A4  
+  width: 210mm;
+  height: 297mm;
+  */
+/*
+  ISO A5  
+  width: 148mm;
+  height: 210mm;
+  */
+/*
+  ANSI Letter 
+  width: 215.9mm;
+  height: 279.4mm; 
+  */
+
+/* Simple print rules:
+ * - h2, h3 break before
+ * - Avoid break after titles
+ * - Avoid break in figures, tables, or lists
+ */
+article > header, section > header, h2 {
+    page-break-after: always;
+}
+
+h2, h3 {
+    page-break-before: always;
+}
+
+h3, h4, h5, h6 {
+    page-break-after: avoid;
+}
+
+table, figure, ol, ul, dl {
+    page-break-before: avoid;
+    page-break-inside: avoid;
+}
+
+article > footer, section > footer {
+    page-break-inside: avoid;
+}
+
+/* The page layouts below establish widths and optional heights
+ * for print and display.
+ * 
+ * Beware running with no margins at all. Some printers/software will
+ * reject these due to unprintable margins, resizing to cope.
+ * 
+ * A typeblock width is established of 130mm. For many fonts, at 12pt,
+ * this should give a number of characters per line near 66. This is
+ * ideal, but +-10 characters is ok If the font is particularly wide
+ * or narrow, then adjust the left/right margins (e.g. the Times Roman
+ * font, devised for compact layout in columns, can go down to 47
+ * characters per line).
+ * 
+ * If the margin width is changed, to maintain aspect ratios, the top
+ * and bottom margins must be recalculated according to the given
+ * formulae.
+ * 
+ */
+
+/* Formulae */
+/*
+ * Full page, unprintable  clearance
+ * 
+ * margin =  5mm 5mm 5mm 10mm
+ */
+/* A4 Medieval centred 
+ * 
+ * basemargin = (pagewidth - char width)/2
+ * top/left/rightmargin = basemargin 
+ * bottommargin = basemargin * 2
+ */
+/* A4 ISO centred
+ * 
+ * basemargin = (pagewidth - charwidth)/2
+ * left/rightmargin = basemargin 
+ * topmargin = pageheight*((basemargin*2/3)/pagewidth)
+ * bottommargin = topmargin * 2
+ */
+
+/* To print page numbers,
+ * add to any print block
+ */
+/* @bottom-right { content: counter(page); } */
+
+
+/* A4 centre print.
+ */
+/* Full page, unprintable  clearance */
+/* margin: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/*  margin: 40mm 40mm 80mm 40mm; */
+/* ISO centred */
+/* margin: 36mm 40mm 73mm 40mm; */
+@media print {
+    @page { 
+	margin:  40mm 40mm 80mm 40mm;
+    }
+}
+
+
+/* A4 centre screen 
+ */
+/* Full page, unprintable  clearance */
+/* padding: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* padding:  40mm 40mm 80mm 40mm; */
+/* ISO centred */
+/* padding:  36mm 40mm 73mm 40mm; */
+
+@media screen {
+    body > article, body > section {
+	margin: 0 auto 0 auto;
+	width: 210mm;
+	padding:  40mm 40mm 80mm 40mm;
+    }
+}
+
+
+
+/* A5 centre print.
+ * 
+ * (uses classical dimensions, rather than establishing 
+ * a character count)
+ */
+/* Full page, unprintable  clearance */
+/* margin: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* margin: 25mm 25mm 50mm 25mm; */
+/* ISO centred */
+/* margin: 24mm 25mm 48mm 25mm; */
+/*
+  @media print {
+  @page { 
+  margin: 16mm 35mm 32mm 70mm;
+  }
+  }
+  */
+
+/* A5 centre screen 
+ */
+/* Full page, unprintable  clearance */
+/* padding: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* padding: 25mm 25mm 50mm 25mm;*/
+/* ISO centred */
+/* padding: 16mm 35mm 32mm 70mm;  */
+/*
+  @media screen {
+  body > article, body > section {
+  margin: 0 auto 0 auto;
+  width: 148mm;
+  padding: 23mm 25mm 46mm 25mm;
+  border:  1px solid red;
+  }
+  }
+  */
+
+/* Letter centre print.
+ */
+/* Full page, unprintable  clearance */
+/* margin: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* margin: 43mm 43mm 86mm 43mm; */
+/* ISO centred */
+/* margin: 37mm 43mm 74mm 43mm; */
+/*
+  @media print {
+  @page { 
+  margin: 37mm 43mm 74mm 43mm; 
+  }
+  }
+  */
+
+
+
+/* Letter centre screen 
+ */
+/* Full page, unprintable  clearance */
+/* padding: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* padding: 43mm 43mm 86mm 43mm*/
+/* ISO centred */
+/* padding: 37mm 43mm 74mm 43mm; */
+/*
+  @media screen {
+  body > article, body > section {
+  margin: 0 auto 0 auto;
+  width: 215mm;
+  padding: 37mm 43mm 74mm 43mm;
+  border:  1px solid red;
+  }
+  }
+  */
+
+/* basic text size
+ * 
+ * at 12pt, the series is:
+ */
+/* 
+ * 11 \small
+ * 12  
+ * 14 \large
+ * 17 \Large
+ * 20 \LARGE
+ * 25 \huge
+ * 30 \Huge
+ * 36 \HUGE
+ * 48
+ */
+/*
+ * sec
+ font-size: 17pt;
+ line-height: 25pt;
+ * subsec
+ font-size: 14pt;
+ line-height: 20pt;
+ *  subsubsec
+ * ---
+ */
+
+body, h5, h6 {
+    font-size: 12pt;
+    line-height: 18pt;
+}
+
+
+body{
+    font-weight: normal;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;    
+}
+
+
+
+
+/* title/book */
+h1, h2 {
+    font-family: sans;
+    font-size:25pt;
+    line-height: 36pt;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 30pt;
+}
+
+h1 {
+    margin-top: 60pt;
+    margin-bottom: 14pt;
+}
+
+header {
+    font-size:14pt;
+    line-height:25pt;
+    text-align: center;
+    margin-bottom: 84pt;
+}
+
+header > p {
+    font-style: italic;
+}
+
+header > div {
+    margin-top: 24pt;
+}
+
+header date, header author {
+    display: block;
+    text-align: center;
+}
+
+
+
+/* pad all nums from next elem, usually a title 
+ * Can't find source code, but seems a little more convincing with
+ * this in place.
+ */
+/* is \quad in some titles*/
+.num {
+    padding-right: 0.2em;
+}
+
+/* Part P81 */
+
+h2 {
+    margin-top: 96pt;
+}
+
+h2 > .num:before {
+    content: "Part ";
+}
+
+h2 > .title {    
+    font-size: 30pt;
+    line-height: 48pt;
+    margin-top: 24pt;
+    display: block;
+}
+
+
+/*
+ * Base h3 margins, sometimes modified, especially for print.
+ * Onscreen, an outraageous 120pt for no-page layout.
+ * 
+ * Otherwise,
+ *  beforechapskip = 50pt
+ * afterchapskip = 40pt
+ * 
+ * Delare early so later selectors win.
+ */
+/* \midchapskip: 20pt */
+
+@media screen {
+    h3 { 
+	margin-top: 120pt;
+    }
+}
+
+@media print {
+    h3 { 
+	margin-top: 50pt;
+    }
+}
+
+h3 { 
+    margin-bottom: 40pt;
+}
+
+/* alternate title sets */
+/* The following are full sets of h3--h6 titles
+ * Memman is the default, uncomment the others to try.
+ */
+/* NB: commented top/bottom margins are originals,
+ * replaced by overall settings above
+ */
+/* \quad is set to 1em */
+
+
+/* Bringhurst */
+/*
+  .num {
+  display: none;
+  }
+
+h4, h5, h6 {
+margin: 12pt 0;
+}
+
+h3, h4, h6 {
+font-variant: small-caps;
+}
+
+h3, h4, h5, h6 {
+text-transform: lowercase;
+font-weight: normal;
+}
+
+h3 {
+font-size: 17pt;
+line-height: 25pt;
+padding-bottom: 17pt;
+border-bottom: 1px solid black;
+}
+
+h5 {
+font-style: italic;
+}
+*/
+
+
+
+/* Crosshead */
+/*
+  @media print {
+  h3 { 
+  margin-top: 24pt;
+  margin-bottom: 24pt;
+  }
+  }
+  
+  h3, h4, h5, h6 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: normal;
+  text-align: center;
+  }
+
+h3 {
+font-weight: bold;
+font-size:20pt;
+line-height: 30pt;
+}
+
+h3 > .num {
+margin-right: 1em;
+}
+
+h4 {
+font-variant: small-caps;
+text-transform: uppercase;
+margin: 16pt 0 8pt 0;
+}
+
+h5 {
+text-transform: lowercase;
+font-weight: bold;
+margin: 14pt 0 8pt 0;
+}
+
+h6 {
+font-variant: small-caps;
+margin: 0pt 0 4pt 0;
+}
+*/
+
+/* Dowding */ 
+/* number as word */
+/*
+  @media print {
+  h3 { 
+  margin-top: 24pt;
+  margin-bottom: 18pt;
+  }
+  }
+  
+h3, h4, h5, h6 {
+font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+font-weight: normal;
+text-align: center;
+}
+
+h4, h5 {
+font-variant: small-caps;
+text-transform: lowercase;
+}
+
+h3, h6 {
+font-style: italic;
+}
+
+h3 {
+font-size: 25pt;
+line-height: 36pt;
+}
+
+h3 > .num:before {
+content: "Chapter ";
+}
+
+h3 > .num {
+display: block;
+font-size:12pt;
+line-height: 17pt;
+margin-bottom: 20pt;
+font-style: normal;
+}
+
+
+h4 {
+text-transform: uppercase;
+line-height: 25pt;
+margin: 24pt 0 12pt 0;
+}
+h5 {
+text-transform: lowercase;
+margin: 14pt 0 10pt 0;
+}
+h6 {
+margin: 8pt 0 4pt 0;
+}
+*/
+
+
+
+/* komalike */
+/*
+  @media print {
+  h3 { 
+  margin-top: 24pt;
+  margin-bottom: 18pt;
+  }
+  }
+  
+  h3, h4, h5, h6 {
+  font-family: sans;
+  font-weight: bold;   
+  }
+  
+h3 {
+font-size: 20pt;
+line-height: 30pt;
+}
+
+h3 > .num {
+padding: 0;
+margin-right: 0.5em;
+}
+
+h4 {
+font-size: 17pt;
+line-height: 25pt;
+text-indent: 0.5em;
+margin: 3.5ex 0 2.3ex 0;
+}
+
+h5 {
+font-size: 14pt;
+line-height: 20pt;
+margin: 3.25ex 0 1.5ex 0;
+}
+
+h6 {
+margin: 3.25ex 0 1.5ex 0;
+}
+*/
+
+/* memman  */
+/* Should be numbers as words */
+
+ @media print {
+h3 { 
+margin-top: 0pt;
+margin-top: 24pt;
+}
+}
+
+h3 {
+    font-family: sans;
+    font-weight: normal;
+    font-size: 30pt;
+    line-height: 48pt;
+    text-align: right;
+}
+
+h3 > .num {
+    display: block;
+    font-size: 36pt;
+    line-height: 64pt;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 25pt;
+}
+
+h3 > .title {
+    display: block;
+    padding: 12pt 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+h4 {
+    font-variant: small-caps;
+    font-weight: normal;
+    margin: 16pt 0 8pt 0;
+    text-indent: 0.5em;
+}
+
+
+h5 {
+    font-weight: bold;
+    margin: 8pt 0 4pt 0;
+}
+
+
+h6 {
+    font-weight: normal;
+    font-style: italic;
+    margin: 8pt 0 4pt 0;
+}
+
+
+
+/* tandh  */
+/* use roman numerals */
+/*
+  @media print {
+  h3 { 
+  margin-top: 12pt;
+  margin-bottom: 24pt;
+  }
+  }
+
+h3 {
+font-size: 25pt;
+font-weight: bold;
+line-height: 36pt;
+}
+
+h3 > .num {
+margin-right: 1em;
+}
+
+h4 {
+font-variant: small-caps;
+text-transform: uppercase;
+font-weight: normal;
+margin: 24pt 0 12pt 0;
+text-indent: 0.5em;
+}
+
+h5 {
+font-size: 17pt;
+line-height: 25pt;
+text-transform: lowercase;
+font-weight: normal;
+font-style: italic;
+margin: 14pt 0 9pt 0;
+}
+
+h6 {
+font-weight: bold;
+margin: 7pt 0 4pt 0;
+}
+*/
+
+
+
+/* wilsondob  */
+/* use roman numerals */
+/*
+  @media print {
+  h3 { 
+  margin-top: 24pt;
+  margin-bottom: 48pt;
+  }
+  }
+  
+  h3, h4, h5, h6 {
+  font-weight: normal;
+  }
+  
+h3 {
+font-size:30pt;
+line-height: 48pt;
+font-style: italic;
+text-align: right;
+}
+
+h3 > .num {
+margin-right: 1em;
+}
+
+h4 {
+font-variant: small-caps;
+text-transform: uppercase;
+margin: 16pt 0 7pt 0;
+text-indent: 0.5em;
+}
+
+h5 {
+font-size: 17pt;
+line-height: 25pt;
+font-style: italic;
+margin: 7pt 0 4pt 0;
+}
+
+h6 {
+text-transform: lowercase;
+font-variant: small-caps;
+margin: 7pt 0 4pt 0;
+}
+*/
+
+pre {
+    display: block;
+}
+
+code {
+    font-family: monospace;
+}
+
+
+/* alternate chapter titles */
+
+/* The following are fancy chapter titles
+ * Comment out the h3s in the title set, uncomment a title to try.
+ */
+/* Article */
+/*
+  @media print {
+  h3 { 
+  margin-top: 3.5ex;
+  margin-bottom: 2.3ex;
+  }
+  }
+  * 
+h3 {
+font-weight: bold;
+font-size:17pt;
+line-height: 25pt;
+}
+* 
+h3 > .num {
+margin-right: 1em;
+}
+*/
+
+/* Bianchi */
+/*Very large? Down from 17 25 30 to 14 20 25 */
+/*
+  h3 {
+  font-size: 25pt;
+  line-height: 36pt;
+  font-family: sans;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  }
+  
+h3 > .num:before {
+font-size: 14pt;
+content: "Chapter ";
+}
+
+h3 > .num {
+display: block;
+font-size: 20pt;
+line-height: 25pt;
+font-weight: normal;
+font-style: italic;
+margin-bottom: 20pt;
+}
+
+h3 > .title {
+display: block;
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+padding: 12pt 0;
+}
+*/
+
+/* Brotherton */
+/*
+  @media print {
+  h3 { 
+  margin-top: 50pt;
+  margin-bottom: 40pt;
+  }
+  }
+  
+  h3 {
+font-size: 30pt;
+line-height: 48pt;
+  font-family: sans;
+  font-weight: bold;
+  font-style: normal;
+  }
+
+h3 > .num:before {
+content: "Chapter ";
+}
+
+h3 > .num {
+  font-size: 25pt;
+  line-height: 36pt;
+  margin-bottom: 20pt;
+}
+
+h3 > .title {
+display: block;
+}
+*/
+
+/* Chappel */
+/*
+@media print {
+h3 { 
+margin-top: 0pt;
+}
+}
+
+h3 {
+font-size: 17pt;
+line-height: 17pt;
+font-weight: normal;
+font-style: italic;
+text-align: center;
+}
+
+h3 > .num {
+display: block;
+font-size: 14pt;
+line-height: 20pt;
+font-style: normal;
+margin-bottom: 17pt;
+}
+
+h3 > .num:before {
+content: "Chapter ";
+}
+
+h3 > .title {
+display: block;
+padding-top: 14pt;
+border-top: 1px solid black;
+}
+*/
+
+/* Dash */
+/* roman numerals */
+/*
+ @media print {
+h3 { 
+margin-top: 60pt;
+}
+}
+
+h3 {
+font-size: 17pt;
+line-height: 25pt;
+  font-weight: normal;
+  text-align: center;
+
+}
+
+  h3  > .num {
+  display: block;
+  font-size: 14pt;
+  line-height: 14pt;
+  margin-bottom: 14pt;
+  }
+  
+h3 > .num:before {
+content: '\2015';
+margin-right: 0.25em;
+} 
+
+h3 > .num:after {
+content: '\2015';
+margin-left: 0.25em;
+} 
+*/
+
+
+
+/* Thatcher */
+/* annoyimgly tricky to provide sized line:
+ * .num:after a block element the size of the line,
+ * use margins to centre and space downwards, 
+ */
+/*
+h3 {
+font-size: 14pt;
+line-height: 14pt;
+text-transform: uppercase;
+  font-variant: small-caps;
+    font-weight: normal;
+
+  text-align: center;
+}
+
+  h3  > .num{
+  display: block;
+  font-size: 12pt;
+  line-height: 12pt;
+  text-transform: lowercase;
+  margin-bottom: 12pt;
+  }
+
+h3 > .num:after{
+display:block;
+content: '';
+width:0.5in;
+border-top: 1px solid black;
+margin: 12pt auto 0 auto;
+} 
+
+h3 > .num:before {
+content: "Chapter ";
+}
+*/
+
+/* Paragraphs */
+
+/** except chapter or section heading? */
+p + p {
+    text-indent: 2em;
+}
+
+
+/* Figures */
+
+/* sizes */
+figure{
+    margin: 12pt 3em;
+}
+
+figure.wide {
+    margin: 12pt 0;
+}
+
+figure.narrow {
+    margin: 12pt 6em;
+}
+
+figure.x-narrow {
+    margin: 12pt 9em;
+}
+
+figure.xx-narrow {
+    margin: 12pt 12em;
+}
+
+/* blockquote */
+/* P126 */
+blockquote {
+    margin: 8pt 3em;
+}
+
+/* override if in figure */
+figure > blockquote {
+    margin: 0;
+}
+
+/* kill indented paragraphing for blockparagraph */
+blockquote.blockparagraph > p {
+    text-indent: 0;
+    margin-top: 6pt;
+}
+
+
+/* blockquote decoration */
+figure > blockquote.framed  {
+    border: 1px solid black;
+    padding: 6pt 1em;
+}
+
+figure > blockquote.ruled  {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 6pt 1em;
+}
+
+
+/* images */
+
+/* settings to ensure image fit to block. I hope. */
+figure img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* image decoration */
+figure > img.framed  {
+    border: 1px solid black;
+}
+
+figure > img.ruled  {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+/* figure captions P183 defaults */
+figure > figcaption {
+    margin-top: 12pt;
+    text-align:center;
+}
+
+figure > figcaption:before {
+content: "Figure "
+}
+
+figure > figcaption > span.num:after {
+content: ": "
+}
+
+figure > cite {
+    display: block;
+    font-style: normal;
+    text-align:right;
+}
+
+
+
+/* Lists */
+
+/* P145 P182 p212 for examples */
+/* dl not left-indented */
+ul, ol {
+    margin: 12pt 0 12pt 3em;
+}
+
+dl {
+    margin: 12pt 0;
+}
+
+
+
+
+/* should be runin on 'dt', but non-Mozilla. float will work on
+ * for single lines.
+ */
+dd {
+    font-weight: bold;
+    margin-right: 0.5em;
+    float: left;
+}
+
+/* wide-spaced list */
+/* margin bottom more reliable for floats.
+ * outer list margins hold overall position. 
+ */
+ol.wide > li, ul.wide > li, dl.wide > dt {
+    margin-bottom: 12pt;
+}
+
+/* Table of contents */
+
+/*
+ * = 2.55em
+ * */
+.toc{
+ margin:0 4em;
+}
+
+
+.toc > ul{
+  list-style-type: none;
+  margin: 0 0 12pt 1.5em;
+}
+
+
+.toc span{
+display: inline-block;
+}
+
+.toc h4 .num, .toc h5 .num{
+width: 1.55em;
+
+}
+.toc ul .num{
+width: 3em;
+}
+
+

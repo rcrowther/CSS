@@ -1,5 +1,5 @@
 Approximation of magazine/newpaper supplement? styles. Which are suprisingly unified.
 
-At all points target styling has een sacrificed for sematic HTML. So there is no attempt at the stock large coloured opening letter, as CSS can not get hold of the first letter of a document (only the first letter of a single element, which would apply to all paragraphs). Niether can CSS handle column layout (until and unless CSS verion. 7867345 finally brings us columnular text flow).
+At all points target styling has been sacrificed for sematic HTML. So there is no attempt at the stock large coloured opening letter, as CSS can not get hold of the first letter of a document (only the first letter of a single element, which would apply to all paragraphs). Niether can CSS handle column layout (until and unless CSS version. 7867345 finally brings us columnular text flow).
 
 

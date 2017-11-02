@@ -1,0 +1,21 @@
+= Grandpa's sweets
+
+Set of titles for ''book'. Has some additions for use on the web.
+
+Grandpa's Sweets pushes 'book' styling towards advertising. It uses massive steps in font sizing and multiple font-effects. These are implemented by sometimes non-standard CSS. I think, short of curved-path SVG effects, it's about as far as I can go.
+
+== Not right
+The ''chapter' title surrounding box should not be full width, but text width and centred. This is not possible with current CSS/Book HTML (the inner spans are for data (the style should cover all such data, and inline blocking a headline would cause following text to wrap after). It can be done using a wrapping box (then set to display:inline-block and margins:auto)...
+
+The h3 chapter title and links seems to degrade in some print scenarios (no surprise).
+
+== Inconsistent
+The anchors use {display:inline-block;} to ensure anchor paddiing establishes space between elements.
+
+== TODO
+Not fully considered print effects
+
+Responsive design may need further work.
+
+== Sizing
+By point

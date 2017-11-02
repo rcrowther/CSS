@@ -1,0 +1,316 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>HTML5 Book CSS Test Page</title>    
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="book.css">
+    <link rel="stylesheet" type="text/css" href="webbook.css">
+    <link rel="stylesheet" type="text/css" href="grandpas_sweets.css">
+  </head>
+
+  <body>
+<article>
+      <header>
+	<h1>Book</h1>
+	<p>CSS for articles and books</p> 
+	<div>
+	  <author>Robert Crowther</author>
+	  <date>July 2016</date>
+	</div>
+      </header>
+
+      <h4>General Text</h4>
+      <p>
+	Open and close with 'article' or 'section'. 
+      </p>
+<p>
+Paragraphs are opened with indents (not extra lines), thusly,
+</p>
+<p>
+How true were his words, and how wise! How fortunate it would have been
+for me if I had heeded them. But I was young, I was but seven years of age,
+and vain, foolish, and anxious to attract attention. I wrote the biography, and
+have never been in a respectable house since.
+</p>
+      <p>
+	Headlines 1--5 are provided (several alternative sets of heading style can be uncommented, see the CSS file). All headings can handle line-wrapping:
+      </p>
+      <h1>(Headline h1) Title</h1>
+      <h1>Exceedingly long title which may split lines</h1>
+      <p>Following text...</p>
+
+      <h2><span class="num">7</span><span class="title">(Headline h2) Book Part</span></h2>
+      <h2><span class="num">7</span><span class="title">Exceedingly long part which may split lines</span></h2>
+      <p>Following text...</p>
+
+      <h3><span class="num">7</span><span class="title">(Headline h3) Chapter</span></h3>
+      <p>Following text...</p>
+
+      <h4><span class="num">7.3.1</span>(Headline h4) Section</h4>
+      <p>Following text...</p>
+
+      <h5><span class="num">7.3.1</span>(Headline h5) SubSection</h5>
+      <p>Following text...</p>
+
+      <h6>(Headline h6) SubSubSection</h6>
+      <p>
+	“Land of Darkness?” exclaimed Monkey, at last coming fully awake. “But that’s the realm of Yama, Lord of the Dead! I don’t belong here!”
+      </p>
+      <p>
+	Chapter headlines(h3) can be used with no number and title elements, but may loose decorations:
+      </p>
+      <h3>(Headline h3) Chapter</h3>
+      <p>
+	“That’s what they all say!” said Horse Face.
+      </p>
+
+
+
+      <h4>Other Text elements</h4>
+      <p>
+	General text is in paragraph tags. Paragraphs use a first-line indent.
+      </p>
+      <p> Continuing with sample text, "They are the best-known unknown persons that have ever drawn breath upon the planet".
+      </p>
+
+      <p>
+	Lists,
+      </p>
+
+      <ul><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+
+      <p>
+	and ordered lists,
+      </p>
+
+      <ol><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ol>
+
+      <p>
+	Wide-spaced lists,
+      </p>
+
+      <ul  class="wide"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+
+      <p>
+	Definition lists (formatted for word specifications/explanations). Note that the preferred effect of hanging indent is not possible, so avoid multi-line definition list items,
+      </p>
+
+      <dl><dd>BYTE</dd><dt>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise</dt><dd>WORD</dd><dt>(following Microsoft fix) 16‐bit</dt><dd>DWORD</dd><dt>double natural size, 32‐bit</dt><dd>QWORD</dd><dt>quad natural size, 64‐bit</dt></dl>
+
+      <p>
+	...and wide,
+      </p>
+
+      <dl class="wide"><dd>BYTE</dd><dt>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.</dt><dd>WORD</dd><dt>(following Microsoft fix) 16‐bit</dt><dd>DWORD</dd><dt>double natural size, 32‐bit</dt><dd>QWORD</dd><dt>quad natural size, 64‐bit</dt></dl>
+
+      <h4>Figures and illustrations</h4>
+
+      <p>
+	Figures can contain blockquotes (must be in a figure):
+      </p>
+
+      <figure>
+	<blockquote>
+
+	  <p>
+	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
+	  </p>
+	  <p>
+	    Nulla elementum nisi a efficitur scelerisque. Donec sed purus sem. Morbi in vestibulum nisi. 
+	  </p>
+	  <p>
+	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
+	  </p>
+
+	</blockquote>
+      </figure>
+
+      Adding the "blockparagraph" class alters the paragraphing style,
+
+      <figure>
+	<blockquote class="blockparagraph">
+
+	  <p>
+	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
+	  </p>
+	  <p>
+	    Nulla elementum nisi a efficitur scelerisque. Donec sed purus sem. Morbi in vestibulum nisi. 
+	  </p>
+	  <p>
+	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
+	  </p>
+
+	</blockquote>
+      </figure>
+
+      <p>
+	Blockquoting is intended for referenced texts. Blockquotes can have styled cite(ations),
+      </p>
+
+      <figure>
+	<blockquote>
+	  <p>
+	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
+	  </p>
+
+	</blockquote>
+	<cite>Lorem Ipsum</cite>
+      </figure>
+
+      <p>
+	...or full figurecaptions,
+      </p>
+
+      <figure>
+	<blockquote>
+	  <p>
+	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
+	  </p>
+
+	</blockquote>
+	<figcaption><span class="num">0.1</span> Lorem Ipsum</figcaption>
+      </figure>
+
+
+
+      <p>
+	Blockquotes can be decorated with boxes,
+      </p>
+
+      <figure>
+	<blockquote  class="framed">
+	  <p>Blockquote classed as 'framed'.</p>
+	</blockquote>
+      </figure>
+
+      <p>
+	...or ruled,
+      </p>
+
+      <figure>
+	<blockquote  class="ruled">
+	  <p>Blockquote classed as 'ruled'.</p>
+	</blockquote>
+      </figure>
+
+      <p>
+	... and set wide,
+      </p>
+
+      <figure class="wide">
+	<blockquote class="framed">
+	  <p>Figure classed as 'wide', blockquote as 'framed'.</p>
+	</blockquote>
+      </figure>
+
+      <p>
+	...framed blockquotes can also be given cites/captions,
+      </p>
+
+      <figure>
+	<blockquote class="frame">
+	  <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
+	  <p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
+	</blockquote>
+	<figcaption><span class="num">0.2</span>Francis Bacon</figcaption>
+      </figure>
+
+      <p>
+	Figures can also contain images, such as the illustrative display below,
+      </p>
+
+      <figure>
+	<img  src="../../images/bird.jpg"/>
+	<figcaption><span class="num">3</span>USB stick</figcaption>
+      </figure>
+
+      <p>
+	and be framed,
+      </p>
+
+      <figure>
+	<img class="framed" src="../../images/bird.jpg"/>
+	<figcaption><span class="num">4</span>Bird</figcaption>
+      </figure>
+
+      <p>
+	...or ruled. Book illustrations are nealy always full width, but 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
+      </p>
+
+      <figure class="xx-narrow">
+	<img class="ruled" src="../../images/bird.jpg"/>
+	<cite>rcrowther</cite>
+      </figure>
+
+      <!--
+
+		That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+
+	  -->
+
+
+
+      <p>
+	Don't forget to close the 'article' or 'section'.
+      </p>
+
+    </article>
+
+
+
+<header id="site-nav">
+<nav>
+<ul>
+<li><a href="/articles/">Articles</a></li>
+<li><a href="/about.htm">About</a></li>
+<li><a href="/contact.htm">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section>
+      <p>
+	This markup is set in a new 'section'. Above is a sample navbar.
+      </p>
+      <p>
+	A table of contents (TOC). In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography,  
+      </p>
+      <h3><span class="title">Table of contents</span></h3>
+<nav  class="toc">
+
+      <h5>Rabbits</h5>
+<ul>
+<li><a href="hares">hares</a></li>
+<li><a href="levrets">levrets</a></li>
+<li><a href="bucks">rabbits</a></li>
+</ul>
+      <h5><span class="num">7</span><span class="title">Deer</span></h5>
+<ul>
+<li><a href="bucks"><span class="num">1</span><span class="title">bucks</span></a></li>
+<li><a href="deer"><span class="num">4</span><span class="title">deer</span></a></li>
+<li><a href="reindeer"><span class="num">155</span><span class="title">reindeer</span></a></li>
+</ul>
+</nav>
+      <p>
+	A TOC can be classed 'wide',
+      </p>
+<nav  class="toc">
+      <h5><span class="num">20</span><span class="title">Web</span></h5>
+<ul class="wide">
+<li><a href="bucks"><span class="num">1</span><span class="title">bucks</span></a></li>
+<li><a href="deer"><span class="num">4</span><span class="title">deer</span></a></li>
+<li><a href="reindeer"><span class="num">155</span><span class="title">reindeer</span></a></li>
+</ul>
+</nav>
+</section>
+
+    <footer style="margin:48pt 0 12pt 0; text-align:center;">
+      <p>Original model for most formatting, however crude the translation, is <a href="http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/memoir/memman.pdf">'Memoir'</a> </p>
+      <p style="text-indent: 0;">HTML/CSS by Robert Crowther, 2016</p>
+    </footer>
+
+  </body>
+</html>
