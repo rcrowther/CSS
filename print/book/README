@@ -3,7 +3,7 @@ Max-width print-orientated text for books.
 
 Book is a bit of an oddity. It is based in the 'Memoir' subclass of the ''Latex' subclass of Tex. Of course, it has nothing of the flexibility or quality of that code. It copies the rough formatting of the default settings into CSS.
 
-The Memoir package is an odd but useful package, which covers the idea of sections in a book, addding many heading and layout options, and a few other extras. It is useful both for technical books/papers and fictional works. It's major lack, or the items it does not cover, are mathematical notations/technical diagrams. It is appologetic about, yet handy for, poetry. 
+The Memoir package is an odd but useful package, which covers the idea of sections in a book, adding many heading and layout options, and a few other extras. It is useful both for technical books/papers and fictional works. It's major lack, or the items it does not cover, are mathematical notations/technical diagrams. It is apologetic about, yet handy for, poetry. 
 
 This CSS is rough approximation of the ''Demo2' heading style, with the ''memman' subheading styles.
 
@@ -41,9 +41,9 @@ Should image figures have more vertical space?
 == Printing
 ''book' takes a tangental approach to print and display.
 
-Despite being a ''print' implementation, the style does not implement more advanced page CSS---verso/recto pages, counted titling etc. Reason being, ''book' is designed to be a printable view, WISYWIG, not a complete book design package.
+Despite being a ''print' implementation, the style does not implement more advanced page CSS---verso/recto pages, counted titling etc. Reason being, ''book' is designed to be a printable view, WYSIWIG, not a complete book design package.
 
-It provides some printblock alternatives, but these are all centred, as would be expected for such a purpose.
+It provides some printblock alternatives, but these are centred, as would be expected for such a purpose.
 
 
 
@@ -136,7 +136,7 @@ figure
 == Table of Contents
 HTML has a concept of paging, but the spec outline for paging remains undeveloped in any browser. So page numbers, the primary form of navigation in a book, remain undeveloped.
 
-With this loss of information, the layout of a TOC makes no sense in HTML --- it is a list of contents jambed to a left margin, without the dot separator. Moreover, much of the 'memoir' class is simply concerned with providing control over elements of theb table, not with providing pre-defined styles.
+With this loss of information, the layout of a TOC makes no sense in HTML --- it is a list of contents jambed to a left margin, without the dot separator. Moreover, much of the 'memoir' class is simply concerned with providing control over elements of the table, not with providing pre-defined styles.
 
 
 The current TOC is restructured into,

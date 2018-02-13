@@ -7,21 +7,29 @@
     padding: 0;
 }
 
-/*
-  ISO A4  
-  width: 210mm;
+/*  ISO A4 */
+.a4 {
   height: 297mm;
-  */
-/*
-  ISO A5  
+  width: 210mm;
+}
+
+/* ISO A5 */
+.a5 {
   width: 148mm;
   height: 210mm;
-  */
-/*
-  ANSI Letter 
+  }
+
+/* ISO A6 */
+.a6 {
+  height: 148mm; 
+  width: 105mm;
+}
+
+/*  ANSI Letter */ 
+.letter {
   width: 215.9mm;
   height: 279.4mm; 
-  */
+  }
 
 /* Simple print rules:
  * - h2, h3 break before
@@ -52,8 +60,11 @@ article > footer, section > footer {
 /* The page layouts below establish widths and optional heights
  * for print and display.
  * 
- * Beware running with no margins at all. Some printers/software will
- * reject these due to unprintable margins, resizing to cope.
+ * The proportions are adapted from the presets in the Memoir class.
+ * However, for the purpose of the web, the typeblocks are centred.
+ * It is also assumed that printed versions are centred (this work
+ * does not consider that the printed output may be assembled into
+ * a book, and thus require spine allocation).
  * 
  * A typeblock width is established of 130mm. For many fonts, at 12pt,
  * this should give a number of characters per line near 66. This is
@@ -61,6 +72,11 @@ article > footer, section > footer {
  * or narrow, then adjust the left/right margins (e.g. the Times Roman
  * font, devised for compact layout in columns, can go down to 47
  * characters per line).
+ * 
+ * The default is to use A4, Medieval typeblock.
+ * 
+ * Beware running with no margins at all. Some printers/software will
+ * reject these due to unprintable margins, resizing to cope.
  * 
  * If the margin width is changed, to maintain aspect ratios, the top
  * and bottom margins must be recalculated according to the given
@@ -70,7 +86,7 @@ article > footer, section > footer {
 
 /* Formulae */
 /*
- * Full page, unprintable  clearance
+ * Full page, unprintable clearance
  * 
  * margin =  5mm 5mm 5mm 10mm
  */
@@ -94,7 +110,26 @@ article > footer, section > footer {
 /* @bottom-right { content: counter(page); } */
 
 
-/* A4 centre print.
+
+
+/* A4 screen 
+ */
+/* Full page, unprintable  clearance */
+/* padding: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* padding:  40mm 40mm 80mm 40mm; */
+/* ISO centred */
+/* padding:  36mm 40mm 73mm 40mm; */
+@media screen {
+  body > article, body > section {
+	margin: 0 auto 0 auto;
+	width: 210mm;
+	padding:  40mm 40mm 80mm 40mm;
+	border:  1px solid red;
+  }
+}
+
+/* A4 print.
  */
 /* Full page, unprintable  clearance */
 /* margin: 5mm 5mm 10mm 5mm; */
@@ -109,46 +144,7 @@ article > footer, section > footer {
 }
 
 
-/* A4 centre screen 
- */
-/* Full page, unprintable  clearance */
-/* padding: 5mm 5mm 10mm 5mm; */
-/* Medieval centred */
-/* padding:  40mm 40mm 80mm 40mm; */
-/* ISO centred */
-/* padding:  36mm 40mm 73mm 40mm; */
-
-@media screen {
-    body > article, body > section {
-	margin: 0 auto 0 auto;
-	width: 210mm;
-	padding:  40mm 40mm 80mm 40mm;
-	border:  1px solid red;
-    }
-}
-
-
-
-/* A5 centre print.
- * 
- * (uses classical dimensions, rather than establishing 
- * a character count)
- */
-/* Full page, unprintable  clearance */
-/* margin: 5mm 5mm 10mm 5mm; */
-/* Medieval centred */
-/* margin: 25mm 25mm 50mm 25mm; */
-/* ISO centred */
-/* margin: 24mm 25mm 48mm 25mm; */
-/*
-  @media print {
-  @page { 
-  margin: 16mm 35mm 32mm 70mm;
-  }
-  }
-  */
-
-/* A5 centre screen 
+/* A5 screen 
  */
 /* Full page, unprintable  clearance */
 /* padding: 5mm 5mm 10mm 5mm; */
@@ -167,25 +163,26 @@ article > footer, section > footer {
   }
   */
 
-/* Letter centre print.
+/* A5 print.
+ * 
+ * (uses classical dimensions, rather than establishing 
+ * a character count)
  */
 /* Full page, unprintable  clearance */
 /* margin: 5mm 5mm 10mm 5mm; */
 /* Medieval centred */
-/* margin: 43mm 43mm 86mm 43mm; */
+/* margin: 25mm 25mm 50mm 25mm; */
 /* ISO centred */
-/* margin: 37mm 43mm 74mm 43mm; */
+/* margin: 24mm 25mm 48mm 25mm; */
 /*
   @media print {
   @page { 
-  margin: 37mm 43mm 74mm 43mm; 
+  margin: 16mm 35mm 32mm 70mm;
   }
   }
   */
 
-
-
-/* Letter centre screen 
+/* Letter screen 
  */
 /* Full page, unprintable  clearance */
 /* padding: 5mm 5mm 10mm 5mm; */
@@ -204,20 +201,43 @@ article > footer, section > footer {
   }
   */
 
+/* Letter print.
+ */
+/* Full page, unprintable  clearance */
+/* margin: 5mm 5mm 10mm 5mm; */
+/* Medieval centred */
+/* margin: 43mm 43mm 86mm 43mm; */
+/* ISO centred */
+/* margin: 37mm 43mm 74mm 43mm; */
+/*
+  @media print {
+  @page { 
+  margin: 37mm 43mm 74mm 43mm; 
+  }
+  }
+  */
+
+
+
+
 /* basic text size
- * 
- * at 12pt, the series is:
+ * Text size is assumed 12pt.
+ *  
+ * At 12pt, the series is:
  */
 /* 
+ * 8 \tiny
+ * 9 \scriptsize
+ * 10 \footnotesize
  * 11 \small
- * 12  
+ * 12 \normalsize
  * 14 \large
  * 17 \Large
  * 20 \LARGE
  * 25 \huge
  * 30 \Huge
  * 36 \HUGE
- * 48
+ * 48 \great
  */
 /*
  * sec
@@ -230,9 +250,64 @@ article > footer, section > footer {
  * ---
  */
 
-body, h5, h6 {
-    font-size: 12pt;
-    line-height: 18pt;
+.tiny {
+  font-size: 8pt;
+  line-height: 9.3pt;
+}
+ 
+.scriptsize {
+  font-size: 9pt;
+  line-height: 10pt;
+}
+    
+.footnotesize {
+  font-size: 10pt;
+  line-height: 12pt;
+}
+    
+.small {
+  font-size: 11pt;
+  line-height: 13.6pt;
+}
+ 
+.normalsize, body, h5, h6 {
+  font-size: 12pt;
+  line-height: 14.5pt;
+}
+
+.large0 {
+  font-size: 14pt;
+  line-height: 18pt;
+}
+
+.large1 {
+  font-size: 17pt;
+  line-height: 22pt;
+}
+
+.large2 {
+  font-size:21pt;
+  line-height: 25pt;
+}
+
+.huge0 {
+  font-size:25pt;
+  line-height: 30pt
+}
+
+.huge1 {
+  font-size: 30pt;
+  line-height: 36pt;
+}
+
+.huge2 {
+  font-size: 36pt;
+  line-height: 42pt;
+}
+
+.great {
+  font-size: 48pt;
+  line-height: 60pt;
 }
 
 
@@ -240,9 +315,6 @@ body{
     font-weight: normal;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;    
 }
-
-
-
 
 /* title/book */
 h1, h2 {
