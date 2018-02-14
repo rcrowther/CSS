@@ -12,13 +12,13 @@
   <body>
 
     <article>
-      <header>
-	<h1>Book</h1>
-	<p>CSS for articles and books</p> 
-	<div>
-	  <author>Robert Crowther</author>
-	  <date>July 2016</date>
-	</div>
+      <header class="sitetitle">
+        <h1 class="title">Book</h1>
+        <p class="subtitle">CSS for articles and books</p> 
+        <div class="data">
+          <author>Robert Crowther</author>
+          <date>July 2016</date>
+        </div>
       </header>
 
       <h4>General Text</h4>
@@ -317,39 +317,38 @@ a chapter or section heading, is indented.
     </article>
 
 <section>
-      <p>
+  <p>
 	This markup is set in a new 'section'.
-      </p>
-      <p>
+  </p>
+  <p>
 	A table of contents (TOC). In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography,  
-      </p>
-      <h3><span class="title">Table of contents</span></h3>
-<nav  class="toc">
-
-      <h5>Rabbits</h5>
-<ul>
-<li>hares</li>
-<li>levrets</li>
-<li>rabbits</li>
-</ul>
-      <h5><span class="num">7</span><span class="title">Deer</span></h5>
-<ul>
-<li><span class="num">1</span><span class="title">bucks</span></li>
-<li><span class="num">4</span><span class="title">deer</span></li>
-<li><span class="num">155</span><span class="title">reindeer</span></li>
-</ul>
-</nav>
-      <p>
+  </p>
+  <h3><span class="title">Table of contents</span></h3>
+  <nav class="toc">
+    <h5 class="subtitle">Rabbits</h5>
+    <ul class="contents">
+      <li>hares</li>
+      <li>levrets</li>
+      <li>rabbits</li>
+    </ul>
+    <h5 class="subtitle"><span class="num">7</span><span class="title">Deer</span></h5>
+    <ul class="contents">
+      <li><span class="num">1</span><span class="title">bucks</span></li>
+      <li><span class="num">4</span><span class="title">deer</span></li>
+      <li><span class="num">155</span><span class="title">reindeer</span></li>
+    </ul>
+  </nav>
+  <p>
 	A TOC can be classed 'wide',
-      </p>
-<nav  class="toc">
-      <h5><span class="num">20</span><span class="title">Web</span></h5>
-<ul class="wide">
-<li><span class="num">1</span><span class="title">bucks</span></li>
-<li><span class="num">4</span><span class="title">deer</span></li>
-<li><span class="num">155</span><span class="title">reindeer</span></li>
-</ul>
-</nav>
+  </p>
+  <nav  class="toc">
+    <h5><span class="num">20</span><span class="title">Web</span></h5>
+    <ul class="wide contents">
+      <li><span class="num">1</span><span class="title">bucks</span></li>
+      <li><span class="num">4</span><span class="title">deer</span></li>
+      <li><span class="num">155</span><span class="title">reindeer</span></li>
+    </ul>
+  </nav>
 </section>
 
     <footer style="margin:48pt 0 12pt 0; text-align:center;">

@@ -1,7 +1,7 @@
 = Book
 Max-width print-orientated text for books.
 
-Book is a bit of an oddity. It is based in the 'Memoir' subclass of the ''Latex' subclass of Tex. Of course, it has nothing of the flexibility or quality of that code. It copies the rough formatting of the default settings into CSS.
+Book is an oddity. It is based in the 'Memoir' subclass of the ''Latex' subclass of Tex. Of course, it has nothing of the flexibility or quality of that code. It copies the rough formatting of the default settings into CSS.
 
 The Memoir package is an odd but useful package, which covers the idea of sections in a book, adding many heading and layout options, and a few other extras. It is useful both for technical books/papers and fictional works. It's major lack, or the items it does not cover, are mathematical notations/technical diagrams. It is apologetic about, yet handy for, poetry. 
 
@@ -62,11 +62,11 @@ Memoir is modest in claims and sophisticated at setting verse. This would requir
 
 
 === Titles
-Memoir provides ''book', part, and six levels of titling. It also offers a ''title' macro. This is impossible in the HTML six levels.
+Memoir provides ''book', ''part', and six levels of titling. It also offers a ''title' macro. This is impossible in the HTML six levels.
 
-We could force the issue using nested sections/articles, but HTML Spec recommends using heading rank to represent nesting level. Similarly, the use of CSS classes is reejected.
+We could force the issue using nested sections/articles, but HTML Spec recommends using heading rank to represent nesting level. Similarly, the use of CSS classes is rejected.
 
-The solution is to drop \book, \paragraph, and \subparagraph. This leaves h1 as a general title, good for search engines.
+The solution is to drop \book, \paragraph, and \subparagraph.
 
 
 ==== Book title, h1
@@ -109,9 +109,6 @@ H2, H3 can optionally be,
 NB: The name of the heading i.e. ''chapter', or ''part', appears in some heading styles e.g. ''Chapter 4'.  The data does not appear in HTML. This data is written by, and can be changed in, CSS.
 
 
-== h3 alternatives
-Commented out are some quick shots at alternate styles. So far, Default and Chappel.
-
 
 == h4/h5 section/subsection/subsubsection
 H2, H3 can optionally be,
@@ -121,6 +118,14 @@ H2, H3 can optionally be,
      span class="num" 4
      title text...
 #
+
+== h3/h4/h5/h6 alternatives
+Commented out are some alternate styles for titling.
+
+
+== h3 alternatives
+Commented out are some quick shots at alternate chapter heading styles.
+
 
 === Figures
 
