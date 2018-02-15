@@ -112,8 +112,7 @@ article > footer, section > footer {
 
 
 
-/* A4 screen 
- */
+/* A4 screen */
 /* Full page, unprintable  clearance */
 /* padding: 5mm 5mm 10mm 5mm; */
 /* Medieval centred */
@@ -458,7 +457,7 @@ h3 {
 
 /* memman  */
 /* Should be numbers as words */
-/*
+
 @media print {
   .memman-chpt, h3 { 
     margin-top: 0pt;
@@ -490,7 +489,7 @@ h3 {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
-*/
+
 .mmn-sctn, h4 {
     font-variant: small-caps;
     font-weight: normal;
@@ -829,7 +828,7 @@ code {
 
 /* Bianchi */
 /*Very large? Down from 17 25 30 to 14 20 25 */
-
+/*
 .bia-chpt, h3 {
   font-size: 25pt;
   line-height: 36pt;
@@ -859,7 +858,7 @@ code {
   border-bottom: 1px solid black;
   padding: 12pt 0;
 }
-
+*/
 
 /* Brotherton */
 /*
@@ -1003,7 +1002,7 @@ content: "Chapter ";
 
 /* Paragraphs */
 
-/** except chapter or section heading? */
+/* except chapter or section heading? */
 p + p {
     text-indent: 2em;
 }
@@ -1146,7 +1145,7 @@ ol.wide > li, ul.wide > li, dl.wide > dt {
   margin:0 4em;
 }
 
-.toc > .contents{
+.toc-list{
   list-style-type: none;
   margin: 0 0 12pt 1.5em;
 }
@@ -1155,12 +1154,12 @@ ol.wide > li, ul.wide > li, dl.wide > dt {
 display: inline-block;
 }
 
-.toc .subtitle .num{
+.toc-subtitle .num{
 width: 1.55em;
 }
 
-.toc .contents .num{
-width: 3em;
+.toc-list .num{
+width: 2.5em;
 }
 
 

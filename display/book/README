@@ -1,5 +1,10 @@
 An override for book.css when used on the web.
 
+''webbook.css' is a small file that adds...
+
+== Responsive queries
+So the standard book display is rougly responsive. And kills some top margins.
+
 == TOC
 Typographic tables of content present considerable problems when transfered to the web. While translation of typographic standards may be instructive, and usable, the TOC layout fails in several ways. First, it must be adjusted to work without page numbers. After that, the layout will be deficient. Human interface guidelines tell us,
 
@@ -7,24 +12,32 @@ Typographic tables of content present considerable problems when transfered to t
 @ Web links must be clearly demarked as links
 @ Different colours are not enough, as they are unusable by the colourblind --- shapes must change
 
-Of these, the adjusted old layout in the printable 'book.css' succeeds in only one aspect --- it is clearly laid out. And it fails in yet another --- book TOCs must often contain a great deal of content, so were designed to be compact; but a web TOC will not have much content.
+Of these, the adjusted old layout in the printable 'book.css' succeeds in only one aspect --- it is clearly laid out. And it fails in yet another --- book TOCs must often contain a great deal of content, so were designed to be compact; but a web TOC will not usually have much content.
 
 I suspect old printers would have objected to current typography. Not because they could not manage colour, animation or scaling (they took pleasure in demonstrating their effects), but because a TOC is not that important. Titles are nothing, a navigation aid to content.
 
-I'm not saying I've solved the problem, but some styles are presented here as a start.
+I'm not saying I've solved the problem, but some styles are presented.
 
+=== Implementation of TOC as links
 All styles assume an internal anchor inside the list tag wrapping the visible contents.
 
-Unless the TOC fills the page, contained 'ul' tags should be classed 'wide'. That's a start, as the override wide styling provides extend internal padding, so the anchor becomes larger.
+nav .toc .toc-groove
+  ul .toc-list
+    a 
+      span .num
+      span .title
+      
+Unless the TOC fills the page, contained 'ul' tags should be classed 'wide'. That's a start, as the override wide styling provides extended internal padding, so the anchor becomes larger.
 
+Currently, three themes are available.
 
 
 == Navigation topbars
-The navbar is now split off as aseperate 'book-styled' item. This creates more CSS, to ensure the bar appears as it sghould, but also means a 'book-styled' bar can be used in pages containing other CSS.
+The navbar is now split off as a seperate 'book-styled' item. This creates more CSS, to ensure the bar appears as it should, but also means a 'book-styled' bar can be used in pages containing other CSS.
  
 Navbars are not part of a containing article or section. They belong to the site. In W3 HTML5 draft spec they are shown as a first child of the body tag.
 
-This means they sit above the stock, wheras in typography they would be inside the stock, and at the top of the block, too. This probably means we have to compensate on stock size. And if we want them to be part of the block, we need to trium the block top and replace it over the topbar.
+This means they sit above the typeblock, whereas in typography they would be inside the typeblock. This probably means we have to compensate on stock size. And if we want them to be part of the block, we need to trim the block top and replace it over the topbar.
 
 And, much as I would like a navbar to replicate a book by borrowing, say, subhead styling, using h? tags is web-bad.
 
@@ -32,4 +45,4 @@ Also, a navbar can be either a 'header' or a 'nav' tag. Both of which can occur 
 
 At least the styling is straightforward. Headers are nearly always two lines high, in a slightly enlarged font.
 
-The typography decision are not simple, either. 
+The typography decisions are not simple, either. 
