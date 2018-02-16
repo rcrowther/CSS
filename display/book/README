@@ -33,7 +33,7 @@ Currently, three themes are available.
 
 
 == Navigation topbars
-The navbar is now split off as a seperate 'book-styled' item. This creates more CSS, to ensure the bar appears as it should, but also means a 'book-styled' bar can be used in pages containing other CSS.
+The navbar is split off as a seperate 'book-styled' item. This creates more CSS, to ensure the bar appears as it should, but also means a 'book-styled' bar can be used in pages containing other CSS.
  
 Navbars are not part of a containing article or section. They belong to the site. In W3 HTML5 draft spec they are shown as a first child of the body tag.
 
@@ -41,8 +41,10 @@ This means they sit above the typeblock, whereas in typography they would be ins
 
 And, much as I would like a navbar to replicate a book by borrowing, say, subhead styling, using h? tags is web-bad.
 
-Also, a navbar can be either a 'header' or a 'nav' tag. Both of which can occur plentifully elsewhere. Time for an 'id'.
+Also, a navbar can be either a 'header' or a 'nav' tag. Both of which can occur plentifully elsewhere.
 
-At least the styling is straightforward. Headers are nearly always two lines high, in a slightly enlarged font.
+At least the styling is straightforward. Headers are nearly always two lines high, in a slightly enlarged font?
 
 The typography decisions are not simple, either. 
+
+Responsive, and themes are available, and classes to alter the action to CSS over menu.

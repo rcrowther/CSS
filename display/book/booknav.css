@@ -1,6 +1,3 @@
-
-
-
 /* Navbar 
  * Currently, must contain a UL list of links.
  * 
@@ -101,6 +98,9 @@
     }
 }
 
+
+/* Responsive design */
+
 /* Greater than a desktop/tablet, display the menu inline */
 @media screen and (min-width: 480px) {
   /* inline site-nav */
@@ -109,15 +109,11 @@
   }
 }
 
-
-/* Responsive design */
 /* Less than a desktop/tablet, stack the menu.
  * if bk-navbar-dropdown is added, and a dropdown mark inserted in the
  * HTML, this will become a hover-triggered menu. You probably want to
  * use this if the menu contains over four items (or maybe always?).
- * 
  */
-
 .bk-navbar-dropdown-mark {
   display: none;
   padding-right: 0.5em;
