@@ -1,97 +1,8 @@
-*, html, body {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-    margin: 0;
-    padding: 0;
-}
 
 
-body, h5, h6 {
-    font-size: 12pt;
-    line-height: 18pt;
-}
-
-
+/* Restate fancier palatino font */
 body{
-    font-weight: normal;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;    
-}
-
-/* Simple print rules:
- * - h2, h3 break before
- * - Avoid break after titles
- * - Avoid break in figures, tables, or lists
- */
-article > header, section > header, h2 {
-    page-break-after: always;
-}
-
-h2, h3 {
-    page-break-before: always;
-}
-
-h3, h4, h5, h6 {
-    page-break-after: avoid;
-}
-
-table, figure, ol, ul, dl {
-    page-break-before: avoid;
-    page-break-inside: avoid;
-}
-
-article > footer, section > footer {
-    page-break-inside: avoid;
-}
-
-/* Medieval centred text-block */
-@media print {
-    @page { 
-	margin:  40mm 40mm 80mm 40mm;
-    }
-}
-@media screen {
-    body > article, body > section {
-	margin: 0 auto 0 auto;
-	width: 210mm;
-	padding:  40mm 40mm 80mm 40mm;
-    }
-}
-
-
-@media screen {
-    h3 { 
-	margin-top: 120pt;
-    }
-}
-
-@media print {
-    h3 { 
-	margin-top: 50pt;
-    }
-}
-
-/* basic text size
- * 
- * at 12pt, the series is:
- */
-/* 
- * 11 \small
- * 12  
- * 14 \large
- * 17 \Large
- * 20 \LARGE
- * 25 \huge
- * 30 \Huge
- * 36 \HUGE
- * 48
- */
-body{
-font-size: 12pt;
-line-height: 18pt;
-font-weight: normal;
-font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
 }
 
 /* Grandpa's sweets */
@@ -105,7 +16,7 @@ h2, h4, h6 {
 font-weight: normal; 
 }
    
-h1 {
+.book, h1 {
 font-size: 60pt;
 line-height: 72pt;
 letter-spacing: -0.4rem;
@@ -114,7 +25,7 @@ margin-bottom: 0;
 font-weight:500;
 }
 
-h2 {
+.part, h2 {
 font-size: 25pt;
 line-height: 48pt;
 letter-spacing:0.15rem;
@@ -122,7 +33,7 @@ text-transform: uppercase;
 margin-top: 24pt;
 }
 
-h3 {
+.gps-chpt, h3 {
 font-weight: bold;
 font-size:20pt;
 line-height: 30pt;
@@ -142,8 +53,19 @@ border: 0.4rem solid crimson;
 margin: 0 auto;
 }
 
+@media screen {
+  .gps-chpt, h3 { 
+	  margin-top: 120pt;
+  }
+}
 
-h4 {
+@media print {
+  .gps-chpt, h3 { 
+	  margin-top: 50pt;
+  }
+}
+
+.gps-sctn, h4 {
 font-size:18pt;
 font-style: italic;
 letter-spacing:0.12rem;
@@ -151,35 +73,22 @@ line-height: 25pt;
 margin-top: 24pt;
 }
 
-h5 {
+
+.gps-subsctn, h5 {
 font-weight: 600;
 letter-spacing:0.07rem;
 text-transform: lowercase;
 margin-top: 14pt;
 }
 
-h6 {
+.gps-subsubsctn, h6 {
 font-style: italic;
 text-transform: lowercase;
 margin-top: 8pt;
 }
 
 img {
-border: 2pt solid #000000;
-}
-
-blockquote {
-margin: 4pt 0;
-padding: 0 0.5em;
-}
-
-.framed {
-border: 1px solid #000000;
-}
-
-.ruled {
-border-top: 1px solid #000000;
-border-bottom: 1px solid #000000;
+border: 3pt solid #000000;
 }
 
 a {
