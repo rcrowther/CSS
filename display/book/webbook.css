@@ -47,8 +47,8 @@ body > article, body > section {
 @media screen and (max-width: 210mm) {
   body > article, body > section {
     width:100%;
-	  padding-left: 2em;
-	  padding-right: 2em;
+	  padding-left: 1em;
+	  padding-right: 1em;
 	  /* border: 1px solid red; */
   }
 }
@@ -74,8 +74,8 @@ body > article, body > section {
 /* flex width and crush stock padding, same as stock-intrusive widths */
   body > article, body > section {
     width: 100%;
-	  padding-left: 2em;
-	  padding-right: 2em;
+	  padding-left: 1em;
+	  padding-right: 1em;
   }
 }
 

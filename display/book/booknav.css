@@ -1,11 +1,9 @@
 
-/* Killer */
-#site-nav * {
-    padding: 0;
-    margin: 0;
-    }
+
 
 /* Navbar 
+ * Currently, must contain a UL list of links.
+ * 
  * If the font size changes:
  * 
  * line height = line-height*2
@@ -20,15 +18,17 @@
  * full-width
  * block-width
  *
- * border alternatives:
- * ruled style (usually poetry/imaginative essays) 
- * plain style - comment out border and text decoration reset.
- * 
- * Other styles: use bullets not rules. Orange background (see below)
- * Rule and underscore on same style is overkill.
  */
 
-#site-nav {
+/* Killer. Ugly, but beware side margins/padding in paticular, they 
+ * interfere with resposive positioning.
+ */
+.bk-navbar * {
+    padding: 0;
+    margin: 0;
+}
+    
+.bk-navbar {
     box-sizing: border-box;
     font-family: Lora, Georgia, serif;
     font-size: 12pt;  
@@ -36,71 +36,156 @@
     font-weight:normal;
     text-align: center;
     color: #333;
-
     margin: 0 auto 12pt auto;
-    /* Alternative:  more generous width */
-	/*width: 210mm;*/
-    width: 130mm;
-    /* Alternative: comment and use bullets */
-    border-bottom: black solid 1px;
+
 }
-
-
-
-
-/* Alternative, use colored background. Replaces a rule. */
-/*
-#site-nav li {   
-   background-color: orange;
-   }
-*/
    
-#site-nav ul a {
+.bk-navbar a {
     padding: 14px 1em;
     text-decoration: none;
     /* will not necessarily be inherited, needs forcing */
     color: #222;
 }
 
-#site-nav ul a:hover {
+/* Themes */
+/* ruled underline */
+/* Usually used for creative/artistic work */
+.bk-navbar-ruled {
+    border-bottom: black solid 1px;
+    /* stock width */
+    /*width: 210mm;*/
+    /* typeblock width */
+    width: 130mm;
+}
+
+.bk-navbar-ruled a:hover {
+    color: #b85051;
+}
+
+/* Coloured boxes */
+/* forceful, maybe for site navigation */
+.bk-navbar-boxes li {
+  /* Light, slightly muddy beige */
+  background-color: #f0ebd8;
+  /* orange */   
+   background-color: orange;
+}
+
+/*  Underlined */
+/* classic web shape, but subtle */
+.bk-navbar-w3 a {
+    text-decoration: underline;
+}
+
+.bk-navbar-w3 a:hover {
+    color: #b85051;
+}
+
+/* no decoration, hover underline */
+/* With no decoration, this theme is not intended to be used without 
+ * support. The idea is, further HTML/CSS will provide styling for 
+ * selected anchors/buttons. Whenever visible, like radio buttons, the
+ * navbar ewill always have at least one anchor/button selected, (in 
+ * some way).
+ * The 'selected' style will indicate the text is a navbar.
+ */
+.bk-navbar-to-select a:hover {
+    text-decoration: underline;
     color: #b85051;
 }
 
 /* for printing, hide navbars */
 @media print {
-#site-nav {
+.bk-navbar {
     display: none;
     }
 }
 
-
-
 /* Greater than a desktop/tablet, display the menu inline */
 @media screen and (min-width: 480px) {
-
-/* inline site-nav */
-#site-nav li {
+  /* inline site-nav */
+  .bk-navbar li {
     display: inline-block;
-    }
+  }
 }
 
-    
-/* Less than a desktop/tablet, stack the menu */
-@media screen and (max-width: 480px) {
-/* stack site-nav */
-/* site nav needs some padding/margin killing for vertical stacking */
 
-#site-nav {
+/* Responsive design */
+/* Less than a desktop/tablet, stack the menu.
+ * if bk-navbar-dropdown is added, and a dropdown mark inserted in the
+ * HTML, this will become a hover-triggered menu. You probably want to
+ * use this if the menu contains over four items (or maybe always?).
+ * 
+ */
+
+.bk-navbar-dropdown-mark {
+  display: none;
+  padding-right: 0.5em;
+}
+    
+@media screen and (max-width: 480px) {
+  /* needs some padding/margin killing for vertical stacking */
+  .bk-navbar {
     width: auto;
     margin: 0 0 12pt 0;
-    }
+  }
 
-#site-nav li {
+  .bk-navbar li {
     display: block;
-    }
+  }
     
-#site-nav ul a {
+  .bk-navbar a {
     padding:14px 0;
     display: block;
-    }
+  }
+  
+  /* little mod to make 'ruled' theme more consistent in responsive modes */
+  .bk-navbar-ruled {
+    border-bottom: none;
+  }
+  
+  .bk-navbar-ruled li:first-of-type {
+    border-top: black solid 1px;
+  }
+  
+  .bk-navbar-ruled li {
+    border-bottom: black solid 1px;
+  }
+
+  /*
+   * Triggered dropdown menu.
+   * A hover-action menu.
+   * Overrides the stacked menu.
+   * The element this class is attached to should contain an element
+   * with a mark e.g. 
+   * <span class="bk-navbar-dropdown-mark"> &#x2261;</span>
+   * 
+   */
+  .bk-navbar-dropdown {
+    position:relative;
+    display: block;
+    cursor: pointer;
+    background-color: #D3D3D3;
+    text-align:right;
+  }
+  
+  .bk-navbar-dropdown > .bk-navbar-dropdown-mark {
+    display: inline;
+  }
+  
+  .bk-navbar-dropdown ul {
+    position:absolute;
+    z-index: 4;
+    width:100%;
+    background-color:#F5F5F5;
+  }
+  
+  .bk-navbar-dropdown li {
+    display: none;
+    text-align:center;
+  }
+  
+  .bk-navbar-dropdown:hover li {
+    display: block;
+  }
 }
