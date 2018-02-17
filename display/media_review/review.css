@@ -201,22 +201,20 @@ figure > cite {
 }
 
 .pro::before {
-    font-size: 14pt;
-    line-height: 24pt;
-content: 'pro';
-font-weight:bold;
-background-color: #000;
-color: #fff;
-padding: 4pt;
+  font-size: 14pt;
+  line-height: 24pt;
+  content: 'pro';
+  font-weight:bold;
+  background-color: #000;
+  color: #fff;
+  padding: 4pt;
 }
 .con::before {
-    font-size: 14pt;
-    line-height: 20pt;
-content: 'con';
-font-weight:bold;
-
-background-color: #000;
-color: #fff;
-padding: 4pt;
-
+  font-size: 14pt;
+  line-height: 20pt;
+  content: 'con';
+  font-weight:bold;
+  background-color: #000;
+  color: #fff;
+  padding: 4pt;
 }
