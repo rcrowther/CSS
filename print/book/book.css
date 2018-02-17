@@ -571,7 +571,7 @@ font-style: italic;
   text-align: center;
   }
 
-.crh-chpt, .crh-sctn, .crh-subsctn, .crh-subsubsctn, h3 {
+.crh-chpt, h3 {
 font-weight: bold;
 font-size:20pt;
 line-height: 30pt;
