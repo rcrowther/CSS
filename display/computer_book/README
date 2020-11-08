@@ -5,6 +5,9 @@ Based in a few computer books (Step into Scala?). Includes CSS for computer code
 
 Codeblock and image (only full width) figures with captions can be made. Inline codeblocks and definition lists also available.
 
+Should play ok with ''booknav.css' and ''webbook.css', from /book
+
+
 
 == State of play
 Needs fixing:

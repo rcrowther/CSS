@@ -1,3 +1,26 @@
+/* Breadcrumb */
+.breadcrumb {
+    margin: 0;
+    font-variant: small-caps;
+}
+
+.breadcrumb li {
+    display: inline-block; 
+}
+
+.breadcrumb li::after {
+    content: ">";
+}
+
+.breadcrumb a {
+    padding: 7px 0.5em;
+    text-decoration:none; 
+}
+
+.breadcrumb a:hover {
+    color: #996423;
+}
+
 /* Navbar 
  * Currently, must contain a UL list of links.
  * 
@@ -82,7 +105,7 @@
 /* With no decoration, this theme is not intended to be used without 
  * support. The idea is, further HTML/CSS will provide styling for 
  * selected anchors/buttons. Whenever visible, like radio buttons, the
- * navbar ewill always have at least one anchor/button selected, (in 
+ * navbar will always have at least one anchor/button selected, (in 
  * some way).
  * The 'selected' style will indicate the text is a navbar.
  */

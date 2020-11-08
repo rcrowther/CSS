@@ -1,11 +1,12 @@
-An override for book.css when used on the web.
+Overrides for book.css when used on the web.
 
+== Webbook
 ''webbook.css' is a small file that adds...
 
-== Responsive queries
+=== Responsive queries
 So the standard book display is rougly responsive. And kills some top margins.
 
-== TOC
+=== TOC
 Typographic tables of content present considerable problems when transfered to the web. While translation of typographic standards may be instructive, and usable, the TOC layout fails in several ways. First, it must be adjusted to work without page numbers. After that, the layout will be deficient. Human interface guidelines tell us,
 
 @ Even for able users, link areas are preferred to be large.
@@ -31,8 +32,20 @@ Unless the TOC fills the page, contained 'ul' tags should be classed 'wide'. Tha
 
 Currently, three themes are available.
 
+== BookNav
 
-== Navigation topbars
+''booknav.css' is a small file that contains...
+- a navigation topbar
+- a breadcrumb theme
+
+
+=== Breadcumb
+Only one theme. You could, for example, add ''large0'.
+
+Lightweight, and not dependant, so can be placed wherever you like, left, right, center.
+
+
+=== Navigation topbar
 The navbar is split off as a seperate 'book-styled' item. This creates more CSS, to ensure the bar appears as it should, but also means a 'book-styled' bar can be used in pages containing other CSS.
  
 Navbars are not part of a containing article or section. They belong to the site. In W3 HTML5 draft spec they are shown as a first child of the body tag.
@@ -47,4 +60,26 @@ At least the styling is straightforward. Headers are nearly always two lines hig
 
 The typography decisions are not simple, either. 
 
-Responsive, and themes are available, and classes to alter the action to CSS over menu.
+There was a plan to make a full width alternative, but currently the navbar is centred.
+
+Responsive is builtin (see below). 
+
+Size can be easily changed, for example, add ''large0'.
+
+Themes are available, 
+?css
+    .bk-navbar-ruled
+    .bk-navbar-boxes
+    .bk-navbar-w3
+?
+and a helper,
+?css
+    .bk-navbar-to-select
+?
+
+
+=== Responsive
+On small screens, the basic setup stacks.
+
+If ''.bk-navbar-dropdown' is added, and a ''.bk-navbar-dropdown-mark' placed in the HTML, the CSS makes a Hamburger menu
+

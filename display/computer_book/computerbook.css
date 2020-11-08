@@ -22,6 +22,20 @@ body article, body section {
     margin: 0 auto 21px auto;
 }
 
+
+/* 14px is roughly 11pt = small */
+
+.normalsize {
+  font-size: 16px;
+  line-height: 15pt;
+  line-height: 27px;
+}
+
+.large0 {
+  font-size: 19px;
+  line-height: 33px;
+}
+
 h1 {
     font-size: 28px;
     line-height: 48px;
