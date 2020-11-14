@@ -22,26 +22,46 @@
       <h3>Headline h3</h3>
       <h4>Headline h4</h4>
       <h5>Headline h5</h5>
+
+
+      <h4>Other Text elements</h4>
+      <p>
+	    General text is in paragraph tags. Paragraphs use a first-line indent.
+      </p>
+      <p> New paragraph continues with sample text, "They are the best-known unknown persons that have ever drawn breath upon the planet".
+      </p>
+
+      <h5>Lists</h5>
+      <p>
+        Lists,
+      </p>
+
+      <p>
+        (This is a guess)
+      </p>
+      <ul><li><p>BYTE</p></li><li><p>WORD</p></li><li><p>DWORD</p></li><li><p>QWORD</p></li></ul>
+
+      <ul><li><p>And big list elements can be paragraphed with extended explainations of what is going on.</p><p>Queequeg explained to me that his world was very different from ours. However, one thing he learned quickly, was that within all groups of people there are kind men and there are unkind men.</p></li></ul>
+
       <p>
         So are definition lists (formatted for word specifications/explanations),
       </p>
 
-      <dl><dd>BYTE</dd><dt>8‐bit</dt><dd>WORD</dd><dt>(following Microsoft fix) 16‐bit</dt><dd>DWORD</dd><dt>double natural size, 32‐bit</dt><dd>QWORD</dd><dt>quad natural size, 64‐bit</dt></dl>
+      <dl><dt>BYTE</dt><dd>8‐bit</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
 
       <p>
         And blockquotes:
       </p>
 
       <blockquote>
-        I know what you're thinking: "Did he fire six shots, or only five?"
+        <p>I know what you're thinking: "Did he fire six shots, or only five?"</p>
+        <p>Well, to tell you the truth, in all this excitement, I've kinda lost track myself. </p>
       </blockquote>
 
       <p>
         Blockquoting is intended for referenced texts.
       </p>
-      <p>
-        General text is in paragraph tags. As can be seen, it uses a first-line indent. Continuing with sample text, "The typical access pattern for a list is recursive. For instance, to increment every..."
-      </p>
+
 
       <h2>Code blocks and illustrations</h2>
       <p>
@@ -65,13 +85,13 @@
       </p>
 
       <figure>
-	<pre><code>class ColoredPoint(x: Int, y: Int, val color: Color.Value)
+        <pre><code>class ColoredPoint(x: Int, y: Int, val color: Color.Value)
 	    extends Point(x, y) {
 
 	    override def hashCode = 41 * super.hashCode + color.hashCode
 	    }
-	</code></pre>
-	<figcaption>Listing 11.2 ‧  Prepending a supertype.</figcaption>
+        </code></pre>
+        <figcaption>Listing 11.2 ‧  Prepending a supertype.</figcaption>
       </figure>
 
       <p>
@@ -79,10 +99,8 @@
       </p>
 
       <figure>
-	<p>
-	  <img class="small" src="../images/usbstick.jpg"/>
-	</p>
-	<figcaption>Figure 1 ‧  USB stick</figcaption>
+        <img class="small" src="../images/usbstick.jpg"/>
+        <figcaption>Figure 1 ‧  USB stick</figcaption>
       </figure>
 
       <p>

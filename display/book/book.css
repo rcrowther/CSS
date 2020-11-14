@@ -1119,10 +1119,10 @@ dl {
 
 
 
-/* should be runin on 'dt', but non-Mozilla. float will work on
- * for single lines.
+/* should be runin on 'dt', but not reliabile in Mozilla. float will 
+ * work for single lines.
  */
-dd {
+dt {
     font-weight: bold;
     margin-right: 0.5em;
     float: left;
@@ -1132,7 +1132,7 @@ dd {
 /* margin bottom more reliable for floats.
  * outer list margins hold overall position. 
  */
-ol.wide > li, ul.wide > li, dl.wide > dt {
+ol.wide > li, ul.wide > li, dl.wide > dd {
     margin-bottom: 12pt;
 }
 

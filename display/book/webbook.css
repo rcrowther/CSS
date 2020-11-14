@@ -108,6 +108,8 @@ body > article, body > section {
     /* list-style-type: '\A7\20'; */
     /* DOTTED CROSS */
     /* list-style-type: '\205C\20'; */
+    /* Breadcrumb */    
+    /* list-style-type: '>\20'; */
     /* pointer */
     list-style-type: '\2192\20'; 
 }

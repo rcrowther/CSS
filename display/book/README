@@ -19,6 +19,29 @@ I suspect old printers would have objected to current typography. Not because th
 
 I'm not saying I've solved the problem, but some styles are presented.
 
+HTML should be like this,
+
+nav .toc toc-groove
+    h5 .toc-subtitle
+        animals
+    ul .toc-list
+        li
+            a href="hares"
+                span .title
+                    hares
+            a href="levrets"
+                span .title
+                    levrets
+    h5 .toc-subtitle
+        span .num
+            7
+        span .title 
+            Deer
+
+The theme must span the lists, not sit with them. This was decided so each block can contain sublists. The purpose of the spans is for intoducing the elipsis.
+
+
+  
 === Implementation of TOC as links
 All styles assume an internal anchor inside the list tag wrapping the visible contents.
 
@@ -31,6 +54,10 @@ nav .toc .toc-groove
 Unless the TOC fills the page, contained 'ul' tags should be classed 'wide'. That's a start, as the override wide styling provides extended internal padding, so the anchor becomes larger.
 
 Currently, three themes are available.
+
+
+
+
 
 == BookNav
 
