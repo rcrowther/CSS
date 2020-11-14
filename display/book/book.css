@@ -792,8 +792,12 @@ margin: 7pt 0 4pt 0;
 }
 */
 
+/* inherit pre font because this is primarily typographical, and 'pre' 
+ * may be used for layout of say, poetry. Browsers don't think so.
+ */
 pre {
     display: block;
+    font-family: inherit;
 }
 
 code {
