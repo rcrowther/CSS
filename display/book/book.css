@@ -124,7 +124,7 @@ article > footer, section > footer {
 	margin: 0 auto 0 auto;
 	width: 210mm;
 	padding:  40mm 40mm 80mm 40mm;
-	border:  1px solid red;
+	/* border:  1px solid red; */
   }
 }
 
