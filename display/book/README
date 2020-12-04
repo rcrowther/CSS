@@ -108,5 +108,46 @@ and a helper,
 === Responsive
 On small screens, the basic setup stacks.
 
-If ''.bk-navbar-dropdown' is added, and a ''.bk-navbar-dropdown-mark' placed in the HTML, the CSS makes a Hamburger menu
+If ''.bk-navbar-dropdown' is added, and a ''.bk-navbar-dropdown-mark' placed in the HTML, the CSS makes a dropdown menu. The dropdown mark is inline blocked, and styled to the right. Text rendering, and so navbar size, is enlarged considerbly, to huge1. The responsive bar is styled to expect a font-based icon.
 
+Some font-based icon suggestions,
+
+This is a unicode codepoint for three horizontal bars. It is lightweight, and looks good as a deliberately minimal and bold mark,
+?html
+        <span class="bk-navbar-dropdown-mark">&#x2261;</span>
+?
+There are two dropdown SVG images included in the package. One is a 16x16 four-bar mark, it looks neat. The other is a 24x24 four bar mark with rules, which looks technical.
+ 
+Both could be used as imports, in which case they will cache. They will also work inline. Fourbar,
+
+?html
+<span class="bk-navbar-dropdown-mark">&#x2261;
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 auto">
+<g stroke-width="2" stroke-linecap="round" stroke="#000">
+<line x1="2" y1="2" x2="14" y2="2" />
+<line x1="2" y1="6" x2="14" y2="6" />
+<line x1="2" y1="10" x2="14" y2="10" />
+<line x1="2" y1="14" x2="14" y2="14" />
+</g>
+</svg>
+</span>
+?
+
+fourbar ruled,
+
+?html
+<span class="bk-navbar-dropdown-mark">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+<g stroke-width="1" stroke="#000">
+<line x1="0" y1="0" x2="24" y2="0" />
+<g stroke-width="2" stroke-linecap="round">
+<line x1="4" y1="6" x2="20" y2="6" />
+<line x1="4" y1="10" x2="20" y2="10" />
+<line x1="4" y1="14" x2="20" y2="14" />
+<line x1="4" y1="18" x2="20" y2="18" />
+</g>
+<line x1="0" y1="24" x2="24" y2="24" />
+</g>
+</svg>
+</span>
+?

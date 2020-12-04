@@ -137,9 +137,14 @@
  * HTML, this will become a hover-triggered menu. You probably want to
  * use this if the menu contains over four items (or maybe always?).
  */
+ /* much as I dislike setting font sizes, this is up by 5 sizes to 
+  * huge1, for text icons.
+  */
 .bk-navbar-dropdown-mark {
   display: none;
   padding-right: 0.5em;
+  font-size:30pt;
+  line-height:36pt;
 }
     
 @media screen and (max-width: 480px) {
@@ -189,7 +194,7 @@
   }
   
   .bk-navbar-dropdown > .bk-navbar-dropdown-mark {
-    display: inline;
+    display: inline-block;
   }
   
   .bk-navbar-dropdown ul {
