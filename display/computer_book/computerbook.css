@@ -101,7 +101,7 @@ p + p, figure + p {
     text-indent: 18px;
 }
 
-dd, pre {
+dd, code {
     padding-left: 14px;
 }
 
@@ -129,11 +129,18 @@ figure img {
     width:450px;
 }
 
-figure pre{
-    padding-top: 6px;
-    padding-bottom: 6px;
+figure code {
+    display: block;
+}
+
+/* code themes */
+code.book {
     border-top: 1px dashed gray;
     border-bottom: 1px dashed gray;
+}
+
+code.web {
+  background-color: #f5f2f0;
 }
 
 figcaption {

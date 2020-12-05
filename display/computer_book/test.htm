@@ -65,27 +65,27 @@
 
       <h2>Code blocks and illustrations</h2>
       <p>
-        For direct illustration, use an inline code block. These are 'pre' to allow free formatting:
+        For direct illustration, use an inline pre--code block. These are 'pre' to allow free formatting:
       </p>
 
-      <pre><code>def fileForeach() =
+       <pre><code>def fileForeach() =
 	  for (file <- filesHere)
 		       yield file
-		       </code></pre>
+	  </code></pre>
 
 
       <p>
         Code formatting may be used for errors, script results, also:
       </p>
 
-      <pre class="result"><code>.../Shapes.scala:6: error: error overriding method</code></pre>
+      <pre class="shell"><code>.../Shapes.scala:6: error: error overriding method</code></pre>
 
       <p>
-        A complete, independent block of code (correct or incorrect) should be a listing (typographical figure):
+        A complete, independent block of code (correct or incorrect) should be a figure (here with the 'book' theme):
       </p>
 
       <figure>
-        <pre><code>class ColoredPoint(x: Int, y: Int, val color: Color.Value)
+        <pre><code class="book">class ColoredPoint(x: Int, y: Int, val color: Color.Value)
 	    extends Point(x, y) {
 
 	    override def hashCode = 41 * super.hashCode + color.hashCode

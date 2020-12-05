@@ -1,4 +1,5 @@
 
+
 /* Media queries */
 /* since some of these rules modify the navbar to become responsive, 
 * they are positioned after navbar code.
@@ -25,6 +26,15 @@ h1, h2, h3, h4, h5, h6, dd, a {
     color: #222;
 }
 
+
+/* Enable figures containing code, or tables, with scroll ability. 
+Blockqoutes can flow, images be resized, but not these two */
+/*
+figure code, figure table {
+    overflow-x: auto;
+}
+*/
+
 /* Medieval centred, widened for generic fonts
  * NB: Padding for typeblock on top of a webpage is irritating.
  * Also, the navbar, usually placed in the stock padding of paper, must
@@ -34,6 +44,7 @@ h1, h2, h3, h4, h5, h6, dd, a {
 body > article, body > section {
 	padding-top: 6pt; 
     }
+
 }
 
 
