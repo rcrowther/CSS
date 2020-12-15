@@ -3,11 +3,10 @@
 <html>
 
   <head>
-    <title>HTML5 WebBook CSS Test Page</title>    
+    <title>Book CSS Test Page</title>    
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="book.css">
-    <link rel="stylesheet" type="text/css" href="webbook.css">
     <link rel="stylesheet" type="text/css" href="booknav.css">
   </head>
 
@@ -324,17 +323,41 @@
       </p>
 
       <figure>
-	<img class="framed" src="../../images/bird.jpg"/>
-	<figcaption><span class="num">4</span>Bird</figcaption>
+	    <img class="framed" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">4</span>Bird</figcaption>
       </figure>
 
       <p>
-	...or ruled. Book illustrations are nealy always full width, but 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
+	...or ruled,
       </p>
+      
+      <figure>
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">5</span>Bird</figcaption>
+      </figure>
+       
+      <p>
+	    Book illustrations are nearly always figure width, but 'wide', 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
+      </p>
+           
+      <figure class="wide">
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">6</span> wide figure</figcaption>
+      </figure>
+            
+      <figure class="narrow">
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">7</span> narrow figure</figcaption>
+      </figure>
 
+      <figure class="x-narrow">
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">8</span> x-narrow figure</figcaption>
+      </figure>
+           
       <figure class="xx-narrow">
-	<img class="ruled" src="../../images/bird.jpg"/>
-	<cite>rcrowther</cite>
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">9</span> xx-narrow figure</figcaption>
       </figure>
 
       <!--
@@ -356,32 +379,35 @@
 	This markup is set in a new 'section'.
   </p>
   <p>
-	A table of contents (TOC). In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography,  
+	Book.css offers a table of contents (TOC) layout. In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography.  
+  </p>
+  <p>
+      The below is intended for display only. It has a base structure with a generic theme. webbook.css adds link styling and alternate themes. 
   </p>
   <h3><span class="title">Table of contents</span></h3>
   <nav  class="toc toc-groove">
     <h5 class="toc-subtitle">Rabbits</h5>
     <ul class="toc-list">
-        <li><a href="hares"><span class="title">hares</span></a></li>
-        <li><a href="levrets"><span class="title">levrets</span></a></li>
-        <li><a href="bucks"><span class="title">rabbits</span></a></li>
+        <li><span class="title">hares</span></li>
+        <li><span class="title">levrets</span></li>
+        <li><span class="title">rabbits</span></li>
     </ul>
     <h5 class="toc-subtitle"><span class="num">7</span><span class="title">Deer</span></h5>
     <ul class="toc-list">
-      <li><a href="bucks"><span class="num">1</span><span class="title">bucks</span></a></li>
-      <li><a href="deer"><span class="num">4</span><span class="title">deer</span></a></li>
-      <li><a href="reindeer"><span class="num">155</span><span class="title">reindeer</span></a></li>
+      <li><span class="num">1</span><span class="title">bucks</span></li>
+      <li><span class="num">4</span><span class="title">deer</span></li>
+      <li><span class="num">155</span><span class="title">reindeer</span></li>
     </ul>
   </nav>
   <p>
-	A TOC can be classed 'wide' (different theme, try hover),
+	A TOC can be classed 'wide',
   </p>
   <nav class="toc  toc-bullet">
     <h5 class="toc-subtitle"><span class="num">20</span><span class="title">Web</span></h5>
     <ul class="wide toc-list">
-      <li><a href="bucks"><span class="num">1</span><span class="title">bucks</span></a></li>
-      <li><a href="deer"><span class="num">4</span><span class="title">deer</span></a></li>
-      <li><a href="reindeer"><span class="num">155</span><span class="title">reindeer</span></a></li>
+      <li><span class="num">1</span><span class="title">bucks</span></li>
+      <li><span class="num">4</span><span class="title">deer</span></li>
+      <li><span class="num">155</span><span class="title">reindeer</span></li>
     </ul>
   </nav>
 </section>

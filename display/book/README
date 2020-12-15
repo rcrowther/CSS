@@ -1,11 +1,24 @@
 Overrides for book.css when used on the web.
 
 == Webbook
-''webbook.css' is a small file that adds...
+''webbook.css' is a small file that adds web specifics to book.css
+
+=== Text style
+Is changed to a generic serif font and greyed.
 
 === Responsive queries
-So the standard book display is rougly responsive. And kills some top margins.
+The standard book display is made rougly responsive. It sets stock to be flexible, and kills side and some top margins.
 
+=== Figured images
+In book.css these are handled by changing figure margins. But on the web this will result in fractional image sizes.
+
+The offered solution is to assume the Medieval stock, then calculate and round image sizes. These sizes are then applied to images. This means images can be cropped to size, and will always fit if the screen is large.
+
+The approch fails is stock size is changed, and the fixed dimensions will need recalculating.
+
+=== xx-narrow images
+These vanish on narrow screens. The offered solution is to use a media query to enlarge to x-narrow.
+ 
 === TOC
 Typographic tables of content present considerable problems when transfered to the web. While translation of typographic standards may be instructive, and usable, the TOC layout fails in several ways. First, it must be adjusted to work without page numbers. After that, the layout will be deficient. Human interface guidelines tell us,
 

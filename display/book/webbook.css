@@ -51,16 +51,16 @@ body > article, body > section {
 
 /* Responsive design */
 
-/* Less than the locked page width.
+/* Less than the stock width.
  *  Make the page flexible 
  * Pad left/right.
  */
 @media screen and (max-width: 210mm) {
   body > article, body > section {
     width:100%;
-	  padding-left: 1em;
-	  padding-right: 1em;
-	  /* border: 1px solid red; */
+    padding-left: 1em;
+    padding-right: 1em;
+    /* border: 1px solid red; */
   }
 }
     
@@ -85,8 +85,8 @@ body > article, body > section {
 /* flex width and crush stock padding, same as stock-intrusive widths */
   body > article, body > section {
     width: 100%;
-	  padding-left: 1em;
-	  padding-right: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 }
 
@@ -171,4 +171,49 @@ body > article, body > section {
     /* content:'\2025'; */
 }
 
+/* Figured Images
+Images in book.css are created by the natural, I feel, method of 
+applying margins to the frame. But on the web, it is advantageous to
+apply fixed size to source images, to decrease download times. The 
+margins, while consistent with a flexible layout, will creatte
+varible, fractional, image sizing.
+A solution is presented below. If the book block is left on defaault 
+Medieval centred, then image sizes ressolve, with rounding, to the
+sizes below.
+The dimensions will need recalculating if the block size is changed, 
+e,g, to an ISO block.
+*/
 
+@media screen and (max-width: 600px) {
+
+  figure.xx-narrow {
+    margin: 12pt 9em;
+  }
+}
+
+@media screen and (min-width: 210mm) {
+
+  figure > img {
+    width: 395px;
+    height: 297px;
+  }
+
+  figure.wide {
+    margin: 12pt 0;
+  }
+
+  figure.narrow > img {
+    width: 299px;
+    height: 225px;
+  }
+
+  figure.x-narrow > img {
+    width: 203px;
+    height: 153px;
+  }
+
+  figure.xx-narrow > img {
+    width: 107px;
+    height: 81px;
+  }
+}

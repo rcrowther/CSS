@@ -1,0 +1,134 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>WebBook CSS Test Page</title>    
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="book.css">
+    <link rel="stylesheet" type="text/css" href="webbook.css">
+    <link rel="stylesheet" type="text/css" href="booknav.css">
+  </head>
+
+  <body>
+    <article>
+      <header class="sitetitle">
+        <h1 class="title">WebBook</h1>
+        <p class="subtitle">CSS for articles and books</p> 
+        <div class="data">
+          <author>Robert Crowther</author>
+          <date>July 2016</date>
+        </div>
+      </header>
+      
+      <p>
+        When webbook.css is placed after book.css, it adds some specific web-orientated features.
+      </p>
+
+      <h4>Text Style</h4>
+      <p>
+          Text is switcheed to a generic serif font. It is slightly greyed.
+      </p>
+      
+      <h4>Responisve design</h4>
+      <p>
+          Using media queries, this page is noww responsive, snapping to device widths.
+      </p>
+
+      <h4>Figured images</h4>
+
+      <p>
+        Figured images in large block sizes are locked to rounded pixel sizes. At worst they will be 1px wrong size. But rounding enables generation of image sources to the size.
+      </p>
+
+      <p>
+        xx-narrow reduces to dimensions 0x0 on small screens/thin blocks, so is expanded to x-narrow.
+      </p>
+      
+      <figure class="wide">
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">6</span> wide figure</figcaption>
+      </figure>
+            
+      <figure class="narrow">
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">7</span> narrow figure</figcaption>
+      </figure>
+
+      <figure class="narrow">
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">7</span> narrow figure</figcaption>
+      </figure>
+
+      <figure class="x-narrow">
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">8</span> x-narrow figure</figcaption>
+      </figure>
+           
+      <figure class="xx-narrow">
+	    <img class="ruled" src="../../images/bird.jpg"/>
+	    <figcaption><span class="num">9</span> xx-narrow figure</figcaption>
+      </figure>
+
+      <!--
+
+		That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+
+	  -->
+
+
+
+      <p>
+	Don't forget to close the 'article' or 'section'.
+      </p>
+
+    </article>
+
+<section>
+      <h4>TOC themes</h4>
+
+  <p>
+	This markup is set in a new 'section'.
+  </p>
+  <p>
+	Book.css offers a display-only table of contents (TOC). Webbook.css extends this to offer themes that will work with embedded links/anchor elements.
+  </p>
+  <h3><span class="title">Table of contents</span></h3>
+  <p>
+	TOC ('toc-groove' theme),
+  </p>
+  <nav  class="toc toc-groove">
+    <h5 class="toc-subtitle">Rabbits</h5>
+    <ul class="toc-list">
+        <li><a href="hares"><span class="title">hares</span></a></li>
+        <li><a href="levrets"><span class="title">levrets</span></a></li>
+        <li><a href="bucks"><span class="title">rabbits</span></a></li>
+    </ul>
+    <h5 class="toc-subtitle"><span class="num">7</span><span class="title">Deer</span></h5>
+    <ul class="toc-list">
+      <li><a href="bucks"><span class="num">1</span><span class="title">bucks</span></a></li>
+      <li><a href="deer"><span class="num">4</span><span class="title">deer</span></a></li>
+      <li><a href="reindeer"><span class="num">155</span><span class="title">reindeer</span></a></li>
+    </ul>
+  </nav>
+  <p>
+	''wide' TOC ('toc-bullet' theme, try hover),
+  </p>
+  <nav class="toc  toc-bullet">
+    <h5 class="toc-subtitle"><span class="num">20</span><span class="title">Web</span></h5>
+    <ul class="wide toc-list">
+      <li><a href="bucks"><span class="num">1</span><span class="title">bucks</span></a></li>
+      <li><a href="deer"><span class="num">4</span><span class="title">deer</span></a></li>
+      <li><a href="reindeer"><span class="num">155</span><span class="title">reindeer</span></a></li>
+    </ul>
+  </nav>
+</section>
+
+    <footer style="margin:48pt 0 12pt 0; text-align:center;">
+      <p>Original model for most formatting, however crude the translation, is <a href="http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/memoir/memman.pdf">'Memoir'</a> </p>
+      <p style="text-indent: 0;">HTML/CSS by Robert Crowther, 2016</p>
+    </footer>
+
+  </body>
+</html>

@@ -113,7 +113,7 @@ article > footer, section > footer {
 
 
 /* A4 screen */
-/* Full page, unprintable  clearance */
+/* Full page, with clearance for unprintable borders */
 /* padding: 5mm 5mm 10mm 5mm; */
 /* Medieval centred */
 /* padding:  40mm 40mm 80mm 40mm; */
@@ -968,7 +968,7 @@ margin-top: 60pt;
 
 
 /* Thatcher */
-/* annoyimgly tricky to provide sized line:
+/* annoyingly tricky to provide sized line:
  * .num:after a block element the size of the line,
  * use margins to centre and space downwards, 
  */
