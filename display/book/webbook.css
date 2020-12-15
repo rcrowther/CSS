@@ -198,8 +198,9 @@ e,g, to an ISO block.
     height: 297px;
   }
 
-  figure.wide {
-    margin: 12pt 0;
+  figure.wide > img {
+    width: 491px;
+    height:369px;
   }
 
   figure.narrow > img {
