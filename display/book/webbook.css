@@ -172,18 +172,13 @@ body > article, body > section {
 }
 
 /* Figured Images
-Images in book.css are created by the natural, I feel, method of 
-applying margins to the frame. But on the web, it is advantageous to
-apply fixed size to source images, to decrease download times. The 
-margins, while consistent with a flexible layout, will creatte
-varible, fractional, image sizing.
-A solution is presented below. If the book block is left on defaault 
-Medieval centred, then image sizes ressolve, with rounding, to the
-sizes below.
+Assuming book block is the default Medieval centred, fix figured
+image sizes. This allows src images to match exactly.
 The dimensions will need recalculating if the block size is changed, 
 e,g, to an ISO block.
 */
 
+/* Stop extra narrow disappearing */
 @media screen and (max-width: 600px) {
 
   figure.xx-narrow {

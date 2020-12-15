@@ -118,15 +118,47 @@ li p:first-child {
 /* figure contents */
 
 /* kill bottom margins so it can be reduced at end */
-figure * {
+figure > * {
     margin-bottom: 0;
 }
 
-figure img {
+/* Original is 450px wide. But a rule like this works poorly with 
+ * webbook.css, which clamps full widths with fixed px sizes, and
+ * lets other css like book.css have it's way with small images.
+ * Solution: Assume book/webbbook semantics ('narrow' etc.). Let webbook
+ * have it's way on large screens, and centre.
+ * For larger images on small screens, on which webbook has no opinion,
+ * margin slightly wider than book stock, im mimicry of 450px 
+ */
+figure > img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width:450px;
+    max-width:450px;
+}
+
+@media screen and (max-width: 210mm) {
+
+  figure > img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  figure {
+    margin: 0 2.5em;
+  }
+    
+  figure.wide {
+    margin: 0;
+  }
+
+  figure.narrow {
+    margin: 0 6em;
+  }
+  
+  figure.x-narrow, figure.xx-narrow {
+    margin: 0 9em;
+  }
 }
 
 figure code {
