@@ -50,13 +50,15 @@
       <dl><dt>BYTE</dt><dd>8‐bit</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
 
       <p>
-        And blockquotes:
+        And blockquotes (here treated as divblock):
       </p>
 
-      <blockquote>
-        <p>I know what you're thinking: "Did he fire six shots, or only five?"</p>
-        <p>Well, to tell you the truth, in all this excitement, I've kinda lost track myself. </p>
-      </blockquote>
+      <divblock>
+        <quote>
+          <p>I know what you're thinking: "Did he fire six shots, or only five?"</p>
+          <p>Well, to tell you the truth, in all this excitement, I've kinda lost track myself. </p>
+        </quote>
+      </divblock>
 
       <p>
         Blockquoting is intended for referenced texts.
@@ -65,27 +67,30 @@
 
       <h2>Code blocks and illustrations</h2>
       <p>
-        For direct illustration, use an inline pre--code block. These are 'pre' to allow free formatting:
+        For direct illustration, use a pre--code block. These are 'pre' to allow free formatting:
       </p>
 
-       <pre><code>def fileForeach() =
-	  for (file <- filesHere)
+      <divblock>
+        <pre><code>def fileForeach() =
+	    for (file <- filesHere)
 		       yield file
-	  </code></pre>
-
+	    </code></pre>
+      </divblock>
 
       <p>
         Code formatting may be used for errors, script results, also:
       </p>
 
+      <divblock>
       <pre class="shell"><code>.../Shapes.scala:6: error: error overriding method</code></pre>
+      </divblock>
 
       <p>
-        A complete, independent block of code (correct or incorrect) should be a figure (here with the 'book' theme):
+        A complete, independent block of code (correct or incorrect) should be a figure (here with the 'web' theme):.
       </p>
 
       <figure>
-        <pre><code class="book">class ColoredPoint(x: Int, y: Int, val color: Color.Value)
+        <pre><code class="web">class ColoredPoint(x: Int, y: Int, val color: Color.Value)
 	    extends Point(x, y) {
 
 	    override def hashCode = 41 * super.hashCode + color.hashCode
@@ -93,6 +98,20 @@
         </code></pre>
         <figcaption>Listing 11.2 ‧  Prepending a supertype.</figcaption>
       </figure>
+
+      <p>
+        But code that flows with text should be a divblock (and here we show how with the 'book' theme):
+      </p>
+      
+      <divblock>
+        <pre><code class="book">class ColoredPoint(x: Int, y: Int, val color: Color.Value)
+	    extends Point(x, y) {
+
+	    override def hashCode = 41 * super.hashCode + color.hashCode
+	    }
+        </code></pre>
+        <figcaption>Listing 11.2 ‧  Prepending a supertype.</figcaption>
+      </divblock>
 
       <p>
         Figures can also contain images, such as the illustrative display below,
