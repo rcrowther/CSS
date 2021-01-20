@@ -1,4 +1,4 @@
-The utility folder is for CSS that is not for general display, but snippets used for, for example, web forms, web buttons, or small technical parts of CSS sucuch as menus.
+The utility folder is for CSS that is not for general display, but snippets used for, for example, web forms, web buttons, or small technical parts of CSS such as menus.
 
 It's assumed that anything here may havee some general interest or use. The code may well be doubled up with the souce, for example a plugin for a web framework. It may nt be up-to-date. 
 

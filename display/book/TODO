@@ -1,3 +1,9 @@
 There is a lurking problem with lists. I'm more or less assuming paragraphing, but it's not present in the tests. Rendering paragraphed list items always falls appart in browsers.
 
-This has been cured in computerbook using a tricky inline rule li p:fist-child. But this may throw the default/wide spacing off.
+This has been cured in computerbook using a tricky inline rule li p:first-child. But this may throw the default/wide spacing off.
+
+Enable divblock. computerbook says it's good.
+
+Now I have tables and images goining into figures, I need to figure out consistent approach to styling and expansion. I do know what size they should be....
+
+

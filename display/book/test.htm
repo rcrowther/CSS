@@ -197,15 +197,15 @@
 
       <dl class="wide"><dt>BYTE</dt><dd>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
 
-      <h4>Figures and illustrations</h4>
+
+
+      <h4>Blockquotes</h4>
 
       <p>
-        Figures can contain blockquotes (must be in a figure):
+        Blockquotres must stand alone, as they imply a figure(see below). Blockquotes can be paragraphed, 
       </p>
 
-      <figure>
 	<blockquote>
-
 	  <p>
 	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
 	  </p>
@@ -215,15 +215,11 @@
 	  <p>
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
-
 	</blockquote>
-      </figure>
 
       Adding the "blockparagraph" class alters the paragraphing style,
 
-      <figure>
 	<blockquote class="blockparagraph">
-
 	  <p>
 	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
 	  </p>
@@ -233,93 +229,79 @@
 	  <p>
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
-
 	</blockquote>
-      </figure>
 
-      <p>
-	Blockquoting is intended for referenced texts. Blockquotes can have styled cite(ations),
-      </p>
+    <p>
+        Blockquoting is intended for referenced texts. Blockquotes can have styled citeations,
+    </p>
 
-      <figure>
 	<blockquote>
 	  <p>
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
+      <cite>Lorem Ipsum</cite>
+    </blockquote>
 
-	</blockquote>
-	<cite>Lorem Ipsum</cite>
-      </figure>
+    <p>
+	  Blockquotes can be decorated with boxes,
+    </p>
 
-      <p>
-	...or full figurecaptions,
-      </p>
-
-      <figure>
-	<blockquote>
-	  <p>
-	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
-	  </p>
-
-	</blockquote>
-	<figcaption><span class="num">0.1</span> Lorem Ipsum</figcaption>
-      </figure>
-
-
-
-      <p>
-	Blockquotes can be decorated with boxes,
-      </p>
-
-      <figure>
 	<blockquote  class="framed">
 	  <p>Blockquote classed as 'framed'.</p>
 	</blockquote>
-      </figure>
 
       <p>
 	...or ruled,
       </p>
 
-      <figure>
 	<blockquote  class="ruled">
 	  <p>Blockquote classed as 'ruled'.</p>
 	</blockquote>
-      </figure>
 
       <p>
 	... and set wide,
       </p>
 
-      <figure class="wide">
-	<blockquote class="framed">
-	  <p>Figure classed as 'wide', blockquote as 'framed'.</p>
+	<blockquote class="wide">
+	  <p>Blockquote classed as 'wide'.</p>
 	</blockquote>
-      </figure>
 
+
+    <p>
+       To use figurecaptions on a blockqoute, substitue the blockqote for a quote, then put in a figure,
+    </p>
+
+
+    <figure>
+	  <quote>
+	    <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
+	    <p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
+	  </quote>
+	  <figcaption><span class="num">0.2</span>Francis Bacon</figcaption>
+    </figure>
+
+
+
+      <h4>Figures</h4>
       <p>
-	...framed blockquotes can also be given cites/captions,
+        Figures can surround any transformed non-phrasal items. 
+      </p>
+    
+      <p>
+        Figures can not be used round blockquotes, which imply a figure, They can be used round quotes.
+      </p>
+    
+      <p>
+        Figures can contain images, such as the illustrative display below,
       </p>
 
       <figure>
-	<blockquote class="frame">
-	  <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
-	  <p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
-	</blockquote>
-	<figcaption><span class="num">0.2</span>Francis Bacon</figcaption>
+        <img  src="../../images/bird.jpg"/>
+        <figcaption><span class="num">3</span>USB stick</figcaption>
       </figure>
 
       <p>
-	Figures can also contain images, such as the illustrative display below,
-      </p>
-
-      <figure>
-	<img  src="../../images/bird.jpg"/>
-	<figcaption><span class="num">3</span>USB stick</figcaption>
-      </figure>
-
-      <p>
-	and be framed,
+        and be framed,
       </p>
 
       <figure>
@@ -328,7 +310,7 @@
       </figure>
 
       <p>
-	...or ruled,
+        ...or ruled,
       </p>
       
       <figure>
@@ -365,9 +347,58 @@
 		That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
 
 	  -->
+      <h4>Tables</h4>
+      <p>
+        Tables should almost always be in a figure. They currently have a light styling,
+      </p>
+    <figure>
+      <table>
+        <thead>
+          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+          <tr><td>bones</td><td>clean</td><td>1</td></tr>
+          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+        </tbody>
+      </table>
+    </figure>
+      
+      <p>
+        Tables can be ruled,
+      </p>
+    <figure>
+      <table class="ruled">
+        <thead>
+          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+          <tr><td>bones</td><td>clean</td><td>1</td></tr>
+          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+        </tbody>
+      </table>
+    </figure>      
 
-
-
+      <p>
+        Tables can be wide,
+      </p>
+    <figure class="wide">
+      <table class="ruled">
+        <thead>
+          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+          <tr><td>bones</td><td>clean</td><td>1</td></tr>
+          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+        </tbody>
+      </table>
+    </figure>  
+          
       <p>
 	Don't forget to close the 'article' or 'section'.
       </p>

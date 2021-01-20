@@ -1007,7 +1007,7 @@ content: "Chapter ";
 /* Paragraphs */
 
 /* except chapter or section heading? */
-p + p {
+p + p, figure + p, blockquote + p {
     text-indent: 2em;
 }
 
@@ -1037,14 +1037,12 @@ figure.xx-narrow {
 
 /* blockquote */
 /* P126 */
-blockquote {
-    margin: 8pt 3em;
+figure > quote, divblock > quote, blockquote {
+    display: block;
+    /* value is figure element margins, plus the extra indent of a blockquote */
+    margin: 20pt 6em;
 }
 
-/* override if in figure */
-figure > blockquote {
-    margin: 0;
-}
 
 /* kill indented paragraphing for blockparagraph */
 blockquote.blockparagraph > p {
@@ -1054,33 +1052,36 @@ blockquote.blockparagraph > p {
 
 
 /* blockquote decoration */
-figure > blockquote.framed  {
+blockquote.framed  {
     border: 1px solid black;
     padding: 6pt 1em;
 }
 
-figure > blockquote.ruled  {
+blockquote.ruled  {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding: 6pt 1em;
 }
 
+blockquote.wide  {
+    margin: 20pt 3em;
+}
 
 /* images */
 
 /* settings to ensure image fit to block. I hope. */
-figure img {
+figure > img, divblock > img {
     display: block;
     max-height: 100%;
     max-width: 100%;
 }
 
 /* image decoration */
-figure > img.framed  {
+img.framed  {
     border: 1px solid black;
 }
 
-figure > img.ruled  {
+img.ruled  {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
@@ -1100,7 +1101,7 @@ figure > figcaption > span.num:after {
 content: ": "
 }
 
-figure > cite {
+figure > cite, blockquote > cite {
     display: block;
     font-style: normal;
     text-align:right;
@@ -1112,7 +1113,8 @@ figure > cite {
 
 /* P145 P182 p212 for examples */
 /* dl not left-indented */
-ul, ol {
+ul, ol, divblock {
+    display: block;
     margin: 12pt 0 12pt 3em;
 }
 
@@ -1139,6 +1141,33 @@ dt {
 ol.wide > li, ul.wide > li, dl.wide > dd {
     margin-bottom: 12pt;
 }
+
+/* Tables*/
+table {
+    /* Can do this because borders not collapsed (but bottom rule is broken) */
+    padding-bottom: 4pt;
+    margin: 0 auto;
+    width: 100%;
+}
+
+table.ruled {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black; 
+}
+
+table.ruled th {
+    border-bottom: 1px solid black; 
+}
+
+th {
+    font-weight: normal;
+    text-align: left;
+    padding: 5pt 0.7em 4.5pt;
+}
+
+td {
+    padding: 0 0.7em;
+}  
 
 /* Table of contents */
 
