@@ -202,7 +202,11 @@
       <h4>Blockquotes</h4>
 
       <p>
-        Blockquotres must stand alone, as they imply a figure(see below). Blockquotes can be paragraphed, 
+        Blockquotres must stand alone, as they imply a figure (see below). 
+        This means they indent following paragraphs.
+      </p>
+      <p>
+        Blockquote contents paragraph, 
       </p>
 
 	<blockquote>
@@ -216,9 +220,9 @@
 	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
 	  </p>
 	</blockquote>
-
+    <p>
       Adding the "blockparagraph" class alters the paragraphing style,
-
+    </p>
 	<blockquote class="blockparagraph">
 	  <p>
 	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
@@ -232,7 +236,7 @@
 	</blockquote>
 
     <p>
-        Blockquoting is intended for referenced texts. Blockquotes can have styled citeations,
+      Blockquotes can have styled citations,
     </p>
 
 	<blockquote>
@@ -258,19 +262,9 @@
 	  <p>Blockquote classed as 'ruled'.</p>
 	</blockquote>
 
-      <p>
-	... and set wide,
-      </p>
-
-	<blockquote class="wide">
-	  <p>Blockquote classed as 'wide'.</p>
-	</blockquote>
-
-
     <p>
-       To use figurecaptions on a blockqoute, substitue the blockqote for a quote, then put in a figure,
+       To use figurecaptions on a blockqoute, substitue the blockquote for a figure containing a quote,
     </p>
-
 
     <figure>
 	  <quote>
@@ -279,6 +273,38 @@
 	  </quote>
 	  <figcaption><span class="num">0.2</span>Francis Bacon</figcaption>
     </figure>
+
+      <h4>Divblocks</h4>
+    <p>
+      Divblocks are like figures, but are essential to text. Following paragraphs do not indent.
+      They can contain quotes,
+    </p>
+
+	<divblock>
+      <quote>
+	    <p>Divblock containing a quote.</p>
+      </quote>
+	</divblock>    
+    
+    <p>
+	  Unlike a blockquote, but like a frame, (quoted) divblocks can set wide, and/or the contents framed/ruled,
+    </p>
+
+	<divblock class="wide">
+      <quote class="framed">
+        <p>
+		  That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+        </p>
+        <p>
+          So said somebody... possibly Hume?
+        </p>
+      <cite>(possibly) Hume</cite>
+	  </quote>
+	</divblock>
+
+    <p>
+	  A divblock containing a quote can be cited like a blockquote.
+    </p>
 
 
 
@@ -342,11 +368,7 @@
 	    <figcaption><span class="num">9</span> xx-narrow figure</figcaption>
       </figure>
 
-      <!--
 
-		That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
-
-	  -->
       <h4>Tables</h4>
       <p>
         Tables should almost always be in a figure. They currently have a light styling,

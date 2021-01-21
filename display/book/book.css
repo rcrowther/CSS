@@ -792,17 +792,6 @@ margin: 7pt 0 4pt 0;
 }
 */
 
-/* inherit pre font because this is primarily typographical, and 'pre' 
- * may be used for layout of say, poetry. Browsers don't think so.
- */
-pre {
-    display: block;
-    font-family: inherit;
-}
-
-code {
-    font-family: monospace;
-}
 
 
 /* alternate chapter titles */
@@ -1004,116 +993,42 @@ content: "Chapter ";
 }
 */
 
+/* Generalities and browser reset */
+
+/* inherit pre font because this is primarily typographical, and 'pre' 
+ * may be used for layout of say, poetry. Browsers don't think so.
+ */
+pre {
+    display: block;
+    font-family: inherit;
+}
+
+code {
+    font-family: monospace;
+}
+
+/* An invented element, for block content which is part of textflow.
+ * This is an alternative to the figure element. The styling mostly is
+ * locked to figure, but paragraphing is different.  
+ */
+divblock {
+    display: block;
+}
+
+
 /* Paragraphs */
 
-/* except chapter or section heading? */
+/* Note this excludes headings and divblocks */
 p + p, figure + p, blockquote + p {
     text-indent: 2em;
 }
-
-
-/* Figures */
-
-/* sizes */
-figure{
-    margin: 12pt 3em;
-}
-
-figure.wide {
-    margin: 12pt 0;
-}
-
-figure.narrow {
-    margin: 12pt 6em;
-}
-
-figure.x-narrow {
-    margin: 12pt 9em;
-}
-
-figure.xx-narrow {
-    margin: 12pt 12em;
-}
-
-/* blockquote */
-/* P126 */
-figure > quote, divblock > quote, blockquote {
-    display: block;
-    /* value is figure element margins, plus the extra indent of a blockquote */
-    margin: 20pt 6em;
-}
-
-
-/* kill indented paragraphing for blockparagraph */
-blockquote.blockparagraph > p {
-    text-indent: 0;
-    margin-top: 6pt;
-}
-
-
-/* blockquote decoration */
-blockquote.framed  {
-    border: 1px solid black;
-    padding: 6pt 1em;
-}
-
-blockquote.ruled  {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 6pt 1em;
-}
-
-blockquote.wide  {
-    margin: 20pt 3em;
-}
-
-/* images */
-
-/* settings to ensure image fit to block. I hope. */
-figure > img, divblock > img {
-    display: block;
-    max-height: 100%;
-    max-width: 100%;
-}
-
-/* image decoration */
-img.framed  {
-    border: 1px solid black;
-}
-
-img.ruled  {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-
-/* figure captions P183 defaults */
-figure > figcaption {
-    margin-top: 12pt;
-    text-align:center;
-}
-
-figure > figcaption:before {
-content: "Figure "
-}
-
-figure > figcaption > span.num:after {
-content: ": "
-}
-
-figure > cite, blockquote > cite {
-    display: block;
-    font-style: normal;
-    text-align:right;
-}
-
 
 
 /* Lists */
 
 /* P145 P182 p212 for examples */
 /* dl not left-indented */
-ul, ol, divblock {
+ul, ol {
     display: block;
     margin: 12pt 0 12pt 3em;
 }
@@ -1121,9 +1036,6 @@ ul, ol, divblock {
 dl {
     margin: 12pt 0;
 }
-
-
-
 
 /* should be runin on 'dt', but not reliabile in Mozilla. float will 
  * work for single lines.
@@ -1142,6 +1054,109 @@ ol.wide > li, ul.wide > li, dl.wide > dd {
     margin-bottom: 12pt;
 }
 
+
+/* Figures */
+
+/* sizes. 
+ * blockquotes only take stock size, but divblocks can take all figure
+ * sizes.
+ * Frames and rules are generally applied to contents, not the frame. 
+ * This is because quotes will need extra padding, but not tables or 
+ * images.
+ */
+figure, divblock, blockquote{
+    margin: 12pt 3em;
+}
+
+figure.wide, divblock.wide {
+    margin: 12pt 0;
+}
+
+figure.narrow, divblock.narrow {
+    margin: 12pt 6em;
+}
+
+figure.x-narrow, divblock.x-narrow {
+    margin: 12pt 9em;
+}
+
+figure.xx-narrow, divblock.xx-narrow {
+    margin: 12pt 12em;
+}
+
+
+/* blockquote */
+/* P126, but boxed/shaded not convincing, use figure dimensions
+ */
+/* Treat a figure > quote as a blockquote */
+figure > quote, divblock > quote {
+    display: block;
+}
+
+
+/* theme to kill indented paragraphing on blockquotes */
+.blockparagraph > p {
+    text-indent: 0;
+    margin-top: 6pt;
+}
+
+
+/* blockquote decoration */
+/* a blockquote implies a frame, so can never go wide. A divblock can 
+ * go wide, and in quality texts frequently does(see above)
+ */
+ /*??? what about figure > quote */
+blockquote.framed, divblock > quote.framed  {
+    padding: 6pt 1em;
+}
+
+blockquote.ruled, divblock > quote.ruled  {
+    padding: 6pt 1em;
+}
+
+/* images */
+
+/* settings to ensure image fit to block. I hope. */
+figure > img, divblock > img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* image decoration */
+.framed  {
+    border: 1px solid black;
+}
+
+.ruled  {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+/* figure captions P183 defaults */
+figcaption {
+    margin-top: 12pt;
+    text-align:center;
+}
+
+figcaption:before {
+content: "Figure "
+}
+
+figcaption > span.num:after {
+content: ": "
+}
+
+/* exaggerated selectors because cite may be used elsewhere */
+figure > cite, blockquote > cite, divblock > quote > cite {
+    display: block;
+    font-style: normal;
+    text-align:right;
+}
+
+
+
 /* Tables*/
 table {
     /* Can do this because borders not collapsed (but bottom rule is broken) */
@@ -1159,6 +1174,10 @@ table.ruled th {
     border-bottom: 1px solid black; 
 }
 
+table.wide td {
+    padding-bottom: 12pt;
+}
+
 th {
     font-weight: normal;
     text-align: left;
@@ -1168,6 +1187,8 @@ th {
 td {
     padding: 0 0.7em;
 }  
+
+
 
 /* Table of contents */
 

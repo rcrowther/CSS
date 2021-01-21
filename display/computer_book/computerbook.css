@@ -100,7 +100,7 @@ ul, ol, dl {
     padding-left: 7px;
 }
 
-p + p, figure + p {
+p + p, figure + p, blockquote + p  {
     text-indent: 18px;
 }
 
