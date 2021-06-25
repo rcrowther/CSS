@@ -21,11 +21,12 @@ body{
     color: #333;
 }
 
-/* Take the edge off black. Perhaps a little more authentic? */
+/* Take the edge off black. Perhaps a little more authentic? Not convinced */
+/*
 h1, h2, h3, h4, h5, h6, dd, a {
     color: #222;
 }
-
+*/
 
 /* Enable figures containing code, or tables, with scroll ability. 
 Blockqoutes can flow, images be resized, but not these two */
@@ -79,17 +80,18 @@ body > article, body > section {
 /* assuming a small screen, which should hold for a while? 
  * The below is generic. Apple's retina screens are more dense.
  */
-/* work at lower res */
- /* @media (webkit-min-device-pixel-ratio: 2), (min-resolution:192dpi) {*/
-@media (webkit-min-device-pixel-ratio: 1.25), (min-resolution:120dpi) {
+/* work at lower res (noy convincing) */
 /* flex width and crush stock padding, same as stock-intrusive widths */
+ /* @media (webkit-min-device-pixel-ratio: 2), (min-resolution:192dpi) {*/
+/*
+@media (webkit-min-device-pixel-ratio: 1.25), (min-resolution:120dpi) {
   body > article, body > section {
     width: 100%;
     padding-left: 1em;
     padding-right: 1em;
   }
 }
-
+*/
 
 
 /* Everything else should work as expected, except TOC... */
