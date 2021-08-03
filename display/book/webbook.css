@@ -188,6 +188,10 @@ e,g, to an ISO block.
   }
 }
 
+/*
+ Clamped to fixed pixel sizes, from potentially relative sizes.
+ Only happens on full screen > typeblock width.
+*/
 @media screen and (min-width: 210mm) {
 
   figure > img {

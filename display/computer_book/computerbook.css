@@ -22,6 +22,13 @@ body article, body section {
     margin: 0 auto 21px auto;
 }
 
+/* An invented element, for block content which is part of textflow.
+ * This is an alternative to the figure element. The styling mostly is
+ * locked to figure, but paragraphing is different.  
+ */
+divblock {
+    display: block;
+}
 
 /* 14px is roughly 11pt = small */
 
@@ -71,12 +78,12 @@ h5 {
     margin: 35px 0 24px 0;
 }
 
-ul, ol, dl, divblock {
+ul, ol, dl {
     display: block;
     margin: 24px 0;
 }
 
-figure, blockquote{
+blockquote{
     margin: 18px 0;
 }
 
@@ -123,44 +130,39 @@ figure > quote, divblock > quote, blockquote {
     margin-right: 42px;
 }
 
-/* Original is 450px wide. But a rule like this works poorly with 
- * webbook.css, which clamps full widths with fixed px sizes, and
- * lets other css like book.css have it's way with small images.
- * Solution: Assume book/webbbook semantics ('narrow' etc.). Let webbook
- * have it's way on large screens, and centre.
- * For larger images on small screens, on which webbook has no opinion,
- * margin slightly wider than book stock, im mimicry of 450px 
- */
+/* settings to ensure image fit to block. I hope. */
 figure > img, divblock > img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width:450px;
-}
-
-@media screen and (max-width: 210mm) {
-
-  figure > img, divblock > img {
     max-height: 100%;
     max-width: 100%;
-  }
-
-  figure {
-    margin: 0 2.5em;
-  }
-    
-  figure.wide {
-    margin: 0;
-  }
-
-  figure.narrow {
-    margin: 0 6em;
-  }
-  
-  figure.x-narrow, figure.xx-narrow {
-    margin: 0 9em;
-  }
 }
+
+/* Original is 450px wide. But we want a range of sizes, like book.
+ * Also factor in webbook.css, which clamps at wider (full) widths.
+ * sizes. 
+ * Solution is to copy book,css shape, but start sizes at the narrower
+ * size, and taper in shallower.
+ */
+figure, divblock {
+    margin: 18px 5.5em;
+}
+
+figure.wide, divblock.wide {
+    margin: 18px 0;
+}
+
+figure.narrow, divblock.narrow {
+    margin: 18px 7.5em;
+}
+
+figure.x-narrow, divblock.x-narrow {
+    margin: 18px 9.5em;
+}
+
+figure.xx-narrow, divblock.xx-narrow {
+    margin: 18px 11.5em;
+}
+
 
 /* Can't use descendant, will have pre */
 figure code, divblock code {

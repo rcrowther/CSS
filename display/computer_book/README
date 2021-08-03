@@ -7,7 +7,7 @@ Codeblock and image (only full width) figures with captions can be made. Inline 
 
 Should play ok with ''booknav.css' and ''webbook.css', from /book
 
-
+Originally inherited book, but now standalone.
 
 == State of play
 Needs fixing:
