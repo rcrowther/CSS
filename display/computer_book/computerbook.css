@@ -130,11 +130,13 @@ figure > quote, divblock > quote, blockquote {
     margin-right: 42px;
 }
 
-/* settings to ensure image fit to block. I hope. */
+/* settings to ensure image fit to block. I hope.
+ Also ensures centring, if small in container */
 figure > img, divblock > img {
     display: block;
     max-height: 100%;
     max-width: 100%;
+    margin: 0 auto;
 }
 
 /* Original is 450px wide. But we want a range of sizes, like book.
