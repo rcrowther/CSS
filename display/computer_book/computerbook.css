@@ -111,9 +111,26 @@ p + p, figure + p, blockquote + p  {
     text-indent: 18px;
 }
 
+/* List themes */
 /* Tricky this. Supposed to read every first child p within an li */
 li p:first-child {
     display: inline;
+}
+
+.pros, .cons {
+    padding-left: 7px;
+}
+
+.pros:before {
+	position: relative;
+	left: -7px;
+	content: "Pros,";
+}
+
+.cons:before {
+	position: relative;
+	left: -7px;
+	content:"Cons,";
 }
 
 
