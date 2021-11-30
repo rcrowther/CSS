@@ -1,0 +1,241 @@
+= Webbook
+A version of the Book CSS. The original used supplementary CSS stylesheets to convert to web use. This is designed primarily for the web.  
+
+Changes/differences at the time of writing
+++
+- Two columns for page layout
+- Advanced responsive features
+- A rethink of how to present typography culture for web display
++
+Retained are
+++
+- The advanced web print layouts
+- A Book-like header set
+- Core Figure and List layouts
++
+
+Currently/forever lost,
+++
+- Alternative typeblock sizing
+- Alternative header sets
+- Table of Contents and other specialist list features
+- many tweak/convenience features, such as direct Font sizing
++
+
+== Setup
+WebBook should be built using Normalize CSS
+
+== Argument
+''Stock' usually refers to an untrimmed sheet of paper. Page refers to the paper that makes the book---usually trimmed from stock. Typeblock is where most of the print goes. I say most, because header and footer blocks are regarded a seperate items. There is also a concern with where the page is placed o the stock, so the page can be trimmed. This is irrelevant to web presentations. More usefully, it iss also neear-irrelevant to any current technology for printing out web pages.
+
+There are differences between typographical ideas and web ideas. IF the display size is regarded as the ''stock' then, on every viewing, it can change. This is the question of responsive design. However, for this argument, we can to some extent ignore the fine details. We are mostly concerned about the layout within. As long as we understand that the layout can and will alter.
+
+Then, stock is usually regarded as a page anyway. Space on displays used to be very limitied, yet the designer was free to use it all, unlike in a book, where allowances must be made for spane guttering and laf/right pages.
+
+Another difference. In traditional typeography the header and footer can expand to the width of the page (minus gutters and other construction allowances). But headers and footers are usually contained to the width of the typeblock. On the web it is far more common for a header to expand to full page/display width. Think of the classic logo/navigational topbar, which will occupy full width. 
+
+Then, on the web, vertical dimentions of content blocks are infinately expandable. This may or may not be viewed as a good thing, but they are. So, on the web, layout ratios are of much less interest than for paper books. But top margins, and to some extent, left/right margins, are significant, and very important for responsive design.
+
+And, on the web, text can not be flowed from block to block. This is one of the missing pieces of web provision, that limits column layout and longer writing. But it is a feature that would be difficult to implement, and a fact that must be lived with.
+
+== HTML
+Webbook must be used with some HTML structure,
+
+== Overview
+The web display, so BODY tags, are viewed as 'stock'.
+
+There is no overall ''trimmed stock'/''page' definition, as the web can be, and is usually better, as infinitely vertical. Moreover, where page design deals mainly with header/typeblock/footer, web design seems to benefit from many stacked blocks. 
+
+=== Paper
+Inside the ''body/stock' are vertical stacked blocks. Each block defines a centred ''width'. This allows to establish a visible area, a piece of ''paper'. So, against one monolithic ''page', there is a stack of ''paper' areas. 
+
+Paper areas may be colored, or disguised as invisible organisation.
+
+=== Paper Margins
+Margins establish a place for contents. A paper may be directly margined. Usually, margins are fixed size. However, one fluid margin creates a standard width textblock inside a full width paper.
+
+
+
+
+=== Containers
+A paper can also act as a container for either vertical or horizontal blocks. There is a small collection of these classes, with different block alignments.
+
+==== Container margins
+ Containers may not need margins---think of a stack of centred images, where the image margins are likely all that is needed.
+
+However, it is useful in some circumstances to add margins to the container block. There are some rules to do this. But to do it, an HTML element must be put inside the paper element, or the margins/padding will react unexpectedly,
+
+header paper-stock topbar
+   div layout-horizontal-middle container-fluid-margin-horizontal
+
+==== Contained elements
+Vertical contained elements expand as appropriate, no work needed.
+
+Horizontal contained elements need sizing. If the contained elements are dense and can be fluid-sized, such as a horizontal menu, ignore sizing. If readable text and allocation is needed, class with ''col-X' on a division of seven. It's the job of the coder to sum ''col' numbers.
+
+==== Contained element margins
+Contained elements will usually need a print margin, unless they contain images or are themselves containers.
+
+
+=== Responsiveness
+
+
+== Reference
+=== A body
+This is the original paper ''stock'. contains...
+
+=== Paperblocks
+These are optional, but you must start here. 
+
+''Paper' in the WebBook sense does not embrace the whole webpage. That's why it is called ''paper' and not ''page'. Papers define stacked blocks which will contain other content. The point of the ''paperblock' is to define the horizontal extent of backgrounds. This allows to use, for example, a background which does not occupy full display width, but will add consistent visual margins to typeblocks, colums, figures and other content.
+
+The class of the paperblock will define how wide the block, the apparent ''page'/background width behind it. There is a choice of,
++dl
+~ paper-stock
+: This class has no rule, blocks will be full width with no margin
+
+~ paper-text
+: This centres the block, then uses a rough text-width to define the maximum page width. This is partly to avoid long lines on high-width screens, though that is on current screens unlikely. The class also prevents layouts expanding too far horizontally, so visually separating columns with too much guttering. 
+
+Currently,
+body > .paper-text {
+    max-width: 74rem;
+    margin: 0 auto;
+}
+ 
+~ paper-plain
+For classical typography the paperwith-text class is a little too wide, This is largely unimportant on the web, because it is unlikely to display under these conditions and is visually compromised. Moreover, you may want room for a side colum, which will narrow a typeblock anyway. But if the aim is pure text display, no side-column,  paperwith-narrow is close to typographical recommendations.
+
+Currently,
+body > .paper-plain {
+    max-width: 66rem;
+    margin: 0 auto;
+}
+
+~ paper-column
+: Some may have a use for paperwidth that resembles a column, so,
+body > .paper-column {
+    max-width: 45rem;
+    margin: 0 auto;
+}
+
++
+
+The classes can be used on headers and footers, in which case ''page' backgrounds will line up with other pageblocks that use the style.
+
+=== Print Margins
+Printblocks establish any margin between paper and content.
+
++dl
+~ print-fluid-margin
+: Can only be used inside paper-stock. Allows infinitely horizontal-expanding paper to contain a fixed width block,
+
+[topbar]
+.print-fluid-margin {
+    max-width: 74rem;
+    margin: 0 auto;
+}
+
+~ print-fixed-margin
+: Can be used inside fixed or expanding paper (more use in expanding). Establishes a margin,
+
+.print-fixed-margin {
+    padding: 2rem 4em;
+}
+
+
+
+~ Fixed margin text alternatives
+: These allocate much more spacious layouts, more like printed typography. So more concerned with eye-flow than tidy layout,
+
+.print-fixed-margin-std {
+    padding:7rem;
+}
+
+.print-fixed-margin-mdvl {
+    padding: 6rem 6rem 9rem 6rem;
+}
+
+.print-fixed-margin-iso {
+    padding: 6rem 6rem 12rem 6rem;
+}
+
+=== Layouts
+~ layout-horizontal-top
+: Layout contents horizontally and top aligned.
+
+[main.stock]
+
+.layout-horizontal-top > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+~ layout-horizontal-middle
+: Layout contents horizontally and middle aligned.
+
+.layout-horizontal-middle > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+~ layout-vertical-middle
+: Layout contents vertically and middle aligned. Relies on fixed width contents,
+
+.layout-vertical-middle > * {
+  margin: auto;
+}
+
++
+
+=== Container margins
+
+~ Fluid margin horizontal
+: Can only be used inside paper-stock. Allows infinitely horizontal-expanding paper to contain a fixed width block,
+
+.container-fluid-margin-horizontal {
+    max-width: 74rem;
+    margin: 0 auto;
+}
+
+~ Fixed margin vertical
+: Set top/bottom margins only, for a vertical middle-aligned container,
+
+.container-fixed-margin-vertical {
+    padding: 8rem 0;
+} 
+
+
+==
+
+.under-paper-width-remove {
+	display: none;
+}
+
+
+
+
+======
+
+  Optional of header/main/footer, optionally classed "stock"
+- main.stock must contain...
+- Optional of article, and block-display element classed 'sidecol'
++
+
+i.e. minimal skeleton,
+??
+    <body>
+        <header class="stock">
+        </header>
+
+		<main class="stock">
+<article>
+</article>
+        <aside class="sidecol">
+		</aside>
+		</main>
+		
+        <footer class="stock">
+        </footer>
+    </body>
+?

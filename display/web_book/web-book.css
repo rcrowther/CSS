@@ -1,0 +1,766 @@
+* {
+	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+/* Simple print rules:
+ * - h2, h3 break before
+ * - Avoid break after titles
+ * - Avoid break in figures, tables, or lists
+ */
+body {
+    page-break-before: always;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+}
+
+table, figure, divblock, ol, ul, dl {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+
+article > footer, section > footer {
+    page-break-inside: avoid;
+}
+
+@font-face {
+  font-family: Vollkorn;
+  /* deliver the weights--- they are lower and lesser */
+  src: url('/static/fonts/Vollkorn-VariableFont_wght-1.woff2') format('woff2');
+ /* src: url('/static/fonts/Vollkorn-Regular_min-1.woff2') format('woff2');*/
+  font-display: swap;
+}
+
+@font-face {
+  font-family: VollkornSC;
+  src: url('/static/fonts/VollkornSC-Regular_min-1.woff2') format('woff2');
+  font-display: swap;
+}
+
+body {
+	background: lightgrey;
+	/* font-family: "Volhorm", serif; */
+	font-family: "Vollkorn", serif;
+	font-family: "Times New Roman";
+	/* Hi-res msize */
+	font-size:20pt;
+	line-height:20pt;
+	line-height: 1.2;
+	/*background-color: #e5e1de;*/
+}
+
+
+/* Paper sizes */
+.paper-stock {
+    display: block;
+}
+
+.paper-text {
+    max-width: 77rem;
+    margin: 0 auto;
+}
+
+.paper-plain {
+    max-width: 66rem;
+    margin: 0 auto;
+}
+
+.paper-column {
+    max-width: 44rem;
+    margin: 0 auto;
+}
+
+
+/* printblocks */
+/*
+.layout-horizontal-top > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.layout-horizontal-middle > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+*/
+.layout-vertical-middle > * {
+  margin: auto;
+}
+
+.print-fluid-margin {
+    max-width: 77rem;
+    margin: 0 auto;
+}
+
+.print-fixed-margin {
+    padding: 2rem 4em;
+}
+
+.print-fixed-margin-narrow {
+    padding: 2rem;
+}
+
+.print-fixed-margin-std {
+    padding:7rem;
+}
+
+.print-fixed-margin-mdvl {
+    padding: 6rem 6rem 9rem 6rem;
+}
+
+.print-fixed-margin-iso {
+    padding: 6rem 6rem 12rem 6rem;
+}
+
+/* containers */
+.container-fixed-margin-vertical {
+    padding: 8rem 0;
+} 
+
+.container-fluid-margin-horizontal {
+    max-width: 74rem;
+    margin: 0 auto;
+}
+
+
+/* if wider than paper, horizontal layouts horizontal */
+@media screen and (min-width: 77rem) {
+
+.layout-horizontal-top > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.layout-horizontal-middle > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* contained elements */
+.col-2 {
+    width:21.5rem;
+}
+
+.col-5 {
+    width:55rem;
+}
+
+	/* Set widths for inline block */
+    /*
+	main.stock {
+		width:74rem;
+		margin: 0 auto;
+	}
+	main.stock > * {
+		display: inline-block;
+		vertical-align: top;
+	}
+	article {
+		width: 55rem;
+	}
+		*/
+	.sidecol {
+		width: 18rem;
+		min-height: 1px;
+		margin-top: 10rem;
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+}
+
+
+/* if narrower than paper */
+
+@media screen and (max-width: 77rem) {
+
+    .under-paper-width-remove {
+        display: none;
+    }
+}
+
+/* fonts */
+@media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (max-height: 900px) {
+  /* Retina or mid-res */
+	body {
+		font-size:18pt;
+	}
+}
+  
+@media
+  only screen and (max-height: 640px) {
+  /* small-res */
+	body {
+		font-size: 16pt;
+	}
+}
+
+
+date {
+	font-size: 1.111rem;
+}
+
+/* An invented element, for block content which is part of textflow.
+ * This is an alternative to the figure element. The styling mostly is
+ * locked to figure, but paragraphing is different.  
+ */
+divblock {
+    display: block;
+}
+
+/* Figure images/contents can be be any height.
+ * For bitmapped images, we can make some assumptions,
+ * Width of the main column is set to 55rem. base fontsize is 16pt. 
+ * Though leading may change, image width expended is roughly.  
+ * Wide 710px
+ * Stock 614px
+ * Narrow 517px
+ * Widths should be doubled for hi-res retina display.
+ */
+ /* 3rem */
+figure, divblock, blockquote{
+    margin: 1.777rem 3rem;
+}
+
+/* 0em */
+figure.wide, divblock.wide {
+    margin: 1.777rem 0;
+}
+
+/* 4:3 reduction
+ * 740
+ * = 555
+ * 48pt
+ */
+figure.narrow, divblock.narrow {
+    margin: 1.777rem 6rem;
+}
+
+figcaption {
+	margin-top:1.777rem; 
+	text-align: center;
+}
+
+.nav-table-img{
+	font-size:1.777rem;img
+}
+/* 1.777/16*?=
+ * 60 = 
+ * 48 = 5.331
+ * 32 = 3.554
+ * 30 = 3.124
+ * 22 = 2.291
+ * 20 = 2.083
+ * 18 = 1.888
+ ** 16 = 1.777
+ * 14 = 1.55
+ * 12 = 1.333
+ * 10 = 1.111
+ * 8 = 0.889
+ * 6 = 0.666
+ * 4 = 0.444
+ * SOS
+ * 28/14 3.554
+ * 24/14 3.034
+ * CM
+ * 35/16 3.880
+ * 24/16 2.666 bo;d 400
+ * 16/16 centre bg
+ * HG
+ * 50/18 4.936
+ * 36/18 3.692
+ * line height is 18/30
+ */ 
+
+h1, h3 {
+    font-weight:600;
+}
+
+.site-title {
+	font-weight: 800;
+	letter-spacing: 0.1rem;
+	color: #99ca71;
+	text-shadow:  -1px 1px 2px #000,
+				  1px 1px 2px #666,
+				 1px -1px 2px #666,
+				-1px -1px 2px #000;
+					
+					
+					
+/*
+	text-shadow:  -1px 1px 0 #000,
+				  1px 1px 0 #666,
+				 1px -1px 0 #666,
+				-1px -1px 0 #000;
+*/
+
+} 
+
+h2, h4, h5, h6 {
+	font-weight: normal;
+}
+
+h2, h4, h5 {
+	font-family: VollkornSC;
+    font-variant: small-caps;
+}
+
+
+h1 {
+    font-size: 3.124rem;
+    text-align:center;
+    margin: 2.083rem 0;
+}
+
+h2 {
+    font-size: 1.777rem;
+    text-align:center;
+	text-transform: uppercase;
+	margin: 3.554rem 0 1.777rem 0;
+}
+
+/* dont use, shou;d be titlecase.  Lowers ''I' also */
+/*
+h3, h4, h5, h6 {
+	text-transform: lowercase;
+}
+*/
+h3 {
+    font-size: 1.777rem;
+    margin: 1.999rem 0 1.55rem 0;
+}
+
+h4 {
+    margin: 3.554rem 0 1.333rem 0;
+}
+
+h5 {
+    margin: 1.888rem 0 1.111rem 0;
+}
+
+h6 {
+    margin: 1.111rem 0 0.444rem 0;
+}
+
+
+
+/* Tables*/
+table {
+    /* Can do this because borders not collapsed (but bottom rule is broken) */
+    padding-bottom: 0.111rem;
+    margin: 0 auto;
+}
+
+.price-osp {
+	font-size: 1.111rem;
+
+}
+
+.price {
+	font-size: 1.55rem;
+	color: #167258;
+}
+
+.source {
+	font-size: 1.333rem;
+}
+
+/* Paragraphs */
+
+/* Note this excludes headings and divblocks */
+p + p, figure + p, blockquote + p {
+    text-indent: 2em;
+}
+
+header.stock{
+    background: #737ba8  url("/static/images/blue_paper.jpg");
+    color: white;
+}
+
+
+.logo img {
+	display:block;
+	height: 4rem;
+}
+
+.topbar {
+    margin: 0 auto;
+    max-width: 70rem;
+    /* to size width: 50%;*/
+}
+
+
+.topbar a {
+    text-decoration:none;
+}
+
+/* Menu */
+.menu a {
+	color: white;
+	/* not sure why this fails */
+	cursor: pointer;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+	margin: 0;
+}
+
+/*.submenu *:last-child {*/
+.submenu ul {
+	display: none;
+}
+
+.noscript-menu {
+    list-style: none;
+	padding: 0.5rem 0;
+    text-decoration: underline;
+
+}
+.noscript-menu li {
+	margin: 0.5rem 1.5rem;
+}
+
+.noscript-menu a {
+	color: white;
+}
+
+/* if narrower than stock, menu vertical */
+@media screen and (max-width: 70rem) {
+	
+	.topbar {
+	padding: 0.666rem 0;
+	}
+	
+	.topbar * {
+		display: block;
+		/* margin:0.5rem 0rem 0.5rem 1rem; */
+	}
+	
+	.logo, .logo img {
+		display: none;
+	}
+	
+	.logo {
+		margin: 0;
+		padding: 1rem 1rem 0;
+	}
+	/*
+	.menu {
+		margin: 0;
+	}
+	*/
+	.menu a {
+		/* display: block; */
+		padding: 0.5rem 3rem;
+	}
+
+	.submenu ul {
+		list-style: none;
+		padding-left:1em;
+	}
+
+
+}
+
+/* if wider than stock, menu horizontal */
+@media screen and (min-width: 70rem) {
+
+	.topbar > * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+/*
+	.topbar > * {
+		margin:0.5rem 2rem;
+	}
+
+	.menu {
+		margin: 0;
+	}
+*/
+	
+	.menu > li {
+		display: inline-block;
+		position: relative;
+	}
+
+	.menu a {
+		padding: 2rem;
+	}
+
+	.submenu > a:after{
+		content: "\00a0\00a0\25BE"
+	}
+	/* need to re-assert some values on layer split 
+	 */
+	.submenu ul {
+		position: absolute;
+		z-index: 8; 
+		top: 2.5rem;
+		margin: 0;
+		padding: 0;
+		background-color: #737ba8;
+		color:white;   
+		list-style: none;
+	}
+
+	/* submenus are for sture piled vertical. If we do that to the list 
+	items, the padding will overlap. so make the anchors into blocks.
+	Then put some padding round the anchor. This is not inherited through
+	the layer split, so restate the same L/R padding as the submenu 
+	anchor, so text lines up. 
+	*/
+	.submenu ul a {
+		display: block;
+		padding: 0.5rem 2rem;
+	}
+}
+
+
+
+/* main */
+article {
+    padding: 2rem 4em;
+    background-color: white;
+    position: relative;
+}
+
+.sidecol {
+	padding: 2rem;
+    background-color: white;
+}
+
+/* Good break point? */
+@media screen and (max-width: 30rem) {
+	/* thin LR padding on narrow screens */
+	article,.sidecol {
+		padding: 2rem 1rem;
+	}
+}
+
+
+
+
+
+
+.bottombar {
+    margin: 0 auto;
+    /* to size width: 50%;*/
+    background-color: #be7604;
+}
+
+/*
+img {
+	max-width: 100%;
+	height: auto;
+	border: 0;
+
+	width: 1024px;
+	height:683px:
+	
+}
+*/
+	
+/* settings to ensure image fit to block. I hope. */
+figure > img, divblock > img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+/* Everyday listening
+ * Twister6 (more impressive on mobile)
+ * The headhonelist (horrible small on hires)
+ * Audiophileheaven (good text, awful performance, fromed photos)
+ * Which
+ * 2:3?
+ * 1:2
+ * 12:7
+ * 5:3 ;little photo
+ * 680*400 8:5 ?
+*/
+table {
+ /* border-collapse: collapse; */
+  }
+  
+table.spec {
+	font-size: 14pt;
+	line-height: 21pt;
+	margin: 0 auto;
+	width: initial;
+    border-top: 2px solid #a7d7d5;
+    border-bottom: 2px solid #a7d7d5; 
+}
+table.spec td {
+	vertical-align:top;
+}
+
+td {
+    padding: 0 0.7rem;
+}
+
+ul, ol, dl {
+    margin: 1.333rem 3em;
+}
+
+/* Trim those margins for small screens */
+@media screen and (max-width: 70rem) {
+ul, ol, dl {
+    margin: 1.333rem 0 1.333rem 3rem;
+}
+}
+
+li {
+	margin-bottom: 0.444rem;
+}
+
+dt {
+	font-weight:bold;
+}
+
+dd {
+	margin-bottom:0.889rem;
+}
+
+/* ?bad name homepage-site-epigram ?*/
+.site-epigram {
+	color: #999999;
+	font-style: italic;
+	font-weight:bold;
+	font-size: 1.333rem;
+	letter-spacing: 3px;
+	text-align:center;
+}
+
+
+/* anchor buttons */
+.button {
+	font-weight:bold;
+	font-size: 18pt;
+	/* background-color: #81aca0; */
+}
+
+.filter-tools {
+	/* margin: 0 auto; */
+	margin-bottom: 1.5em;
+	text-align:center;
+}
+
+.filter-tools a {
+	margin: 0 1em;
+	padding: 0 1em;
+	color: black; 
+	text-decoration: none;
+	border-left: solid black 2pt;
+	border-right: solid black 2pt;
+	border-top: solid black 1px;
+	border-bottom: solid black 1px;
+}
+
+.filter-tools a:hover {
+	border-left: solid black 8px;
+	border-right: solid black 8px;
+}
+
+/* Narrow screen, filter-tools vertical */
+@media screen and (max-width: 70rem) {
+	.filter-tools a {
+		display:block;
+		margin: 0.8rem;
+		padding: 2.083rem;
+	}
+}
+
+
+
+/* table special ref for lists */
+.reviewbase-list {
+	margin: 0 auto;
+}
+
+.reviewbase-list .badge {
+	font-size:12pt;
+	font-family: VollkornSC;
+	font-variant: small-caps;
+	padding: 0em 1em;
+}
+
+/* Add badge border to all bads */
+.reviewbase-list .badge.bad {
+		border: solid black 1px;
+}
+	
+.reviewbase-list td {
+    padding: 0 1em 0.7em 0;
+}
+
+/* Wide screens, add badge border */
+/*
+@media screen and (min-width: 70rem) {
+
+}
+*/
+
+.reviewbase-list .good {
+	color:#78933c;
+}
+
+
+/* articles */
+article > .badge {
+	width:max-content;
+	margin-right:auto;
+	display: block;
+	font-size: 18pt;
+	font-weight: bold;
+	padding:0.25em 2em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding:0.25em 2em;
+	color: white;
+}
+
+@media screen and (min-width: 70rem) {
+article > .badge {
+	width: auto;
+    position: absolute;
+    top:0;
+    right: 3rem;
+    z-index:4;
+	font-size: 18pt;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding:2em 0.25em;
+	color: white;
+	writing-mode: vertical-rl;
+}
+}
+
+
+article > .bad {
+	background-color:black;
+}
+
+article > .good {
+	background-color:#78933c;
+}
