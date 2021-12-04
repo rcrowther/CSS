@@ -29,10 +29,10 @@
         </div>
     </header>
     
-    <main class="paper-text layout-horizontal-top">
-      <article class="col-5 print-fixed-margin-mdvl">
+    <main class="paper-a4">
+      <article class="margins-normal">
         <p>(outer block class 'paper-text layout-horizontal-top')</p>
-        <p>(block class 'col-5 print-fixed-margin-mdvl')</p>
+        <p>(block class 'margins-wider')</p>
         <p>
         Contains some navbar menu style (above). This is basicly responsive. The menu only handles basic layout and responsiveness, and requires further styling.
         </p>
@@ -427,57 +427,55 @@
       </p>
       </article>
 
-      <aside class="col-2 container-fixed-margin-vertical" style="background-color:Lavender;">
-        <p>(block class 'col-2')</p>
+      <aside class="margins-wide" style="background-color:Lavender;">
+        <p>(block class 'margins-wide')</p>
         <p>A side-col</p>
       </aside>
     </main>
 
-    <section class="paper-plain print-fixed-margin-mdvl" style="background-color:white;">
+    <section class="paper-a4 margins-wider" style="background-color:white;">
       <div class="">
-        <p> (outer block class 'paper-plain')</p> 
-        <p> (block class "print-fixed-margin-mdvl")</p> 
-  <p>
-	Book.css offers a table of contents (TOC) layout. In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography.  
-  </p>
-  <p>
-      The below is intended for display only. It has a base structure with a generic theme. webbook.css adds link styling and alternate themes. 
-  </p>
-  <h3><span class="title">Table of contents</span></h3>
-  <nav  class="toc toc-groove">
-    <h5 class="toc-subtitle">Rabbits</h5>
-    <ul class="toc-list">
-        <li><span class="title">hares</span></li>
-        <li><span class="title">levrets</span></li>
-        <li><span class="title">rabbits</span></li>
-    </ul>
-    <h5 class="toc-subtitle"><span class="num">7</span><span class="title">Deer</span></h5>
-    <ul class="toc-list">
-      <li><span class="num">1</span><span class="title">bucks</span></li>
-      <li><span class="num">4</span><span class="title">deer</span></li>
-      <li><span class="num">155</span><span class="title">reindeer</span></li>
-    </ul>
-  </nav>
-  <p>
-	A TOC can be classed 'wide',
-  </p>
-  <nav class="toc  toc-bullet">
-    <h5 class="toc-subtitle"><span class="num">20</span><span class="title">Web</span></h5>
-    <ul class="wide toc-list">
-      <li><span class="num">1</span><span class="title">bucks</span></li>
-      <li><span class="num">4</span><span class="title">deer</span></li>
-      <li><span class="num">155</span><span class="title">reindeer</span></li>
-    </ul>
-  </nav>
+        <p> (outer block class 'paper-a4 margins-wider')</p> 
+          <p>
+            Book.css offers a table of contents (TOC) layout. In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography.  
+          </p>
+          <p>
+              The below is intended for display only. It has a base structure with a generic theme. webbook.css adds link styling and alternate themes. 
+          </p>
+          <h3><span class="title">Table of contents</span></h3>
+          <nav  class="toc toc-groove">
+            <h5 class="toc-subtitle">Rabbits</h5>
+            <ul class="toc-list">
+                <li><span class="title">hares</span></li>
+                <li><span class="title">levrets</span></li>
+                <li><span class="title">rabbits</span></li>
+            </ul>
+            <h5 class="toc-subtitle"><span class="num">7</span><span class="title">Deer</span></h5>
+            <ul class="toc-list">
+              <li><span class="num">1</span><span class="title">bucks</span></li>
+              <li><span class="num">4</span><span class="title">deer</span></li>
+              <li><span class="num">155</span><span class="title">reindeer</span></li>
+            </ul>
+          </nav>
+          <p>
+            A TOC can be classed 'wide',
+          </p>
+          <nav class="toc  toc-bullet">
+            <h5 class="toc-subtitle"><span class="num">20</span><span class="title">Web</span></h5>
+            <ul class="wide toc-list">
+              <li><span class="num">1</span><span class="title">bucks</span></li>
+              <li><span class="num">4</span><span class="title">deer</span></li>
+              <li><span class="num">155</span><span class="title">reindeer</span></li>
+            </ul>
+          </nav>
       </div>
     </section>
 
 <!--
  margin:48pt 0 12pt 0;
 -->
-    <footer class="paper-text print-fixed-margin" style="background-color:white; text-align:center;">
-        <p> (outer block classed 'paper-text')</p>
-        <p> (block classed 'fixed-margin')</p>
+    <footer class="paper-a4 paper-a4 margins-wide" style="background-color:white; text-align:center;">
+        <p> (outer block classed 'paper-a4 margins-wide')</p>
         <p>Original model for most formatting, however crude the translation, is <a href="http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/memoir/memman.pdf">'Memoir'</a> </p>
         <p style="text-indent: 0;">HTML/CSS by Robert Crowther, 2016</p>
     </footer>

@@ -1,3 +1,6 @@
+html {
+  --base-fontsize:12pt;
+}
 
 /*
  * Basic font size
@@ -8,10 +11,38 @@
  * appropriate for book purpose, and this CSS has hi-res fixes) 
  */
 body {
-	background-color: lightgrey;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-    font-size: 12pt;
-    line-height: 15pt;
+    font-size:12pt;
+    line-height: 1.21;
+}
+
+@media
+  only screen and (min-height: 640px) {
+  /* mid-res screen */
+	body {
+		font-size:14pt;
+        line-height: 1.25;
+	}
+}
+
+@media
+  only screen and (min-height: 900px) {
+  /* hi-res screen */
+	body {
+		font-size:18pt;
+        line-height: 1.31;
+	}
+}
+
+@media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2) {
+  /* retina screen */
+	body {
+		font-size:14pt;
+	}
 }
 
 /* margins */    
@@ -21,26 +52,25 @@ body {
     margin: 0 auto;
 }
 
-
-
-.margins-fixed-narrow,
-.margins-responsive-narrow {
-    padding: 1em 0.5rem;
+/* Need resetting to make normal reasonably wide */
+.margins-narrower {
+    padding: 1em 7rem;
 }
 
-.margins-fixed,
-.margins-responsive {
-    padding: 1em 1rem;
+.margins-narrow {
+    padding: 1em 8rem;
 }
 
-.margins-fixed-wide, 
-.margins-responsive-wide {
-    padding: 1em 3rem;
+.margins-normal {
+    padding: 1em 9rem;
 }
 
-.margins-fixed-wider, 
-.margins-responsive-wider {
-    padding: 1em 5rem;
+.margins-wide {
+    padding: 1em 10rem;
+}
+
+.margins-wider{
+    padding: 1em 11rem;
 }
 
 
@@ -68,28 +98,16 @@ body {
   }
 
   .menu-horizontal-responsive a {
-    padding: 2rem;
+    padding: 1rem;
     cursor: pointer;
   }
 }
 
 /* if narrower than paper */
 @media screen and (max-width: 210mm) {
-
-  
    /* Margin spacing on vertical stacking, becuse they shrink birders to 
    * make even spacing
    */
-  /* NO NEED IF MENU IS SPECIFIC?
-  */
-  .margins-responsive-narrow, 
-  .margins-responsive,
-  .margins-responsive-wide, 
-  .margins-responsive-wider{
-    padding-top:0;
-    padding-bottom:0;
-  }
-
   .menu-horizontal-responsive * {
     display: block;
   }

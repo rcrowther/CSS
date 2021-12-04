@@ -1,3 +1,6 @@
+html {
+  --base-fontsize:16pt;
+}
 
 /*
  * Basic font size
@@ -9,14 +12,40 @@
  * sizing measure regardless) 
  */
 body {
-	background-color: lightgrey;
-	/* font-family: "Volhorm", serif; */
 	font-family: "Vollkorn", serif;
 	/* Hi-res msize */
-	font-size:18pt;
-	line-height: 1.2;
+	font-size:16pt;
+	line-height: 1.26;
+}
+/* untested */
+@media
+  only screen and (min-height: 640px) {
+  /* mid-res screen */
+	body {
+		font-size:18pt;
+        line-height: 1.31;
+	}
 }
 
+@media
+  only screen and (min-height: 900px) {
+  /* hi-res screen */
+	body {
+		font-size:22pt;
+        line-height: 1.23;
+	}
+}
+
+@media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2) {
+  /* retina screen */
+	body {
+		font-size:18pt;
+	}
+}
 
 
 
@@ -30,39 +59,54 @@ body {
 }
 
 
-
-.margins-fixed-narrow,
-.margins-responsive-narrow
+.margins-narrower
 {
-    padding: 2em 0.5rem;
+    padding: 2em 2rem;
 }
 
-.margins-fixed,
-.margins-responsive {
-    padding: 2em 1rem;
-}
-
-.margins-fixed-wide, 
-.margins-responsive-wide
+.margins-narrow
 {
-    padding: 2em 3rem;
+    padding: 2em 4rem;
 }
 
-.margins-fixed-wider, 
-.margins-responsive-wider
+.margins-normal {
+    padding: 2em 6rem;
+}
+
+.margins-wide 
 {
-    padding: 2em 5rem;
+    padding: 2em 7rem;
+}
+
+.margins-wider 
+{
+    padding: 2em 8rem;
 }
 
 
-
+.menu-horizontal-responsive ul, 
+.menu-horizontal-responsive ol 
+{
+    list-style: none;
+    padding-left:1em;
+}
+    
 /* if wider than paper */
 @media screen and (min-width: 77rem) {
+
+  /* contained elements */
+  .col-2 {
+    width:21.5rem;
+  }
+
+  .col-5 {
+    width:55rem;
+  }
 
   .layout-horizontal-top > * {
     display: inline-block;
     vertical-align: top;
-    }
+  }
     
   .layout-horizontal-middle > *,
   .menu-horizontal-responsive > * {
@@ -81,20 +125,8 @@ body {
 @media screen and (max-width: 77rem) {
 
    /* Margin spacing on vertical stacking, becuse they shrink birders to 
-   * make even spacing
+   * make even spacing?
    */
-  /* NO NEED IF MENU IS SPECIFIC?
-  */
-  .margins-responsive-narrow, 
-  .margins-responsive,
-  .margins-responsive-wide, 
-  .margins-responsive-wider {
-    padding-top:0;
-    padding-bottom:0;
-    margin: 1em 0;
-  }
-
-
   .menu-horizontal-responsive * {
     display: block;
   }

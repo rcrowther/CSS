@@ -9,6 +9,7 @@
 }
 
 
+
 /* Simple print rules:
  * - h2, h3 break before
  * - Avoid break after titles
@@ -86,6 +87,7 @@ article > footer, section > footer {
 }
 */
 
+/* TOCONSIDER */
 /* containers */
 .container-fixed-margin-vertical {
     padding: 8rem 0;
@@ -101,31 +103,7 @@ article > footer, section > footer {
 @media screen and (min-width: 77rem) {
 
 
-
-
-/* contained elements */
-.col-2 {
-    width:21.5rem;
-}
-
-.col-5 {
-    width:55rem;
-}
-
-	/* Set widths for inline block */
-    /*
-	main.stock {
-		width:74rem;
-		margin: 0 auto;
-	}
-	main.stock > * {
-		display: inline-block;
-		vertical-align: top;
-	}
-	article {
-		width: 55rem;
-	}
-		*/
+    /* TOREMOVE */
 	.sidecol {
 		width: 18rem;
 		min-height: 1px;
@@ -142,47 +120,35 @@ article > footer, section > footer {
     .book-layout-horizontal-top > *,
     .book-layout-horizontal-middle > * {
         width: 100%;
-    }
-
-
-
-
-    .book-margins-responsive-narrow, 
-    .book-margins-responsive,
-    .book-margins-responsive-wide, 
-    .book-margins-responsive-wider
-    {
-    text-align: center;
-    /* No,book-menu layout
-    border-top: black solid 1px;
-    */    
-    }    
+    }  
 }
 
 /********************
  * Common
 ********************/
-/* fonts */
-@media
-  only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (   min--moz-device-pixel-ratio: 2),
-  only screen and (     -o-min-device-pixel-ratio: 2/1),
-  only screen and (        min-device-pixel-ratio: 2),
-  only screen and (max-height: 900px) {
-  /* Retina or mid-res */
-	body {
-		font-size:18pt;
-	}
-}
-  
-@media
-  only screen and (max-height: 640px) {
-  /* small-res */
-	body {
-		font-size: 16pt;
-	}
-}
 
+/* Basics
+ * Primo for overriding.
+ * line-height depends on the font-size, the font family, maybe even 
+ * line-length. Suggestions from Memoir, shelving to 12pt and bulging 
+ * at 18pt:
+ * 11pt = 1.24
+ * 12pt = 1.21
+ * 14pt = 1.25
+ * 17pt = 1.29
+ * 20pt = 1.25
+ * 25pt = 1.20
+ * 30pt = 1.23
+ * 36pt = 1.25
+ * 48pt - 1.25
+ * 30pt = 1.20
+ */
+body {
+	font-family: "Volhorm", Palatino, Georgia, serif;
+	background-color: lightgrey;
+    font-size:12pt;
+    line-height: 1.45;
+}
 
 date {
 	font-size: 1.111rem;
@@ -443,8 +409,8 @@ header.stock{
 		margin: 0;
 	}
 	*/
+    /*
 	.menu a {
-		/* display: block; */
 		padding: 0.5rem 3rem;
 	}
 
@@ -452,7 +418,7 @@ header.stock{
 		list-style: none;
 		padding-left:1em;
 	}
-
+*/
 
 }
 
