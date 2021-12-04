@@ -31,31 +31,6 @@ article > footer, section > footer {
     page-break-inside: avoid;
 }
 
-@font-face {
-  font-family: Vollkorn;
-  /* deliver the weights--- they are lower and lesser */
-  src: url('/static/fonts/Vollkorn-VariableFont_wght-1.woff2') format('woff2');
- /* src: url('/static/fonts/Vollkorn-Regular_min-1.woff2') format('woff2');*/
-  font-display: swap;
-}
-
-@font-face {
-  font-family: VollkornSC;
-  src: url('/static/fonts/VollkornSC-Regular_min-1.woff2') format('woff2');
-  font-display: swap;
-}
-
-body {
-	background: lightgrey;
-	/* font-family: "Volhorm", serif; */
-	font-family: "Vollkorn", serif;
-	font-family: "Times New Roman";
-	/* Hi-res msize */
-	font-size:20pt;
-	line-height:20pt;
-	line-height: 1.2;
-	/*background-color: #e5e1de;*/
-}
 
 
 /* Paper sizes */
@@ -63,13 +38,13 @@ body {
     display: block;
 }
 
-.paper-text {
+.paper-web {
     max-width: 77rem;
     margin: 0 auto;
 }
 
-.paper-plain {
-    max-width: 66rem;
+.paper-a4 {
+    max-width: 210mm;
     margin: 0 auto;
 }
 
@@ -79,39 +54,29 @@ body {
 }
 
 
-/* printblocks */
-/*
-.layout-horizontal-top > * {
+
+/* layouts */
+
+.layout-responsive-horizontal-top > * {
     display: inline-block;
     vertical-align: top;
 }
 
-.layout-horizontal-middle > * {
+.layout-responsive-horizontal-middle > * {
     display: inline-block;
     vertical-align: middle;
 }
-*/
+
 .layout-vertical-middle > * {
   margin: auto;
 }
 
-.print-fluid-margin {
-    max-width: 77rem;
-    margin: 0 auto;
-}
 
-.print-fixed-margin {
-    padding: 2rem 4em;
-}
 
-.print-fixed-margin-narrow {
-    padding: 2rem;
-}
 
-.print-fixed-margin-std {
-    padding:7rem;
-}
 
+
+/*
 .print-fixed-margin-mdvl {
     padding: 6rem 6rem 9rem 6rem;
 }
@@ -119,6 +84,7 @@ body {
 .print-fixed-margin-iso {
     padding: 6rem 6rem 12rem 6rem;
 }
+*/
 
 /* containers */
 .container-fixed-margin-vertical {
@@ -134,15 +100,8 @@ body {
 /* if wider than paper, horizontal layouts horizontal */
 @media screen and (min-width: 77rem) {
 
-.layout-horizontal-top > * {
-    display: inline-block;
-    vertical-align: top;
-}
 
-.layout-horizontal-middle > * {
-    display: inline-block;
-    vertical-align: middle;
-}
+
 
 /* contained elements */
 .col-2 {
@@ -178,14 +137,31 @@ body {
 
 
 /* if narrower than paper */
-
 @media screen and (max-width: 77rem) {
 
-    .under-paper-width-remove {
-        display: none;
+    .book-layout-horizontal-top > *,
+    .book-layout-horizontal-middle > * {
+        width: 100%;
     }
+
+
+
+
+    .book-margins-responsive-narrow, 
+    .book-margins-responsive,
+    .book-margins-responsive-wide, 
+    .book-margins-responsive-wider
+    {
+    text-align: center;
+    /* No,book-menu layout
+    border-top: black solid 1px;
+    */    
+    }    
 }
 
+/********************
+ * Common
+********************/
 /* fonts */
 @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -444,24 +420,24 @@ header.stock{
 
 /* if narrower than stock, menu vertical */
 @media screen and (max-width: 70rem) {
-	
+	/*
 	.topbar {
 	padding: 0.666rem 0;
 	}
 	
 	.topbar * {
 		display: block;
-		/* margin:0.5rem 0rem 0.5rem 1rem; */
+        margin:0.5rem 0rem 0.5rem 1rem;
 	}
 	
 	.logo, .logo img {
 		display: none;
 	}
-	
 	.logo {
 		margin: 0;
 		padding: 1rem 1rem 0;
 	}
+    */
 	/*
 	.menu {
 		margin: 0;
@@ -482,12 +458,11 @@ header.stock{
 
 /* if wider than stock, menu horizontal */
 @media screen and (min-width: 70rem) {
-
+/*
 	.topbar > * {
 		display: inline-block;
 		vertical-align: middle;
 	}
-/*
 	.topbar > * {
 		margin:0.5rem 2rem;
 	}

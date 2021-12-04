@@ -1,0 +1,119 @@
+
+/*
+ * Basic font size
+ * 
+ */
+/* plain uses a base font size 18pt (web convention 16px==12pt. So 
+ * large, but for the web I think fonts should be oversize, Particulary
+ * applies with the slew of hi-res screens, which make fonts too small,
+ * sizing measure regardless) 
+ */
+body {
+	background-color: lightgrey;
+	/* font-family: "Volhorm", serif; */
+	font-family: "Vollkorn", serif;
+	/* Hi-res msize */
+	font-size:18pt;
+	line-height: 1.2;
+}
+
+
+
+
+
+
+/* margins */    
+/* Plain has a chunky but efficient margin theme */
+.margins-fluid {
+    max-width: 77rem;
+    margin: 0 auto;
+}
+
+
+
+.margins-fixed-narrow,
+.margins-responsive-narrow
+{
+    padding: 2em 0.5rem;
+}
+
+.margins-fixed,
+.margins-responsive {
+    padding: 2em 1rem;
+}
+
+.margins-fixed-wide, 
+.margins-responsive-wide
+{
+    padding: 2em 3rem;
+}
+
+.margins-fixed-wider, 
+.margins-responsive-wider
+{
+    padding: 2em 5rem;
+}
+
+
+
+/* if wider than paper */
+@media screen and (min-width: 77rem) {
+
+  .layout-horizontal-top > * {
+    display: inline-block;
+    vertical-align: top;
+    }
+    
+  .layout-horizontal-middle > *,
+  .menu-horizontal-responsive > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .menu-horizontal-responsive a {
+    padding: 2rem; 
+    cursor: pointer;   
+  }
+}
+
+
+/* if narrower than paper */
+@media screen and (max-width: 77rem) {
+
+   /* Margin spacing on vertical stacking, becuse they shrink birders to 
+   * make even spacing
+   */
+  /* NO NEED IF MENU IS SPECIFIC?
+  */
+  .margins-responsive-narrow, 
+  .margins-responsive,
+  .margins-responsive-wide, 
+  .margins-responsive-wider {
+    padding-top:0;
+    padding-bottom:0;
+    margin: 1em 0;
+  }
+
+
+  .menu-horizontal-responsive * {
+    display: block;
+  }
+  /*
+  overflow is needed to stop margins spilling. Scrollbars
+  shouldn't happen, because of infinite vertical space.
+  * NO NEED IF ALL IS BLOCK DISPLAY
+  */
+  /*
+  .menu-horizontal-responsive {
+    overflow-y:auto;
+  }
+  */
+  .menu-horizontal-responsive a {
+    padding:0.5em 3rem;
+  }
+  
+  .under-paper-width-remove {
+    display: none;
+  }
+
+}

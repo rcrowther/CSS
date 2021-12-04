@@ -41,7 +41,7 @@ And, on the web, text can not be flowed from block to block. This is one of the 
 == HTML
 Webbook must be used with some HTML structure,
 
-== Overview
+== Overview - layout
 The web display, so BODY tags, are viewed as 'stock'.
 
 There is no overall ''trimmed stock'/''page' definition, as the web can be, and is usually better, as infinitely vertical. Moreover, where page design deals mainly with header/typeblock/footer, web design seems to benefit from many stacked blocks. 
@@ -78,6 +78,7 @@ Contained elements will usually need a print margin, unless they contain images 
 
 
 === Responsiveness
+Horizontal container break to vertical under the standard paper width.
 
 
 == Reference
@@ -213,6 +214,9 @@ Printblocks establish any margin between paper and content.
 }
 
 
+
+
+== Fonts
 
 
 ======

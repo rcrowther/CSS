@@ -1,0 +1,112 @@
+
+/*
+ * Basic font size
+ * 
+ */
+/* book uses the mormal base font size of typography 12pt (similar to  
+ * web convention 16px==12pt. I'd say too small, for the web, but 
+ * appropriate for book purpose, and this CSS has hi-res fixes) 
+ */
+body {
+	background-color: lightgrey;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    font-size: 12pt;
+    line-height: 15pt;
+}
+
+/* margins */    
+/* Book has a margin theme closer to book markings (for menus, etc.)*/
+.margins-fluid {
+    max-width: 210mm;
+    margin: 0 auto;
+}
+
+
+
+.margins-fixed-narrow,
+.margins-responsive-narrow {
+    padding: 1em 0.5rem;
+}
+
+.margins-fixed,
+.margins-responsive {
+    padding: 1em 1rem;
+}
+
+.margins-fixed-wide, 
+.margins-responsive-wide {
+    padding: 1em 3rem;
+}
+
+.margins-fixed-wider, 
+.margins-responsive-wider {
+    padding: 1em 5rem;
+}
+
+
+
+
+
+
+.menu-horizontal-responsive{
+  text-align: center;
+  border-bottom: black solid 1px;
+}
+
+/* if wider than paper */
+@media screen and (min-width: 210mm) {
+
+  .layout-horizontal-top > * {
+    display: inline-block;
+    vertical-align: top;
+    }
+    
+  .layout-horizontal-middle > *,
+  .menu-horizontal-responsive > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .menu-horizontal-responsive a {
+    padding: 2rem;
+    cursor: pointer;
+  }
+}
+
+/* if narrower than paper */
+@media screen and (max-width: 210mm) {
+
+  
+   /* Margin spacing on vertical stacking, becuse they shrink birders to 
+   * make even spacing
+   */
+  /* NO NEED IF MENU IS SPECIFIC?
+  */
+  .margins-responsive-narrow, 
+  .margins-responsive,
+  .margins-responsive-wide, 
+  .margins-responsive-wider{
+    padding-top:0;
+    padding-bottom:0;
+  }
+
+  .menu-horizontal-responsive * {
+    display: block;
+  }
+  
+  .menu-horizontal-responsive li {
+    border-bottom: black solid 1px;
+  }
+
+  .menu-horizontal-responsive a {
+    width: 100%;
+    text-align: center;
+    padding:1em 3rem;
+    border-top: black solid 1px;
+  }
+
+
+  .under-paper-width-remove {
+    display: none;
+  }
+}
