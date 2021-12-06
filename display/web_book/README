@@ -1,7 +1,7 @@
 = Webbook
 A version of the Book CSS. The original used supplementary CSS stylesheets to convert to web use. This is designed primarily for the web.  
 
-Changes/differences at the time of writing
+
 ++
 - Two columns for page layout
 - Advanced responsive features
@@ -21,6 +21,13 @@ Currently/forever lost,
 - Table of Contents and other specialist list features
 - many tweak/convenience features, such as direct Font sizing
 +
+== Ajustments from Menoir
+
+Font sizes asumed to bbe correct
+Some responiveness to approximate to above
+?Fixed page widths
+? chapter numbering ignored
+
 
 == Setup
 WebBook should be built using Normalize CSS
@@ -72,6 +79,7 @@ header paper-stock topbar
 Vertical contained elements expand as appropriate, no work needed.
 
 Horizontal contained elements need sizing. If the contained elements are dense and can be fluid-sized, such as a horizontal menu, ignore sizing. If readable text and allocation is needed, class with ''col-X' on a division of seven. It's the job of the coder to sum ''col' numbers.
+
 
 ==== Contained element margins
 Contained elements will usually need a print margin, unless they contain images or are themselves containers.

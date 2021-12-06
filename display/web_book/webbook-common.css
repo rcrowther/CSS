@@ -9,6 +9,20 @@
 }
 
 
+html {
+  --base-fontsize:12pt;
+  --base-lineheight:1.4;
+
+  /* Depends on point options.  onelineskip is the vertical space take 
+   * by a normal line of text i.e. base-lineheight, here multiplied to 
+   * deliver usable units */
+  --onelineskip: calc(var(--base-fontsize) * var(--base-lineheight));
+  /*
+   * \baselineskip is a likme measure, but is relative to a pararaph's
+   * font, so can change in size. I'm ignoring it... unless it goes 
+   * wrong... 
+   */
+}
 
 /* Simple print rules:
  * - h2, h3 break before
@@ -248,57 +262,228 @@ html {
 
 .tiny {
   font-size: var( --tiny);
- /* line-height: 9pt; */
 }
  
 .xx-small {
   font-size: var( --xx-small);
-  /* line-height: 10pt; */
 }
     
 .x-small {
   font-size: var( --x-small);
-  /* line-height: 12pt; */
 }
     
 .small {
   font-size: var( --small);
-  /* line-height: 14pt; */
 }
  
 .normal {
   font-size: var( --normal);
-  /* line-height: 15pt; */
 }
 
 .large {
   font-size: var( --large);
-  /* line-height: 18pt; */
 }
 
 .x-large {
   font-size: var( --x-large);
-  /* line-height: 22pt; */
 }
 
 .xx-large {
   font-size: var( --xx-large);
-  /* line-height: 25pt; */
 }
 
 .huge {
   font-size: var( --huge);
-  /* line-height: 30pt */
 }
 
 .x-huge {
   font-size: var( --x-huge);
-  /* line-height: 36pt; */
 }
 
 
+/* Chapterstyles */
+/* bianchi, bringhurst, brotherton, chappel, culver, dash, 
+ * demo2, ell, Ger,lyhne, madsen, pedersen, southall, 
+ * thatcher, veelo, verville, demo3 */
+
+/* midchapskip only used for inserting vertical numbering. 
+ * Ignoring nubering */
+html {
+--beforeskip: 50pt;
+--midchapskip: 20pt;
+--afterskip: 40pt;
+}
+
+/* default */
+h1 {
+  font-size: var( --x-huge);
+  font-weight: bold;
+  margin: var(--beforeskip) 0 var(--afterskip);
+}
+
+/* The basic styles are default, section, hangnum, companion, article, 
+ * reparticle */
+/* The basic styles are mainly concerned with numeric positioning. 
+ * However, companion is right-aligned, and article is smaller */
+
+.companion {
+  text-align: right;
+}
+
+.article {
+  --beforeskip: 3.5ex;
+  --afterskip:2.3ex;
+  font-size: var( --x-large);
+  margin: var(--beforeskip) 0 var(--afterskip);
+}
+ 
+/* chapterhead styles */
+/* 
+ * bianchi, bringhurst, crosshead, default, dowding, komalike, memman, 
+ * niglike, tandh, and wilsondob
+ * 
+ * A few missing. brotherton too simple, thatcher too complex, others 
+ * use graphics packages.
+ */
+.bianchi {
+  font-family: sans;
+  text-align: center;
+  padding-top:var(--onelineskip);
+  border-top: solid black 1px;
+  padding-bottom: var(--onelineskip);
+  border-bottom: solid black 1px;
+}
+
+.bringhurst {
+  font-size: var( --x-large);
+  text-transform: lowercase;
+  font-weight: normal;
+  font-variant: small-caps;
+  padding-bottom: var(--onelineskip);
+  border-bottom: solid black 1px;
+  margin-bottom: var(--onelineskip);
+}
+
+.chappell {
+  font-size: var( --x-large);
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  padding-top: var(--onelineskip);
+  border-top: solid black 1px;
+}
+
+/* Biblical style */
+/* Our usage= article, centred */
+.culver {
+  --beforeskip: 3.5ex;
+  --afterskip:2.3ex;
+  font-size: var( --x-large);
+  text-align: center;
+  margin: var(--beforeskip) 0 var(--afterskip);
+}
+
+.crosshead {
+  --beforeskip: calc(2 * var(--onelineskip));
+  --afterskip: calc(2 * var(--onelineskip));
+  font-size: var( --xx-large);
+  text-align: center;  
+  margin: var(--beforeskip) 0 var(--afterskip);
+}
+
+/* Too hard for now */
+.dash {}
+
+/* As used in the maual*/
+.demo3 {
+  --beforeskip: 0;
+  --afterskip: calc(2 * var(--onelineskip));
+  font-family:sans;
+  font-weight: normal;
+  text-align: right;
+  padding-top: var(--onelineskip);
+  border-top: solid black 1px;
+  padding-bottom:  var(--onelineskip);
+  border-bottom: solid black 1px;  
+  margin: var(--beforeskip) 0 var(--afterskip);
+}
+
+.dowding {
+  --beforeskip: calc(2 * var(--onelineskip));
+  --afterskip: calc(1.5 * var(--onelineskip));
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  margin: var(--beforeskip) 0 var(--afterskip);
+}
 
 
+.komalike {
+  --beforeskip: calc(2 * var(--onelineskip));
+  --afterskip: calc(1.5 * var(--onelineskip));
+  font-family: sans;
+  font-size: var( --xx-large);
+  margin: var(--beforeskip) 0 var(--afterskip);
+}
+
+/* Cambridge book, or close */
+/* Roman family=nonsense. Uses baselineskip? */
+/* Currently bad */
+.southall {
+  --beforeskip: 36pt;
+  --afterskip: calc(5 * var(--onelineskip));
+  font-weight: normal;
+  padding-bottom:var(--onelineskip);
+  border-bottom: solid black 1px;  
+  margin: var(--beforeskip) 0 var(--afterskip);
+}
+
+.tandh {
+  --beforeskip: var(--onelineskip);
+  --afterskip: calc(2 * var(--onelineskip));
+  margin: var(--beforeskip) 0 var(--afterskip);  
+}
+
+/* TODO */
+.thatcher {
+  font-weight: normal;
+  font-size: var( --large);
+  text-transform: uppercase;
+  text-align: center;
+}
+ 
+
+
+.ntglike {
+  --beforeskip: 50pt;
+  font-size: var( --x-large);
+  margin-top: var(--beforeskip);
+}
+
+.wilsondob {
+  --beforeskip: calc(2 * var(--onelineskip));
+  --afterskip: calc(4 * var(--onelineskip));
+  font-weight: normal;
+  font-style: italic;
+  text-align: right;
+  margin: var(--beforeskip) 0 var(--afterskip);  
+}
+
+
+/* heading sets */
+/*
+h1 chapter
+h2 section
+h3 subsection
+h4 subsubsection
+h5 para
+h6 subpara
+*/
+
+.memman
+
+
+/* General */
 date {
 	font-size: 1.111rem;
 }
@@ -347,34 +532,9 @@ figcaption {
 .nav-table-img{
 	font-size:1.777rem;img
 }
-/* 1.777/16*?=
- * 60 = 
- * 48 = 5.331
- * 32 = 3.554
- * 30 = 3.124
- * 22 = 2.291
- * 20 = 2.083
- * 18 = 1.888
- ** 16 = 1.777
- * 14 = 1.55
- * 12 = 1.333
- * 10 = 1.111
- * 8 = 0.889
- * 6 = 0.666
- * 4 = 0.444
- * SOS
- * 28/14 3.554
- * 24/14 3.034
- * CM
- * 35/16 3.880
- * 24/16 2.666 bo;d 400
- * 16/16 centre bg
- * HG
- * 50/18 4.936
- * 36/18 3.692
- * line height is 18/30
- */ 
 
+
+/*
 h1, h3 {
     font-weight:600;
 }
@@ -387,16 +547,6 @@ h1, h3 {
 				  1px 1px 2px #666,
 				 1px -1px 2px #666,
 				-1px -1px 2px #000;
-					
-					
-					
-/*
-	text-shadow:  -1px 1px 0 #000,
-				  1px 1px 0 #666,
-				 1px -1px 0 #666,
-				-1px -1px 0 #000;
-*/
-
 } 
 
 h2, h4, h5, h6 {
@@ -422,12 +572,6 @@ h2 {
 	margin: 3.554rem 0 1.777rem 0;
 }
 
-/* dont use, shou;d be titlecase.  Lowers ''I' also */
-/*
-h3, h4, h5, h6 {
-	text-transform: lowercase;
-}
-*/
 h3 {
     font-size: 1.777rem;
     margin: 1.999rem 0 1.55rem 0;
@@ -444,8 +588,7 @@ h5 {
 h6 {
     margin: 1.111rem 0 0.444rem 0;
 }
-
-
+*/
 
 /* Tables*/
 table {

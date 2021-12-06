@@ -38,7 +38,7 @@ body {
   only screen and (        min-device-pixel-ratio: 2) {
   /* retina screen */
 	body {
-		font-size:var(--base-fontsize);
+		font-size:var(--base-fontsize + 2pt);
 	}
 }
 
