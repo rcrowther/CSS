@@ -12,7 +12,8 @@
 html {
   --base-fontsize:12pt;
   --base-lineheight:1.4;
-
+  --parindent: 1.5em;
+  
   /* Depends on point options.  onelineskip is the vertical space take 
    * by a normal line of text i.e. base-lineheight, here multiplied to 
    * deliver usable units */
@@ -22,6 +23,7 @@ html {
    * font, so can change in size. I'm ignoring it... unless it goes 
    * wrong... 
    */
+   --breakwidth:74rem;
 }
 
 /* Simple print rules:
@@ -472,16 +474,309 @@ h1 {
 
 /* heading sets */
 /*
-h1 chapter
-h2 section
-h3 subsection
-h4 subsubsection
-h5 para
-h6 subpara
+h1 chapter \chaptitlefont
+h2 section \secheadstyle
+h3 subsection \subsecheadstyle
+h4 subsubsection \subsubsecheadstyle
+h5 para \paraheadstyle
+h6 subpara \subparaheadstyle
+*/
+/* default */
+/* indent text following h6, as the title is usually a repeart of h5 */
+h6 + p {
+  text-indent: var(--parindent)
+}
+
+
+
+h2 {
+  font-size: var( --x-large);
+  margin: 3.5ex 0 2.3ex;
+}
+
+h3 {
+  font-size: var( --large);
+  margin: 3.25ex 0 1.5ex;
+}
+
+h4 {
+  font-size: var( --normal);
+  margin: 3.25ex 0 1.5ex;
+}
+
+h5 {
+  font-size: var( --normal);
+  margin: 3.25ex 0 1em;
+
+}
+
+h6 {
+  font-size: var( --normal);
+  margin: 3.25ex 0 1em;
+}
+
+/* memman */
+/*
+h2{
+  font-weight: normal;
+  font-variant: small-caps;
+  margin: calc(1.333 * var(--onelineskip)) 0 calc(0.667 * var(--onelineskip));
+}
+
+h3 {
+  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+}
+
+h4 {
+  font-weight: normal;
+  font-style: italic;
+  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+}
+
+h5 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0 1em;
+}
+
+h6 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0 1em;
+}
+h5::after, h6::after {
+  content: ".";
+}
 */
 
-.memman
+/* Bringhurst */
+/*
+h2 {
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  margin: var(--onelineskip) 0  var(--onelineskip);
+}
 
+h3 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0  var(--onelineskip);
+}
+
+h4 {
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  margin: var(--onelineskip) 0  1em;
+}
+
+h5 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0  1em;
+}
+
+h6 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0  1em;
+}
+
+h5::after, h6::after {
+  content: ".";
+}
+*/
+
+/* crosshead */
+/*
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin: calc(1.25 * var(--onelineskip)) 0 calc(0.75 * var(--onelineskip));
+}
+h3 {
+  text-align: center;
+  margin: calc(1.25 * var(--onelineskip)) 0 calc(0.75 * var(--onelineskip));
+}
+h4 {
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  text-align: center;
+  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+}
+h5 {
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+}
+h6 {
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  margin: var(--onelineskip) 0 1em;
+}
+*/
+
+/* dowding */
+/*
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  margin: calc(2 * var(--onelineskip)) 0 var(--onelineskip);
+}
+h3 {
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  text-align: center;
+  margin: calc(1.2 * var(--onelineskip)) 0 calc(0.8 * var(--onelineskip));
+}
+h4 {
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+}
+h5 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0 1em;
+}
+h6 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0 1em;
+}
+h5::after, h6::after {
+  content: ".";
+}
+*/
+
+/* komalike */
+/*
+h2 {
+  font-family: sans;
+  font-size: var( --x-large);
+  margin: 3.5ex 0 2.3ex;
+}
+h3 {
+  font-family: sans;
+  font-size: var( --large);
+  margin: 3.5ex 0 2.3ex;
+}
+h4 {
+  font-family: sans;
+  margin: 3.25ex 0 1.5em;
+}
+h5 {
+  font-family: sans;
+  margin: 3.25ex 0 1em;
+}
+h6 {
+  font-family: sans;
+  margin: 3.25ex 0 1em;
+}
+*/
+
+/* ntglike */
+/*
+h2 {
+  font-size: var( --large);
+  margin: calc(2 * var(--onelineskip)) 0 calc(0.5 * var(--onelineskip));
+}
+h3 {
+  font-size: var( --normal);
+  margin: var(--onelineskip) 0 calc(0.01 * var(--onelineskip));
+}
+h4 {
+  font-weight: normal;
+  font-style: oblique;
+  margin: var(--onelineskip) 0 calc(0.5 * var(--onelineskip));
+}
+h5 {
+  font-weight: normal;
+  font-style: oblique;
+  margin: 3.25ex 0 1em;
+}
+h6 {
+  font-weight: normal;
+  font-style: oblique;
+  margin: 3.25ex 0 1em;
+}
+*/
+
+/* tandh */
+/*
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: calc(2 * var(--onelineskip)) 0 var(--onelineskip);
+}
+h3 {
+  font-size: var( --x-large);
+  font-weight: normal;
+  font-style: italic;
+  margin: calc(1.2 * var(--onelineskip)) 0 calc(0.8 * var(--onelineskip));
+}
+h4 {
+  font-size: var( --normal);
+  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+}
+h5 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0 1em;
+}
+h6 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0 1em;
+}
+h5::after, h6::after {
+  content: ".";
+}
+*/
+
+/* wilsondob */
+/*
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: calc(1.333 * var(--onelineskip)) 0 calc(0.667 * var(--onelineskip));
+}
+h3 {
+  font-size: var( --x-large);
+  font-weight: normal;
+  font-style: italic;
+  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+
+}
+h4 {
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+}
+h5 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0 1em;
+}
+h6 {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0 1em;
+}
+
+h5::after, h6::after {
+  content: ".";
+}
+*/
 
 /* General */
 date {
