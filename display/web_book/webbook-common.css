@@ -129,26 +129,175 @@ article > footer, section > footer {
 
 /* Basics
  * Primo for overriding.
- * line-height depends on the font-size, the font family, maybe even 
- * line-length. Suggestions from Memoir, shelving to 12pt and bulging 
- * at 18pt:
- * 11pt = 1.24
- * 12pt = 1.21
- * 14pt = 1.25
- * 17pt = 1.29
- * 20pt = 1.25
- * 25pt = 1.20
- * 30pt = 1.23
- * 36pt = 1.25
- * 48pt - 1.25
- * 30pt = 1.20
- */
+*/
+
 body {
 	font-family: "Volhorm", Palatino, Georgia, serif;
 	background-color: lightgrey;
+    
+    /* fallback for non-custom property browsers */
     font-size:12pt;
     line-height: 1.45;
 }
+
+/* Font Sizing */
+/* 12pt Scaling */
+html {
+
+/* line-height depends on the font-size, the font family, maybe even 
+ * line-length. Suggestions from Memoir, shelving to 12pt and bulging 
+ * at 18pt.
+ * Webbook doesn't deal much with line heights, preferring if necessary 
+ * to set a value overall. The divisions are fine, will be lost on the 
+ * web, and will add much complexity. 
+*/
+  --lh-11pt: 1.24;
+  --lh-12pt: 1.21;
+  --lh-14pt: 1.25;
+  --lh-17pt: 1.29;
+  --lh-20pt: 1.25;
+  --lh-25pt: 1.20;
+  --lh-30pt: 1.23;
+  --lh-36pt: 1.25;
+  --lh-48pt: 1.25;
+  --lh-30pt: 1.20;
+
+ 
+/* 12pt Scaling (can use REMS against 12pt base) */
+
+ /* 30pt */
+ --x-huge:2.5rem;
+ /* 25pt */
+ --huge:2.083rem;
+ /* 20pt */
+ --xx-large:1.667rem;
+ /* 17pt */
+ --x-large:1.417rem;
+ /* 14pt */
+ --large:1.167rem;
+ /* 12pt */
+ --normal: 1rem;
+ /* 11pt */
+ --small:0.917rem;
+ /* 10pt */
+ --x-small:0.833rem;
+ /* 8pt */
+ --xx-small:0.667rem;
+ /* 6pt */
+ --tiny:0.5rem;
+
+
+/* 14pt REM Scaling (can use REMS against 14pt base) */
+/*
+ /* 30pt */
+ --x-huge: 2.143rem;
+ /* 25pt */
+ --huge: 1.786rem;
+ /* 20pt */
+ xx-large: 1.429rem;
+ /* 17pt */
+ --large: 1.214rem;
+ /* 14pt */ 
+ --normal:1rem;
+ /* 12pt */
+ --small: 0.857rem;
+ /* 11pt */
+ x-small: 0.786rem;
+ /* 10pt */
+ --xx-small: 0.714rem;
+ /* 9pt */
+ --tiny: 0.643rem;
+*/
+
+/* 17pt REM Scaling (can use REMS against 17pt base) */
+/*
+ /* 36pt */
+ --x-huge: 2.118rem;
+ /* 30pt */
+ --huge: 1.765rem;
+ /* 25pt */
+ xx-large: 1.471rem;
+ /* 20pt */
+ --large: 1.176rem;
+ /* 17pt */ 
+ --normal:1rem;
+ /* 14pt */
+ --small: 0.824rem;
+ /* 12pt */
+ x-small: 0.706rem;
+ /* 11pt */
+ --xx-small: 0.647rem;
+ /* 10pt */
+ --tiny: 0.588rem;
+*/
+/*
+ * SOS
+ * 28/14 3.554
+ * 24/14 3.034
+ * CM
+ * 35/16 3.880
+ * 24/16 2.666 bo;d 400
+ * 16/16 centre bg
+ * HG
+ * 50/18 4.936
+ * 36/18 3.692
+ * line height is 18/30
+ */ 
+}
+
+
+.tiny {
+  font-size: var( --tiny);
+ /* line-height: 9pt; */
+}
+ 
+.xx-small {
+  font-size: var( --xx-small);
+  /* line-height: 10pt; */
+}
+    
+.x-small {
+  font-size: var( --x-small);
+  /* line-height: 12pt; */
+}
+    
+.small {
+  font-size: var( --small);
+  /* line-height: 14pt; */
+}
+ 
+.normal {
+  font-size: var( --normal);
+  /* line-height: 15pt; */
+}
+
+.large {
+  font-size: var( --large);
+  /* line-height: 18pt; */
+}
+
+.x-large {
+  font-size: var( --x-large);
+  /* line-height: 22pt; */
+}
+
+.xx-large {
+  font-size: var( --xx-large);
+  /* line-height: 25pt; */
+}
+
+.huge {
+  font-size: var( --huge);
+  /* line-height: 30pt */
+}
+
+.x-huge {
+  font-size: var( --x-huge);
+  /* line-height: 36pt; */
+}
+
+
+
 
 date {
 	font-size: 1.111rem;

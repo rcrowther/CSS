@@ -1,5 +1,6 @@
 html {
   --base-fontsize:12pt;
+  --base-lineheight: var(--lh-12pt)
 }
 
 /*
@@ -12,25 +13,21 @@ html {
  */
 body {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-    font-size:12pt;
-    line-height: 1.21;
+    font-size:var(--base-fontsize);
+	line-height: var(--base-lineheight);
 }
 
-@media
-  only screen and (min-height: 640px) {
+@media screen and (min-height: 640px) {
   /* mid-res screen */
 	body {
-		font-size:14pt;
-        line-height: 1.25;
+		font-size:calc(var(--base-fontsize) + 2pt);
 	}
 }
 
-@media
-  only screen and (min-height: 900px) {
+@media screen and (min-height: 900px) {
   /* hi-res screen */
 	body {
-		font-size:18pt;
-        line-height: 1.31;
+		font-size:calc(var(--base-fontsize) + 4pt);
 	}
 }
 
@@ -41,7 +38,7 @@ body {
   only screen and (        min-device-pixel-ratio: 2) {
   /* retina screen */
 	body {
-		font-size:14pt;
+		font-size:var(--base-fontsize);
 	}
 }
 
