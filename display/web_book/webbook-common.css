@@ -11,12 +11,43 @@
 
 html {
   --base-fontsize:12pt;
-  --base-lineheight:1.4;
+  
+  /* On the web, exaggerated values are often used, 
+   *
+   * 1.75
+   * More for display than readability e.g. teasers
+   * 
+   * 1.7 
+   * Good for readability if you have no idea about text widths
+   * 
+   * 1.6 Wikipedia 
+   * Some justifucation for this, especially for long lines, or big 
+   * blocks of text. 
+   * 
+   * 1.5 email display
+   * A common sort of width for computer presentation
+   * 
+   * 1.4
+   * Not bad balance between typography and the flex of the web.
+   * 
+   * 1.3 Gov.uk
+   * Sensible choice for sober text
+   * 
+   * 1.25rem
+   * Common, but will lock all font sizes to one height, so not 
+   * advisable? REMs are slightly bigger than a ratio.
+   * 
+   *  1.21 Memoir 12pt
+   * For print, much narrower.
+   */
+  --base-lineheight:1.21;
+  
+  /* On the web, 2em also looks good */
   --parindent: 1.5em;
   
   /* Depends on point options.  onelineskip is the vertical space take 
    * by a normal line of text i.e. base-lineheight, here multiplied to 
-   * deliver usable units */
+   * deliver usable (point) units */
   --onelineskip: calc(var(--base-fontsize) * var(--base-lineheight));
   /*
    * \baselineskip is a likme measure, but is relative to a pararaph's
@@ -39,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
 }
 
-table, figure, divblock, ol, ul, dl {
+table, figure, spanblock, ol, ul, dl {
     page-break-after: avoid;
     page-break-inside: avoid;
 }
@@ -114,12 +145,10 @@ article > footer, section > footer {
     margin: 0 auto;
 }
 
-
-/* if wider than paper, horizontal layouts horizontal */
-@media screen and (min-width: 77rem) {
-
-
     /* TOREMOVE */
+/* if wider than paper, horizontal layouts horizontal */
+/*
+ @media screen and (min-width: 77rem) {
 	.sidecol {
 		width: 18rem;
 		min-height: 1px;
@@ -128,7 +157,7 @@ article > footer, section > footer {
 		padding-bottom: 8rem;
 	}
 }
-
+*/
 
 /* if narrower than paper */
 @media screen and (max-width: 77rem) {
@@ -482,7 +511,7 @@ h5 para \paraheadstyle
 h6 subpara \subparaheadstyle
 */
 /* default */
-/* indent text following h6, as the title is usually a repeart of h5 */
+/* indent text following h6, as the title is usually a repeat of h5 */
 h6 + p {
   text-indent: var(--parindent)
 }
@@ -778,18 +807,239 @@ h5::after, h6::after {
 }
 */
 
-/* General */
-date {
-	font-size: 1.111rem;
-}
+/* General text */
+
+/* elements */
 
 /* An invented element, for block content which is part of textflow.
  * This is an alternative to the figure element. The styling mostly is
  * locked to figure, but paragraphing is different.  
  */
-divblock {
+spanblock {
     display: block;
 }
+
+/* inherit pre font because this is primarily typographical, and 'pre' 
+ * may be used for layout of say, poetry. Browsers don't think so.
+ */
+pre {
+  display: block;
+  font-family: inherit;
+}
+
+code {
+  font-family: monospace;
+}
+
+/*
+date {
+	font-size: 1.111rem;
+}
+*/
+
+
+/* anchor buttons */
+/*
+.button {
+  font-weight:bold;
+  font-size: 18pt;
+}
+*/
+
+/* Paragraphs */
+
+/* Note this excludes headings, figures, blockquotes, spanblocks */
+p + p {
+  text-indent: var(--parindent);
+}
+
+
+/* Lists */
+
+/* P145 P182 p212 for examples */
+/* dl not left-indented. Lists are not like Memoir, they are a full set of sizings, and include an extra 1/3 oneline (ish) paragraph spacing  */
+
+ul, ol, dl {
+    /* originally, I had this at onelineskip? */
+    --parsep: calc(0.333 * var(--onelineskip));
+    --l-block-margin: 2.5em;
+    --r-block-margin: 2.5em;
+    --labelsep: 0.5em;
+    display: block;
+    margin: var(--parsep) var(--r-block-margin) var(--parsep) var(--l-block-margin);
+}
+
+/* If narrow, trim horizontal margins */
+/* TODO: Why not working at 77rem?? */
+/* That said, --break-width-formatting is a viable value */
+@media screen and (max-width: 44rem) {
+
+  ul, ol, dl {
+  /*
+    margin-right: 0;
+    margin-left: 1.333em;
+    */
+    --l-block-margin: 1.333em;
+    --r-block-margin: 0;
+  }
+
+}
+
+li, dd {
+  --itemsep: calc(0.333 * var(--onelineskip));
+  margin-bottom: var(--itemsep);
+}
+
+/* Do not want last item bottom margin to overlay maybe thinner list frame */
+/* TODO: Don't like this CSS */
+ol li:last-child, ul li:last-child, dl li:last-child {
+  margin-bottom: 0;
+}
+
+/* should be runin on 'dt', but not reliabile in Mozilla. float will 
+ * work for single lines.
+ */
+dt {
+    font-weight: bold;
+    margin-right: 0.5em;
+    float: left;
+}  
+
+ol.x-tight, ul.x-tight, dl.x-tight {
+  --parsep: calc(0.5 * var(--onelineskip));
+}
+
+ol.x-tight li, ul.x-tight li, dl.x-tight dd {
+  --itemsep: 0;
+}
+
+ol.tight, ul.tight, dl.tight {
+  --parsep: calc(0.417 * var(--onelineskip));
+}
+
+ol.tight li, ul.tight li, dl.tight dd {
+  --itemsep: calc(0.1667 * var(--onelineskip));
+}
+
+
+/* loose-spaced list */
+/* margin bottom more reliable for floats.
+ * outer list margins hold overall position. 
+ */
+ /*TODO
+  * x Bottom margin spill spoiling the loose versions
+  * Spacing curves seem wrong anyhow
+  * x-tight does march Memoir tight. But the only one.
+  */
+ol.loose, ul.loose, dl.loose {
+  --parsep: calc(0.25 * var(--onelineskip));
+}
+ 
+ol.loose li, ul.loose li, dl.loose dd {
+  --itemsep: calc(0.75 * var(--onelineskip));
+}
+
+ol.x-loose, ul.x-loose, dl.x-loose {
+  --parsep: calc(0.167 * var(--onelineskip));
+}
+ 
+ol.x-loose li, ul.x-loose li, dl.x-loose dd {
+  --itemsep: var(--onelineskip);
+}
+
+
+
+/* Metatext */
+/* Metatext includes the families of spanblock (necessary) 
+ * and figure (unecessary/illustrative) 
+ */
+figure, spanblock, blockquote{
+  margin: var(--onelineskip) calc(2 * var(--parindent));
+}
+
+figure.wide, spanblock.wide {
+  margin: var(--onelineskip) 0;
+}
+
+figure.narrow, spanblock.narrow {
+  margin: var(--onelineskip) calc(4 * var(--parindent));
+}
+
+figure.x-narrow, spanblock.x-narrow {
+  margin: var(--onelineskip) calc(6 * var(--parindent));
+}
+
+figure.xx-narrow, spanblock.xx-narrow {
+  margin: var(--onelineskip) calc(8 * var(--parindent));
+}
+
+
+
+/* Captions */
+/* figure captions P183 defaults */
+figcaption {
+    margin-top: 12pt;
+    text-align:center;
+}
+
+figcaption:before {
+content: "Figure "
+}
+
+figcaption > span.num:after {
+  content: ": "
+}
+
+/* exaggerated selectors because cite may be used elsewhere */
+figure > cite, blockquote > cite, divblock > quote > cite {
+  display: block;
+  font-style: normal;
+  text-align:right;
+}
+
+
+ 
+/* Figures */
+/* Blockquotes */
+/* HTML blockquotes are an unecessary/figured metatext */
+
+
+/* Tables P xxvii */
+/* Tables are a kind of metatext, usually implying Figure, but can 
+ * be spanblock 
+ */
+
+table {
+    /* Can do this because borders not collapsed (but bottom rule is broken) */
+    padding-bottom: 0.111rem;
+    margin: 0 auto;
+}
+
+/* images */
+
+/* settings to ensure image fit to block. I hope. */
+figure > img, spanblock > img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* image decoration */
+.framed  {
+    border: 1px solid black;
+}
+
+.ruled  {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+/*********************************/
+figures
+fragments
+
+
 
 /* Figure images/contents can be be any height.
  * For bitmapped images, we can make some assumptions,
@@ -800,24 +1050,7 @@ divblock {
  * Narrow 517px
  * Widths should be doubled for hi-res retina display.
  */
- /* 3rem */
-figure, divblock, blockquote{
-    margin: 1.777rem 3rem;
-}
 
-/* 0em */
-figure.wide, divblock.wide {
-    margin: 1.777rem 0;
-}
-
-/* 4:3 reduction
- * 740
- * = 555
- * 48pt
- */
-figure.narrow, divblock.narrow {
-    margin: 1.777rem 6rem;
-}
 
 figcaption {
 	margin-top:1.777rem; 
@@ -843,80 +1076,10 @@ h1, h3 {
 				 1px -1px 2px #666,
 				-1px -1px 2px #000;
 } 
-
-h2, h4, h5, h6 {
-	font-weight: normal;
-}
-
-h2, h4, h5 {
-	font-family: VollkornSC;
-    font-variant: small-caps;
-}
-
-
-h1 {
-    font-size: 3.124rem;
-    text-align:center;
-    margin: 2.083rem 0;
-}
-
-h2 {
-    font-size: 1.777rem;
-    text-align:center;
-	text-transform: uppercase;
-	margin: 3.554rem 0 1.777rem 0;
-}
-
-h3 {
-    font-size: 1.777rem;
-    margin: 1.999rem 0 1.55rem 0;
-}
-
-h4 {
-    margin: 3.554rem 0 1.333rem 0;
-}
-
-h5 {
-    margin: 1.888rem 0 1.111rem 0;
-}
-
-h6 {
-    margin: 1.111rem 0 0.444rem 0;
-}
 */
 
-/* Tables*/
-table {
-    /* Can do this because borders not collapsed (but bottom rule is broken) */
-    padding-bottom: 0.111rem;
-    margin: 0 auto;
-}
 
-.price-osp {
-	font-size: 1.111rem;
 
-}
-
-.price {
-	font-size: 1.55rem;
-	color: #167258;
-}
-
-.source {
-	font-size: 1.333rem;
-}
-
-/* Paragraphs */
-
-/* Note this excludes headings and divblocks */
-p + p, figure + p, blockquote + p {
-    text-indent: 2em;
-}
-
-header.stock{
-    background: #737ba8  url("/static/images/blue_paper.jpg");
-    color: white;
-}
 
 
 .logo img {
@@ -971,148 +1134,24 @@ header.stock{
 	color: white;
 }
 
-/* if narrower than stock, menu vertical */
-@media screen and (max-width: 70rem) {
-	/*
-	.topbar {
-	padding: 0.666rem 0;
-	}
-	
-	.topbar * {
-		display: block;
-        margin:0.5rem 0rem 0.5rem 1rem;
-	}
-	
-	.logo, .logo img {
-		display: none;
-	}
-	.logo {
-		margin: 0;
-		padding: 1rem 1rem 0;
-	}
-    */
-	/*
-	.menu {
-		margin: 0;
-	}
-	*/
-    /*
-	.menu a {
-		padding: 0.5rem 3rem;
-	}
-
-	.submenu ul {
-		list-style: none;
-		padding-left:1em;
-	}
-*/
-
-}
-
-/* if wider than stock, menu horizontal */
-@media screen and (min-width: 70rem) {
-/*
-	.topbar > * {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	.topbar > * {
-		margin:0.5rem 2rem;
-	}
-
-	.menu {
-		margin: 0;
-	}
-*/
-	
-	.menu > li {
-		display: inline-block;
-		position: relative;
-	}
-
-	.menu a {
-		padding: 2rem;
-	}
-
-	.submenu > a:after{
-		content: "\00a0\00a0\25BE"
-	}
-	/* need to re-assert some values on layer split 
-	 */
-	.submenu ul {
-		position: absolute;
-		z-index: 8; 
-		top: 2.5rem;
-		margin: 0;
-		padding: 0;
-		background-color: #737ba8;
-		color:white;   
-		list-style: none;
-	}
-
-	/* submenus are for sture piled vertical. If we do that to the list 
-	items, the padding will overlap. so make the anchors into blocks.
-	Then put some padding round the anchor. This is not inherited through
-	the layer split, so restate the same L/R padding as the submenu 
-	anchor, so text lines up. 
-	*/
-	.submenu ul a {
-		display: block;
-		padding: 0.5rem 2rem;
-	}
-}
 
 
 
-/* main */
-article {
-    padding: 2rem 4em;
-    background-color: white;
-    position: relative;
-}
-
-.sidecol {
-	padding: 2rem;
-    background-color: white;
-}
 
 /* Good break point? */
+/*
 @media screen and (max-width: 30rem) {
 	/* thin LR padding on narrow screens */
 	article,.sidecol {
 		padding: 2rem 1rem;
 	}
 }
-
-
-
-
-
-
-.bottombar {
-    margin: 0 auto;
-    /* to size width: 50%;*/
-    background-color: #be7604;
-}
-
-/*
-img {
-	max-width: 100%;
-	height: auto;
-	border: 0;
-
-	width: 1024px;
-	height:683px:
-	
-}
 */
-	
-/* settings to ensure image fit to block. I hope. */
-figure > img, divblock > img {
-    display: block;
-    max-height: 100%;
-    max-width: 100%;
-}
+
+
+
+
+
 
 
 /* Everyday listening
@@ -1146,28 +1185,8 @@ td {
     padding: 0 0.7rem;
 }
 
-ul, ol, dl {
-    margin: 1.333rem 3em;
-}
 
-/* Trim those margins for small screens */
-@media screen and (max-width: 70rem) {
-ul, ol, dl {
-    margin: 1.333rem 0 1.333rem 3rem;
-}
-}
 
-li {
-	margin-bottom: 0.444rem;
-}
-
-dt {
-	font-weight:bold;
-}
-
-dd {
-	margin-bottom:0.889rem;
-}
 
 /* ?bad name homepage-site-epigram ?*/
 .site-epigram {
@@ -1179,13 +1198,6 @@ dd {
 	text-align:center;
 }
 
-
-/* anchor buttons */
-.button {
-	font-weight:bold;
-	font-size: 18pt;
-	/* background-color: #81aca0; */
-}
 
 .filter-tools {
 	/* margin: 0 auto; */
@@ -1241,54 +1253,5 @@ dd {
     padding: 0 1em 0.7em 0;
 }
 
-/* Wide screens, add badge border */
-/*
-@media screen and (min-width: 70rem) {
-
-}
-*/
-
-.reviewbase-list .good {
-	color:#78933c;
-}
 
 
-/* articles */
-article > .badge {
-	width:max-content;
-	margin-right:auto;
-	display: block;
-	font-size: 18pt;
-	font-weight: bold;
-	padding:0.25em 2em;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	padding:0.25em 2em;
-	color: white;
-}
-
-@media screen and (min-width: 70rem) {
-article > .badge {
-	width: auto;
-    position: absolute;
-    top:0;
-    right: 3rem;
-    z-index:4;
-	font-size: 18pt;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	padding:2em 0.25em;
-	color: white;
-	writing-mode: vertical-rl;
-}
-}
-
-
-article > .bad {
-	background-color:black;
-}
-
-article > .good {
-	background-color:#78933c;
-}

@@ -17,9 +17,18 @@ Retained are
 Currently/forever lost,
 ++
 - Alternative typeblock sizing
-- Alternative header sets
+- Many alternative chapter headings
+- Numeric handling in chapter headings
 - Table of Contents and other specialist list features
 - many tweak/convenience features, such as direct Font sizing
++
+
+Memoir features missing,
+++
+- Many alternative chapter headings
+- Numeric handling in chapter headings
+- List no-paragraph spacing (* command) 
+
 +
 == Ajustments from Menoir
 

@@ -29,7 +29,7 @@
         </div>
     </header>
     
-    <main class="paper-a4">
+    <main class="paper-a4"  style="background-color:white;">
       <article class="margins-normal">
         <p>(outer block class 'paper-text layout-horizontal-top')</p>
         <p>(block class 'margins-wider')</p>
@@ -132,6 +132,37 @@
       <p>
 	    Open and close with 'article' or 'section'. 
       </p>
+      
+      <h3>Other Text elements</h3>
+      <p>
+      A few JTML elements are deliberately styled. These styles are 
+      readily overridden, only  intended to generalise likely 
+      usage within the code remit. To reflect free typographical layout, 
+      PRE inherits it's font,
+      </p>
+      
+      <pre>  
+  The tail
+      of his
+mouse
+    turns
+      here
+     too
+   be
+     a
+        .
+      </pre>
+      <p>
+      CODE is monospace font,
+      </p> 
+      <code>
+          <pre>
+      If (not(I)) then:
+        act.wise;
+        </pre>
+      </code>
+      
+      <h3>Paragraphs</h3>
       <p>
         Paragraphs are opened with indents (not extra lines), thusly,
       </p>
@@ -143,7 +174,6 @@
       </p>    
 
 
-      <h4>Other Text elements</h4>
       <p>
 	    General text is in paragraph tags. Paragraphs use a first-line indent.
       </p>
@@ -152,25 +182,36 @@
     
       
 
-      <h5>Lists</h5>
-
-      <p>
-	    Lists,
+      <h3>Lists</h3>
+     <p>
+        x-tight,
       </p>
+      <ul class="x-tight"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+     <p>
+        tight,
+      </p>
+      <ul class="tight"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
 
+     <p>
+        Default,
+      </p>
       <ul><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+            
+      <p>
+        loose,
+      </p>
+      <ul class="loose"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
 
       <p>
-        and ordered lists,
+        x-loose,
+      </p>
+      <ul class="x-loose"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+
+      <p>
+        Any of the above, same for ordered lists,
       </p>
 
       <ol><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ol>
-
-      <p>
-        Wide-spaced lists,
-      </p>
-
-      <ul  class="wide"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
 
       <p>
         Definition lists (formatted for word specifications/explanations). Note that the preferred effect of hanging indent is not possible, so avoid multi-line definition list items,
@@ -179,10 +220,10 @@
       <dl><dt>BYTE</dt><dd>That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
 
       <p>
-        ...and wide,
+        ...and x-loose,
       </p>
 
-      <dl class="wide"><dt>BYTE</dt><dd>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
+      <dl class="x-loose"><dt>BYTE</dt><dd>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
 
 
       <p>
