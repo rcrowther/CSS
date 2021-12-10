@@ -949,42 +949,56 @@ ol.x-loose li, ul.x-loose li, dl.x-loose dd {
 
 
 
-/* Metatext */
-/* Metatext includes the families of spanblock (necessary) 
+/* Illustrations */
+/* Illustrations includes the families of spanblock (necessary) 
  * and figure (unecessary/illustrative) 
  */
+/* Figure in Memoir is a type of float, the other type is table P178 */
 figure, spanblock, blockquote{
-  margin: var(--onelineskip) calc(2 * var(--parindent));
+  padding: var(--onelineskip) calc(2 * var(--parindent));
+  margin: var(--onelineskip) 0 calc(1.667 * var(--onelineskip));
 }
 
 figure.wide, spanblock.wide {
-  margin: var(--onelineskip) 0;
+  padding: var(--onelineskip) 0;
 }
 
 figure.narrow, spanblock.narrow {
-  margin: var(--onelineskip) calc(4 * var(--parindent));
+  padding: var(--onelineskip) calc(4 * var(--parindent));
 }
 
 figure.x-narrow, spanblock.x-narrow {
-  margin: var(--onelineskip) calc(6 * var(--parindent));
+  padding: var(--onelineskip) calc(6 * var(--parindent));
 }
 
 figure.xx-narrow, spanblock.xx-narrow {
-  margin: var(--onelineskip) calc(8 * var(--parindent));
+  padding: var(--onelineskip) calc(8 * var(--parindent));
 }
 
+/* figure decoration */
+.framed {
+    border: 1px solid black;
+}
+
+.ruled {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
 
 
 /* Captions */
 /* figure captions P183 defaults */
 figcaption {
-    margin-top: 12pt;
-    text-align:center;
+    margin-top: var(--onelineskip);
+    text-align: center;
 }
 
+/* Not for web */
+/*
 figcaption:before {
 content: "Figure "
 }
+*/
 
 figcaption > span.num:after {
   content: ": "
@@ -999,7 +1013,7 @@ figure > cite, blockquote > cite, divblock > quote > cite {
 
 
  
-/* Figures */
+/* Illustratiion contents */
 /* Blockquotes */
 /* HTML blockquotes are an unecessary/figured metatext */
 
@@ -1024,15 +1038,6 @@ figure > img, spanblock > img {
     max-width: 100%;
 }
 
-/* image decoration */
-.framed  {
-    border: 1px solid black;
-}
-
-.ruled  {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}
 
 
 /*********************************/
@@ -1052,10 +1057,7 @@ fragments
  */
 
 
-figcaption {
-	margin-top:1.777rem; 
-	text-align: center;
-}
+
 
 .nav-table-img{
 	font-size:1.777rem;img
