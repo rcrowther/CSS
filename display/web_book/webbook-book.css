@@ -11,12 +11,13 @@ html {
  * web convention 16px==12pt. I'd say too small, for the web, but 
  * appropriate for book purpose, and this CSS has hi-res fixes) 
  */
+/*
 body {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
     font-size:var(--base-fontsize);
 	line-height: var(--base-lineheight);
 }
-
+*/
 @media screen and (min-height: 640px) {
   /* mid-res screen */
 	body {

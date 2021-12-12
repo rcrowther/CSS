@@ -176,13 +176,24 @@ article > footer, section > footer {
  * Primo for overriding.
 */
 
+@font-face {
+  font-family: 'DejaVu Serif';
+  src: local('DejaVu Serif'), local('DejaVu-Serif');
+/*  font-display: swap;
+  */
+}
+
+
 body {
-	font-family: "Volhorm", Palatino, Georgia, serif;
+    /*
+	font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia, serif;
+    */
+	font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia;
 	background-color: lightgrey;
     
     /* fallback for non-custom property browsers */
     font-size:12pt;
-    line-height: 1.45;
+    line-height: 1.21;
 }
 
 /* Font Sizing */
@@ -853,6 +864,12 @@ p + p {
   text-indent: var(--parindent);
 }
 
+/* class to kill indented paragraphing (useful on blockquotes) */
+.blockparagraph p {
+    text-indent: 0;
+    margin-top: 6pt;
+}
+
 
 /* Lists */
 
@@ -954,7 +971,7 @@ ol.x-loose li, ul.x-loose li, dl.x-loose dd {
  * and figure (unecessary/illustrative) 
  */
 /* Figure in Memoir is a type of float, the other type is table P178 */
-figure, spanblock, blockquote{
+figure, spanblock {
   padding: var(--onelineskip) calc(2 * var(--parindent));
   margin: var(--onelineskip) 0 calc(1.667 * var(--onelineskip));
 }
@@ -1012,10 +1029,26 @@ figure > cite, blockquote > cite, divblock > quote > cite {
 }
 
 
+/* Illustratiion substitute */
  
+/* Blockquotes 8.3 P130 */
+/* NB. HTML blockquotes seem to be treated as figured text
+*/
+/* Guesswork, as it's in LaTeX */
+blockquote {
+  padding: calc(0.667 * var(--onelineskip)) calc(1.667 * var(--parindent));
+}
+
 /* Illustratiion contents */
-/* Blockquotes */
-/* HTML blockquotes are an unecessary/figured metatext */
+
+/* Images */
+
+/* settings to ensure image fit to block. I hope. */
+figure > img, spanblock > img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+}
 
 
 /* Tables P xxvii */
@@ -1029,14 +1062,6 @@ table {
     margin: 0 auto;
 }
 
-/* images */
-
-/* settings to ensure image fit to block. I hope. */
-figure > img, spanblock > img {
-    display: block;
-    max-height: 100%;
-    max-width: 100%;
-}
 
 
 
