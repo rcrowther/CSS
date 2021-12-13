@@ -49,11 +49,21 @@ html {
    * by a normal line of text i.e. base-lineheight, here multiplied to 
    * deliver usable (point) units */
   --onelineskip: calc(var(--base-fontsize) * var(--base-lineheight));
+ 
   /*
-   * \baselineskip is a likme measure, but is relative to a pararaph's
+   * \baselineskip is like onelineskip, but is relative to a pararaph's
    * font, so can change in size. I'm ignoring it... unless it goes 
    * wrong... 
    */
+
+/* Ratheer complex in Memoir.
+This is \defaultaddspace, which is allocated to \addlinespace for 
+* tables. 
+* This class generalises to --vspace for anywhere that a small amount of
+* vspace is needed before a line. Without TeX cursor position it must be
+* a top padding (not margin, which would collapse). See .addvspace.
+*/ 
+   --vspace: 0.5em; 
    --breakwidth:74rem;
 }
 
@@ -179,21 +189,24 @@ article > footer, section > footer {
 @font-face {
   font-family: 'DejaVu Serif';
   src: local('DejaVu Serif'), local('DejaVu-Serif');
-/*  font-display: swap;
+  /*TODO add Book Antiqua also? */
+/*TODO need swap now?
+ *   font-display: swap;
   */
 }
 
 
 body {
-    /*
+  /* List of Palatino-likes, degrading... */
+  /*
 	font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia, serif;
-    */
-	font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia;
-	background-color: lightgrey;
+  */
+  font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia;
+  background-color: lightgrey;
     
     /* fallback for non-custom property browsers */
-    font-size:12pt;
-    line-height: 1.21;
+  font-size:12pt;
+  line-height: 1.21;
 }
 
 /* Font Sizing */
@@ -842,11 +855,15 @@ code {
   font-family: monospace;
 }
 
-/*
-date {
-	font-size: 1.111rem;
-}
-*/
+/* There is a \date command in book titling \maketitle P67.
+ * There a probably many more.
+ * These are locked to the enviroments, so have no generality 
+ * for the HTML element TIME. */
+ 
+/*TODO */
+/* \verb */
+
+
 
 
 /* anchor buttons */
@@ -870,6 +887,10 @@ p + p {
     margin-top: 6pt;
 }
 
+/* Add space before simple tect-lines/paraagraphs */
+.addvspace{
+  padding-top: var(--vspace);
+}
 
 /* Lists */
 
@@ -1002,6 +1023,14 @@ figure.xx-narrow, spanblock.xx-narrow {
     border-bottom: 1px solid black;
 }
 
+/* illustration stack */
+/* TODO  not right. needs to be rid of topmargin, and previous needs to 
+ * loose bottom margin. */
+figure + figure, spanblock + spanblack {
+--illustration-interspace-vertical: 0;
+  margin: 0;
+}
+
 
 /* Captions */
 /* figure captions P183 defaults */
@@ -1029,15 +1058,6 @@ figure > cite, blockquote > cite, divblock > quote > cite {
 }
 
 
-/* Illustratiion substitute */
- 
-/* Blockquotes 8.3 P130 */
-/* NB. HTML blockquotes seem to be treated as figured text
-*/
-/* Guesswork, as it's in LaTeX */
-blockquote {
-  padding: calc(0.667 * var(--onelineskip)) calc(1.667 * var(--parindent));
-}
 
 /* Illustratiion contents */
 
@@ -1051,23 +1071,104 @@ figure > img, spanblock > img {
 }
 
 
-/* Tables P xxvii */
-/* Tables are a kind of metatext, usually implying Figure, but can 
- * be spanblock 
- */
 
+
+
+
+/* Tables P xxvii, also 11.4 TABLES */
+/* Tables are a kind of illustration, should be surrounnded with
+ * figure/spanblock.
+ * Tables aare not responsive, because I feel it is usually better if 
+ * they are well-formated, despite overflow.
+ */
 table {
-    /* Can do this because borders not collapsed (but bottom rule is broken) */
-    padding-bottom: 0.111rem;
-    margin: 0 auto;
+/* for all rules */
+--aboverulesep: 0.4ex;
+--belowrulesep: 0.65ex;
+--heavyrule: 2;
+--lightrule: 1;
+--heavyrulePx: calc(1px * var(--heavyrule));
+--lightrulePx: calc(1px * var(--lightrule));
+--minspace: 1em;
+  /* Can do this because borders not collapsed (but bottom rule is broken) */
+  padding-bottom: 0.111rem;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+/* My guess, horizontal spacing.
+ * table reads \tabcolsep = 6pt (which looks as printed)
+ * but set to \tabcolsep = 1.5pt?
+ * That is said to be suppressed, possibly in favour of \hskip? 2em
+ * I give up. I make it 0.5em, which looks right.
+ */
+th {
+  font-weight: normal;
+  text-align: left;
+  padding: 0 0.5em;
+}
+
+td {
+  padding: 0 0.5em;
+}
+
+
+/* Problem with this is the lack of spacing in tables.
+ * Vertical padding no work on TABLE. Only on cells.
+ * Margins no work any table element, which means interspaced lines 
+ * impossible.
+ * 
+ * Accept:
+ * No intermediate midrules (needs too custom CSS)
+ * Table must have header, that's how toprule and midrule positions
+ * are identified.
+ */
+.toprule {
+  border-top: var(--heavyrulePx) solid black;
+}
+
+.toprule th {
+  padding-top: var(--belowrulesep);
+}
+
+.midrule thead {
+  border-bottom: var(--lightrulePx) solid black; 
+}
+
+.midrule th {
+  padding-bottom: var(--aboverulesep);
+}
+.midrule tr:first-child td {
+  padding-top: var(--belowrulesep);
+}
+
+.bottomrule {
+  border-bottom: var(--heavyrulePx) solid black; 
+}
+
+.bottomrule tr:last-child td  {
+  padding-bottom: var(--aboverulesep);
+}
+
+/* Sets vspace on the cells, so spacing is seen */
+tr.addvspace td {
+  padding-top: var(--vspace);
 }
 
 
 
+/* Illustratiion substitutes */
+
+/* Blockquotes 8.3 P130 */
+/* NB. HTML blockquotes seem to be treated as figured text
+*/
+/* Guesswork, as it's in LaTeX */
+blockquote {
+  padding: calc(0.667 * var(--onelineskip)) calc(1.667 * var(--parindent));
+}
 
 /*********************************/
-figures
-fragments
+
 
 
 
@@ -1206,10 +1307,6 @@ table.spec {
 }
 table.spec td {
 	vertical-align:top;
-}
-
-td {
-    padding: 0 0.7rem;
 }
 
 

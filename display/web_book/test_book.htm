@@ -373,59 +373,90 @@ mouse
 
 
      
-           <h4>Tables</h4>
-      <p>
-        Tables should almost always be in a figure. They currently have a light styling,
-      </p>
-    <figure>
-      <table>
-        <thead>
-          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
-          <tr><td>bones</td><td>clean</td><td>1</td></tr>
-          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
-          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
-        </tbody>
-      </table>
-    </figure>
-      
-      <p>
-        Tables can be ruled,
-      </p>
-    <figure>
-      <table class="ruled">
-        <thead>
-          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
-          <tr><td>bones</td><td>clean</td><td>1</td></tr>
-          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
-          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
-        </tbody>
-      </table>
-    </figure>      
+        <h3>Tables</h3>
+        <p>
+          Tables should be in an figure or spanblock. They currently have a light styling,
+        </p>
+            <figure>
+              <table>
+                <thead>
+                  <tr><th>Ingredients</th><th>Measure</th><th>Quantity</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+                  <tr><td>bones</td><td>clean</td><td>1</td></tr>
+                  <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+                  <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+                </tbody>
+              </table>
+            </figure>
+            
+        <p>
+          Tables can have toprule/midrule/bottomrule. The table must 
+          have a header, classes can go on the table element,
+        </p>
+            <figure>
+              <table class="toprule bottomrule midrule">
+                <thead>
+                  <tr><th>Ingredients</th><th>Measure</th><th>Quantity</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+                  <tr><td>bones</td><td>clean</td><td>1</td></tr>
+                  <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+                  <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+                </tbody>
+              </table>
+            </figure> 
+            
+        <p>
+          Tables can be linespaced. Use 'addvspace' on TR,
+        </p>
+            <figure>
+              <table class="midrule">
+                <thead>
+                  <tr><th>Make</th><th>Model</th><th>Price (£)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>TJSwindel</td><td>007</td><td>32.00</td></tr>
+                  <tr><td>NatSonic</td><td>MP-150-C</td><td>7.25</td></tr>
+                  <tr><td>MoonDream</td><td>VantageXB</td><td>17.79</td></tr>
+                  <tr><td>Ledig</td><td>Sten</td><td>850.00</td></tr>
+                  <tr class="addvspace"><td></td><td></td><td>925.04</td></tr>
+                </tbody>
+              </table>
+            </figure>
+            
+        <p>
+          And, as any figure/spanblock, captioned,
+        </p>
+            <figure>
+              <table>
+                <thead>
+                  <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="addvspace"><td>bones</td><td>clean</td><td>1</td></tr>
+                  <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+                  <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+                </tbody>
+              </table>
+              <figcaption>1. Table of ingredients</figcaption>
+            </figure>  
 
-      <p>
-        Tables can be wide,
-      </p>
-    <figure class="wide">
-      <table class="ruled">
-        <thead>
-          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
-          <tr><td>bones</td><td>clean</td><td>1</td></tr>
-          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
-          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
-        </tbody>
-      </table>
-    </figure>  
-
-
+            <figure>
+              <figcaption>2. Table of ingredients</figcaption>
+              <table>
+                <thead>
+                  <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="addvspace"><td>bones</td><td>clean</td><td>1</td></tr>
+                  <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+                  <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+                </tbody>
+              </table>
+            </figure> 
 
 
 
