@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-
+/* Defaults for all vars, and psitioning of calc()s */
 html {
   --base-fontsize:12pt;
   
@@ -989,12 +989,25 @@ ol.x-loose li, ul.x-loose li, dl.x-loose dd {
 
 /* Illustrations */
 /* Illustrations includes the families of spanblock (necessary) 
- * and figure (unecessary/illustrative) 
+ * and figure (unnecessary/illustrative) 
  */
-/* Figure in Memoir is a type of float, the other type is table P178 */
+/* Figure in Memoir is a type of 10.float P 173. Also see table P178 
+ * Defaults: p185 \floatsep = 12pt \textfloatsep = 20pt*/
 figure, spanblock {
+  /* Latex works margins by having a between-float value \floatsep
+   * Can't do that in CSS. What can be done is to always add a top margin 
+   * of onelineskip be the preceeding sibling a figure or not, then 
+   * pushing following paragraphs down. See below
+   */
+  margin-top: var(--onelineskip);
   padding: var(--onelineskip) calc(2 * var(--parindent));
-  margin: var(--onelineskip) 0 calc(1.667 * var(--onelineskip));
+}
+
+/* illustration stack */
+/* TODO  not right. Can not work? needs to be rid of topmargin, and previous needs to 
+ * bottom margin. Unless we only add the margin for paragraphs and headings? */
+figure + p, spanblock + p {
+  margin-top: calc(1.667 * var(--onelineskip));
 }
 
 figure.wide, spanblock.wide {
@@ -1023,20 +1036,26 @@ figure.xx-narrow, spanblock.xx-narrow {
     border-bottom: 1px solid black;
 }
 
-/* illustration stack */
-/* TODO  not right. needs to be rid of topmargin, and previous needs to 
- * loose bottom margin. */
-figure + figure, spanblock + spanblack {
---illustration-interspace-vertical: 0;
-  margin: 0;
-}
 
 
 /* Captions */
 /* figure captions P183 defaults */
+/* \abovecaptionskip = 10pt  \belowcaptionskip = 0pt 
+ * Lower captions are a flexible implementation of Latex 10pt
+ * but for tables, on test
+ * \abovecaptionskip = 7.25pt
+ * \belowcaptionskip = 7.25pt
+ * Can't make sense of that. Done this instead.
+ */
+ /* TODO where an when caption skips? top/bottom? */
 figcaption {
-    margin-top: var(--onelineskip);
+    padding: calc(0.833 * var(--onelineskip)) 0 0;
     text-align: center;
+}
+
+/* if caption on top, padding goes bottom. Also, onelineskip too much */
+figure figcaption:first-child {
+    padding: 0 0 1.5ex;
 }
 
 /* Not for web */
@@ -1074,11 +1093,15 @@ figure > img, spanblock > img {
 
 
 
-
-/* Tables P xxvii, also 11.4 TABLES */
+/* Tables P. xxvii, also 11.4 TABLES */
 /* Tables are a kind of illustration, should be surrounnded with
  * figure/spanblock.
- * Tables aare not responsive, because I feel it is usually better if 
+ * 
+ * There's some inconsistency in caption spacing, which seems smaller 
+ * than for other floats. I'm missing data, so let the usual frame 
+ * caption positioning have it's way.
+ *
+ * Tables are not responsive, because I feel it is usually better if 
  * they are well-formated, despite overflow.
  */
 table {
@@ -1097,10 +1120,11 @@ table {
 }
 
 /* My guess, horizontal spacing.
+ * I'm missing data:
  * table reads \tabcolsep = 6pt (which looks as printed)
  * but set to \tabcolsep = 1.5pt?
  * That is said to be suppressed, possibly in favour of \hskip? 2em
- * I give up. I make it 0.5em, which looks right.
+ * I give up. I make it 0.5em padding, which looks ok.
  */
 th {
   font-weight: normal;
@@ -1154,7 +1178,6 @@ td {
 tr.addvspace td {
   padding-top: var(--vspace);
 }
-
 
 
 /* Illustratiion substitutes */
