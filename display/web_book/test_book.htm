@@ -473,7 +473,7 @@ mouse
 
       <aside class="margins-wide" style="background-color:Lavender;">
         <p>(block class 'margins-wide')</p>
-        <p>A side-col</p>
+        <p class="x-large">A side col</p>
       </aside>
     </main>
 
@@ -481,37 +481,93 @@ mouse
       <div class="">
         <p> (outer block class 'paper-a4 margins-wider')</p> 
           <p>
-            Book.css offers a table of contents (TOC) layout. In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography.  
+            WebBook offers a table of contents (TOC) layout. In the 
+            context of web organisation, a TOC cannot be the same as a 
+            book (page numbers are irrelevant). A TOC is assumed to be
+            a (potentially long) list of links. But TOC style retains 
+            some structure and style from typography.  
           </p>
           <p>
-              The below is intended for display only. It has a base structure with a generic theme. webbook.css adds link styling and alternate themes. 
+              The main TOC style is mostly a style-leveller that removes 
+              the usual list style of this CSS. Titles, font and level 
+              styling are assumed to be for further work,
           </p>
-          <h3><span class="title">Table of contents</span></h3>
-          <nav  class="toc toc-groove">
-            <h5 class="toc-subtitle">Rabbits</h5>
-            <ul class="toc-list">
-                <li><span class="title">hares</span></li>
-                <li><span class="title">levrets</span></li>
-                <li><span class="title">rabbits</span></li>
-            </ul>
-            <h5 class="toc-subtitle"><span class="num">7</span><span class="title">Deer</span></h5>
-            <ul class="toc-list">
-              <li><span class="num">1</span><span class="title">bucks</span></li>
-              <li><span class="num">4</span><span class="title">deer</span></li>
-              <li><span class="num">155</span><span class="title">reindeer</span></li>
+          <h1>Table of contents</h1>
+          <nav  class="toc">
+            <ul>
+                <li>Rabbits
+                    <ul>
+                        <li><span class="title">hares</span></li>
+                        <li><span class="title">levrets</span></li>
+                        <li><span class="title">rabbits</span></li>
+                    </ul>
+                </li>
+                    
+                <li><span class="num">7</span>Deer
+                    <ul>
+                      <li><span class="num">1</span><span class="title">bucks</span></li>
+                      <li><span class="num">4</span><span class="title">deer</span></li>
+                      <li><span class="num">155</span><span class="title">reindeer</span></li>
+                    </ul>
+                </li>
             </ul>
           </nav>
           <p>
             A TOC can be classed 'wide',
           </p>
-          <nav class="toc  toc-bullet">
-            <h5 class="toc-subtitle"><span class="num">20</span><span class="title">Web</span></h5>
-            <ul class="wide toc-list">
-              <li><span class="num">1</span><span class="title">bucks</span></li>
-              <li><span class="num">4</span><span class="title">deer</span></li>
-              <li><span class="num">155</span><span class="title">reindeer</span></li>
+          <nav class="toc wide">
+            <ul class="">
+                <li><span class="num">20</span><a href="#">Web</a>
+                    <ul>
+                      <li><span class="num">1</span><a href="#">bucks</a></li>
+                      <li><span class="num">4</span><a href="#">deer</a></li>
+                      <li><span class="num">155</span><a href="#">reindeer</a></li>
+                    </ul>
+                </li>
             </ul>
-          </nav>
+            </nav>
+          <p>
+            Themes are available for TOC. This is 'bullit',
+          </p>       
+          <nav class="toc bullit">   
+            <ul>
+                <li><span class="num">20</span><a href="#">Web</a>
+                    <ul>
+                      <li><span class="num">1</span><a href="#">bucks</a></li>
+                      <li><span class="num">4</span><a href="#">deer</a></li>
+                      <li><span class="num">155</span><a href="#">reindeer</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </nav>
+          <p>
+            'w3',
+          </p> 
+          <nav  class="toc w3">         
+            <ul>
+                <li><span class="num">20</span><a href="#">Web</a>
+                    <ul>
+                      <li><span class="num">1</span><a href="#">bucks</a></li>
+                      <li><span class="num">4</span><a href="#">deer</a></li>
+                      <li><span class="num">155</span><a href="#">reindeer</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </nav>
+          <p>
+            'groove',
+          </p>   
+          <nav  class="toc groove">       
+            <ul>
+                <li><span class="num">20</span><a href="#">Web</a>
+                    <ul>
+                      <li><span class="num">1</span><a href="#">bucks</a></li>
+                      <li><span class="num">4</span><a href="#">deer</a></li>
+                      <li><span class="num">155</span><a href="#">reindeer</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </nav>
       </div>
     </section>
 

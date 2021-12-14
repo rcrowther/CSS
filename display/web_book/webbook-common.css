@@ -56,7 +56,7 @@ html {
    * wrong... 
    */
 
-/* Ratheer complex in Memoir.
+/* Rather complex in Memoir.
 This is \defaultaddspace, which is allocated to \addlinespace for 
 * tables. 
 * This class generalises to --vspace for anywhere that a small amount of
@@ -1189,6 +1189,110 @@ tr.addvspace td {
 blockquote {
   padding: calc(0.667 * var(--onelineskip)) calc(1.667 * var(--parindent));
 }
+
+
+
+/* Table of Contents */
+/* In practice, some themes for big lists 
+ * The base class is mostly a Webbook list style-killer.
+ */
+.toc{
+  margin:0 4em;
+  list-style-type: none;
+}
+
+.toc .num{
+  display: inline-block;
+  width: 2.5em;
+}
+
+.toc ul {
+  list-style-type: none;
+}
+
+.toc li {
+  margin: 0;
+}
+
+.toc.wide a {
+  padding: calc(0.5 * var(--onelineskip)) 0;
+}
+
+/*needs to expand with the anchor. OR use overflow trick? */
+.toc.wide li { 
+  /* overflow: auto; */
+  padding: calc(0.5 * var(--onelineskip)) 0;
+}
+
+/* custom */
+.toc ul{
+  margin: 0 0 var(--onelineskip) var(--parindent);
+}
+
+
+/* Bullet-symbol theme */
+ /* The space is needed as styling is impossible through CSS.
+ * Alternatives:
+ * scribe mark 
+ * math 'z' total 
+ */
+.toc.bullit ul {
+    list-style-position:inside;
+    /* choose a bullet */
+    /* SECTION SIGN */
+    /* list-style-type: '\A7\20'; */
+    /* DOTTED CROSS */
+    /* list-style-type: '\205C\20'; */
+    /* Breadcrumb */    
+    /* list-style-type: '>\20'; */
+    /* pointer */
+    list-style-type: '\2192\20'; 
+}
+
+/* I'm not fond of hover effects, but this is expressive and consistent */
+.toc.bullit a:hover {
+    font-style: italic;
+}
+
+.toc.bullit a {
+    text-decoration: none;
+}
+
+
+/* W3-similar theme */
+/* Reassert underline, as it will often be widely killed */
+.toc.w3 a {
+    text-decoration: underline;
+}
+
+.toc.w3 a {
+    /* choose link color */
+    /* black gray-green */
+    /* color: #10307a; */ 
+    /* black-blue */
+    color: #000060;
+}
+
+
+/* Inside-line theme */
+.toc.groove a {
+    text-decoration: none;
+}
+
+.toc.groove ul {
+    padding-left: 0.65em;
+    list-style-position:inside;
+    border-left: black solid 1px;
+}
+
+.toc.groove a:after{
+    /* choose ellipsis decoration */
+    /* triple dot */
+    content:'\2026'; 
+    /* double dot */
+    /* content:'\2025'; */
+}
+
 
 /*********************************/
 
