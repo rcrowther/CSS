@@ -10,7 +10,8 @@
 
 /* Defaults for all vars, and psitioning of calc()s */
 html {
-  --base-fontsize:12pt;
+  
+  --base-fontsize: 12pt;
   
   /* On the web, exaggerated values are often used, 
    *
@@ -206,6 +207,7 @@ body {
     
     /* fallback for non-custom property browsers */
   font-size:12pt;
+  font-size: var(--base-fontsize);
   line-height: 1.21;
 }
 
@@ -232,73 +234,82 @@ html {
   --lh-30pt: 1.20;
 
  
-/* 12pt Scaling (can use REMS against 12pt base) */
+/* 12pt Scaling (can use REMS against 12pt base) 
+    30pt --x-huge
+    25pt --huge
+    20pt --xx-large
+    17pt --x-large
+    14pt --large
+    12pt --normal
+    11pt --small
+    10pt --x-small
+    8pt --xx-small
+    6pt --tiny
+ */
+ --x-huge: calc(2.5 * var(--base-fontsize)); 
+ --huge: calc(2.083 * var(--base-fontsize)); 
+ --xx-large: calc(1.667 * var(--base-fontsize)); 
+ --x-large: calc(1.417 * var(--base-fontsize)); 
+ --large: calc(1.167 * var(--base-fontsize)); 
+ --normal: calc(1 * var(--base-fontsize)); 
+ --small: calc(0.917 * var(--base-fontsize)); 
+ --x-small: calc(0.833 * var(--base-fontsize)); 
+ --xx-small: calc(0.667 * var(--base-fontsize)); 
+ --tiny: calc(0.5 * var(--base-fontsize));
 
- /* 30pt */
- --x-huge:2.5rem;
- /* 25pt */
- --huge:2.083rem;
- /* 20pt */
- --xx-large:1.667rem;
- /* 17pt */
- --x-large:1.417rem;
- /* 14pt */
- --large:1.167rem;
- /* 12pt */
- --normal: 1rem;
- /* 11pt */
- --small:0.917rem;
- /* 10pt */
- --x-small:0.833rem;
- /* 8pt */
- --xx-small:0.667rem;
- /* 6pt */
- --tiny:0.5rem;
-
-
-/* 14pt REM Scaling (can use REMS against 14pt base) */
-/*
- /* 30pt */
- --x-huge: 2.143rem;
- /* 25pt */
- --huge: 1.786rem;
- /* 20pt */
- xx-large: 1.429rem;
- /* 17pt */
- --large: 1.214rem;
- /* 14pt */ 
- --normal:1rem;
- /* 12pt */
- --small: 0.857rem;
- /* 11pt */
- x-small: 0.786rem;
- /* 10pt */
- --xx-small: 0.714rem;
- /* 9pt */
- --tiny: 0.643rem;
+/* 14pt REM Scaling (can use REMS against 14pt base)
+    36pt --x-huge
+    30pt --huge
+    25pt --xx-large
+    20pt --x-large
+    17pt --large
+    14pt --normal
+    12pt --small
+    11pt --x-small
+    10pt --xx-small
+    9pt --tiny
 */
 
-/* 17pt REM Scaling (can use REMS against 17pt base) */
 /*
- /* 36pt */
- --x-huge: 2.118rem;
- /* 30pt */
- --huge: 1.765rem;
- /* 25pt */
- xx-large: 1.471rem;
- /* 20pt */
- --large: 1.176rem;
- /* 17pt */ 
- --normal:1rem;
- /* 14pt */
- --small: 0.824rem;
- /* 12pt */
- x-small: 0.706rem;
- /* 11pt */
- --xx-small: 0.647rem;
- /* 10pt */
- --tiny: 0.588rem;
+ 
+ --x-huge: calc( 2.571 * var(--base-fontsize));
+ --huge: calc( 2.143 * var(--base-fontsize));
+ --xx-large: calc( 1.786 * var(--base-fontsize));
+ --x-large: calc( 1.429 * var(--base-fontsize));
+ --large: calc( 1.214 * var(--base-fontsize)); 
+ --normal: calc(1 * var(--base-fontsize));
+ --small: calc( 0.857 * var(--base-fontsize));
+ --x-small: calc( 0.786 * var(--base-fontsize));
+ --xx-small: calc( 0.714 * var(--base-fontsize));
+ --tiny: calc( 0.643rem;
 */
+
+/* 17pt REM Scaling (can use REMS against 17pt base)
+    48pt --x-huge
+    36pt --huge
+    30pt --xx-large
+    25pt --x-large
+    20pt --large
+    17pt --normal
+    14pt --small
+    12pt --x-small
+    11pt --xx-small
+    10pt --tiny
+*/
+
+/*
+ --x-huge: calc( 2.824 * var(--base-fontsize));
+ --huge: calc( 2.118 * var(--base-fontsize));
+ --xx-large: calc( 1.765 * var(--base-fontsize));
+ --x-large: calc( 1.471 * var(--base-fontsize));
+ --large: calc( 1.176 * var(--base-fontsize)); 
+ --normal: calc(1 * var(--base-fontsize));
+ --small: calc( 0.824 * var(--base-fontsize));
+ --x-small: calc( 0.706 * var(--base-fontsize));
+ --xx-small: calc( 0.647 * var(--base-fontsize));
+ --tiny: calc( 0.588 * var(--base-fontsize)); 
+*/
+
 /*
  * SOS
  * 28/14 3.554
@@ -352,9 +363,23 @@ html {
 }
 
 .x-huge {
-  font-size: var( --x-huge);
+  font-size: var(--x-huge);
 }
 
+
+.site-title {
+  font-size: var( --xx-large);
+  text-align: center;
+  padding: 14.52pt 0 1em;
+  padding: var(--onelineskip) 0 1em;
+}
+
+/* Headlines */
+
+/* assert bold on all */
+h1, h2, h3, h4, h5, h6 {
+  font-weight:bold;
+}
 
 /* Chapterstyles */
 /* bianchi, bringhurst, brotherton, chappel, culver, dash, 
@@ -371,21 +396,23 @@ html {
 
 /* default */
 h1 {
+  font-size: 30pt; 
   font-size: var( --x-huge);
-  font-weight: bold;
+  margin: 50pt 0 40pt;
   margin: var(--beforeskip) 0 var(--afterskip);
 }
+
 
 /* The basic styles are default, section, hangnum, companion, article, 
  * reparticle */
 /* The basic styles are mainly concerned with numeric positioning. 
  * However, companion is right-aligned, and article is smaller */
 
-.companion {
+h1.companion {
   text-align: right;
 }
 
-.article {
+h1.article {
   --beforeskip: 3.5ex;
   --afterskip:2.3ex;
   font-size: var( --x-large);
@@ -400,6 +427,15 @@ h1 {
  * A few missing. brotherton too simple, thatcher too complex, others 
  * use graphics packages.
  */
+ 
+/* Crude fallback for headline padding  
+ * Note that some styles don't use the padding.
+ * And fallbacks assume default margins
+ */
+.bianchi, .bringhurst,  chappell,.demo3, .southall {
+  padding: 14.52pt 0;
+}
+
 .bianchi {
   font-family: sans;
   text-align: center;
@@ -449,7 +485,7 @@ h1 {
 /* Too hard for now */
 .dash {}
 
-/* As used in the maual*/
+/* As used in the manual*/
 .demo3 {
   --beforeskip: 0;
   --afterskip: calc(2 * var(--onelineskip));
@@ -472,13 +508,18 @@ h1 {
   margin: var(--beforeskip) 0 var(--afterskip);
 }
 
-
 .komalike {
   --beforeskip: calc(2 * var(--onelineskip));
   --afterskip: calc(1.5 * var(--onelineskip));
   font-family: sans;
   font-size: var( --xx-large);
   margin: var(--beforeskip) 0 var(--afterskip);
+}
+
+.ntglike {
+  --beforeskip: 50pt;
+  font-size: var( --x-large);
+  margin-top: var(--beforeskip);
 }
 
 /* Cambridge book, or close */
@@ -506,14 +547,6 @@ h1 {
   text-transform: uppercase;
   text-align: center;
 }
- 
-
-
-.ntglike {
-  --beforeskip: 50pt;
-  font-size: var( --x-large);
-  margin-top: var(--beforeskip);
-}
 
 .wilsondob {
   --beforeskip: calc(2 * var(--onelineskip));
@@ -534,20 +567,19 @@ h4 subsubsection \subsubsecheadstyle
 h5 para \paraheadstyle
 h6 subpara \subparaheadstyle
 */
-/* default */
-/* indent text following h6, as the title is usually a repeat of h5 */
-h6 + p {
-  text-indent: var(--parindent)
-}
-
-
-
+/* Heading Fallbacks 
+ * Assume default margins settings are ok 
+ */
+ 
+/* default set */
 h2 {
+  font-size: 17pt;
   font-size: var( --x-large);
   margin: 3.5ex 0 2.3ex;
 }
 
 h3 {
+  font-size: 14pt;
   font-size: var( --large);
   margin: 3.25ex 0 1.5ex;
 }
@@ -567,6 +599,13 @@ h6 {
   font-size: var( --normal);
   margin: 3.25ex 0 1em;
 }
+
+/* indent text following h6, as the title is often a repeat of h5 */
+h6 + p {
+  text-indent: var(--parindent)
+}
+
+
 
 /* memman */
 /*
@@ -807,7 +846,6 @@ h3 {
   font-weight: normal;
   font-style: italic;
   margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
-
 }
 h4 {
   font-weight: normal;
@@ -889,6 +927,7 @@ p + p {
 
 /* Add space before simple tect-lines/paraagraphs */
 .addvspace{
+  padding-top: 0.5em;
   padding-top: var(--vspace);
 }
 
@@ -900,10 +939,12 @@ p + p {
 ul, ol, dl {
     /* originally, I had this at onelineskip? */
     --parsep: calc(0.333 * var(--onelineskip));
+    --parsep: calc(0.333 * var(--onelineskip));
     --l-block-margin: 2.5em;
     --r-block-margin: 2.5em;
     --labelsep: 0.5em;
     display: block;
+    margin: 14.52pt 2.5em;
     margin: var(--parsep) var(--r-block-margin) var(--parsep) var(--l-block-margin);
 }
 
@@ -925,6 +966,7 @@ ul, ol, dl {
 
 li, dd {
   --itemsep: calc(0.333 * var(--onelineskip));
+  margin-bottom: 4.835pt;
   margin-bottom: var(--itemsep);
 }
 
@@ -944,18 +986,24 @@ dt {
 }  
 
 ol.x-tight, ul.x-tight, dl.x-tight {
+  margin-top: 7.26pt;
+  margin-bottom: 7.26pt;
   --parsep: calc(0.5 * var(--onelineskip));
 }
 
 ol.x-tight li, ul.x-tight li, dl.x-tight dd {
+  margin-bottom: 0;
   --itemsep: 0;
 }
 
 ol.tight, ul.tight, dl.tight {
+  margin-top: 5.059pt;
+  margin-bottom: 5.059pt;
   --parsep: calc(0.417 * var(--onelineskip));
 }
 
 ol.tight li, ul.tight li, dl.tight dd {
+  margin-bottom: 2.42pt;
   --itemsep: calc(0.1667 * var(--onelineskip));
 }
 
@@ -970,18 +1018,24 @@ ol.tight li, ul.tight li, dl.tight dd {
   * x-tight does march Memoir tight. But the only one.
   */
 ol.loose, ul.loose, dl.loose {
+  margin-top: 3.63pt;
+  margin-bottom: 3.63pt;
   --parsep: calc(0.25 * var(--onelineskip));
 }
  
 ol.loose li, ul.loose li, dl.loose dd {
+  margin-bottom: 10.89pt;
   --itemsep: calc(0.75 * var(--onelineskip));
 }
 
 ol.x-loose, ul.x-loose, dl.x-loose {
+  margin-top: 2.425pt;
+  margin-bottom: 2.425pt;
   --parsep: calc(0.167 * var(--onelineskip));
 }
  
 ol.x-loose li, ul.x-loose li, dl.x-loose dd {
+  margin-bottom: 14.42pt;
   --itemsep: var(--onelineskip);
 }
 
@@ -999,7 +1053,9 @@ figure, spanblock {
    * of onelineskip be the preceeding sibling a figure or not, then 
    * pushing following paragraphs down. See below
    */
+  margin-top: 14.52pt;
   margin-top: var(--onelineskip);
+  padding:  14.52pt 3em;
   padding: var(--onelineskip) calc(2 * var(--parindent));
 }
 
@@ -1007,22 +1063,27 @@ figure, spanblock {
 /* TODO  not right. Can not work? needs to be rid of topmargin, and previous needs to 
  * bottom margin. Unless we only add the margin for paragraphs and headings? */
 figure + p, spanblock + p {
+  margin-top: 24.205pt;
   margin-top: calc(1.667 * var(--onelineskip));
 }
 
 figure.wide, spanblock.wide {
+  padding: 14.52pt 0;
   padding: var(--onelineskip) 0;
 }
 
 figure.narrow, spanblock.narrow {
+  padding: 14.52pt 5em;
   padding: var(--onelineskip) calc(4 * var(--parindent));
 }
 
 figure.x-narrow, spanblock.x-narrow {
+  padding: 14.52pt 9em;
   padding: var(--onelineskip) calc(6 * var(--parindent));
 }
 
 figure.xx-narrow, spanblock.xx-narrow {
+  padding: 14.52pt 12em;
   padding: var(--onelineskip) calc(8 * var(--parindent));
 }
 
@@ -1049,6 +1110,7 @@ figure.xx-narrow, spanblock.xx-narrow {
  */
  /* TODO where an when caption skips? top/bottom? */
 figcaption {
+    padding: 4.839pt 0 0;
     padding: calc(0.833 * var(--onelineskip)) 0 0;
     text-align: center;
 }
@@ -1070,7 +1132,7 @@ figcaption > span.num:after {
 }
 
 /* exaggerated selectors because cite may be used elsewhere */
-figure > cite, blockquote > cite, divblock > quote > cite {
+figure > cite, blockquote > cite, spanblock > cite {
   display: block;
   font-style: normal;
   text-align:right;
@@ -1148,34 +1210,42 @@ td {
  * are identified.
  */
 .toprule {
+  border-bottom: 2px solid black; 
   border-top: var(--heavyrulePx) solid black;
 }
 
 .toprule th {
+  padding-top: 0.65ex;
   padding-top: var(--belowrulesep);
 }
 
 .midrule thead {
+  border-bottom: 1px solid black; 
   border-bottom: var(--lightrulePx) solid black; 
 }
 
 .midrule th {
+  padding-bottom: 0.4ex;
   padding-bottom: var(--aboverulesep);
 }
 .midrule tr:first-child td {
+  padding-top: 0.65ex;
   padding-top: var(--belowrulesep);
 }
 
 .bottomrule {
+  border-bottom: 2px solid black; 
   border-bottom: var(--heavyrulePx) solid black; 
 }
 
 .bottomrule tr:last-child td  {
+  padding-bottom: 0.4ex;
   padding-bottom: var(--aboverulesep);
 }
 
 /* Sets vspace on the cells, so spacing is seen */
 tr.addvspace td {
+  padding-top: 0.5em;
   padding-top: var(--vspace);
 }
 
@@ -1187,6 +1257,7 @@ tr.addvspace td {
 */
 /* Guesswork, as it's in LaTeX */
 blockquote {
+  padding: 9.685pt 2.5em;
   padding: calc(0.667 * var(--onelineskip)) calc(1.667 * var(--parindent));
 }
 
@@ -1215,17 +1286,20 @@ blockquote {
 }
 
 .toc.wide a {
+  padding: 7.26pt 0;
   padding: calc(0.5 * var(--onelineskip)) 0;
 }
 
 /*needs to expand with the anchor. OR use overflow trick? */
 .toc.wide li { 
   /* overflow: auto; */
+  padding: 7.26pt 0;
   padding: calc(0.5 * var(--onelineskip)) 0;
 }
 
 /* custom */
 .toc ul{
+  margin: 0 0 14.52pt 1.5em;
   margin: 0 0 var(--onelineskip) var(--parindent);
 }
 
@@ -1308,10 +1382,6 @@ blockquote {
  * Narrow 517px
  * Widths should be doubled for hi-res retina display.
  */
-
-
-
-
 .nav-table-img{
 	font-size:1.777rem;img
 }

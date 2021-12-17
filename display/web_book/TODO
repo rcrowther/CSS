@@ -1,3 +1,26 @@
+x Basic titles
+
 Can use font sizes rather then REM proportions?
 
-To start with, we want defsultds. followed by any common? followed by custom. Followed by commom-using-custom. It's cascading.
+Defaults for custom properties? commas, etc?
+Fallback for custom properties
+Overriding custom properties?
+
+Test font sizing changes
+
+Decide font break points
+
+Check font-face local()
+
+Check font-family
+
+List of missing chapter titles
+
+List of missing headline sets
+
+
+x Consider \verb (no, for escaping text. and HTML QUOTE is ok)
+
+Failing breaks on lists
+
+Check illumination spacing strategy
