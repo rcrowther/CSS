@@ -8,12 +8,37 @@
   box-sizing: border-box;
 }
 
-/* Defaults for all vars, and psitioning of calc()s */
 html {
-  
+  /* Custom properties for base values.
+   * If any of these are changed, to follow the usage of this CSS, the
+   * non-custom default properties should also be changed, so browser
+   * fallbacks switch to similar sizing. Unless, of course, the browser
+   * fallback values are acceptable as they stand.
+   */
+   
+  /* Size of the base font.
+   * Not only used for basic font-sizze, but through onelineheight, 
+   * affects much other spacing. The default is a typographical 12pt.
+   *
+   * If this is modified, to follow the usage of this CSS, a new set of
+   * font ratios must be uncommented. These only allow a small set
+   * of alternate font sizes to be applied here, currently 
+   * 12pt/14pt/17pt.
+   * 
+   * 12pt
+   * Usually translates to 16 CSS pixels. This is a large size,
+   * but generally recommended (web fonts are often too small for 
+   * readability).
+   * 
+   * 11pt
+   * Closer to the web convention of 14px (maybe 14.5ish px), but not 
+   * recommended.
+   */
   --base-fontsize: 12pt;
   
-  /* On the web, exaggerated values are often used, 
+  /* Base line height
+   * line-height depends on the font-size, the font family, maybe even 
+   * line-length. On the web, exaggerated values are often used, 
    *
    * 1.75
    * More for display than readability e.g. teasers
@@ -38,40 +63,98 @@ html {
    * Common, but will lock all font sizes to one height, so not 
    * advisable? REMs are slightly bigger than a ratio.
    * 
-   *  1.21 Memoir 12pt
-   * For print, much narrower.
+   * Memoir
+   * Suggestions from Memoir. They make little sense to me, 
+   * 12pt/25pt/30pt dipping against a background of 1.25. And 17pt 
+   * peaking out. One thing is clear, these suggestions are much 
+   * narrower then usual web typeography.
+   * Webbook doesn't model multiple line heights. The divisions are 
+   * fine, will be lost on the web, and will add much complexity. 
+   *
+   * --lh-11pt: 1.24;
+   * --lh-12pt: 1.21;
+   * --lh-14pt: 1.25;
+   * --lh-17pt: 1.29;
+   * --lh-20pt: 1.25;
+   * --lh-25pt: 1.20;
+   * --lh-30pt: 1.23;
+   * --lh-36pt: 1.25;
+   * --lh-48pt: 1.25;
+   * --lh-30pt: 1.20;
+   * 
    */
-  --base-lineheight:1.21;
+  --base-lineheight: 1.21;
   
-  /* On the web, 2em also looks good */
+  /* Base indent for text and margins.
+   * Used for paragraphing. Also used in other places, for example as a 
+   * base for indenting illustrative blocks. The default is font-size 
+   * responsive.
+   * 
+   * On the web, 2em also looks good 
+   */
   --parindent: 1.5em;
   
-  /* Depends on point options.  onelineskip is the vertical space take 
-   * by a normal line of text i.e. base-lineheight, here multiplied to 
-   * deliver usable (point) units */
+  /* One line of height, usually applied to a margin.
+   * Notably used to space headlines, but also used elsewhere, for 
+   * example, spacing figures/spanblocks etc. The default is in 
+   * points, responsive to base font-size and lineheight (i.e. same as 
+   * line-height, but in points, not a ratio).
+   * 
+   * Translated from Memoir, here multiplied to deliver usable (point) 
+   * units 
+   */
   --onelineskip: calc(var(--base-fontsize) * var(--base-lineheight));
  
-  /*
-   * \baselineskip is like onelineskip, but is relative to a pararaph's
-   * font, so can change in size. I'm ignoring it... unless it goes 
-   * wrong... 
+  /* Note:
+   * Memoir also use \baselineskip which is like \onelineskip, but is 
+   * relative to a pararaph's font, so can change in size. I'm ignoring 
+   * \baselineskip... until/unless we need it... 
    */
 
-/* Rather complex in Memoir.
-This is \defaultaddspace, which is allocated to \addlinespace for 
-* tables. 
-* This class generalises to --vspace for anywhere that a small amount of
-* vspace is needed before a line. Without TeX cursor position it must be
-* a top padding (not margin, which would collapse). See .addvspace.
-*/ 
-   --vspace: 0.5em; 
-   --breakwidth:74rem;
+  /* Adds a thread of vertical space.
+   * Can be used anywhere, but the most notable use is as a substitute 
+   * for midrules in tables. The default is font-size responive. 
+   *  
+   * This is rather complex in Memoir. It's called \defaultaddspace, 
+   * which is allocated to \addlinespace for tables. 
+   * This class generalises those settings to --vspace for use anywhere 
+   * that a small amount of vspace is needed before a line. Without TeX 
+   * cursor positioning it must be a top padding (not margin, which 
+   * would collapse). See Memoir's /addvspace.
+   */ 
+   --vspace: 0.5em;
+    
+  /*
+   * Useless in practice, as custom properties
+   * can not be used in media queries. Here as annotation.
+   * --breakwidth: 74rem;
+   */
+    
+  /* In deeper selectors you will find,
+   *
+   * = Title vspacing 
+   * --beforeskip: 50pt;
+   * --midchapskip: 20pt;
+   * --afterskip: 40pt;
+   * 
+   * = List properties
+   * --l-block-margin: 2.5em;
+   * --r-block-margin: 2.5em;
+   * --labelsep: 0.5em;
+   * 
+   * = Table rule properties
+   * --aboverulesep: 0.4ex;
+   * --belowrulesep: 0.65ex;
+   * --heavyrule: 2;
+   * --lightrule: 1;
+   */
 }
 
 /* Simple print rules:
- * - h2, h3 break before
+ * - Always break bodies
  * - Avoid break after titles
- * - Avoid break in figures, tables, or lists
+ * - Avoid break in, or after, figures, tables, or lists
+ * - Avoid breaks in footers
  */
 body {
     page-break-before: always;
@@ -127,7 +210,8 @@ article > footer, section > footer {
 }
 
 .layout-vertical-middle > * {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -172,7 +256,6 @@ article > footer, section > footer {
 
 /* if narrower than paper */
 @media screen and (max-width: 77rem) {
-
     .book-layout-horizontal-top > *,
     .book-layout-horizontal-middle > * {
         width: 100%;
@@ -206,34 +289,40 @@ body {
   background-color: lightgrey;
     
     /* fallback for non-custom property browsers */
-  font-size:12pt;
+  font-size: 12pt;
   font-size: var(--base-fontsize);
   line-height: 1.21;
+  line-height: var(--base-lineheight);
 }
 
 /* Font Sizing */
 /* 12pt Scaling */
 html {
 
-/* line-height depends on the font-size, the font family, maybe even 
- * line-length. Suggestions from Memoir, shelving to 12pt and bulging 
- * at 18pt.
- * Webbook doesn't deal much with line heights, preferring if necessary 
- * to set a value overall. The divisions are fine, will be lost on the 
- * web, and will add much complexity. 
-*/
-  --lh-11pt: 1.24;
-  --lh-12pt: 1.21;
-  --lh-14pt: 1.25;
-  --lh-17pt: 1.29;
-  --lh-20pt: 1.25;
-  --lh-25pt: 1.20;
-  --lh-30pt: 1.23;
-  --lh-36pt: 1.25;
-  --lh-48pt: 1.25;
-  --lh-30pt: 1.20;
-
- 
+/* 11pt Scaling (can use REMS against 11pt base) 
+    25pt --x-huge
+    20pt --huge
+    17pt --xx-large
+    14pt --x-large
+    12pt --large
+    11pt --normal
+    10pt --small
+    9pt --x-small
+    8pt --xx-small
+    7pt --tiny
+ */
+ /*
+ --x-huge: calc(2.273 * var(--base-fontsize)); 
+ --huge: calc(1.818 * var(--base-fontsize)); 
+ --xx-large: calc(1.545 * var(--base-fontsize)); 
+ --x-large: calc(1.273 * var(--base-fontsize)); 
+ --large: calc(1.091 * var(--base-fontsize)); 
+ --normal: calc(1 * var(--base-fontsize)); 
+ --small: calc(0.909 * var(--base-fontsize)); 
+ --x-small: calc(0.818 * var(--base-fontsize)); 
+ --xx-small: calc(0.727 * var(--base-fontsize)); 
+ --tiny: calc(0.636 * var(--base-fontsize));
+*/ 
 /* 12pt Scaling (can use REMS against 12pt base) 
     30pt --x-huge
     25pt --huge
@@ -243,9 +332,10 @@ html {
     12pt --normal
     11pt --small
     10pt --x-small
-    8pt --xx-small
-    6pt --tiny
+    9pt --xx-small
+    8pt --tiny
  */
+ 
  --x-huge: calc(2.5 * var(--base-fontsize)); 
  --huge: calc(2.083 * var(--base-fontsize)); 
  --xx-large: calc(1.667 * var(--base-fontsize)); 
@@ -254,8 +344,8 @@ html {
  --normal: calc(1 * var(--base-fontsize)); 
  --small: calc(0.917 * var(--base-fontsize)); 
  --x-small: calc(0.833 * var(--base-fontsize)); 
- --xx-small: calc(0.667 * var(--base-fontsize)); 
- --tiny: calc(0.5 * var(--base-fontsize));
+ --xx-small: calc(0.75 * var(--base-fontsize)); 
+ --tiny: calc(0.667 * var(--base-fontsize));
 
 /* 14pt REM Scaling (can use REMS against 14pt base)
     36pt --x-huge
@@ -271,7 +361,6 @@ html {
 */
 
 /*
- 
  --x-huge: calc( 2.571 * var(--base-fontsize));
  --huge: calc( 2.143 * var(--base-fontsize));
  --xx-large: calc( 1.786 * var(--base-fontsize));
@@ -389,9 +478,9 @@ h1, h2, h3, h4, h5, h6 {
 /* midchapskip only used for inserting vertical numbering. 
  * Ignoring nubering */
 html {
---beforeskip: 50pt;
---midchapskip: 20pt;
---afterskip: 40pt;
+  --beforeskip: 50pt;
+  --midchapskip: 20pt;
+  --afterskip: 40pt;
 }
 
 /* default */
@@ -1166,15 +1255,16 @@ figure > img, spanblock > img {
  * Tables are not responsive, because I feel it is usually better if 
  * they are well-formated, despite overflow.
  */
+      
 table {
 /* for all rules */
---aboverulesep: 0.4ex;
---belowrulesep: 0.65ex;
---heavyrule: 2;
---lightrule: 1;
---heavyrulePx: calc(1px * var(--heavyrule));
---lightrulePx: calc(1px * var(--lightrule));
---minspace: 1em;
+  --aboverulesep: 0.4ex;
+  --belowrulesep: 0.65ex;
+  --heavyrule: 2;
+  --lightrule: 1;
+  --heavyrulePx: calc(1px * var(--heavyrule));
+  --lightrulePx: calc(1px * var(--lightrule));
+  --minspace: 1em;
   /* Can do this because borders not collapsed (but bottom rule is broken) */
   padding-bottom: 0.111rem;
   margin: 0 auto;
@@ -1371,98 +1461,6 @@ blockquote {
 /*********************************/
 
 
-
-
-/* Figure images/contents can be be any height.
- * For bitmapped images, we can make some assumptions,
- * Width of the main column is set to 55rem. base fontsize is 16pt. 
- * Though leading may change, image width expended is roughly.  
- * Wide 710px
- * Stock 614px
- * Narrow 517px
- * Widths should be doubled for hi-res retina display.
- */
-.nav-table-img{
-	font-size:1.777rem;img
-}
-
-
-/*
-h1, h3 {
-    font-weight:600;
-}
-
-.site-title {
-	font-weight: 800;
-	letter-spacing: 0.1rem;
-	color: #99ca71;
-	text-shadow:  -1px 1px 2px #000,
-				  1px 1px 2px #666,
-				 1px -1px 2px #666,
-				-1px -1px 2px #000;
-} 
-*/
-
-
-
-
-
-.logo img {
-	display:block;
-	height: 4rem;
-}
-
-.topbar {
-    margin: 0 auto;
-    max-width: 70rem;
-    /* to size width: 50%;*/
-}
-
-
-.topbar a {
-    text-decoration:none;
-}
-
-/* Menu */
-.menu a {
-	color: white;
-	/* not sure why this fails */
-	cursor: pointer;
-}
-
-.menu a:hover {
-    text-decoration: underline;
-}
-
-.menu {
-    list-style: none;
-    padding: 0;
-	margin: 0;
-}
-
-/*.submenu *:last-child {*/
-.submenu ul {
-	display: none;
-}
-
-.noscript-menu {
-    list-style: none;
-	padding: 0.5rem 0;
-    text-decoration: underline;
-
-}
-.noscript-menu li {
-	margin: 0.5rem 1.5rem;
-}
-
-.noscript-menu a {
-	color: white;
-}
-
-
-
-
-
 /* Good break point? */
 /*
 @media screen and (max-width: 30rem) {
@@ -1473,106 +1471,9 @@ h1, h3 {
 }
 */
 
+/************  TEST *****************/
 
 
-
-
-
-
-/* Everyday listening
- * Twister6 (more impressive on mobile)
- * The headhonelist (horrible small on hires)
- * Audiophileheaven (good text, awful performance, fromed photos)
- * Which
- * 2:3?
- * 1:2
- * 12:7
- * 5:3 ;little photo
- * 680*400 8:5 ?
-*/
-table {
- /* border-collapse: collapse; */
-  }
-  
-table.spec {
-	font-size: 14pt;
-	line-height: 21pt;
-	margin: 0 auto;
-	width: initial;
-    border-top: 2px solid #a7d7d5;
-    border-bottom: 2px solid #a7d7d5; 
-}
-table.spec td {
-	vertical-align:top;
-}
-
-
-
-
-/* ?bad name homepage-site-epigram ?*/
-.site-epigram {
-	color: #999999;
-	font-style: italic;
-	font-weight:bold;
-	font-size: 1.333rem;
-	letter-spacing: 3px;
-	text-align:center;
-}
-
-
-.filter-tools {
-	/* margin: 0 auto; */
-	margin-bottom: 1.5em;
-	text-align:center;
-}
-
-.filter-tools a {
-	margin: 0 1em;
-	padding: 0 1em;
-	color: black; 
-	text-decoration: none;
-	border-left: solid black 2pt;
-	border-right: solid black 2pt;
-	border-top: solid black 1px;
-	border-bottom: solid black 1px;
-}
-
-.filter-tools a:hover {
-	border-left: solid black 8px;
-	border-right: solid black 8px;
-}
-
-/* Narrow screen, filter-tools vertical */
-@media screen and (max-width: 70rem) {
-	.filter-tools a {
-		display:block;
-		margin: 0.8rem;
-		padding: 2.083rem;
-	}
-}
-
-
-
-/* table special ref for lists */
-.reviewbase-list {
-	margin: 0 auto;
-}
-
-.reviewbase-list .badge {
-	font-size:12pt;
-	font-family: VollkornSC;
-	font-variant: small-caps;
-	padding: 0em 1em;
-}
-
-/* Add badge border to all bads */
-.reviewbase-list .badge.bad {
-		border: solid black 1px;
-}
-	
-.reviewbase-list td {
-    padding: 0 1em 0.7em 0;
-}
 
 
 
