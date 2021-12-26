@@ -5,46 +5,47 @@
 * they are positioned after navbar code.
 */
 
+
 @media screen {
-/* For now, IE. For the future, everyone else */
-@viewport{
-  width: device-width;
-  zoom: 1.0;
-}
-
-/* Palatino can look horrible on the web. 
- * Switch to something more generic.
- * Take the edge off black.
- */
-body{
-    font-family: Lora, Georgia, serif;
-    color: #333;
-}
-
-/* Take the edge off black. Perhaps a little more authentic? Not convinced */
-/*
-h1, h2, h3, h4, h5, h6, dd, a {
-    color: #222;
-}
-*/
-
-/* Enable figures containing code, or tables, with scroll ability. 
-Blockqoutes can flow, images be resized, but not these two */
-/*
-figure code, figure table {
-    overflow-x: auto;
-}
-*/
-
-/* Medieval centred, widened for generic fonts
- * NB: Padding for typeblock on top of a webpage is irritating.
- * Also, the navbar, usually placed in the stock padding of paper, must
- * fit in the typeblock (unless we use negative placed absolutes, but we
- * do not). So 6pt.
- */
-body > article, body > section {
-	padding-top: 6pt; 
+    /* For now, IE. For the future, everyone else */
+    @viewport{
+      width: device-width;
+      zoom: 1.0;
     }
+
+    /* Palatino can look horrible on the web. 
+     * Switch to something more generic.
+     * Take the edge off black.
+     */
+    body{
+        font-family: Lora, Georgia, serif;
+        color: #333;
+    }
+
+    /* Take the edge off black. Perhaps a little more authentic? Not convinced */
+    /*
+    h1, h2, h3, h4, h5, h6, dd, a {
+        color: #222;
+    }
+    */
+
+    /* Enable figures containing code, or tables, with scroll ability. 
+    Blockqoutes can flow, images be resized, but not these two */
+    /*
+    figure code, figure table {
+        overflow-x: auto;
+    }
+    */
+
+    /* Medieval centred, widened for generic fonts
+     * NB: Padding for typeblock on top of a webpage is irritating.
+     * Also, the navbar, usually placed in the stock padding of paper, must
+     * fit in the typeblock (unless we use negative placed absolutes, but we
+     * do not). So 6pt.
+     */
+    body > article, body > section {
+        padding-top: 6pt; 
+        }
 
 }
 

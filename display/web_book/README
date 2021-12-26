@@ -1,6 +1,31 @@
 = Webbook
 A version of the Book CSS. The original used supplementary CSS stylesheets to convert to web use. This is designed primarily for the web.  
 
+== Overview
+WebBook is an opinionated stylesheet. It includes several theming posibilities, but only within many fixed parameters. WebBook is like, say, Bootstrap, which has a ''Bootstrap look'. It is not like, say, PureCSS---a framework with no opinion about page sizes, font sizes, or spacing.
+
+Webbook is based in typographic conventions. Compared to the usual look of the web, it has very limited page layout, limited typographical manipulation (restricted to some themed items), finar gradations of sizing (sometimes not obvious without a close look), and a lot more space then usual.
+
+
+== Setup
+WebBook should be built using Normalize CSS
+
+== Font sizing
+Font size is set using --base-fontsize on the body element. --base-lineheight is also available.
+
+If the font-size is changed, it is expected that the corresponding font size set is uncommented. This currently limits font size changes to 11pt, 12pt, 14pt, 17pt. Default is 12pt.
+
+
+=== Responsiveness
+The fonts have a small fix to compensate for high resolution screen shrinkage. This is enabled by default. The fix does not attempt to maintain text size, simply keep text readable on hi-res, non-Apple screens. You can comment the feature out, or tamper with it, in the few rules having the property --fontscale.
+
+
+
+
+
+
+
+== Changes  from sources
 
 ++
 - Two columns for page layout
@@ -38,8 +63,6 @@ Some responiveness to approximate to above
 ? chapter numbering ignored
 
 
-== Setup
-WebBook should be built using Normalize CSS
 
 == Argument
 ''Stock' usually refers to an untrimmed sheet of paper. Page refers to the paper that makes the book---usually trimmed from stock. Typeblock is where most of the print goes. I say most, because header and footer blocks are regarded a seperate items. There is also a concern with where the page is placed o the stock, so the page can be trimmed. This is irrelevant to web presentations. More usefully, it iss also neear-irrelevant to any current technology for printing out web pages.

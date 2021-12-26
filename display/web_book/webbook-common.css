@@ -1,3 +1,4 @@
+/* Sizing reset */
 * {
 	box-sizing: border-box;
     margin: 0;
@@ -8,7 +9,118 @@
   box-sizing: border-box;
 }
 
-html {
+
+/* Simple print rules:
+ * - Always break bodies
+ * - Avoid break after titles
+ * - Avoid break in, or after, figures, tables, or lists
+ * - Avoid breaks in footers
+ */
+body {
+    page-break-before: always;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+}
+
+table, figure, spanblock, ol, ul, dl {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+
+article > footer, section > footer {
+    page-break-inside: avoid;
+}
+
+
+
+
+body {
+  --fontscale: 1;
+}
+
+
+/* if narrower than paper */
+/* A hack for higher resolutions
+ * (responsicee font scaling)
+ * At the time of writing, there are no reasonable tools for handling
+ * high-res screens, and their subsequent shrinking of visual
+ * font-size. So this is a deliberately small hack---easy to comment,
+ * easy to maintain, easy to adapt.
+ * The hack is based on the idea that until about 640/800
+ * resolutions, font-size on screen did maintain readable and consistent
+ * sizes, by convention. After that, the rules jack up the fontsize a 
+ * bit. 
+ * It is a gentle scale, designed only to take the edge off resolution
+ * scaling. There is deliberately no attempt at, for example, continuous 
+ * scaling.    
+ */
+/*
+ * My 16:9 resolutions,
+ * 1080
+ * 900
+ * 720
+ * 576
+ * 540
+ */
+@media screen and (min-height: 570px) {
+  /* mid-res screen 1280x720 18pt */
+  body {
+    font-size: 16pt;
+    --fontscale: 1.333;
+  }
+}
+ 
+@media screen and (min-height: 660px) {
+  /* hi-res screen 1440x810 20pt */
+  body {
+    font-size: 20pt;
+    --fontscale: 1.666;
+  }
+}
+
+@media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2) {
+  /* retina screens 
+   * Assume Apple know what they are doing, so only apply a hair
+   * of scaling
+   */
+	body {
+      font-size: 14pt;
+      --fontscale: 1.1666;
+	}
+}
+
+
+/* Fonts and other base declarations */
+/* 
+ * Much of the base work of this CSS happens in the BODY element.
+ * Primo for overriding.
+*/
+
+@font-face {
+/*
+  font-family: 'DejaVu Serif';
+  src: local('DejaVu Serif'), local('DejaVu-Serif');
+  * 
+  /*TODO add Book Antiqua also? */
+/*TODO need swap now?
+ *   font-display: swap;
+  */
+}
+
+
+body {
+  /* List of Palatino-likes, degrading... 
+	Palatino, "Book Antiqua", "DejaVu Serif",  Georgia, serif;
+  */
+  font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia, serif;
+  background-color: lightgrey;
+
   /* Custom properties for base values.
    * If any of these are changed, to follow the usage of this CSS, the
    * non-custom default properties should also be changed, so browser
@@ -35,6 +147,12 @@ html {
    * recommended.
    */
   --base-fontsize: 12pt;
+  --fontsize: calc(var(--base-fontsize) * var(--fontscale));
+  
+  /* fallback for non-custom property browsers */
+  font-size: 12pt;
+  font-size: var(--fontsize);
+
   
   /* Base line height
    * line-height depends on the font-size, the font family, maybe even 
@@ -84,7 +202,10 @@ html {
    * 
    */
   --base-lineheight: 1.21;
-  
+  /* fallback for non-custom property browsers */
+  line-height: 1.21;
+  line-height: var(--base-lineheight);
+    
   /* Base indent for text and margins.
    * Used for paragraphing. Also used in other places, for example as a 
    * base for indenting illustrative blocks. The default is font-size 
@@ -103,7 +224,7 @@ html {
    * Translated from Memoir, here multiplied to deliver usable (point) 
    * units 
    */
-  --onelineskip: calc(var(--base-fontsize) * var(--base-lineheight));
+  --onelineskip: calc(var(--fontsize) * var(--base-lineheight));
  
   /* Note:
    * Memoir also use \baselineskip which is like \onelineskip, but is 
@@ -148,156 +269,16 @@ html {
    * --heavyrule: 2;
    * --lightrule: 1;
    */
-}
 
-/* Simple print rules:
- * - Always break bodies
- * - Avoid break after titles
- * - Avoid break in, or after, figures, tables, or lists
- * - Avoid breaks in footers
- */
-body {
-    page-break-before: always;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    page-break-after: avoid;
-}
-
-table, figure, spanblock, ol, ul, dl {
-    page-break-after: avoid;
-    page-break-inside: avoid;
-}
-
-article > footer, section > footer {
-    page-break-inside: avoid;
-}
-
-
-
-/* Paper sizes */
-.paper-stock {
-    display: block;
-}
-
-.paper-web {
-    max-width: 77rem;
-    margin: 0 auto;
-}
-
-.paper-a4 {
-    max-width: 210mm;
-    margin: 0 auto;
-}
-
-.paper-column {
-    max-width: 44rem;
-    margin: 0 auto;
-}
-
-
-
-/* layouts */
-
-.layout-responsive-horizontal-top > * {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.layout-responsive-horizontal-middle > * {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.layout-vertical-middle > * {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 
 
 
-
-
-/*
-.print-fixed-margin-mdvl {
-    padding: 6rem 6rem 9rem 6rem;
-}
-
-.print-fixed-margin-iso {
-    padding: 6rem 6rem 12rem 6rem;
-}
-*/
-
-/* TOCONSIDER */
-/* containers */
-.container-fixed-margin-vertical {
-    padding: 8rem 0;
-} 
-
-.container-fluid-margin-horizontal {
-    max-width: 74rem;
-    margin: 0 auto;
-}
-
-    /* TOREMOVE */
-/* if wider than paper, horizontal layouts horizontal */
-/*
- @media screen and (min-width: 77rem) {
-	.sidecol {
-		width: 18rem;
-		min-height: 1px;
-		margin-top: 10rem;
-		padding-top: 8rem;
-		padding-bottom: 8rem;
-	}
-}
-*/
-
-/* if narrower than paper */
-@media screen and (max-width: 77rem) {
-    .book-layout-horizontal-top > *,
-    .book-layout-horizontal-middle > * {
-        width: 100%;
-    }  
-}
-
-/********************
- * Common
-********************/
-
-/* Basics
- * Primo for overriding.
-*/
-
-@font-face {
-  font-family: 'DejaVu Serif';
-  src: local('DejaVu Serif'), local('DejaVu-Serif');
-  /*TODO add Book Antiqua also? */
-/*TODO need swap now?
- *   font-display: swap;
-  */
-}
-
-
-body {
-  /* List of Palatino-likes, degrading... */
-  /*
-	font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia, serif;
-  */
-  font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia;
-  background-color: lightgrey;
-    
-    /* fallback for non-custom property browsers */
-  font-size: 12pt;
-  font-size: var(--base-fontsize);
-  line-height: 1.21;
-  line-height: var(--base-lineheight);
-}
 
 /* Font Sizing */
 /* 12pt Scaling */
-html {
+body {
 
 /* 11pt Scaling (can use REMS against 11pt base) 
     25pt --x-huge
@@ -312,16 +293,16 @@ html {
     7pt --tiny
  */
  /*
- --x-huge: calc(2.273 * var(--base-fontsize)); 
- --huge: calc(1.818 * var(--base-fontsize)); 
- --xx-large: calc(1.545 * var(--base-fontsize)); 
- --x-large: calc(1.273 * var(--base-fontsize)); 
- --large: calc(1.091 * var(--base-fontsize)); 
- --normal: calc(1 * var(--base-fontsize)); 
- --small: calc(0.909 * var(--base-fontsize)); 
- --x-small: calc(0.818 * var(--base-fontsize)); 
- --xx-small: calc(0.727 * var(--base-fontsize)); 
- --tiny: calc(0.636 * var(--base-fontsize));
+ --x-huge: calc(2.273 * var(--fontsize)); 
+ --huge: calc(1.818 * var(--fontsize)); 
+ --xx-large: calc(1.545 * var(--fontsize)); 
+ --x-large: calc(1.273 * var(--fontsize)); 
+ --large: calc(1.091 * var(--fontsize)); 
+ --normal: calc(1 * var(--fontsize)); 
+ --small: calc(0.909 * var(--fontsize)); 
+ --x-small: calc(0.818 * var(--fontsize)); 
+ --xx-small: calc(0.727 * var(--fontsize)); 
+ --tiny: calc(0.636 * var(--fontsize));
 */ 
 /* 12pt Scaling (can use REMS against 12pt base) 
     30pt --x-huge
@@ -336,16 +317,16 @@ html {
     8pt --tiny
  */
  
- --x-huge: calc(2.5 * var(--base-fontsize)); 
- --huge: calc(2.083 * var(--base-fontsize)); 
- --xx-large: calc(1.667 * var(--base-fontsize)); 
- --x-large: calc(1.417 * var(--base-fontsize)); 
- --large: calc(1.167 * var(--base-fontsize)); 
- --normal: calc(1 * var(--base-fontsize)); 
- --small: calc(0.917 * var(--base-fontsize)); 
- --x-small: calc(0.833 * var(--base-fontsize)); 
- --xx-small: calc(0.75 * var(--base-fontsize)); 
- --tiny: calc(0.667 * var(--base-fontsize));
+ --x-huge: calc(2.5 * var(--fontsize)); 
+ --huge: calc(2.083 * var(--fontsize)); 
+ --xx-large: calc(1.667 * var(--fontsize)); 
+ --x-large: calc(1.417 * var(--fontsize)); 
+ --large: calc(1.167 * var(--fontsize)); 
+ --normal: calc(1 * var(--fontsize)); 
+ --small: calc(0.917 * var(--fontsize)); 
+ --x-small: calc(0.833 * var(--fontsize)); 
+ --xx-small: calc(0.75 * var(--fontsize)); 
+ --tiny: calc(0.667 * var(--fontsize));
 
 /* 14pt REM Scaling (can use REMS against 14pt base)
     36pt --x-huge
@@ -361,15 +342,15 @@ html {
 */
 
 /*
- --x-huge: calc( 2.571 * var(--base-fontsize));
- --huge: calc( 2.143 * var(--base-fontsize));
- --xx-large: calc( 1.786 * var(--base-fontsize));
- --x-large: calc( 1.429 * var(--base-fontsize));
- --large: calc( 1.214 * var(--base-fontsize)); 
- --normal: calc(1 * var(--base-fontsize));
- --small: calc( 0.857 * var(--base-fontsize));
- --x-small: calc( 0.786 * var(--base-fontsize));
- --xx-small: calc( 0.714 * var(--base-fontsize));
+ --x-huge: calc( 2.571 * var(--fontsize));
+ --huge: calc( 2.143 * var(--fontsize));
+ --xx-large: calc( 1.786 * var(--fontsize));
+ --x-large: calc( 1.429 * var(--fontsize));
+ --large: calc( 1.214 * var(--fontsize)); 
+ --normal: calc(1 * var(--fontsize));
+ --small: calc( 0.857 * var(--fontsize));
+ --x-small: calc( 0.786 * var(--fontsize));
+ --xx-small: calc( 0.714 * var(--fontsize));
  --tiny: calc( 0.643rem;
 */
 
@@ -387,31 +368,18 @@ html {
 */
 
 /*
- --x-huge: calc( 2.824 * var(--base-fontsize));
- --huge: calc( 2.118 * var(--base-fontsize));
- --xx-large: calc( 1.765 * var(--base-fontsize));
- --x-large: calc( 1.471 * var(--base-fontsize));
- --large: calc( 1.176 * var(--base-fontsize)); 
- --normal: calc(1 * var(--base-fontsize));
- --small: calc( 0.824 * var(--base-fontsize));
- --x-small: calc( 0.706 * var(--base-fontsize));
- --xx-small: calc( 0.647 * var(--base-fontsize));
- --tiny: calc( 0.588 * var(--base-fontsize)); 
+ --x-huge: calc( 2.824 * var(--fontsize));
+ --huge: calc( 2.118 * var(--fontsize));
+ --xx-large: calc( 1.765 * var(--fontsize));
+ --x-large: calc( 1.471 * var(--fontsize));
+ --large: calc( 1.176 * var(--fontsize)); 
+ --normal: calc(1 * var(--fontsize));
+ --small: calc( 0.824 * var(--fontsize));
+ --x-small: calc( 0.706 * var(--fontsize));
+ --xx-small: calc( 0.647 * var(--fontsize));
+ --tiny: calc( 0.588 * var(--fontsize)); 
 */
 
-/*
- * SOS
- * 28/14 3.554
- * 24/14 3.034
- * CM
- * 35/16 3.880
- * 24/16 2.666 bo;d 400
- * 16/16 centre bg
- * HG
- * 50/18 4.936
- * 36/18 3.692
- * line height is 18/30
- */ 
 }
 
 
@@ -462,6 +430,145 @@ html {
   padding: 14.52pt 0 1em;
   padding: var(--onelineskip) 0 1em;
 }
+
+
+
+
+/** Layouts */
+/* Paper sizes */
+.paper-stock, .paper-web, .paper-a4, .paper-column {
+  background-color: white;
+}
+
+/* Not for reading text */
+.paper-stock {
+    display: block;
+}
+
+/* Designed for a sidecol */
+.paper-web {
+    max-width: 77rem;
+    margin: 0 auto;
+}
+
+/* Do not put sidecols on these */
+.paper-a4 {
+    max-width: 210mm;
+    margin: 0 auto;
+}
+
+.paper-column {
+    max-width: 44rem;
+    margin: 0 auto;
+}
+
+
+/* layouts */
+/*
+.layout-responsive-horizontal-top > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.layout-responsive-horizontal-middle > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.layout-vertical-middle > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+*/
+.col-top {
+  display: inline-block;
+  vertical-align: top;
+} 
+
+.col-middle {
+  display: inline-block;
+  vertical-align: middle;
+} 
+
+.colblock-top > * {
+  display: block;
+}
+
+.colblock-middle > * {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+.print-fixed-margin-mdvl {
+    padding: 6rem 6rem 9rem 6rem;
+}
+
+.print-fixed-margin-iso {
+    padding: 6rem 6rem 12rem 6rem;
+}
+*/
+
+
+/* TOCONSIDER */
+/* containers */
+.container-fixed-margin-vertical {
+    padding: 8rem 0;
+} 
+
+.container-fluid-margin-horizontal {
+    max-width: 74rem;
+    margin: 0 auto;
+}
+
+.col-2,.col-5 {
+  display: block;
+}
+
+/* if wider than paper, horizontal layouts horizontal */
+@media screen and (min-width: 77rem) {
+
+  /* contained elements */
+  .col-2 {
+    display: inline-block;
+    width:21.5rem;
+    vertical-align: top;
+  }
+
+  .col-5 {
+    display: inline-block;
+    width:55rem;
+    vertical-align: top;
+  }
+}
+/*
+@media screen and (max-width: 77rem) {
+    .book-layout-horizontal-top > *,
+    .book-layout-horizontal-middle > * {
+        width: 100%;
+    }  
+}
+*/
+    /* TOREMOVE */
+/* if wider than paper, horizontal layouts horizontal */
+/*
+ @media screen and (min-width: 77rem) {
+	.sidecol {
+		width: 18rem;
+		min-height: 1px;
+		margin-top: 10rem;
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+}
+*/
+
+
+/********************
+ * Common
+********************/
+
 
 /* Headlines */
 
@@ -1462,14 +1569,15 @@ blockquote {
 
 
 /* Good break point? */
-/*
 @media screen and (max-width: 30rem) {
 	/* thin LR padding on narrow screens */
+    /*
 	article,.sidecol {
 		padding: 2rem 1rem;
 	}
+    */
 }
-*/
+
 
 /************  TEST *****************/
 

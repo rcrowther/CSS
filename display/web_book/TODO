@@ -4,12 +4,16 @@ x No, it must scale.... Can use font sizes rather then REM proportions?
 
 x Defaults for custom properties? commas, etc?
 x Fallback for custom properties
-Overriding custom properties?
+x Overriding custom properties?
 - At what level???
 
-Test font sizing changes
+x Test font sizing changes
+  x- add 11pt ratios
 
 Decide font break points
+Check break poinrs
+
+Rename respecting SMACSS
 
 Check font-face local()
 
