@@ -66,18 +66,22 @@ body {
  */
 @media screen and (min-height: 570px) {
   /* mid-res screen 1280x720 18pt */
+/*
   body {
     font-size: 16pt;
     --fontscale: 1.333;
   }
+*/
 }
  
 @media screen and (min-height: 660px) {
   /* hi-res screen 1440x810 20pt */
+/*
   body {
     font-size: 20pt;
     --fontscale: 1.666;
   }
+*/
 }
 
 @media
@@ -384,39 +388,39 @@ body {
 
 
 .tiny {
-  font-size: var( --tiny);
+  font-size: var(--tiny);
 }
  
 .xx-small {
-  font-size: var( --xx-small);
+  font-size: var(--xx-small);
 }
     
 .x-small {
-  font-size: var( --x-small);
+  font-size: var(--x-small);
 }
     
 .small {
-  font-size: var( --small);
+  font-size: var(--small);
 }
  
 .normal {
-  font-size: var( --normal);
+  font-size: var(--normal);
 }
 
 .large {
-  font-size: var( --large);
+  font-size: var(--large);
 }
 
 .x-large {
-  font-size: var( --x-large);
+  font-size: var(--x-large);
 }
 
 .xx-large {
-  font-size: var( --xx-large);
+  font-size: var(--xx-large);
 }
 
 .huge {
-  font-size: var( --huge);
+  font-size: var(--huge);
 }
 
 .x-huge {
@@ -425,7 +429,7 @@ body {
 
 
 .site-title {
-  font-size: var( --xx-large);
+  font-size: var(--xx-large);
   text-align: center;
   padding: 14.52pt 0 1em;
   padding: var(--onelineskip) 0 1em;
@@ -513,7 +517,7 @@ body {
 
 /* TOCONSIDER */
 /* containers */
-.container-fixed-margin-vertical {
+.col-fixed-margin-vertical {
     padding: 8rem 0;
 } 
 
@@ -532,13 +536,13 @@ body {
   /* contained elements */
   .col-2 {
     display: inline-block;
-    width:21.5rem;
+    width: 21.5rem;
     vertical-align: top;
   }
 
   .col-5 {
     display: inline-block;
-    width:55rem;
+    width: 55rem;
     vertical-align: top;
   }
 }
@@ -1065,10 +1069,19 @@ h5::after, h6::after {
 }
 */
 
+
+
 /* General text */
 
 /* elements */
 
+/* There is a \date command in book titling \maketitle P67.
+ * There a probably many more \dare commands. But these are locked to 
+ * the enviroments, have no generality of formatting effect. So no 
+ * formatting for the HTML element TIME.
+ * QUOTE is represented by \verb, but this has no formatting effect. 
+ */
+ 
 /* An invented element, for block content which is part of textflow.
  * This is an alternative to the figure element. The styling mostly is
  * locked to figure, but paragraphing is different.  
@@ -1089,24 +1102,7 @@ code {
   font-family: monospace;
 }
 
-/* There is a \date command in book titling \maketitle P67.
- * There a probably many more.
- * These are locked to the enviroments, so have no generality 
- * for the HTML element TIME. */
- 
-/*TODO */
-/* \verb */
 
-
-
-
-/* anchor buttons */
-/*
-.button {
-  font-weight:bold;
-  font-size: 18pt;
-}
-*/
 
 /* Paragraphs */
 
@@ -1121,11 +1117,19 @@ p + p {
     margin-top: 6pt;
 }
 
-/* Add space before simple tect-lines/paraagraphs */
+
+/* Add space before simple text-lines/paraagraphs */
 .addvspace{
   padding-top: 0.5em;
   padding-top: var(--vspace);
 }
+
+.appendvspace{
+  padding-bottom: 0.5em;
+  padding-bottom: var(--vspace);
+}
+
+
 
 /* Lists */
 
@@ -1372,10 +1376,11 @@ table {
   --heavyrulePx: calc(1px * var(--heavyrule));
   --lightrulePx: calc(1px * var(--lightrule));
   --minspace: 1em;
-  /* Can do this because borders not collapsed (but bottom rule is broken) */
+  border-spacing: 0;
+
+  /* Can do this because borders not collapsed */
   padding-bottom: 0.111rem;
   margin: 0 auto;
-  border-collapse: collapse;
 }
 
 /* My guess, horizontal spacing.
@@ -1397,54 +1402,41 @@ td {
 
 
 /* Problem with this is the lack of spacing in tables.
- * Vertical padding no work on TABLE. Only on cells.
- * Margins no work any table element, which means interspaced lines 
- * impossible.
+ * - Table take spacing rules only if not collapsed
+ * - Spacing property too general, works round all elements?
+ * - Collapsed setting will remove all margins
+ * - Padding work only on TD and TH
  * 
  * Accept:
- * No intermediate midrules (needs too custom CSS)
- * Table must have header, that's how toprule and midrule positions
- * are identified.
+ * Midrules only for table header
+ * Midrule expensive
  */
-.toprule {
-  border-bottom: 2px solid black; 
+.table-toprule {
+  padding-top: 0.65ex;
+  padding-top: var(--belowrulesep);
+  border-top: 2px solid black; 
   border-top: var(--heavyrulePx) solid black;
 }
 
-.toprule th {
-  padding-top: 0.65ex;
-  padding-top: var(--belowrulesep);
-}
-
-.midrule thead {
-  border-bottom: 1px solid black; 
-  border-bottom: var(--lightrulePx) solid black; 
-}
-
-.midrule th {
+.table-bottomrule {
   padding-bottom: 0.4ex;
   padding-bottom: var(--aboverulesep);
-}
-.midrule tr:first-child td {
-  padding-top: 0.65ex;
-  padding-top: var(--belowrulesep);
-}
-
-.bottomrule {
   border-bottom: 2px solid black; 
   border-bottom: var(--heavyrulePx) solid black; 
 }
 
-.bottomrule tr:last-child td  {
+.table-midrule th {
   padding-bottom: 0.4ex;
   padding-bottom: var(--aboverulesep);
+  border-bottom: 1px solid black; 
+  border-bottom: var(--lightrulePx) solid black; 
 }
 
-/* Sets vspace on the cells, so spacing is seen */
-tr.addvspace td {
-  padding-top: 0.5em;
-  padding-top: var(--vspace);
+.table-midrule tr:first-child td {
+  padding-top: 0.65ex;
+  padding-top: var(--belowrulesep);
 }
+
 
 
 /* Illustratiion substitutes */

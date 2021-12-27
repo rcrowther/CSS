@@ -29,8 +29,8 @@
         </div>
     </header>
     
-    <main class="paper-a4">
-      <article class="margins-normal">
+    <main class="paper-web">
+      <article class="col-5 margins-normal">
         <p>(outer block class 'paper-text layout-horizontal-top')</p>
         <p>(block class 'margins-wider')</p>
         <p>
@@ -142,7 +142,14 @@
       <p>
       A few HTML elements are deliberately styled. These styles are 
       readily overridden, only  intended to generalise likely 
-      usage within the code remit. To reflect free typographical layout, 
+      usage within the code remit.
+      </p>
+      <p>
+      Notably, there is nothing special about the formatting of inline 
+      QUOTE tags <qote>"like this"</qote> or TIME tags 
+      <time>13:44:25</time>.
+      </p> 
+      <p>To reflect free typographical layout, 
       PRE inherits it's font,
       </p>
       
@@ -408,11 +415,12 @@ mouse
             </figure>
             
         <p>
-          Tables can have toprule/midrule/bottomrule. The table must 
-          have a header, classes can go on the table element,
+          Tables can have toprule/bottomrule. Classes go on the table 
+          element. Midrule also can go on TABLE element, but will only 
+          work if table has a header,
         </p>
             <figure>
-              <table class="toprule bottomrule midrule">
+              <table  class="table-toprule table-bottomrule table-midrule">
                 <thead>
                   <tr><th>Ingredients</th><th>Measure</th><th>Quantity</th></tr>
                 </thead>
@@ -423,13 +431,13 @@ mouse
                   <tr><td>onion</td><td>sliced</td><td>2</td></tr>
                 </tbody>
               </table>
-            </figure> 
+            </figure>
             
         <p>
-          Tables can be linespaced. Use 'addvspace' on TR,
+          Tables can be easy linespaced. Use 'addvspace' on a TD,
         </p>
             <figure>
-              <table class="midrule">
+              <table class="table-midrule">
                 <thead>
                   <tr><th>Make</th><th>Model</th><th>Price (£)</th></tr>
                 </thead>
@@ -438,17 +446,17 @@ mouse
                   <tr><td>NatSonic</td><td>MP-150-C</td><td>7.25</td></tr>
                   <tr><td>MoonDream</td><td>VantageXB</td><td>17.79</td></tr>
                   <tr><td>Ledig</td><td>Sten</td><td>850.00</td></tr>
-                  <tr class="addvspace"><td></td><td></td><td>925.04</td></tr>
+                  <tr><td></td><td></td><td class="addvspace">925.04</td></tr>
                 </tbody>
               </table>
             </figure>
             
         <p>
-          And, as any figure/spanblock, captioned top,
+          And, as any figure/spanblock, tables can be captioned top,
         </p>
             <figure>
               <figcaption>1. Table of ingredients</figcaption>
-              <table>
+              <table class="table-midrule">
                 <thead>
                   <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
                 </thead>
@@ -466,10 +474,10 @@ mouse
             <figure>
               <table>
                 <thead>
-                  <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
+                  <tr><th class="appendvspace">Ingredients</th><th class="appendvspace">measure</th><th class="appendvspace">quantity</th></tr>
                 </thead>
                 <tbody>
-                  <tr class="addvspace"><td>lentil</td><td>packet</td><td>500g</td></tr>
+                  <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
                   <tr><td>bones</td><td>clean</td><td>1</td></tr>
                   <tr><td>oil</td><td>spoon</td><td>4</td></tr>
                   <tr><td>onion</td><td>sliced</td><td>2</td></tr>
@@ -487,7 +495,7 @@ mouse
       </p>
       </article>
 
-      <aside class="margins-wide" style="background-color:Lavender;">
+      <aside class="col-2 col-fixed-margin-vertical" style="background-color:Lavender; text-align:center;">
         <p>(block class 'margins-wide')</p>
         <p class="x-large">A side col</p>
       </aside>
