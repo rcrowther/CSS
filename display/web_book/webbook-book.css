@@ -26,9 +26,13 @@ body {
 	line-height: var(--base-lineheight);
 
     --base-fontsize:8pt;
-*/
+
+  --table-heavyrule: 12px;
+  */
 }
 
+table {
+}
 
 /* margins */    
 /* Book has a margin theme closer to book markings (for menus, etc.)*/
