@@ -1,0 +1,135 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>WebBook-Book CSS Test Page</title>    
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="normalize_8-0-1.css">
+    <link rel="stylesheet" type="text/css" href="webbook-common.css">
+    <!--
+    <link rel="stylesheet" type="text/css" href="webbook-plain.css">
+    -->
+        <link rel="stylesheet" type="text/css" href="webbook-book.css">
+
+    <!--
+    <link rel="stylesheet" type="text/css" href="booknav.css">
+    -->
+  </head>
+
+  <body>
+
+    
+    <main class="paper-cols">
+      <article class="col-5 margins-normal">
+
+
+
+      <h2>Illustrations</h2>
+      <p>
+        Illustrations are split into spanblacks (necessary), and figures 
+        (unnecessary). Both elements surround transformed non-phrasal 
+        items. Both HTML elements behave much the same. 
+      </p>
+          <p>
+            Illustrations can contain images, such as the display below,
+            with bottom caption,
+          </p>
+
+          <figure>
+            <img  src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">3</span>USB stick</figcaption>
+          </figure>
+
+          <p>
+            and be framed. This figure has a top caption, which requires
+            a class "ilsn-caption-top",
+          </p>
+
+          <figure class="framed">
+            <figcaption class="ilsn-caption-top"><span class="ilsn-caption-num">4</span>Bird</figcaption>
+            <img src="../../images/bird.jpg"/>
+          </figure>
+
+          <p>
+            ...or ruled,
+          </p>
+          
+          <figure class="ruled">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">5</span>Bird</figcaption>
+          </figure>
+           
+          <p>
+            Book illustrations are nearly always default width, but 'wide', 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
+          </p>
+               
+          <figure class="ilsn-wide">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">6</span>wide figure</figcaption>
+          </figure>
+                
+          <figure class="ilsn-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">7</span> narrow figure</figcaption>
+          </figure>
+
+          <figure class="ilsn-x-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">8</span> x-narrow figure</figcaption>
+          </figure> 
+               
+          <figure class="ilsn-xx-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">9</span> xx-narrow figure</figcaption>
+          </figure>
+
+
+        <h3>Spanblocks</h3>
+          <p>
+          Spanblocks are illustrations, like figures, but essential to 
+          text. They can contain any illustrative content such as 
+          images, objects, tables...
+          </p>
+
+            <spanblock>
+              <img src="../../images/bird.jpg"/>
+            </spanblock>    
+  
+          <p>  
+          Even quotes, in which case spanblocks are like blockquotes, 
+          but essential,
+          </p>
+          
+
+                  
+            <p>
+              Like figures, spanblocks can set narrow, the contents framed/ruled, cited, etc.
+            </p>
+            <spanblock class="ilsn-narrow framed">
+              <img src="../../images/bird.jpg"/>
+              <figcaption><span class="ilsn-caption-num">8</span> x-narrow figure</figcaption>
+            </spanblock>
+
+      
+      </article>
+
+      <aside class="col-2 col-fixed-margin-vertical" style="background-color:Lavender; text-align:center;">
+        <p>(block class 'margins-wide')</p>
+        <p class="x-large">A side col</p>
+      </aside>
+    </main>
+
+
+<!--
+ margin:48pt 0 12pt 0;
+-->
+    <footer class="paper-a4 paper-a4 margins-wide" style="text-align:center;">
+        <p> (outer block classed 'paper-a4 margins-wide')</p>
+        <p>Original model for most formatting, however crude the translation, is <a href="http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/memoir/memman.pdf">'Memoir'</a> </p>
+        <p style="text-indent: 0;">HTML/CSS by Robert Crowther, 2016</p>
+    </footer>
+
+  </body>
+</html>

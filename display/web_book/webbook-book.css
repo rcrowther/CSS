@@ -28,6 +28,7 @@ body {
     --base-fontsize:8pt;
 
   --table-heavyrule: 12px;
+  --parindent:0.5em;
   */
 }
 
@@ -36,12 +37,14 @@ table {
 
 /* margins */    
 /* Book has a margin theme closer to book markings (for menus, etc.)*/
+/*
 .margins-fluid {
     max-width: 210mm;
     margin: 0 auto;
 }
-
+*/
 /* Need resetting to make normal reasonably wide */
+/*
 .margins-narrower {
     padding: 1em 7rem;
 }
@@ -61,7 +64,7 @@ table {
 .margins-wider{
     padding: 1em 11rem;
 }
-
+*/
 
 
 

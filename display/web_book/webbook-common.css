@@ -219,6 +219,15 @@ body {
    */
   --parindent: 1.5em;
   
+  /* parindent scale. Used in figures, mainly */
+  --parindent-none: 0;
+  --parindent-normal: var(--parindent);
+  --parindent-large: calc(1.667 * var(--parindent));
+  --parindent-x-large: calc(3.667 * var(--parindent));
+  --parindent-xx-large: calc(6 * var(--parindent));
+  --parindent-huge: calc(8 * var(--parindent));
+  --parindent-x-huge: calc(12 * var(--parindent));
+
   /* One line of height, usually applied to a margin.
    * Notably used to space headlines, but also used elsewhere, for 
    * example, spacing figures/spanblocks etc. The default is in 
@@ -229,6 +238,17 @@ body {
    * units 
    */
   --onelineskip: calc(var(--fontsize) * var(--base-lineheight));
+
+  /* onelineskip scale. Used in figures, mainly */
+  /* Not all the possibilities, but some DRYing */
+  --onethird-lineskip: calc(0.333 * var(--onelineskip));
+  --twothird-lineskip: calc(0.667 * var(--onelineskip));
+  --half-lineskip: calc(0.5 * var(--onelineskip));
+  --one-lineskip: var(--onelineskip);
+  --onehalf-lineskip: calc(1.5 * var(--onelineskip));
+  --two-lineskip: calc(2 * var(--onelineskip));
+  --four-lineskip: calc(4 * var(--onelineskip));
+
  
   /* Note:
    * Memoir also use \baselineskip which is like \onelineskip, but is 
@@ -444,16 +464,24 @@ body {
 
 /** Layouts */
 /* Paper sizes */
-.paper-stock, .paper-web, .paper-a4, .paper-column {
+.paper-stock, .paper-web, .paper-cols, .paper-a4, .paper-column {
   background-color: white;
 }
 
-/* Not for reading text */
+/* For full with presentations like site headers and footers 
+ * (not for reading/phrasal text) 
+ */
 .paper-stock {
     display: block;
 }
 
 /* Designed for a sidecol */
+.paper-cols {
+    max-width: 77rem;
+    margin: 0 auto;
+}
+
+/* Full width text (no cols) */
 .paper-web {
     max-width: 77rem;
     margin: 0 auto;
@@ -470,6 +498,53 @@ body {
     margin: 0 auto;
 }
 
+
+/* Margins */
+/* Papers and cols will have a margin theme, expressed as padding.
+ * Whatever that is, this is the responsive solution
+ */
+.margins-fluid {
+    max-width: 210mm;
+    margin: 0 auto;
+}
+
+/* Need resetting to make normal reasonably wide */
+.margins-narrower {
+    padding: 2rem 7rem;
+}
+
+.margins-narrow {
+    padding: 2rem 8rem;
+}
+
+.margins-normal {
+    padding: 2rem 9rem;
+}
+
+.margins-wide {
+    padding: 2rem 10rem;
+}
+
+.margins-wider{
+    padding: 2rem 11rem;
+}
+ 
+/* TODO: These are overrun by later margin themes */
+/* Less than page width.
+*/
+/* Less than narrow/column sizes */    
+@media screen and (max-width: 44rem) {
+  /* Make left/right padding narrow.
+   * Trim top/extend bottom
+   * (these are the papers and cols that carry text margins)
+   */
+  .paper-web, .paper-a4, .paper-column, .col-2, .col-5 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: var(--twothird-lineskip);
+    padding-bottom: var(--four-lineskip);
+  }
+}
 
 /* layouts */
 /*
@@ -550,27 +625,8 @@ body {
     vertical-align: top;
   }
 }
-/*
-@media screen and (max-width: 77rem) {
-    .book-layout-horizontal-top > *,
-    .book-layout-horizontal-middle > * {
-        width: 100%;
-    }  
-}
-*/
-    /* TOREMOVE */
-/* if wider than paper, horizontal layouts horizontal */
-/*
- @media screen and (min-width: 77rem) {
-	.sidecol {
-		width: 18rem;
-		min-height: 1px;
-		margin-top: 10rem;
-		padding-top: 8rem;
-		padding-bottom: 8rem;
-	}
-}
-*/
+
+
 
 
 /********************
@@ -619,7 +675,7 @@ h1.companion {
 h1.article {
   --beforeskip: 3.5ex;
   --afterskip:2.3ex;
-  font-size: var( --x-large);
+  font-size: var(--x-large);
   margin: var(--beforeskip) 0 var(--afterskip);
 }
  
@@ -673,15 +729,15 @@ h1.article {
 .culver {
   --beforeskip: 3.5ex;
   --afterskip:2.3ex;
-  font-size: var( --x-large);
+  font-size: var(--x-large);
   text-align: center;
   margin: var(--beforeskip) 0 var(--afterskip);
 }
 
 .crosshead {
-  --beforeskip: calc(2 * var(--onelineskip));
-  --afterskip: calc(2 * var(--onelineskip));
-  font-size: var( --xx-large);
+  --beforeskip: var(--two-lineskip);
+  --afterskip: var(--two-lineskip);
+  font-size: var(--xx-large);
   text-align: center;  
   margin: var(--beforeskip) 0 var(--afterskip);
 }
@@ -692,7 +748,7 @@ h1.article {
 /* As used in the manual*/
 .demo3 {
   --beforeskip: 0;
-  --afterskip: calc(2 * var(--onelineskip));
+  --afterskip: var(--two-lineskip);
   font-family:sans;
   font-weight: normal;
   text-align: right;
@@ -704,8 +760,8 @@ h1.article {
 }
 
 .dowding {
-  --beforeskip: calc(2 * var(--onelineskip));
-  --afterskip: calc(1.5 * var(--onelineskip));
+  --beforeskip: var(--two-lineskip);
+  --afterskip: var(--onehalf-lineskip);
   font-weight: normal;
   font-style: italic;
   text-align: center;
@@ -713,8 +769,8 @@ h1.article {
 }
 
 .komalike {
-  --beforeskip: calc(2 * var(--onelineskip));
-  --afterskip: calc(1.5 * var(--onelineskip));
+  --beforeskip: var(--two-lineskip);
+  --afterskip: var(--onehalf-lineskip);
   font-family: sans;
   font-size: var( --xx-large);
   margin: var(--beforeskip) 0 var(--afterskip);
@@ -740,7 +796,7 @@ h1.article {
 
 .tandh {
   --beforeskip: var(--onelineskip);
-  --afterskip: calc(2 * var(--onelineskip));
+  --afterskip: var(--two-lineskip);
   margin: var(--beforeskip) 0 var(--afterskip);  
 }
 
@@ -753,8 +809,8 @@ h1.article {
 }
 
 .wilsondob {
-  --beforeskip: calc(2 * var(--onelineskip));
-  --afterskip: calc(4 * var(--onelineskip));
+  --beforeskip: var(--two-lineskip);
+  --afterskip: var(--four-lineskip);
   font-weight: normal;
   font-style: italic;
   text-align: right;
@@ -816,17 +872,17 @@ h6 + p {
 h2{
   font-weight: normal;
   font-variant: small-caps;
-  margin: calc(1.333 * var(--onelineskip)) 0 calc(0.667 * var(--onelineskip));
+  margin: calc(1.333 * var(--onelineskip)) 0 var(--twothird-lineskip);
 }
 
 h3 {
-  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 
 h4 {
   font-weight: normal;
   font-style: italic;
-  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 
 h5 {
@@ -901,13 +957,13 @@ h4 {
   text-transform: lowercase;
   font-variant: small-caps;
   text-align: center;
-  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 h5 {
   font-weight: normal;
   font-style: italic;
   text-align: center;
-  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 h6 {
   font-weight: normal;
@@ -923,7 +979,7 @@ h2 {
   font-weight: normal;
   text-transform: uppercase;
   text-align: center;
-  margin: calc(2 * var(--onelineskip)) 0 var(--onelineskip);
+  margin: var(--two-lineskip) 0 var(--onelineskip);
 }
 h3 {
   font-weight: normal;
@@ -936,7 +992,7 @@ h4 {
   font-weight: normal;
   font-style: italic;
   text-align: center;
-  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 h5 {
   font-weight: normal;
@@ -983,7 +1039,7 @@ h6 {
 /*
 h2 {
   font-size: var( --large);
-  margin: calc(2 * var(--onelineskip)) 0 calc(0.5 * var(--onelineskip));
+  margin: var(--two-lineskip) 0 var(--half-lineskip);
 }
 h3 {
   font-size: var( --normal);
@@ -992,7 +1048,7 @@ h3 {
 h4 {
   font-weight: normal;
   font-style: oblique;
-  margin: var(--onelineskip) 0 calc(0.5 * var(--onelineskip));
+  margin: var(--onelineskip) 0 var(--half-lineskip);
 }
 h5 {
   font-weight: normal;
@@ -1011,7 +1067,7 @@ h6 {
 h2 {
   font-weight: normal;
   text-transform: uppercase;
-  margin: calc(2 * var(--onelineskip)) 0 var(--onelineskip);
+  margin: var(--two-lineskip) 0 var(--onelineskip);
 }
 h3 {
   font-size: var( --x-large);
@@ -1021,7 +1077,7 @@ h3 {
 }
 h4 {
   font-size: var( --normal);
-  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 h5 {
   font-weight: normal;
@@ -1043,19 +1099,19 @@ h5::after, h6::after {
 h2 {
   font-weight: normal;
   text-transform: uppercase;
-  margin: calc(1.333 * var(--onelineskip)) 0 calc(0.667 * var(--onelineskip));
+  margin: calc(1.333 * var(--onelineskip)) 0 var(--twothird-lineskip);
 }
 h3 {
   font-size: var( --x-large);
   font-weight: normal;
   font-style: italic;
-  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 h4 {
   font-weight: normal;
   text-transform: lowercase;
   font-variant: small-caps;
-  margin: calc(0.667 * var(--onelineskip)) 0 calc(0.333 * var(--onelineskip));
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 h5 {
   font-weight: normal;
@@ -1145,8 +1201,7 @@ p + p {
 
 ul, ol, dl {
     /* originally, I had this at onelineskip? */
-    --parsep: calc(0.333 * var(--onelineskip));
-    --parsep: calc(0.333 * var(--onelineskip));
+    --parsep: var(--onethird-lineskip);
     --l-block-margin: 2.5em;
     --r-block-margin: 2.5em;
     --labelsep: 0.5em;
@@ -1170,7 +1225,7 @@ ul, ol, dl {
 }
 
 li, dd {
-  --itemsep: calc(0.333 * var(--onelineskip));
+  --itemsep: var(--onethird-lineskip);
   margin-bottom: 4.835pt;
   margin-bottom: var(--itemsep);
 }
@@ -1193,7 +1248,7 @@ dt {
 ol.x-tight, ul.x-tight, dl.x-tight {
   margin-top: 7.26pt;
   margin-bottom: 7.26pt;
-  --parsep: calc(0.5 * var(--onelineskip));
+  --parsep: var(--half-lineskip);
 }
 
 ol.x-tight li, ul.x-tight li, dl.x-tight dd {
@@ -1264,7 +1319,7 @@ figure, spanblock {
   margin-top: 14.52pt;
   margin-top: var(--onelineskip);
   padding:  14.52pt 3em;
-  padding: var(--onelineskip) calc(2 * var(--parindent));
+  padding: var(--onelineskip) var(--parindent-large);
 }
 
 /* illustration stack */
@@ -1275,27 +1330,54 @@ figure + p, spanblock + p {
   margin-top: calc(1.667 * var(--onelineskip));
 }
 
-figure.wide, spanblock.wide {
+.ilsn-wide {
   padding: 14.52pt 0;
   padding: var(--onelineskip) 0;
 }
 
-figure.narrow, spanblock.narrow {
+.ilsn-narrow {
   padding: 14.52pt 5em;
-  padding: var(--onelineskip) calc(4 * var(--parindent));
+  padding: var(--onelineskip) var(--parindent-x-large);
 }
 
-figure.x-narrow, spanblock.x-narrow {
+.ilsn-x-narrow {
   padding: 14.52pt 9em;
-  padding: var(--onelineskip) calc(6 * var(--parindent));
+  padding: var(--onelineskip) var(--parindent-xx-large);
 }
 
-figure.xx-narrow, spanblock.xx-narrow {
+.ilsn-xx-narrow {
   padding: 14.52pt 12em;
-  padding: var(--onelineskip) calc(8 * var(--parindent));
+  padding: var(--onelineskip) var(--parindent-huge);
 }
 
-/* figure decoration */
+/* TODO: This has been tweaked by hand and I'd like
+ * to model.
+ * Note: illustration size also steps larger when margins are shrunk
+ * at 77rem
+ */
+@media screen and (max-width: 54rem) {
+  /* Stop xx-narrow figures disappearing
+   * expand to x-narrow 
+   */
+  .ilsn-xx-narrow {
+    padding: 14.52pt 9em;
+    padding: var(--onelineskip) var(--parindent-xx-large);
+  }
+}
+
+@media screen and (max-width: 24rem) {
+  /* Stop xx-narrow and x-narrow figures disappearing 
+   * Expand to narrow
+   */
+  .ilsn-x-narrow, .ilsn-xx-narrow {
+    padding: 14.52pt 5em;
+    padding: var(--onelineskip) var(--parindent-x-large);
+  }
+}
+
+/* figure decoration 
+ * General enough to carry a simple name?
+ */
 .framed {
     border: 1px solid black;
 }
@@ -1315,6 +1397,9 @@ figure.xx-narrow, spanblock.xx-narrow {
  * \abovecaptionskip = 7.25pt
  * \belowcaptionskip = 7.25pt
  * Can't make sense of that. Done this instead.
+ * 
+ * figcaptions are only flowcontent, so I currently believe it
+ * is ok to use them in spanblocks.
  */
  /* TODO where an when caption skips? top/bottom? */
 figcaption {
@@ -1323,8 +1408,13 @@ figcaption {
     text-align: center;
 }
 
-/* if caption on top, padding goes bottom. Also, onelineskip too much */
-figure figcaption:first-child {
+/* if caption on top, padding goes bottom. Also, onelineskip 
+ * unneccessary 
+ */
+/* Prefer explicit class to
+figure figcaption:first-child, spanblock figcaption:first-child {
+*/
+.ilsn-caption-top {
     padding: 0 0 1.5ex;
 }
 
@@ -1335,12 +1425,12 @@ content: "Figure "
 }
 */
 
-figcaption > span.num:after {
+.ilsn-caption-num:after {
   content: ": "
 }
 
 /* exaggerated selectors because cite may be used elsewhere */
-figure > cite, blockquote > cite, spanblock > cite {
+.ilsn-cite, .blockquote-cite {
   display: block;
   font-style: normal;
   text-align:right;
@@ -1388,7 +1478,8 @@ table {
    */
   border-spacing: 0;
 
-  /* Can do spacing because borders not collapsed 
+  /* Can do spacing because borders not collapsed
+   * Only a thread, but looks right. 
    */
   padding-bottom: 0.111rem;
   margin: 0 auto;
@@ -1458,7 +1549,7 @@ td {
 /* Guesswork, as it's in LaTeX */
 blockquote {
   padding: 9.685pt 2.5em;
-  padding: calc(0.667 * var(--onelineskip)) calc(1.667 * var(--parindent));
+  padding: var(--twothird-lineskip) var(--parindent-large);
 }
 
 
@@ -1487,14 +1578,14 @@ blockquote {
 
 .toc.wide a {
   padding: 7.26pt 0;
-  padding: calc(0.5 * var(--onelineskip)) 0;
+  padding: var(--half-lineskip) 0;
 }
 
 /*needs to expand with the anchor. OR use overflow trick? */
 .toc.wide li { 
   /* overflow: auto; */
   padding: 7.26pt 0;
-  padding: calc(0.5 * var(--onelineskip)) 0;
+  padding: var(--half-lineskip) 0;
 }
 
 /* custom */

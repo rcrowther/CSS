@@ -29,7 +29,7 @@
         </div>
     </header>
     
-    <main class="paper-web">
+    <main class="paper-cols">
       <article class="col-5 margins-normal">
         <p>(outer block class 'paper-text layout-horizontal-top')</p>
         <p>(block class 'margins-wider')</p>
@@ -245,122 +245,13 @@ mouse
       <ul class="cons"><li>Not cross-platform</li><li>Verbose syntax</li><li>Eccentric</li><li>No support</li></ul>
 
 
-      <h2>Illustrations</h2>
-      <p>
-        Illustrations are split into spanblacks (necessary), and figures 
-        (unnecessary). Both elements surround transformed non-phrasal 
-        items. Both HTML elements behave much the same. 
-      </p>
-          <p>
-            Illustrations can not be used round blockquotes, which imply a figure, They can be used round quotes.
-          </p>
-        
-          <p>
-            Illustrations can contain images, such as the display below,
-          </p>
-
-          <figure>
-            <img  src="../../images/bird.jpg"/>
-            <figcaption><span class="num">3</span>USB stick</figcaption>
-          </figure>
-
-          <p>
-            and be framed,
-          </p>
-
-          <figure class="framed">
-            <figcaption><span class="num">4</span>Bird</figcaption>
-            <img src="../../images/bird.jpg"/>
-          </figure>
-
-          <p>
-            ...or ruled,
-          </p>
-          
-          <figure class="ruled">
-            <img src="../../images/bird.jpg"/>
-            <figcaption><span class="num">5</span>Bird</figcaption>
-          </figure>
-           
-          <p>
-            Book illustrations are nearly always default width, but 'wide', 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
-          </p>
-               
-          <figure class="wide">
-            <img src="../../images/bird.jpg"/>
-            <figcaption><span class="num">6</span> wide figure</figcaption>
-          </figure>
-                
-          <figure class="narrow">
-            <img src="../../images/bird.jpg"/>
-            <figcaption><span class="num">7</span> narrow figure</figcaption>
-          </figure>
-
-          <figure class="x-narrow">
-            <img src="../../images/bird.jpg"/>
-            <figcaption><span class="num">8</span> x-narrow figure</figcaption>
-          </figure> 
-               
-          <figure class="xx-narrow">
-            <img src="../../images/bird.jpg"/>
-            <figcaption><span class="num">9</span> xx-narrow figure</figcaption>
-          </figure>
-
-        <h3>Spanblocks</h3>
-          <p>
-          Spanblocks are like figures, but essential to text. They can 
-          contain any illustrative content such as images, objects, 
-          tables...
-          </p>
-
-            <spanblock>
-              <img src="../../images/bird.jpg"/>
-            </spanblock>    
-  
-          <p>  
-          Even quotes, in which case spanblocks are like blockquotes, 
-          but essential,
-          </p>
-          
-            <spanblock>
-              <quote>
-                <p>
-	    “Land of Darkness?” exclaimed Monkey, at last coming fully awake. “But that’s the realm of Yama, Lord of the Dead! I don’t belong here!”
-                </p>
-                <p>
-	    “That’s what they all say!” said Horse Face.
-                </p>
-              </quote>
-            </spanblock>
-                  
-            <p>
-              Like figures, spanblocks can set wide, the contents framed/ruled, cited, etc.
-            </p>
-            <spanblock class="narrow framed">
-              <quote>
-                <p>
-                  That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
-                </p>
-                <p>
-                  So said somebody... possibly Hume?
-                </p>
-              </quote>
-              <cite>(possibly) Hume</cite>
-            </spanblock>
-
       
-      <h2>Illustration contents</h2>
-      <p>Illustrations can contain several types of contents. The 
-      initial examples, above, used images.
-      </p> 
-     
       <h3>Blockquotes</h3>
         <p>
-          Typography treats blockquotes as a standalone 
-          paragraph type. In this CSS, blockquotres are taken to imply 
-          a figure. That seems unlikely---are they floated? Never. Are
-          they phrase-necessary? Almost always. But this CSS goes 
-          with the flow.
+          Typography treats blockquotes as a standalone paragraph type. 
+          In this CSS, blockquotres are not a figure (if a quote is
+          an illustration of text, then it can be created using QUOTE
+          elements in a FIGURE)  
         </p>
         <p> Within the blockquote, the paragraphs will be 
           handled as usual i.e. indented.  
@@ -389,13 +280,137 @@ mouse
           <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
           <p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
  
-          <cite>Francis Bacon</cite>
+          <cite class="blockquote-cite">Francis Bacon</cite>
         </blockquote>
 
         <p>Until I see live examples, blockquotes can not be classed as 'ruled' or 'framed'.</p>
 
 
-     
+      <h2>Illustrations</h2>
+      <p>
+        Illustrations are split into spanblacks (necessary), and figures 
+        (unnecessary). Both elements surround transformed non-phrasal 
+        items. Both HTML elements behave much the same. 
+      </p>
+          <p>
+            Illustrations can contain images, such as the display below,
+            with bottom caption,
+          </p>
+
+          <figure>
+            <img  src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">3</span>USB stick</figcaption>
+          </figure>
+
+          <p>
+            and be framed. This figure has a top caption, which requires
+            a class "ilsn-caption-top",
+          </p>
+
+          <figure class="framed">
+            <figcaption class="ilsn-caption-top"><span class="ilsn-caption-num">4</span>Bird</figcaption>
+            <img src="../../images/bird.jpg"/>
+          </figure>
+
+          <p>
+            ...or ruled,
+          </p>
+          
+          <figure class="ruled">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">5</span>Bird</figcaption>
+          </figure>
+           
+          <p>
+            Book illustrations are nearly always default width, but 'wide', 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
+          </p>
+               
+          <figure class="ilsn-wide">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">6</span>wide figure</figcaption>
+          </figure>
+                
+          <figure class="ilsn-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">7</span> narrow figure</figcaption>
+          </figure>
+
+          <figure class="ilsn-x-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">8</span> x-narrow figure</figcaption>
+          </figure> 
+               
+          <figure class="ilsn-xx-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">9</span> xx-narrow figure</figcaption>
+          </figure>
+
+
+        <h3>Spanblocks</h3>
+          <p>
+          Spanblocks are illustrations, like figures, but essential to 
+          text. They can contain any illustrative content such as 
+          images, objects, tables...
+          </p>
+
+            <spanblock>
+              <img src="../../images/bird.jpg"/>
+            </spanblock>    
+  
+          <p>  
+          Even quotes, in which case spanblocks are like blockquotes, 
+          but essential,
+          </p>
+          
+
+                  
+            <p>
+              Like figures, spanblocks can set narrow, the contents framed/ruled, cited, etc.
+            </p>
+            <spanblock class="ilsn-narrow framed">
+              <img src="../../images/bird.jpg"/>
+              <figcaption><span class="ilsn-caption-num">8</span> x-narrow figure</figcaption>
+            </spanblock>
+
+      
+      <h2>Illustration contents</h2>
+      <p>Illustrations can contain several types of contents. The 
+      initial examples, above, used images. They can also contain
+      diagrams (for HTML same as images), quotes, HTML objects etc.
+      They can also include tables. 
+      </p>
+
+        <h3>Quotes</h3>
+        <p>
+        A substantial quote can be viewed as a text illustration. This 
+        is created using a QUOTE elements in a FIGURE element,
+        </p>
+            <figure class="ilsn-narrow">
+              <quote>
+                <p>
+	    “Land of Darkness?” exclaimed Monkey, at last coming fully awake. “But that’s the realm of Yama, Lord of the Dead! I don’t belong here!”
+                </p>
+                <p>
+	    “That’s what they all say!” said Horse Face.
+                </p>
+              </quote>
+              <cite class="ilsn-cite">Tales of the Monkey King</cite>
+            </figure>
+
+            <figure class="ilsn-narrow">
+              <quote>
+                <p>
+                  That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+                </p>
+                <p>
+                  So said somebody... possibly Hume?
+                </p>
+              </quote>
+              <cite class="ilsn-cite">(possibly) Hume</cite>
+              </figure>                 
+
+
+
         <h3>Tables</h3>
         <p>
           Tables should be in an figure or spanblock. They currently have a light styling,
@@ -455,7 +470,7 @@ mouse
           And, as any figure/spanblock, tables can be captioned top,
         </p>
             <figure>
-              <figcaption>1. Table of ingredients</figcaption>
+              <figcaption class="ilsn-caption-top">1. Table of ingredients</figcaption>
               <table class="table-midrule">
                 <thead>
                   <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
@@ -490,6 +505,7 @@ mouse
 
 
 
+
       <p>
 	Don't forget to close the 'article' or 'section'.
       </p>
@@ -501,7 +517,7 @@ mouse
       </aside>
     </main>
 
-    <section class="paper-a4 margins-wider">
+    <section class="paper-column margins-normal">
       <div class="">
         <p> (outer block class 'paper-a4 margins-wider')</p> 
           <p>
