@@ -8,12 +8,14 @@ x Overriding custom properties?
 - At what level???
 
 x Test font sizing changes
-  x- add 11pt ratios
+ x- add 11pt ratios
 
 x Decide font break points
 x Check break poinrs
 
 Rename respecting SMACSS
+
+Menus
 
 Check font-face local()
 

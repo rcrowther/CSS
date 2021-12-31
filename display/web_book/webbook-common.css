@@ -33,7 +33,12 @@ article > footer, section > footer {
     page-break-inside: avoid;
 }
 
-
+/* for printing, hide navbars */
+@media print {
+.paper-header {
+    display: none;
+    }
+}
 
 
 body {
@@ -468,7 +473,7 @@ body {
   background-color: white;
 }
 
-/* For full with presentations like site headers and footers 
+/* Full width presentations like site headers and footers 
  * (not for reading/phrasal text) 
  */
 .paper-stock {
@@ -487,12 +492,13 @@ body {
     margin: 0 auto;
 }
 
-/* Do not put sidecols on these */
+/* A4 width text (no cols) */
 .paper-a4 {
     max-width: 210mm;
     margin: 0 auto;
 }
 
+/* Column width text (no cols) */
 .paper-column {
     max-width: 44rem;
     margin: 0 auto;
@@ -503,12 +509,16 @@ body {
 /* Papers and cols will have a margin theme, expressed as padding.
  * Whatever that is, this is the responsive solution
  */
-.margins-fluid {
-    max-width: 210mm;
+.paper-stock-margins-web, .paper-stock-margins-cols {
+    max-width: 77rem;
     margin: 0 auto;
 }
 
-/* Need resetting to make normal reasonably wide */
+.paper-stock-margins-column {
+    max-width: 44rem;
+    margin: 0 auto;
+}
+
 .margins-narrower {
     padding: 2rem 7rem;
 }
@@ -525,7 +535,7 @@ body {
     padding: 2rem 10rem;
 }
 
-.margins-wider{
+.margins-wider {
     padding: 2rem 11rem;
 }
  
@@ -600,10 +610,12 @@ body {
     padding: 8rem 0;
 } 
 
+/*
 .container-fluid-margin-horizontal {
     max-width: 74rem;
     margin: 0 auto;
 }
+*/
 
 .col-2,.col-5 {
   display: block;
@@ -1661,16 +1673,6 @@ blockquote {
 
 /*********************************/
 
-
-/* Good break point? */
-@media screen and (max-width: 30rem) {
-	/* thin LR padding on narrow screens */
-    /*
-	article,.sidecol {
-		padding: 2rem 1rem;
-	}
-    */
-}
 
 
 /************  TEST *****************/

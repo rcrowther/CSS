@@ -1,122 +1,94 @@
-html {
-/*
- * Defaults
-  --base-fontsize:12pt;
-  --base-lineheight: 1.21;
-    --parindent: 2em;
-  --onelineskip: 2em;
 
-
-  --base-fontsize:12pt;
-*/
-}
 
 /*
- * Basic font size
- * 
+ * The book variant handles everything as default.
+ * However, it adds a menu, and set of themes.
  */
-/* book uses the mormal base font size of typography 12pt (similar to  
- * web convention 16px==12pt. I'd say too small, for the web, but 
- * appropriate for book purpose, and this CSS has hi-res fixes) 
- */
-
-body {
-/*
-    font-size:var(--base-fontsize);
-	line-height: var(--base-lineheight);
-
-    --base-fontsize:8pt;
-
-  --table-heavyrule: 12px;
-  --parindent:0.5em;
-  */
+ 
+/* menu */
+/* TODO: Should handle a ul list and other containers as 
+ * menu-contianer with zero margins etc. For now, this is ok */
+.paper-header {
+    text-align: center;
 }
 
-table {
+
+.menu-item {
+  display: block;
+  border-top: black solid 1px;
 }
 
-/* margins */    
-/* Book has a margin theme closer to book markings (for menus, etc.)*/
-/*
-.margins-fluid {
-    max-width: 210mm;
-    margin: 0 auto;
-}
-*/
-/* Need resetting to make normal reasonably wide */
-/*
-.margins-narrower {
-    padding: 1em 7rem;
+.menu-anchor {
+  display: block;
+  padding: 0.667rem 0;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.margins-narrow {
-    padding: 1em 8rem;
+.menu-item-under-col-width-remove {
+  display: none;
 }
+  
+@media screen and (min-width: 44rem) {
 
-.margins-normal {
-    padding: 1em 9rem;
-}
-
-.margins-wide {
-    padding: 1em 10rem;
-}
-
-.margins-wider{
-    padding: 1em 11rem;
-}
-*/
-
-
-
-
-
-.menu-horizontal-responsive{
-  text-align: center;
-  border-bottom: black solid 1px;
-}
-
-/* if wider than paper */
-@media screen and (min-width: 210mm) {
-
-  .layout-horizontal-top > * {
-    display: inline-block;
-    vertical-align: top;
-    }
-    
-  .layout-horizontal-middle > *,
-  .menu-horizontal-responsive > * {
+  .menu-item, .menu-item-under-col-width-remove {
     display: inline-block;
     vertical-align: middle;
+    border-top: 0;
   }
 
-  .menu-horizontal-responsive a {
-    padding: 1rem;
-    cursor: pointer;
+  .menu-anchor { 
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-/* if narrower than paper */
-@media screen and (max-width: 210mm) {
-   /* Margin spacing on vertical stacking, becuse they shrink birders to 
-   * make even spacing
-   */
-  .menu-horizontal-responsive * {
-    display: block;
-  }
-  
-  .menu-horizontal-responsive li {
-    border-bottom: black solid 1px;
-  }
-
-  .menu-horizontal-responsive a {
-    width: 100%;
+/* menu themes */
+/* ruled */
+/* Usually used for creative/artistic work */
+.menu-ruled.paper-header {
     text-align: center;
-    padding:1em 3rem;
-    border-top: black solid 1px;
-  }
-
-
-  .under-paper-width-remove {
-    display: none;
-  }
+    border-bottom: black solid 1px;
 }
+
+.menu-ruled .menu-anchor:hover {
+    color: #b85051;
+}
+
+/* Coloured boxes */
+/* forceful, maybe for site navigation */
+.menu-colorbox .menu-item {
+  /* Light, slightly muddy beige */
+  background-color: #f0ebd8;
+  /* orange */   
+   background-color: orange;
+}
+
+/*  Underlined */
+/* classic web shape, but subtle */
+.menu-w3 .menu-anchor {
+    text-decoration: underline;
+}
+
+.menu-w3 .menu-anchor:hover {
+    color: #b85051;
+}
+
+/* no decoration, hover underline */
+/* With no decoration, this theme is not intended to be used without 
+ * support. The idea is, further HTML/CSS will provide styling for 
+ * selected anchors/buttons. Whenever visible, like radio buttons, the
+ * navbar will always have at least one anchor/button selected, (in 
+ * some way).
+ */
+.menu-selector .menu-anchor:hover {
+    text-decoration: underline;
+    color: #b85051;
+}
+
+
+
+
+
+
