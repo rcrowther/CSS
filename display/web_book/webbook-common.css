@@ -459,7 +459,10 @@ body {
 
 /** Layouts */
 /* Paper sizes 
- * The paper-stock-inner-xxx set are to space paper-stock liners,
+ * The paper-stock-inner-xxx set are to space paper-stock liners. They
+ * differ only in that they have no default color property.
+ * WARNING: if you use the paper-stock-inner-xxx margins, they should be
+ * set on a liner container, not the paper container.
  */
 .paper-stock, .paper-web, .paper-cols, .paper-a4, .paper-column {
   background-color: white;

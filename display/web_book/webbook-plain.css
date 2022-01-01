@@ -1,5 +1,5 @@
 body {
-  /* FORTEST: illegal */
+  /* FORTEST: illegal fontsize */
   --fontsize:16pt;
 }
 
@@ -22,104 +22,72 @@ font-family: "times new roman";
 }
 
 
-
-
-/* margins */    
-/* Plain has a chunky but efficient margin theme */
-.margins-fluid {
-    max-width: 77rem;
-    margin: 0 auto;
+/* NOTE: The stock setup is for a small width screen. See the media
+ * selector below for the wide-screen CSS
+ */
+ 
+.menu-item {
+  display: block;
+  /* border-top: black solid 1px; */
 }
 
-
-.margins-narrower
-{
-    padding: 2em 2rem;
-}
-
-.margins-narrow
-{
-    padding: 2em 4rem;
-}
-
-.margins-normal {
-    padding: 2em 6rem;
-}
-
-.margins-wide 
-{
-    padding: 2em 7rem;
-}
-
-.margins-wider 
-{
-    padding: 2em 8rem;
-}
-
-
-.menu-horizontal-responsive ul, 
-.menu-horizontal-responsive ol 
-{
-    list-style: none;
-    padding-left:1em;
-}
-    
-/* if wider than paper */
-@media screen and (min-width: 77rem) {
-
-  /* contained elements */
-/*
-  .col-2 {
-    width:21.5rem;
-  }
-
-  .col-5 {
-    width:55rem;
-  }
-*/
-  .layout-horizontal-top > * {
-    display: inline-block;
-    vertical-align: top;
-  }
-    
-  .layout-horizontal-middle > *,
-  .menu-horizontal-responsive > * {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .menu-horizontal-responsive a {
-    padding: 2rem; 
-    cursor: pointer;   
-  }
-}
-
-
-/* if narrower than paper */
-@media screen and (max-width: 77rem) {
-
-   /* Margin spacing on vertical stacking, becuse they shrink birders to 
-   * make even spacing?
-   */
-  .menu-horizontal-responsive * {
+/* new. 
+ * inline will work for text and images.
+ * height will work for images, otherwise ignored (as the object is
+ * inline...)
+ */
+.menu-logo-img {
     display: block;
-  }
-  /*
-  overflow is needed to stop margins spilling. Scrollbars
-  shouldn't happen, because of infinite vertical space.
-  * NO NEED IF ALL IS BLOCK DISPLAY
-  */
-  /*
-  .menu-horizontal-responsive {
-    overflow-y:auto;
-  }
-  */
-  .menu-horizontal-responsive a {
-    padding:0.5em 3rem;
+    height: 4rem;
+}
+
+.menu-logo-txt {
+    display: inline;
+}
+
+.menu-anchor {
+  display: block;
+  /* padding: 0.667rem 0; */
+  padding: .5rem 3rem;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  /* new */
+  color: white;
+}
+
+/* New, from theme */
+ .menu-anchor:hover {
+    text-decoration: underline;
+}
+
+.menu-item-under-col-width-remove {
+  display: none;
+}
+
+  /* new maybe leave general? */
+  .paper-header {
+    padding: .666rem 0;
   }
   
-  .under-paper-width-remove {
-    display: none;
+/* new wider width break */
+@media screen and (min-width: 77rem) {
+
+  .menu-item, .menu-item-under-col-width-remove {
+    display: inline-block;
+    vertical-align: middle;
+    border-top: 0;
   }
 
+  .menu-anchor {
+  /* 
+    padding-left: 1rem;
+    padding-right: 1rem;
+    */
+    padding: 2rem;
+  }
 }
+
+/***********************************************/
+ 
+

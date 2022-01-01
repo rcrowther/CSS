@@ -15,6 +15,9 @@
     text-align: center;
 }
 
+/* NOTE: The stock setup is for a small width screen. See the media
+ * selector below for the wide-screen CSS
+ */
 .menu-item {
   display: block;
   border-top: black solid 1px;

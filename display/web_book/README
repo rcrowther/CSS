@@ -77,13 +77,10 @@ To do this,
 - paper-stock-inner-margins-cols
 - paper-stock-inner-margins-column 
 + 
-Having an invisible typeblock is very common web idion, especially so stock width papers can indicate site headers and footers  (as opposed to article/main headers). But CSS does not allow matching of inner widths to other typeblock using padding (which is how paper works). So these classes must be applied to a paper container/liner block. Fortuneately, having a liner is so common for positioning purposes, that his is no problem in practice,
+Having an invisible typeblock is very common web idiom, especially so stock width papers can indicate site headers and footers (as opposed to article/main headers). But CSS does not allow matching of inner widths to other typeblock using padding (which is how paper works). So these classes must be applied to a paper container/liner block. Fortuneately, having a liner is so common for positioning purposes, that his is no problem in practice,
 
 <header class="paper-stock">
   <nav class="paper-stock-inner-margins-web">
-
-
-
 
 
 === Layout Responsiveness
