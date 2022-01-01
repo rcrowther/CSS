@@ -14,77 +14,131 @@ body {
  * sizing measure regardless) 
  */
 body {
-	font-family: "Vollkorn", serif;
-
-}
-body {
-font-family: "times new roman";
+  font-family: "Vollkorn", serif;
+  font-family: "times new roman";
 }
 
 
-/* NOTE: The stock setup is for a small width screen. See the media
- * selector below for the wide-screen CSS
+/* Toolbar */
+/* NOTE: The stock setup is for narrow-screen. See the
+ * media selector below for the wide-screen CSS
  */
- 
-.menu-item {
+/* new maybe leave general? */
+.toolbar {
+  /* TOCONSIDER: must be inline-block, or it spills list and other 
+   * margins? 
+   */
+  display: inline-block;
+  
+  /* Thread of space at bottom */
+  padding-bottom: var(--onethird-lineskip);
+}
+
+
+.toolbar-item {
   display: block;
   /* border-top: black solid 1px; */
 }
 
 /* new. 
- * inline will work for text and images.
- * height will work for images, otherwise ignored (as the object is
- * inline...)
  */
-.menu-logo-img {
-    display: block;
-    height: 4rem;
-}
-
-.menu-logo-txt {
-    display: inline;
-}
-
-.menu-anchor {
+.toolbar-logo-img {
+  /* block and height for images.
+   */
   display: block;
-  /* padding: 0.667rem 0; */
-  padding: .5rem 3rem;
-  color: #000;
+  height: 4rem;
+}
+
+.toolbar-logo-txt {
+  /* inline for text.
+   */
+  display: inline;
+}
+
+/* We leave narrow-screen as default list CSS, it's ok */
+.toolbar-menu, .toolbar-submenu {
+  list-style: none;
+}
+
+.toolbar-submenu {
+  /* adding a thread of space. This separates submenus
+   * in narrow-screen
+   */
+  padding-top: var(--vspace);
+  
+  /* initially not displayed */
+  /* display: none; */
+}
+
+.menu-anchor, .menu-anchor-open, .submenu-anchor {
+  display: block;
+  padding: 0.5rem 3rem;
   text-decoration: none;
   cursor: pointer;
   /* new */
   color: white;
 }
 
+
 /* New, from theme */
- .menu-anchor:hover {
-    text-decoration: underline;
+.menu-anchor:hover, 
+.submenu-anchor:hover, 
+.menu-anchor-open:hover {
+  text-decoration: underline;
 }
 
-.menu-item-under-col-width-remove {
+.toolbar-item-under-col-width-remove {
   display: none;
 }
 
-  /* new maybe leave general? */
-  .paper-header {
-    padding: .666rem 0;
-  }
+
   
 /* new wider width break */
 @media screen and (min-width: 77rem) {
 
-  .menu-item, .menu-item-under-col-width-remove {
+  .toolbar {
+    /* must be block in widescreen, or it will not center */
+    display: block;
+    padding: 0;
+    padding: 0 var(--parindent);
+  }
+
+  .toolbar-item, .toolbar-item-under-col-width-remove {
     display: inline-block;
     vertical-align: middle;
     border-top: 0;
+    position: relative;
   }
 
-  .menu-anchor {
+  .menu-anchor, .menu-anchor-open {
   /* 
     padding-left: 1rem;
     padding-right: 1rem;
     */
     padding: 2rem;
+  }
+  
+  .submenu-anchor {
+    display: block;
+    padding: 0.5rem 2rem;
+  } 
+
+  .toolbar-submenu {
+    position: absolute;
+    z-index: 8;
+    top: 4.5rem;
+    margin: 0;
+    padding: 0;
+    background-color:DarkOliveGreen;
+    color: #fff;
+    list-style: none;
+  }
+  
+  .menu-anchor-open::after {
+    /* Sign to submenus
+     * in wide-screen
+     */
+    content: "\00a0\00a0\25BE";
   }
 }
 
