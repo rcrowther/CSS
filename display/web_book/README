@@ -10,10 +10,17 @@ Webbook is based in typographic conventions. Compared to the usual look of the w
 == Setup
 WebBook should be built using Normalize CSS
 
-== Font sizing
-Font size is set using --base-fontsize on the body element. --base-lineheight is also available.
+== Font basic
+Font basics are set using,
+++
+- --fontsize 
+- --lineheight
++
+on the body element. 
 
-If the font-size is changed, it is expected that the corresponding font size set is uncommented. This currently limits font size changes to 11pt, 12pt, 14pt, 17pt. Default is 12pt.
+Default is 12pt. If the font-size is changed, it is expected that the corresponding font size set is uncommented. This currently limits font size changes to 11pt, 12pt, 14pt, 17pt. Default is 12pt.
+
+Font-family is also on the body element, and can be simply overrridden.
 
 
 === Responsiveness
@@ -22,9 +29,9 @@ The fonts have a small fix to compensate for high resolution screen shrinkage. T
 
 
 == Layout
-Webbook has a concent of stacked blocks, which make up a page. For a typlical page these blocks would be a header (with menu), a typeblock, then a footer. However, there can be as few or many as you wish.
+Webbook has a concent of stacked blocks, which make up a page. For a typical page these blocks would be a header (with menu), a typeblock, then a footer. However, there can be as few or many stacked blocks as you wish.
 
-Each block has a concept of ''paper'. This is a visible width, usually centred. Paper is for creating designs on. Papers are smaller in size than wide screens. So there is surplus space round them. In a finished design, this space would be filled with some background ornamentation, or disgused, for example as black or white (in concept, paper is somehat like the typographical concept of ''trimming stock to size')
+Each block has a concept of ''paper'. This is a visible width, usually centred. Paper is for creating designs on. Papers are smaller in size than wide screens. So there is surplus space round them. In a finished design, this space would be filled with some background ornamentation, or disgused, for example as black or white (in concept, paper is somehat like the typographical concept of ''stock trimmed to size')
 
 Each paper is designed for different purposes.
 +dl
@@ -33,7 +40,7 @@ Each paper is designed for different purposes.
 ~ paper-cols
 : Made for a side column. See the subsection
 ~ paper-web
-: For display of full width text. On a wider screen, such as a laptop, the readwidth is not disimmilar to paper printing
+: For display of full width text. On a most screens (responsiveness will vary) the readwidth is not disimmilar to paper printing
 ~ paper-a4 
 : A4 width strictly. This is too wide for good readability, but may have it's uses 
 ~ paper-column
@@ -61,13 +68,21 @@ Round every content container you will want margins. Note that I say ''content c
 +
 I do not recommend very wide margins for the web. If you use them, check they do not shrink images and objects too small on small screens.
 
-A few margins are for use with paper-stock,
+=== Margins for paper-stock
+A few margin classes are for use with paper-stock. What these will do is narrow paper-stock (which is full width, recall) so the typeblock width matches paper-web, paper-cols, or paper-column. 
+
+To do this,  
 ++
-- paper-stock-margins-web, 
-- paper-stock-margins-cols
-- paper-stock-margins-column 
+- paper-stock-inner-margins-web, 
+- paper-stock-inner-margins-cols
+- paper-stock-inner-margins-column 
 + 
-These will place an invisible margin on paper-stock (which is full width, recall) so the typeblock width matches paper-web, paper-cols, or paper-column. 
+Having an invisible typeblock is very common web idion, especially so stock width papers can indicate site headers and footers  (as opposed to article/main headers). But CSS does not allow matching of inner widths to other typeblock using padding (which is how paper works). So these classes must be applied to a paper container/liner block. Fortuneately, having a liner is so common for positioning purposes, that his is no problem in practice,
+
+<header class="paper-stock">
+  <nav class="paper-stock-inner-margins-web">
+
+
 
 
 

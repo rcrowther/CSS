@@ -458,7 +458,9 @@ body {
 
 
 /** Layouts */
-/* Paper sizes */
+/* Paper sizes 
+ * The paper-stock-inner-xxx set are to space paper-stock liners,
+ */
 .paper-stock, .paper-web, .paper-cols, .paper-a4, .paper-column {
   background-color: white;
 }
@@ -471,25 +473,29 @@ body {
 }
 
 /* Designed for a sidecol */
-.paper-cols {
+.paper-stock-inner-margins-cols, .paper-cols {
     max-width: 77rem;
     margin: 0 auto;
 }
 
-/* Full width text (no cols) */
-.paper-web {
-    max-width: 77rem;
+/* Full width text (no cols) 
+ * This is narrowed a to make a readable linelength. Which makes no 
+ * difference to responsiveness, since colums are not involved,
+ * and the margin break is narrower (on column-width) anyhow.
+ */
+.paper-stock-inner-margins-web, .paper-web {
+    max-width: 54rem;
     margin: 0 auto;
 }
 
 /* A4 width text (no cols) */
-.paper-a4 {
+.paper-stock-inner-margins-a4, .paper-a4 {
     max-width: 210mm;
     margin: 0 auto;
 }
 
 /* Column width text (no cols) */
-.paper-column {
+.paper-stock-inner-margins-column, .paper-column {
     max-width: 44rem;
     margin: 0 auto;
 }
@@ -499,16 +505,6 @@ body {
 /* Papers and cols will have a margin theme, expressed as padding.
  * Whatever that is, this is the responsive solution
  */
-.paper-stock-margins-web, .paper-stock-margins-cols {
-    max-width: 77rem;
-    margin: 0 auto;
-}
-
-.paper-stock-margins-column {
-    max-width: 44rem;
-    margin: 0 auto;
-}
-
 .margins-narrower {
     padding: 2rem 7rem;
 }
