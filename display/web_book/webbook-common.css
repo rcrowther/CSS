@@ -35,9 +35,9 @@ article > footer, section > footer {
 
 /* for printing, hide navbars */
 @media print {
-.paper-header {
+  .paper-header {
     display: none;
-    }
+  }
 }
 
 
@@ -111,23 +111,13 @@ body {
  * Primo for overriding.
 */
 
-@font-face {
-/*
-  font-family: 'DejaVu Serif';
-  src: local('DejaVu Serif'), local('DejaVu-Serif');
-  * 
-  /*TODO add Book Antiqua also? */
-/*TODO need swap now?
- *   font-display: swap;
-  */
-}
-
-
 body {
-  /* List of Palatino-likes, degrading... 
-	Palatino, "Book Antiqua", "DejaVu Serif",  Georgia, serif;
-  */
-  font-family: Palatino, "Book Antiqua", "DejaVu Serif",  Georgia, serif;
+  /* List of Palatino-likes, degrading. Palatino is a commercial font,
+   * and Palatino-likes are not well-regarded. However, Palatino is 
+   * common in books, provided in LaTeX, and has several platform
+   * approximations ("DejaVu" Linux/free, "Book Antiqua" MS) 
+   */
+  font-family: Palatino, "Book Antiqua", "DejaVu Serif", Georgia, serif;
   background-color: lightgrey;
 
   /* Custom properties for base values.

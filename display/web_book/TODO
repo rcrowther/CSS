@@ -14,8 +14,13 @@ x Decide font break points
 x Check break poinrs
 
 Rename respecting SMACSS
+- TOC
 
 Menus
+x - Book 
+- Plain
+
+Lost wide lists?
 
 Check font-face local()
 
@@ -32,3 +37,5 @@ x Consider \verb (no, for escaping text. and HTML QUOTE is ok)
 Failing breaks on lists
 
 Check illumination spacing strategy
+
+Rebuild test-plain

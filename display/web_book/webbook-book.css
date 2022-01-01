@@ -4,7 +4,8 @@
  * The book variant handles everything as default.
  * However, it adds a menu, and set of themes.
  */
- 
+/* TODO: What about breadcrumb? */
+
 /* menu */
 /* TODO: Should handle a ul list and other containers as 
  * menu-contianer with zero margins etc. For now, this is ok */
