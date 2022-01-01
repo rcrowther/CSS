@@ -1,7 +1,8 @@
-html {
-  --base-fontsize:17pt;
-  --base-lineheight: var(--lh-17pt)
+body {
+  /* FORTEST: illegal */
+  --fontsize:16pt;
 }
+
 
 /*
  * Basic font size
@@ -14,11 +15,11 @@ html {
  */
 body {
 	font-family: "Vollkorn", serif;
-	/* Hi-res msize */
-	font-size:var(--base-fontsize);
-	line-height: var(--base-lineheight);
-}
 
+}
+body {
+font-family: "times new roman";
+}
 
 
 

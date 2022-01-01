@@ -9,32 +9,28 @@
     <link rel="stylesheet" type="text/css" href="normalize_8-0-1.css">
     <link rel="stylesheet" type="text/css" href="webbook-common.css">
     <link rel="stylesheet" type="text/css" href="webbook-plain.css">
-
-
-    <!--
-    <link rel="stylesheet" type="text/css" href="booknav.css">
-    -->
   </head>
 
   <body>
-    <header class="paper-stock" style="background-color:MediumSeaGreen; color:white;">
-        <div class="margins-fluid">
-          <figure class="col-middle under-paper-width-remove">LOGO</figure>
-          <div class="col-middle"><a href="#">A</a></div>
-          <div class="col-middle"><a href="#">Menu</a></div>
-          <div class="col-middle"><a href="#">With</a></div>
-          <div class="col-middle"><a href="#">Class</a></div>
+    <header class="paper-stock paper-stock-margins-cols" style="background-color:MediumSeaGreen; color:white;">
+        <div class="paper-header menu-ruled">
+          <div class="menu-item-under-col-width-remove">LOGO</div>
+          <div class="menu-item"><a href="#" class="menu-anchor">A</a></div>
+          <div class="menu-item"><a href="#" class="menu-anchor">Menu</a></div>
+          <div class="menu-item"><a href="#" class="menu-anchor">With</a></div>
+          <div class="menu-item"><a href="#" class="menu-anchor">Class</a></div>
         </div>
     </header>
     
-    <main class="paper-web">
+    <main class="paper-cols">
       <article class="col-5 margins-normal">
-        <p>(outer block class 'paper-web layout-horizontal-top')</p>
-        <p>(block class 'col-5 margins-normal')</p>
+        <p>(outer block class 'paper-text layout-horizontal-top')</p>
+        <p>(block class 'margins-wider')</p>
         <p>
-        Contains some navbar menu style (above). This is basicly responsive. The menu only handles basic layout and responsiveness, and requires further styling.
+        Contains some navbar menu style (above). This is basicly 
+        responsive. The menu only handles basic layout and 
+        responsiveness, and requires further styling.
         </p>
-    
 
       <header class="sitetitle">
         <h1 class="title">Book</h1>
@@ -97,10 +93,19 @@
             In traditional typography the first line of a paragraph, unless it comes immediately after
         a chapter or section heading, is indented.
         <p>
-
+    
+      <h2>Site Title</h2>
+        <p>
+          A simple class for site titles, intended for display, not site functionality,
+          And perhaps then as an anchor only for customisation.
+        </p>
+      <div class="site-title">The Crack Up</div>
+          
       <h2>Headlines</h2>
       <p>
-        Headlines 1--5 are provided (several alternative sets of heading style can be uncommented, see the CSS file). All headings can handle line-wrapping:
+        Headlines 1--5 are provided (several alternative sets of heading 
+        style can be uncommented, see the CSS file). All headings can 
+        handle line-wrapping:
       </p>
       <h1>(h1) Chapter</h1>
       <p>Following text...</p>
@@ -119,18 +124,50 @@
 
       <h6>(h6) SubParagraph</h6>
       <p>Following text...</p>
-      <p>
-	    “Land of Darkness?” exclaimed Monkey, at last coming fully awake. “But that’s the realm of Yama, Lord of the Dead! I don’t belong here!”
-      </p>
-      <p>
-	    “That’s what they all say!” said Horse Face.
-      </p>
-            
+
+        
       <h2>General Text</h2>
       <p>
 	    Open and close with 'article' or 'section'. 
       </p>
-    
+      
+      <h3>Other Text elements</h3>
+      <p>
+      A few HTML elements are deliberately styled. These styles are 
+      readily overridden, only  intended to generalise likely 
+      usage within the code remit.
+      </p>
+      <p>
+      Notably, there is nothing special about the formatting of inline 
+      QUOTE tags <qote>"like this"</qote> or TIME tags 
+      <time>13:44:25</time>.
+      </p> 
+      <p>To reflect free typographical layout, 
+      PRE inherits it's font,
+      </p>
+      
+      <pre>  
+  The tail
+      of this
+mouse
+    turns
+      here
+     too
+   be
+     a
+        .
+      </pre>
+      <p>
+      CODE is a monospace font,
+      </p> 
+      <code>
+          <pre>
+      If (not(I)) then:
+        act.wise;
+        </pre>
+      </code>
+      
+      <h3>Paragraphs</h3>
       <p>
         Paragraphs are opened with indents (not extra lines), thusly,
       </p>
@@ -139,37 +176,47 @@
         for me if I had heeded them. But I was young, I was but seven years of age,
         and vain, foolish, and anxious to attract attention. I wrote the biography, and
         have never been in a respectable house since.
-      </p>
+      </p>    
 
 
-
-      <h4>Other Text elements</h4>
       <p>
 	    General text is in paragraph tags. Paragraphs use a first-line indent.
       </p>
       <p> New paragraph continues with sample text, "They are the best-known unknown persons that have ever drawn breath upon the planet".
       </p>
     
+      
 
-      <h2>Lists</h2>
-
-      <p>
-	    Lists,
+      <h3>Lists</h3>
+     <p>
+        x-tight,
       </p>
+      <ul class="x-tight"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+     <p>
+        tight,
+      </p>
+      <ul class="tight"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
 
+     <p>
+        Default,
+      </p>
       <ul><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+            
+      <p>
+        loose,
+      </p>
+      <ul class="loose"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
 
       <p>
-        and ordered lists,
+        x-loose,
+      </p>
+      <ul class="x-loose"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
+
+      <p>
+        Any of the above, same for ordered lists,
       </p>
 
       <ol><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ol>
-
-      <p>
-        Wide-spaced lists,
-      </p>
-
-      <ul  class="wide"><li>BYTE</li><li>WORD</li><li>DWORD</li><li>QWORD</li></ul>
 
       <p>
         Definition lists (formatted for word specifications/explanations). Note that the preferred effect of hanging indent is not possible, so avoid multi-line definition list items,
@@ -178,298 +225,390 @@
       <dl><dt>BYTE</dt><dd>That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
 
       <p>
-        ...and wide,
+        ...and x-loose,
       </p>
 
-      <dl class="wide"><dt>BYTE</dt><dd>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
+      <dl class="x-loose"><dt>BYTE</dt><dd>	    That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.</dd><dt>WORD</dt><dd>(following Microsoft fix) 16‐bit</dd><dt>DWORD</dt><dd>double natural size, 32‐bit</dd><dt>QWORD</dt><dd>quad natural size, 64‐bit</dd></dl>
 
 
       <p>
 	    A list theme(s),
       </p>
-
       <ul class="pros"><li>Fast</li><li>Stable</li><li>Small syntax</li><li>Few dependencies</li></ul>
-      
       <ul class="cons"><li>Not cross-platform</li><li>Verbose syntax</li><li>Eccentric</li><li>No support</li></ul>
 
-      <h4>Figures</h4>
-      <p>
-        Figures can surround any transformed non-phrasal items. 
-      </p>
-    
-      <p>
-        Figures can not be used round blockquotes, which imply a figure, They can be used round quotes.
-      </p>
-    
-      <p>
-        Figures can contain images, such as the illustrative display below,
-      </p>
 
-      <figure>
-        <img  src="../../images/bird.jpg"/>
-        <figcaption><span class="num">3</span>USB stick</figcaption>
-      </figure>
-
-      <p>
-        and be framed,
-      </p>
-
-      <figure>
-	    <img class="framed" src="../../images/bird.jpg"/>
-	    <figcaption><span class="num">4</span>Bird</figcaption>
-      </figure>
-
-      <p>
-        ...or ruled,
-      </p>
       
-      <figure>
-	    <img class="ruled" src="../../images/bird.jpg"/>
-	    <figcaption><span class="num">5</span>Bird</figcaption>
-      </figure>
-       
-      <p>
-	    Book illustrations are nearly always figure width, but 'wide', 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
-      </p>
-           
-      <figure class="wide">
-	    <img class="ruled" src="../../images/bird.jpg"/>
-	    <figcaption><span class="num">6</span> wide figure</figcaption>
-      </figure>
-            
-      <figure class="narrow">
-	    <img class="ruled" src="../../images/bird.jpg"/>
-	    <figcaption><span class="num">7</span> narrow figure</figcaption>
-      </figure>
-
-      <figure class="x-narrow">
-	    <img class="ruled" src="../../images/bird.jpg"/>
-	    <figcaption><span class="num">8</span> x-narrow figure</figcaption>
-      </figure>
-           
-      <figure class="xx-narrow">
-	    <img class="ruled" src="../../images/bird.jpg"/>
-	    <figcaption><span class="num">9</span> xx-narrow figure</figcaption>
-      </figure>
-
-
-      <h4>Tables</h4>
-      <p>
-        Tables should almost always be in a figure. They currently have a light styling,
-      </p>
-    <figure>
-      <table>
-        <thead>
-          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
-          <tr><td>bones</td><td>clean</td><td>1</td></tr>
-          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
-          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
-        </tbody>
-      </table>
-    </figure>
-      
-      <p>
-        Tables can be ruled,
-      </p>
-    <figure>
-      <table class="ruled">
-        <thead>
-          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
-          <tr><td>bones</td><td>clean</td><td>1</td></tr>
-          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
-          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
-        </tbody>
-      </table>
-    </figure>      
-
-      <p>
-        Tables can be wide,
-      </p>
-    <figure class="wide">
-      <table class="ruled">
-        <thead>
-          <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
-          <tr><td>bones</td><td>clean</td><td>1</td></tr>
-          <tr><td>oil</td><td>spoon</td><td>4</td></tr>
-          <tr><td>onion</td><td>sliced</td><td>2</td></tr>
-        </tbody>
-      </table>
-    </figure>  
-
-      <h4>Blockquotes</h4>
-
-      <p>
-        Blockquotres must stand alone, as they imply a figure (see below). 
-        This means they indent following paragraphs.
-      </p>
-      <p>
-        Blockquote contents paragraph, 
-      </p>
-
-	<blockquote>
-	  <p>
-	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
-	  </p>
-	  <p>
-	    Nulla elementum nisi a efficitur scelerisque. Donec sed purus sem. Morbi in vestibulum nisi. 
-	  </p>
-	  <p>
-	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
-	  </p>
-	</blockquote>
-    <p>
-      Adding the "blockparagraph" class alters the paragraphing style,
-    </p>
-	<blockquote class="blockparagraph">
-	  <p>
-	    Ut tellus elit, semper tempor auctor mollis, mollis at arcu. Vivamus non nibh quis sem efficitur accumsan sed id lorem.
-	  </p>
-	  <p>
-	    Nulla elementum nisi a efficitur scelerisque. Donec sed purus sem. Morbi in vestibulum nisi. 
-	  </p>
-	  <p>
-	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
-	  </p>
-	</blockquote>
-
-    <p>
-      Blockquotes can have styled citations,
-    </p>
-
-	<blockquote>
-	  <p>
-	    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin consectetur varius tellus, nec varius nulla egestas nec. Aenean eu ipsum malesuada, posuere enim sed, elementum turpis. 
-	  </p>
-      <cite>Lorem Ipsum</cite>
-    </blockquote>
-
-    <p>
-	  Blockquotes can be decorated with boxes,
-    </p>
-
-	<blockquote  class="framed">
-	  <p>Blockquote classed as 'framed'.</p>
-	</blockquote>
-
-      <p>
-	...or ruled,
-      </p>
-
-	<blockquote  class="ruled">
-	  <p>Blockquote classed as 'ruled'.</p>
-	</blockquote>
-
-    <p>
-       To use figurecaptions on a blockqoute, substitue the blockquote for a figure containing a quote,
-    </p>
-
-    <figure>
-	  <quote>
-	    <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
-	    <p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
-	  </quote>
-	  <figcaption><span class="num">0.2</span>Francis Bacon</figcaption>
-    </figure>
-
-      <h4>Divblocks</h4>
-    <p>
-      Divblocks are like figures, but are essential to text. Following paragraphs do not indent.
-      They can contain quotes,
-    </p>
-
-	<divblock>
-      <quote>
-	    <p>Divblock containing a quote.</p>
-      </quote>
-	</divblock>    
-    
-    <p>
-	  Unlike a blockquote, but like a frame, (quoted) divblocks can set wide, and/or the contents framed/ruled,
-    </p>
-
-	<divblock class="wide">
-      <quote class="framed">
+      <h3>Blockquotes</h3>
         <p>
-		  That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+          Typography treats blockquotes as a standalone paragraph type. 
+          In this CSS, blockquotres are not a figure (if a quote is
+          an illustration of text, then it can be created using QUOTE
+          elements in a FIGURE)  
         </p>
+        <p> Within the blockquote, the paragraphs will be 
+          handled as usual i.e. indented.  
+        </p>
+        <blockquote>
+            <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
+            <p>So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
+        </blockquote>
+        
         <p>
-          So said somebody... possibly Hume?
+          Adding the "blockparagraph" class alters the paragraphing 
+          style from indents to line separation,
         </p>
-      <cite>(possibly) Hume</cite>
-	  </quote>
-	</divblock>
+        <blockquote class="blockparagraph">
+            <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
+            <p>So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
+        </blockquote>
 
-    <p>
-	  A divblock containing a quote can be cited like a blockquote.
-    </p>
+        <p>
+          Blockquotes can have citations. The style is kept to a 
+          minimum. This is because citations can become complex, as in 
+          full citation of dates, titles, pages, and styles. This CSS 
+          will not enter into this field (niether does LaTeX), 
+        </p>
+        <blockquote>
+          <p>The two ways of contemplation are not unlike the two ways of action commonly spoken of by the ancients: the one plain and smooth in the beginning, and in the end impassable; the other rough and troublesome in the entrance, but after a while fair and even.</p>
+          <p> So it is in contemplation: If a man will begin with certainties, he shall end in doubts; but if he will be content to begin with doubts he shall end in certainties.</p>
+ 
+          <cite class="blockquote-cite">Francis Bacon</cite>
+        </blockquote>
+
+        <p>Until I see live examples, blockquotes can not be classed as 'ruled' or 'framed'.</p>
 
 
+      <h2>Illustrations</h2>
+      <p>
+        Illustrations are split into spanblacks (necessary), and figures 
+        (unnecessary). Both elements surround transformed non-phrasal 
+        items. Both HTML elements behave much the same. 
+      </p>
+          <p>
+            Illustrations can contain images, such as the display below,
+            with bottom caption,
+          </p>
+
+          <figure>
+            <img  src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">3</span>USB stick</figcaption>
+          </figure>
+
+          <p>
+            and be framed. This figure has a top caption, which requires
+            a class "ilsn-caption-top",
+          </p>
+
+          <figure class="framed">
+            <figcaption class="ilsn-caption-top"><span class="ilsn-caption-num">4</span>Bird</figcaption>
+            <img src="../../images/bird.jpg"/>
+          </figure>
+
+          <p>
+            ...or ruled,
+          </p>
           
+          <figure class="ruled">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">5</span>Bird</figcaption>
+          </figure>
+           
+          <p>
+            Book illustrations are nearly always default width, but 'wide', 'narrow', 'x-narrow'. and 'xx-narrow' figure sizes are available,
+          </p>
+               
+          <figure class="ilsn-wide">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">6</span>wide figure</figcaption>
+          </figure>
+                
+          <figure class="ilsn-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">7</span> narrow figure</figcaption>
+          </figure>
+
+          <figure class="ilsn-x-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">8</span> x-narrow figure</figcaption>
+          </figure> 
+               
+          <figure class="ilsn-xx-narrow">
+            <img src="../../images/bird.jpg"/>
+            <figcaption><span class="ilsn-caption-num">9</span> xx-narrow figure</figcaption>
+          </figure>
+
+
+        <h3>Spanblocks</h3>
+          <p>
+          Spanblocks are illustrations, like figures, but essential to 
+          text. They can contain any illustrative content such as 
+          images, objects, tables...
+          </p>
+
+            <spanblock>
+              <img src="../../images/bird.jpg"/>
+            </spanblock>    
+  
+          <p>  
+          Even quotes, in which case spanblocks are like blockquotes, 
+          but essential,
+          </p>
+          
+
+                  
+            <p>
+              Like figures, spanblocks can set narrow, the contents framed/ruled, cited, etc.
+            </p>
+            <spanblock class="ilsn-narrow framed">
+              <img src="../../images/bird.jpg"/>
+              <figcaption><span class="ilsn-caption-num">8</span> x-narrow figure</figcaption>
+            </spanblock>
+
+      
+      <h2>Illustration contents</h2>
+      <p>Illustrations can contain several types of contents. The 
+      initial examples, above, used images. They can also contain
+      diagrams (for HTML same as images), quotes, HTML objects etc.
+      They can also include tables. 
+      </p>
+
+        <h3>Quotes</h3>
+        <p>
+        A substantial quote can be viewed as a text illustration. This 
+        is created using a QUOTE elements in a FIGURE element,
+        </p>
+            <figure class="ilsn-narrow">
+              <quote>
+                <p>
+	    “Land of Darkness?” exclaimed Monkey, at last coming fully awake. “But that’s the realm of Yama, Lord of the Dead! I don’t belong here!”
+                </p>
+                <p>
+	    “That’s what they all say!” said Horse Face.
+                </p>
+              </quote>
+              <cite class="ilsn-cite">Tales of the Monkey King</cite>
+            </figure>
+
+            <figure class="ilsn-narrow">
+              <quote>
+                <p>
+                  That the sun will not rise tomorrow is no less intelligible a proposition, and implies no more contradiction, than the affirmation, that it will rise.
+                </p>
+                <p>
+                  So said somebody... possibly Hume?
+                </p>
+              </quote>
+              <cite class="ilsn-cite">(possibly) Hume</cite>
+              </figure>                 
+
+
+
+        <h3>Tables</h3>
+        <p>
+          Tables should be in an figure or spanblock. They currently have a light styling,
+        </p>
+            <figure>
+              <table>
+                <thead>
+                  <tr><th>Ingredients</th><th>Measure</th><th>Quantity</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+                  <tr><td>bones</td><td>clean</td><td>1</td></tr>
+                  <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+                  <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+                </tbody>
+              </table>
+            </figure>
+            
+        <p>
+          Tables can have toprule/bottomrule. Classes go on the table 
+          element. Midrule also can go on TABLE element, but will only 
+          work if table has a header,
+        </p>
+            <figure>
+              <table  class="table-toprule table-bottomrule table-midrule">
+                <thead>
+                  <tr><th>Ingredients</th><th>Measure</th><th>Quantity</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+                  <tr><td>bones</td><td>clean</td><td>1</td></tr>
+                  <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+                  <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+                </tbody>
+              </table>
+            </figure>
+            
+        <p>
+          Tables can be easy linespaced. Use 'addvspace' on a TD,
+        </p>
+            <figure>
+              <table class="table-midrule">
+                <thead>
+                  <tr><th>Make</th><th>Model</th><th>Price (£)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>TJSwindel</td><td>007</td><td>32.00</td></tr>
+                  <tr><td>NatSonic</td><td>MP-150-C</td><td>7.25</td></tr>
+                  <tr><td>MoonDream</td><td>VantageXB</td><td>17.79</td></tr>
+                  <tr><td>Ledig</td><td>Sten</td><td>850.00</td></tr>
+                  <tr><td></td><td></td><td class="addvspace">925.04</td></tr>
+                </tbody>
+              </table>
+            </figure>
+            
+        <p>
+          And, as any figure/spanblock, tables can be captioned top,
+        </p>
+            <figure>
+              <figcaption class="ilsn-caption-top">1. Table of ingredients</figcaption>
+              <table class="table-midrule">
+                <thead>
+                  <tr><th>Ingredients</th><th>measure</th><th>quantity</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+                  <tr><td>bones</td><td>clean</td><td>1</td></tr>
+                  <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+                  <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+                </tbody>
+              </table>
+            </figure>  
+            <p> 
+              ...or bottom,
+            </p>
+            <figure>
+              <table>
+                <thead>
+                  <tr><th class="appendvspace">Ingredients</th><th class="appendvspace">measure</th><th class="appendvspace">quantity</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>lentil</td><td>packet</td><td>500g</td></tr>
+                  <tr><td>bones</td><td>clean</td><td>1</td></tr>
+                  <tr><td>oil</td><td>spoon</td><td>4</td></tr>
+                  <tr><td>onion</td><td>sliced</td><td>2</td></tr>
+                </tbody>
+              </table>
+              <figcaption>2. Table of ingredients</figcaption>
+            </figure> 
+
+
+
+
+
+
       <p>
 	Don't forget to close the 'article' or 'section'.
       </p>
       </article>
 
-      <aside class="col-2 container-fixed-margin-vertical" style="background-color:Lavender;">
-        <p>(block class 'col-2')</p>
-        <p>A side-col</p>
+      <aside class="col-2 col-fixed-margin-vertical" style="background-color:Lavender; text-align:center;">
+        <p>(block class 'margins-wide')</p>
+        <p class="x-large">A side col</p>
       </aside>
     </main>
 
-    <section class="paper-web margins-wider" style="background-color:white;">
+    <section class="paper-column margins-normal">
       <div class="">
-        <p> (outer block class 'paper-web')</p> 
-        <p> (block class "margins-wider")</p> 
+        <p> (outer block class 'paper-a4 margins-wider')</p> 
           <p>
-            Book.css offers a table of contents (TOC) layout. In the context of web organisation, a TOC cannot be the same as those in a book (page numbers are irrelevant). But the TOC retains some structure and styling clues from typography.  
+            WebBook offers a table of contents (TOC) layout. In the 
+            context of web organisation, a TOC cannot be the same as a 
+            book (page numbers are irrelevant). A TOC is assumed to be
+            a (potentially long) list of links. But TOC style retains 
+            some structure and style from typography.  
           </p>
           <p>
-              The below is intended for display only. It has a base structure with a generic theme. webbook.css adds link styling and alternate themes. 
+              The main TOC style is mostly a style-leveller that removes 
+              the usual list style of this CSS. Titles, font and level 
+              styling are assumed to be for further work,
           </p>
-          <h3><span class="title">Table of contents</span></h3>
-          <nav  class="toc toc-groove">
-            <h5 class="toc-subtitle">Rabbits</h5>
-            <ul class="toc-list">
-                <li><span class="title">hares</span></li>
-                <li><span class="title">levrets</span></li>
-                <li><span class="title">rabbits</span></li>
-            </ul>
-            <h5 class="toc-subtitle"><span class="num">7</span><span class="title">Deer</span></h5>
-            <ul class="toc-list">
-              <li><span class="num">1</span><span class="title">bucks</span></li>
-              <li><span class="num">4</span><span class="title">deer</span></li>
-              <li><span class="num">155</span><span class="title">reindeer</span></li>
+          <h1>Table of contents</h1>
+          <nav  class="toc">
+            <ul>
+                <li>Rabbits
+                    <ul>
+                        <li><span class="title">hares</span></li>
+                        <li><span class="title">levrets</span></li>
+                        <li><span class="title">rabbits</span></li>
+                    </ul>
+                </li>
+                    
+                <li><span class="num">7</span>Deer
+                    <ul>
+                      <li><span class="num">1</span><span class="title">bucks</span></li>
+                      <li><span class="num">4</span><span class="title">deer</span></li>
+                      <li><span class="num">155</span><span class="title">reindeer</span></li>
+                    </ul>
+                </li>
             </ul>
           </nav>
           <p>
             A TOC can be classed 'wide',
           </p>
-          <nav class="toc  toc-bullet">
-            <h5 class="toc-subtitle"><span class="num">20</span><span class="title">Web</span></h5>
-            <ul class="wide toc-list">
-              <li><span class="num">1</span><span class="title">bucks</span></li>
-              <li><span class="num">4</span><span class="title">deer</span></li>
-              <li><span class="num">155</span><span class="title">reindeer</span></li>
+          <nav class="toc wide">
+            <ul class="">
+                <li><span class="num">20</span><a href="#">Web</a>
+                    <ul>
+                      <li><span class="num">1</span><a href="#">bucks</a></li>
+                      <li><span class="num">4</span><a href="#">deer</a></li>
+                      <li><span class="num">155</span><a href="#">reindeer</a></li>
+                    </ul>
+                </li>
             </ul>
-          </nav>
+            </nav>
+          <p>
+            Themes are available for TOC. This is 'bullit',
+          </p>       
+          <nav class="toc bullit">   
+            <ul>
+                <li><span class="num">20</span><a href="#">Web</a>
+                    <ul>
+                      <li><span class="num">1</span><a href="#">bucks</a></li>
+                      <li><span class="num">4</span><a href="#">deer</a></li>
+                      <li><span class="num">155</span><a href="#">reindeer</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </nav>
+          <p>
+            'w3',
+          </p> 
+          <nav  class="toc w3">         
+            <ul>
+                <li><span class="num">20</span><a href="#">Web</a>
+                    <ul>
+                      <li><span class="num">1</span><a href="#">bucks</a></li>
+                      <li><span class="num">4</span><a href="#">deer</a></li>
+                      <li><span class="num">155</span><a href="#">reindeer</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </nav>
+          <p>
+            'groove',
+          </p>   
+          <nav  class="toc groove">       
+            <ul>
+                <li><span class="num">20</span><a href="#">Web</a>
+                    <ul>
+                      <li><span class="num">1</span><a href="#">bucks</a></li>
+                      <li><span class="num">4</span><a href="#">deer</a></li>
+                      <li><span class="num">155</span><a href="#">reindeer</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </nav>
       </div>
     </section>
 
 <!--
  margin:48pt 0 12pt 0;
 -->
-    <footer class="paper-web margins-normal" style="background-color:white; text-align:center;">
-        <p> (outer block classed 'paper-web')</p>
-        <p> (block classed 'margins-normal')</p>
+    <footer class="paper-a4 paper-a4 margins-wide" style="text-align:center;">
+        <p> (outer block classed 'paper-a4 margins-wide')</p>
         <p>Original model for most formatting, however crude the translation, is <a href="http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/memoir/memman.pdf">'Memoir'</a> </p>
         <p style="text-indent: 0;">HTML/CSS by Robert Crowther, 2016</p>
     </footer>

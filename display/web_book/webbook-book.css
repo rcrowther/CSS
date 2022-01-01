@@ -8,11 +8,12 @@
 
 /* menu */
 /* TODO: Should handle a ul list and other containers as 
- * menu-contianer with zero margins etc. For now, this is ok */
+ * menu-contianer with zero margins etc. For now, this is ok 
+ */
+/*TODO: not a good name */
 .paper-header {
     text-align: center;
 }
-
 
 .menu-item {
   display: block;

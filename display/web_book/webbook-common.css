@@ -71,22 +71,22 @@ body {
  */
 @media screen and (min-height: 570px) {
   /* mid-res screen 1280x720 18pt */
-/*
+
   body {
     font-size: 16pt;
     --fontscale: 1.333;
   }
-*/
+
 }
  
 @media screen and (min-height: 660px) {
   /* hi-res screen 1440x810 20pt */
-/*
+
   body {
     font-size: 20pt;
     --fontscale: 1.666;
   }
-*/
+
 }
 
 @media
@@ -145,12 +145,12 @@ body {
    * Closer to the web convention of 14px (maybe 14.5ish px), but not 
    * recommended.
    */
-  --base-fontsize: 12pt;
-  --fontsize: calc(var(--base-fontsize) * var(--fontscale));
+  --fontsize: 12pt;
+  --scaled-fs: calc(var(--fontsize) * var(--fontscale));
   
   /* fallback for non-custom property browsers */
   font-size: 12pt;
-  font-size: var(--fontsize);
+  font-size: var(--scaled-fs);
 
   
   /* Base line height
@@ -200,10 +200,10 @@ body {
    * --lh-30pt: 1.20;
    * 
    */
-  --base-lineheight: 1.21;
+  --lineheight: 1.21;
   /* fallback for non-custom property browsers */
   line-height: 1.21;
-  line-height: var(--base-lineheight);
+  line-height: var(--lineheight);
     
   /* Base indent for text and margins.
    * Used for paragraphing. Also used in other places, for example as a 
@@ -232,7 +232,7 @@ body {
    * Translated from Memoir, here multiplied to deliver usable (point) 
    * units 
    */
-  --onelineskip: calc(var(--fontsize) * var(--base-lineheight));
+  --onelineskip: calc(var(--scaled-fs) * var(--lineheight));
 
   /* onelineskip scale. Used in figures, mainly */
   /* Not all the possibilities, but some DRYing */
@@ -316,16 +316,16 @@ body {
     7pt --tiny
  */
  /*
- --x-huge: calc(2.273 * var(--fontsize)); 
- --huge: calc(1.818 * var(--fontsize)); 
- --xx-large: calc(1.545 * var(--fontsize)); 
- --x-large: calc(1.273 * var(--fontsize)); 
- --large: calc(1.091 * var(--fontsize)); 
- --normal: calc(1 * var(--fontsize)); 
- --small: calc(0.909 * var(--fontsize)); 
- --x-small: calc(0.818 * var(--fontsize)); 
- --xx-small: calc(0.727 * var(--fontsize)); 
- --tiny: calc(0.636 * var(--fontsize));
+ --x-huge: calc(2.273 * var(--scaled-fs)); 
+ --huge: calc(1.818 * var(--scaled-fs)); 
+ --xx-large: calc(1.545 * var(--scaled-fs)); 
+ --x-large: calc(1.273 * var(--scaled-fs)); 
+ --large: calc(1.091 * var(--scaled-fs)); 
+ --normal: calc(1 * var(--scaled-fs)); 
+ --small: calc(0.909 * var(--scaled-fs)); 
+ --x-small: calc(0.818 * var(--scaled-fs)); 
+ --xx-small: calc(0.727 * var(--scaled-fs)); 
+ --tiny: calc(0.636 * var(--scaled-fs));
 */ 
 /* 12pt Scaling (can use REMS against 12pt base) 
     30pt --x-huge
@@ -340,16 +340,16 @@ body {
     8pt --tiny
  */
  
- --x-huge: calc(2.5 * var(--fontsize)); 
- --huge: calc(2.083 * var(--fontsize)); 
- --xx-large: calc(1.667 * var(--fontsize)); 
- --x-large: calc(1.417 * var(--fontsize)); 
- --large: calc(1.167 * var(--fontsize)); 
- --normal: calc(1 * var(--fontsize)); 
- --small: calc(0.917 * var(--fontsize)); 
- --x-small: calc(0.833 * var(--fontsize)); 
- --xx-small: calc(0.75 * var(--fontsize)); 
- --tiny: calc(0.667 * var(--fontsize));
+ --x-huge: calc(2.5 * var(--scaled-fs)); 
+ --huge: calc(2.083 * var(--scaled-fs)); 
+ --xx-large: calc(1.667 * var(--scaled-fs)); 
+ --x-large: calc(1.417 * var(--scaled-fs)); 
+ --large: calc(1.167 * var(--scaled-fs)); 
+ --normal: calc(1 * var(--scaled-fs)); 
+ --small: calc(0.917 * var(--scaled-fs)); 
+ --x-small: calc(0.833 * var(--scaled-fs)); 
+ --xx-small: calc(0.75 * var(--scaled-fs)); 
+ --tiny: calc(0.667 * var(--scaled-fs));
 
 /* 14pt REM Scaling (can use REMS against 14pt base)
     36pt --x-huge
@@ -365,15 +365,15 @@ body {
 */
 
 /*
- --x-huge: calc( 2.571 * var(--fontsize));
- --huge: calc( 2.143 * var(--fontsize));
- --xx-large: calc( 1.786 * var(--fontsize));
- --x-large: calc( 1.429 * var(--fontsize));
- --large: calc( 1.214 * var(--fontsize)); 
- --normal: calc(1 * var(--fontsize));
- --small: calc( 0.857 * var(--fontsize));
- --x-small: calc( 0.786 * var(--fontsize));
- --xx-small: calc( 0.714 * var(--fontsize));
+ --x-huge: calc( 2.571 * var(--scaled-fs));
+ --huge: calc( 2.143 * var(--scaled-fs));
+ --xx-large: calc( 1.786 * var(--scaled-fs));
+ --x-large: calc( 1.429 * var(--scaled-fs));
+ --large: calc( 1.214 * var(--scaled-fs)); 
+ --normal: calc(1 * var(--scaled-fs));
+ --small: calc( 0.857 * var(--scaled-fs));
+ --x-small: calc( 0.786 * var(--scaled-fs));
+ --xx-small: calc( 0.714 * var(--scaled-fs));
  --tiny: calc( 0.643rem;
 */
 
@@ -391,16 +391,16 @@ body {
 */
 
 /*
- --x-huge: calc( 2.824 * var(--fontsize));
- --huge: calc( 2.118 * var(--fontsize));
- --xx-large: calc( 1.765 * var(--fontsize));
- --x-large: calc( 1.471 * var(--fontsize));
- --large: calc( 1.176 * var(--fontsize)); 
- --normal: calc(1 * var(--fontsize));
- --small: calc( 0.824 * var(--fontsize));
- --x-small: calc( 0.706 * var(--fontsize));
- --xx-small: calc( 0.647 * var(--fontsize));
- --tiny: calc( 0.588 * var(--fontsize)); 
+ --x-huge: calc( 2.824 * var(--scaled-fs));
+ --huge: calc( 2.118 * var(--scaled-fs));
+ --xx-large: calc( 1.765 * var(--scaled-fs));
+ --x-large: calc( 1.471 * var(--scaled-fs));
+ --large: calc( 1.176 * var(--scaled-fs)); 
+ --normal: calc(1 * var(--scaled-fs));
+ --small: calc( 0.824 * var(--scaled-fs));
+ --x-small: calc( 0.706 * var(--scaled-fs));
+ --xx-small: calc( 0.647 * var(--scaled-fs));
+ --tiny: calc( 0.588 * var(--scaled-fs)); 
 */
 
 }
