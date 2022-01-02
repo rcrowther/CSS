@@ -89,6 +89,30 @@ Under web page width, for paper-cols and the cols, the cols will reorganise as f
 Under column page width, margins will shrink to a minimal size.
 
 
+== Toolbar/Menu
+There's a header toolbar, which is a fancy name because it's mostly a menu. The toolbar can be styled this way and that. The menu can be a simple horizontal list of links. It can also have submenus, but a hover expansion is not enaabled,ass this works badly on touchscreens. Instead, if you want submenus, you'll need Javascript to make them clickable. It only takes a few lines.
+
+
+Menus involve several classes, so here is an example,
+
+    <header class="paper-stock">
+        <!-- inner liner for paper-stock, also decides it's a toolbar -->
+        <nav class=" paper-stock-inner-margins-cols toolbar">
+          <!-- toolbar item that vanishes on narrow screens -->
+          <div class="toolbar-item-under-col-width-remove">
+              <img src="logo.svg" alt="image of logo" class="toolbar-logo-img"/>
+          </div>
+          <!-- here's the menu -->
+          <ul class="toolbar-item toolbar-menu">
+            <li class="toolbar-item"><a href="#" class="menu-anchor">A</a></li>
+            <li class="toolbar-item"><a href="#" class="menu-anchor">Menu</a></li>
+            <li class="toolbar-item">
+                <!-- here's a submenu -->
+                <a class="menu-anchor-open">Earphones</a>
+                <ul class="toolbar-submenu">
+                    <li><a href="/earphones" class="submenu-anchor">Summary</a></li>
+    ...
+
 
 #################################################################
 == Changes  from sources

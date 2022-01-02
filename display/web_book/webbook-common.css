@@ -242,6 +242,8 @@ body {
   --one-lineskip: var(--onelineskip);
   --onehalf-lineskip: calc(1.5 * var(--onelineskip));
   --two-lineskip: calc(2 * var(--onelineskip));
+  --twohalf-lineskip: calc(2.5 * var(--onelineskip));
+  --three-lineskip: calc(3 * var(--onelineskip));
   --four-lineskip: calc(4 * var(--onelineskip));
 
  

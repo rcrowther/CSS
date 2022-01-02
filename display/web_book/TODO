@@ -19,10 +19,13 @@ Rename respecting SMACSS
 Menus
 x - Book 
 - Plain
-Handle inner containers
-Handle submenu
+x Handle inner containers
+x Handle submenu
 x Use img icon
 x Wheres the outer trim going?
+x JS
+Submenu openers in submenus should not be styled as menu items
+Find common pieces
 
 Lost wide lists?
 

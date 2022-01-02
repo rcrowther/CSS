@@ -37,6 +37,10 @@ body {
 
 .toolbar-item {
   display: block;
+  
+  /* kill stock settings */
+  margin: 0;
+  padding:0;
   /* border-top: black solid 1px; */
 }
 
@@ -67,7 +71,7 @@ body {
   padding-top: var(--vspace);
   
   /* initially not displayed */
-  /* display: none; */
+  display: none;
 }
 
 .menu-anchor, .menu-anchor-open, .submenu-anchor {
@@ -99,7 +103,6 @@ body {
   .toolbar {
     /* must be block in widescreen, or it will not center */
     display: block;
-    padding: 0;
     padding: 0 var(--parindent);
   }
 
@@ -111,11 +114,7 @@ body {
   }
 
   .menu-anchor, .menu-anchor-open {
-  /* 
-    padding-left: 1rem;
-    padding-right: 1rem;
-    */
-    padding: 2rem;
+    padding: var(--onelineskip) 2rem;
   }
   
   .submenu-anchor {
@@ -126,9 +125,9 @@ body {
   .toolbar-submenu {
     position: absolute;
     z-index: 8;
-    top: 4.5rem;
+    top: var(--twohalf-lineskip);
     margin: 0;
-    padding: 0;
+    padding: var(--vspace) 0;
     background-color:DarkOliveGreen;
     color: #fff;
     list-style: none;
@@ -140,8 +139,12 @@ body {
      */
     content: "\00a0\00a0\25BE";
   }
+  
+  .submenu-shift-right {
+    left: 100%;
+    top: 0;
+  }
 }
 
-/***********************************************/
  
 
