@@ -59,14 +59,14 @@ body {
   display: inline;
 }
 
-/* We leave narrow-screen as default list CSS, it's ok */
+/* We leave narrow-screen as mostly default list CSS, it's ok */
 .toolbar-menu, .toolbar-submenu {
   list-style: none;
 }
 
 .toolbar-submenu {
-  /* adding a thread of space. This separates submenus
-   * in narrow-screen
+  /* add a thread of space at top. This separates submenus interspace
+   * for narrow-screen
    */
   padding-top: var(--vspace);
   
@@ -74,7 +74,11 @@ body {
   display: none;
 }
 
-.menu-anchor, .menu-anchor-open, .submenu-anchor {
+.menu-anchor, 
+.menu-anchor-open,
+.submenu-anchor,
+.submenu-anchor-open
+  {
   display: block;
   padding: 0.5rem 3rem;
   text-decoration: none;
@@ -87,7 +91,9 @@ body {
 /* New, from theme */
 .menu-anchor:hover, 
 .submenu-anchor:hover, 
-.menu-anchor-open:hover {
+.menu-anchor-open:hover, 
+.submenu-anchor-open:hover
+{
   text-decoration: underline;
 }
 
@@ -117,7 +123,7 @@ body {
     padding: var(--onelineskip) 2rem;
   }
   
-  .submenu-anchor {
+  .submenu-anchor, .submenu-anchor-open {
     display: block;
     padding: 0.5rem 2rem;
   } 
@@ -133,7 +139,8 @@ body {
     list-style: none;
   }
   
-  .menu-anchor-open::after {
+  .menu-anchor-open::after,
+  .submenu-anchor-open::after {
     /* Sign to submenus
      * in wide-screen
      */
@@ -145,6 +152,3 @@ body {
     top: 0;
   }
 }
-
- 
-

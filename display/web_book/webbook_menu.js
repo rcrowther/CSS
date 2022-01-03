@@ -1,4 +1,17 @@
-window.onload = function(){
+// Can be used two ways. First is to put the function as written into
+// the webpage. It must come after the menu. If you defer (must be an 
+// external load), you can put in HEAD, and get parallel loading too,
+// 
+//   <script src="webbook-menu.js" defer></script>
+//
+// Or, given this may be the only JS on the page, strip the namespace
+// then,
+//    
+//   window.onload = function(){...};
+//
+// I still see nothing wrong in that R.C.
+
+(function(window, document, undefined) {
 
     // Originally this code stashed everything, as it should. However, 
     // DOM references are apparently not unique and usable in 
@@ -12,15 +25,15 @@ window.onload = function(){
     // them, allowing multilevel menus. R.C.
     
     
-    // https://purecss.io/js/menus.js
+    // I think menu shrinking on elsewhere click is assumed and 
+    // shouldn't be. It's helpful on the web if menus open permanently.
+    // Below is the start hints of code, if you ever wanted to enable 
+    // that feature. From Pure CSS https://purecss.io/js/menus.js
     //var DISMISS_EVENT = (window.hasOwnProperty &&
                 //window.hasOwnProperty('ontouchstart')) ?
                 //'touchstart' : 'mousedown',
 
-        //document.addEventListener('keydown', function (e) {
-  //if (e.keyCode === 27) {
-                /* Esc */
-                
+
     //// Dismiss an open menu on outside event
     //document.addEventListener(DISMISS_EVENT, function (e) {
         //var target = e.target;
@@ -74,13 +87,23 @@ window.onload = function(){
     // get all submenus
     const smList = document.getElementsByClassName("toolbar-submenu");
 
+    // First an ESC killer (I allow for that R.C.)
+    document.addEventListener('keydown', function (e) {
+        /* Esc */
+        if (e.keyCode === 27) {
+                    for(const smToShrink of smList) {
+                        smToShrink.style.display = "";
+                    };
+        }
+    });
+    
     // Now, the onclicks
     for (let sm of smList) {
         // Switch off all menus (visible for non-ja)
         const openAnchor = sm.previousElementSibling;
 
         // Should have one of these. If not, don't bother
-        if (openAnchor.className = "menu-anchor-open") {
+        if (openAnchor.className == "menu-anchor-open" || openAnchor.className == "submenu-anchor-open") {
             // 
             openAnchor.onclick = function() {
                 // Don't try if it's expanded
@@ -111,4 +134,6 @@ window.onload = function(){
             };
         };
     };
-};
+
+})(window, document)
+
