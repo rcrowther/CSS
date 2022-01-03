@@ -25,7 +25,7 @@ x Use img icon
 x Wheres the outer trim going?
 x JS
 x Submenu openers in submenus should not be styled as menu items
-Find common pieces
+x Find common pieces
 
 Lost wide lists?
 
@@ -45,4 +45,4 @@ Failing breaks on lists
 
 Check illumination spacing strategy
 
-Rebuild test-plain
+x Rebuild test-plain
