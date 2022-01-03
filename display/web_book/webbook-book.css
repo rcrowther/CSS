@@ -7,52 +7,35 @@
 /* TODO: What about breadcrumb? */
 
 /* menu */
-/* TODO: Should handle a ul list and other containers as 
- * menu-contianer with zero margins etc. For now, this is ok 
- */
-/*TODO: not a good name */
-.paper-header {
-    text-align: center;
-}
 
-/* NOTE: The stock setup is for a small width screen. See the media
- * selector below for the wide-screen CSS
- */
-.menu-item {
-  display: block;
-  border-top: black solid 1px;
-}
-
-.menu-anchor {
-  display: block;
+/* theme */
+.menu-anchor, 
+.menu-anchor-open,
+.submenu-anchor,
+.submenu-anchor-open
+  {
   padding: 0.667rem 0;
-  color: #000;
   text-decoration: none;
-  cursor: pointer;
+  color: #000;
 }
 
-.menu-item-under-col-width-remove {
-  display: none;
-}
-  
+
 @media screen and (min-width: 44rem) {
-
-  .menu-item, .menu-item-under-col-width-remove {
-    display: inline-block;
-    vertical-align: middle;
-    border-top: 0;
-  }
 
   .menu-anchor { 
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
 }
+
+
+
 
 /* menu themes */
 /* ruled */
 /* Usually used for creative/artistic work */
-.menu-ruled.paper-header {
+.menu-ruled.toolbar {
     text-align: center;
     border-bottom: black solid 1px;
 }

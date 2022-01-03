@@ -23,16 +23,13 @@
     // container transformations etc. 
     // However, the code will seek ancestor menus and avoid closing 
     // them, allowing multilevel menus. R.C.
-    
-    
-    // I think menu shrinking on elsewhere click is assumed and 
+    // Also, I think menu shrinking on elsewhere click is assumed and 
     // shouldn't be. It's helpful on the web if menus open permanently.
-    // Below is the start hints of code, if you ever wanted to enable 
+    // Below are some start hints of code, if you ever wanted to enable 
     // that feature. From Pure CSS https://purecss.io/js/menus.js
     //var DISMISS_EVENT = (window.hasOwnProperty &&
                 //window.hasOwnProperty('ontouchstart')) ?
                 //'touchstart' : 'mousedown',
-
 
     //// Dismiss an open menu on outside event
     //document.addEventListener(DISMISS_EVENT, function (e) {

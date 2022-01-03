@@ -9,16 +9,31 @@
     <link rel="stylesheet" type="text/css" href="normalize_8-0-1.css">
     <link rel="stylesheet" type="text/css" href="webbook-common.css">
     <link rel="stylesheet" type="text/css" href="webbook-book.css">
+    <script src="webbook_menu.js" defer></script>
   </head>
 
   <body>
     <header class="paper-web">
-        <div class="paper-header menu-ruled">
-          <div class="menu-item-under-col-width-remove"><div class="menu-logo-txt">LOGO</div></div>
-          <div class="menu-item"><a href="#" class="menu-anchor">A</a></div>
-          <div class="menu-item"><a href="#" class="menu-anchor">Menu</a></div>
-          <div class="menu-item"><a href="#" class="menu-anchor">With</a></div>
-          <div class="menu-item"><a href="#" class="menu-anchor">Class</a></div>
+        <div class="toolbar menu-ruled">
+          <div class="toolbar-item-narrow-screen-remove"><div class="toolbar-logo-txt">LOGO</div></div>
+          <div class="toolbar-item"><a href="#" class="menu-anchor">A</a></div>
+          <div class="toolbar-item"><a href="#" class="menu-anchor">Menu</a></div>
+            <li class="toolbar-item">
+                <a class="menu-anchor-open">Outline</a>
+                <ul class="toolbar-submenu">
+                    <li>
+                        <a class="submenu-anchor-open">Authors</a>
+                        <ul class="toolbar-submenu submenu-shift-left">
+                            <li><a href="/headphones-about" class="submenu-anchor">Hugo</a></li>
+                            <li><a href="/headphones-types" class="submenu-anchor">Dante</a></li>
+                            <li><a href="/earphones" class="submenu-anchor">Fitzgerald</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/headphones-types" class="submenu-anchor">Cookery</a></li>
+                    <li><a href="/headphones-about" class="submenu-anchor">Fishing</a></li>
+                </ul>
+            </li>
+          <div class="toolbar-item"><a href="#" class="menu-anchor">About</a></div>
         </div>
     </header>
     

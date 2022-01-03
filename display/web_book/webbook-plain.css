@@ -20,69 +20,16 @@ body {
 
 
 /* Toolbar */
-/* NOTE: The stock setup is for narrow-screen. See the
- * media selector below for the wide-screen CSS
- */
-/* new maybe leave general? */
-.toolbar {
-  /* TOCONSIDER: must be inline-block, or it spills list and other 
-   * margins? 
-   */
-  display: inline-block;
-  
-  /* Thread of space at bottom */
-  padding-bottom: var(--onethird-lineskip);
-}
 
 
-.toolbar-item {
-  display: block;
-  
-  /* kill stock settings */
-  margin: 0;
-  padding:0;
-  /* border-top: black solid 1px; */
-}
-
-/* new. 
- */
-.toolbar-logo-img {
-  /* block and height for images.
-   */
-  display: block;
-  height: 4rem;
-}
-
-.toolbar-logo-txt {
-  /* inline for text.
-   */
-  display: inline;
-}
-
-/* We leave narrow-screen as mostly default list CSS, it's ok */
-.toolbar-menu, .toolbar-submenu {
-  list-style: none;
-}
-
-.toolbar-submenu {
-  /* add a thread of space at top. This separates submenus interspace
-   * for narrow-screen
-   */
-  padding-top: var(--vspace);
-  
-  /* initially not displayed */
-  display: none;
-}
-
+/* theme */
 .menu-anchor, 
 .menu-anchor-open,
 .submenu-anchor,
 .submenu-anchor-open
   {
-  display: block;
   padding: 0.5rem 3rem;
   text-decoration: none;
-  cursor: pointer;
   /* new */
   color: white;
 }
@@ -97,58 +44,20 @@ body {
   text-decoration: underline;
 }
 
-.toolbar-item-under-col-width-remove {
-  display: none;
-}
-
-
   
 /* new wider width break */
 @media screen and (min-width: 77rem) {
-
-  .toolbar {
-    /* must be block in widescreen, or it will not center */
-    display: block;
-    padding: 0 var(--parindent);
-  }
-
-  .toolbar-item, .toolbar-item-under-col-width-remove {
-    display: inline-block;
-    vertical-align: middle;
-    border-top: 0;
-    position: relative;
-  }
 
   .menu-anchor, .menu-anchor-open {
     padding: var(--onelineskip) 2rem;
   }
   
   .submenu-anchor, .submenu-anchor-open {
-    display: block;
     padding: 0.5rem 2rem;
   } 
 
   .toolbar-submenu {
-    position: absolute;
-    z-index: 8;
-    top: var(--twohalf-lineskip);
-    margin: 0;
-    padding: var(--vspace) 0;
     background-color:DarkOliveGreen;
     color: #fff;
-    list-style: none;
-  }
-  
-  .menu-anchor-open::after,
-  .submenu-anchor-open::after {
-    /* Sign to submenus
-     * in wide-screen
-     */
-    content: "\00a0\00a0\25BE";
-  }
-  
-  .submenu-shift-right {
-    left: 100%;
-    top: 0;
   }
 }
