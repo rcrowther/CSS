@@ -830,6 +830,7 @@ h4 subsubsection \subsubsecheadstyle
 h5 para \paraheadstyle
 h6 subpara \subparaheadstyle
 */
+/*TODO: Reasses with /beforeskip /aftersskip*/
 /* Heading Fallbacks 
  * Assume default margins settings are ok 
  */
@@ -1041,43 +1042,40 @@ h6 {
 /* Magzine */
 
 
-
-h1 {
-    text-align: center;
-   /* margin: 2.083rem 0; */
+/* H1 default spacing */
+/* TODO: needs checking against some sources (but feels ok) */
+.magazine {
+  text-align: center;
 }
-
+/*
 h2 {
-	font-weight: normal;
-     font-size: 1.777rem;
-    text-align:center;
-	text-transform: uppercase;
-  font-variant: small-caps;
-/*  margin: 2em 0 1em; */
+  font-weight: normal;
+  text-align:center;
+  text-transform: uppercase;
+  margin: calc(3.25 * var(--onelineskip)) 0 calc(1 * var(--onelineskip));
 }
 h3 {
-    font-size: 1.777rem;
-/*  margin: 1.333em 0 0.667em; */
+  margin: calc(1.25 * var(--onelineskip)) 0 var(--half-lineskip);
 }
 h4 {
-	font-weight: normal;
+  font-weight: normal;
   text-transform: uppercase;
   font-variant: small-caps;
-  /*  margin: 2.5em 0 1em 0; */
+  margin: var(--one-lineskip) 0 var(--onethird-lineskip);
 }
 h5 { 
-	font-weight: normal;
+  font-weight: normal;
   text-transform: lowercase;
   font-variant: small-caps;
-  /*  margin: 1.666em 0  0.667em 0; */
+  margin: var(--onelineskip) 0  0;
 }
+
 h6 {
-	font-weight: normal;
+  font-weight: normal;
   font-style: italic;
-    /*margin: 1.333em 0 0.5em 0;*/
+  margin: var(--onelineskip) 0  0;
 }
-
-
+*/
 
 /* ntglike */
 /*
