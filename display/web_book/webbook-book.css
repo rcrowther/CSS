@@ -8,45 +8,85 @@
 
 /* menu */
 
-/* theme */
+/* theme common */
 .menu-anchor, 
 .menu-anchor-open,
 .submenu-anchor,
-.submenu-anchor-open
-  {
-  padding: 0.667rem 0;
+.submenu-anchor-open {
+ /* L/R padding is ok
+  */
+  padding-top: 0.667rem;
+  padding-bottom: 0.667rem;  
   text-decoration: none;
   color: #000;
 }
 
+/* Centred narrow menu */
+/*
+ * A centred vertical menu is possible.
+ * It looks poor widescreen, but is very nice narrowscreen.
+ * Thart said, it only works with limited title sizes and few items.
+ * What it needs, though, is some differentiation for 
+ * submenu collections. A hefty left pad fixes that.
+ */
+/*
+.menu-ruled.toolbar, 
+.menu-colorbox.toolbar,
+.menu-w3.toolbar,
+.menu-selector
+{
+  text-align: center;
+}
 
-@media screen and (min-width: 44rem) {
+.toolbar-submenu {
+  padding-left: calc(3 * var(--parindent));
+}
+*/
 
-  .menu-anchor { 
-    padding-left: 1rem;
-    padding-right: 1rem;
+@media screen and (min-width: 77rem) {
+
+/* for Centered narrow menus, comment */
+.menu-ruled.toolbar, 
+.menu-colorbox.toolbar,
+.menu-w3.toolbar,
+.menu-selector
+{
+    text-align: center;
+}
+
+/* Centred narrow menu */
+/*
+  .toolbar-submenu {
+    padding-left: 0;
   }
-
+*/
 }
 
 
 
 
 /* menu themes */
+
 /* ruled */
 /* Usually used for creative/artistic work */
 .menu-ruled.toolbar {
-    text-align: center;
-    border-bottom: black solid 1px;
+  border-bottom: black solid 1px;
 }
 
-.menu-ruled .menu-anchor:hover {
-    color: #b85051;
+.menu-ruled .menu-anchor:hover, 
+.menu-ruled .menu-anchor-open:hover, 
+.menu-ruled .submenu-anchor:hover, 
+.menu-ruled .submenu-anchor-open:hover {
+  /* purple red */
+  color: #b85051;
 }
 
 /* Coloured boxes */
 /* forceful, maybe for site navigation */
-.menu-colorbox .menu-item {
+.menu-colorbox .menu-anchor,
+.menu-colorbox .menu-anchor-open,
+.menu-colorbox .submenu-anchor,
+.menu-colorbox .submenu-anchor-open {
   /* Light, slightly muddy beige */
   background-color: #f0ebd8;
   /* orange */   
@@ -55,24 +95,37 @@
 
 /*  Underlined */
 /* classic web shape, but subtle */
-.menu-w3 .menu-anchor {
-    text-decoration: underline;
+.menu-w3 .menu-anchor,
+.menu-w3 .menu-anchor-open,
+.menu-w3 .submenu-anchor,
+.menu-w3 .submenu-anchor-open {
+  text-decoration: underline;
 }
 
-.menu-w3 .menu-anchor:hover {
-    color: #b85051;
+.menu-w3 .menu-anchor:hover, 
+.menu-w3 .menu-anchor-open:hover, 
+.menu-w3 .submenu-anchor:hover, 
+.menu-w3 .submenu-anchor-open:hover 
+{
+  /* purple red */
+  color: #b85051;
 }
 
 /* no decoration, hover underline */
 /* With no decoration, this theme is not intended to be used without 
  * support. The idea is, further HTML/CSS will provide styling for 
  * selected anchors/buttons. Whenever visible, like radio buttons, the
- * navbar will always have at least one anchor/button selected, (in 
- * some way).
+ * navbar will always have at least one anchor/button selected. Thus, 
+ * clearly indicated as an anchor.
  */
-.menu-selector .menu-anchor:hover {
-    text-decoration: underline;
-    color: #b85051;
+.menu-selector .menu-anchor:hover, 
+.menu-selector .menu-anchor-open:hover, 
+.menu-selector .submenu-anchor:hover, 
+.menu-selector .submenu-anchor-open:hover {
+  text-decoration: underline;
+
+  /* purple red */
+  color: #b85051;
 }
 
 

@@ -212,7 +212,7 @@ body {
    * 
    * On the web, 2em also looks good 
    */
-  --parindent: 1.5em;
+  --parindent: 1.5rem;
   
   /* parindent scale. Used in figures, mainly */
   --parindent-none: 0;
@@ -1038,6 +1038,47 @@ h6 {
 }
 */
 
+/* Magzine */
+
+
+
+h1 {
+    text-align: center;
+   /* margin: 2.083rem 0; */
+}
+
+h2 {
+	font-weight: normal;
+     font-size: 1.777rem;
+    text-align:center;
+	text-transform: uppercase;
+  font-variant: small-caps;
+/*  margin: 2em 0 1em; */
+}
+h3 {
+    font-size: 1.777rem;
+/*  margin: 1.333em 0 0.667em; */
+}
+h4 {
+	font-weight: normal;
+  text-transform: uppercase;
+  font-variant: small-caps;
+  /*  margin: 2.5em 0 1em 0; */
+}
+h5 { 
+	font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  /*  margin: 1.666em 0  0.667em 0; */
+}
+h6 {
+	font-weight: normal;
+  font-style: italic;
+    /*margin: 1.333em 0 0.5em 0;*/
+}
+
+
+
 /* ntglike */
 /*
 h2 {
@@ -1670,11 +1711,16 @@ blockquote {
 .toolbar {
   /* TOCONSIDER: must be inline-block, or it spills list and other 
    * margins? 
-   */
+
   display: inline-block;
-  
-  /* Thread of space at bottom */
-  padding-bottom: var(--onethird-lineskip);
+   */
+  display: block;
+     
+  /* Thread of space at top/bottom, parindent margin.
+   * Surplus to purity, but gives space for lists to work in,
+   * and useful base for themes. 
+   */
+  padding: var(--onethird-lineskip) var(--parindent);
 }
 
 .toolbar-item {
@@ -1682,8 +1728,7 @@ blockquote {
   
   /* kill stock settings */
   margin: 0;
-  padding:0;
-  /* border-top: black solid 1px; */
+  padding: 0;
 }
 
 
@@ -1719,9 +1764,15 @@ blockquote {
 .submenu-anchor-open
 {
   display: block;
+  /* One lineskip by 1rem is the simplest padding I can tthink of
+   * to act as default. Prime for overiding. Bear in mind that
+   * submenu drop is twohalf-lineskip. And that header size may be 
+   * controlled by the logo.
+   */
+  padding: var(--one-lineskip) 1rem;
   cursor: pointer;
 }
-
+  
 .menu-anchor-open::after,
 .submenu-anchor-open::after {
   /* Sign to submenus
@@ -1734,9 +1785,6 @@ blockquote {
   .toolbar {
     /* must be block in widescreen, or it will not center */
     display: block;
-    
-    /* A little indent */
-    padding: 0 var(--parindent);
   }
 
   .toolbar-item, .toolbar-item-narrow-screen-remove {
@@ -1744,11 +1792,6 @@ blockquote {
     vertical-align: middle;
     border-top: 0;
     position: relative;
-  }
-  
-  .menu-anchor { 
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   .toolbar-submenu {
