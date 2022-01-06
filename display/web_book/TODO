@@ -27,7 +27,7 @@ x JS
 x Submenu openers in submenus should not be styled as menu items
 x Find common pieces
 
-Lost wide lists?
+x Lost wide lists?
 
 x Check font-face local()
 
@@ -41,7 +41,7 @@ x (provisonal) Magazine titles
 
 x Consider \verb (no, for escaping text. and HTML QUOTE is ok)
 
-Failing breaks on lists
+x Failing breaks on lists
 
 Check illumination spacing strategy
 
