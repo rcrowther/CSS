@@ -264,7 +264,7 @@ body {
    * cursor positioning it must be a top padding (not margin, which 
    * would collapse). See Memoir's /addvspace.
    */ 
-   --vspace: 0.5em;
+   --vspace-thin: 0.5em;
     
   /*
    * Useless in practice, as custom properties
@@ -280,8 +280,8 @@ body {
    * --afterskip: 40pt;
    * 
    * = List properties
-   * --l-block-margin: 2.5em;
-   * --r-block-margin: 2.5em;
+   * --block-vspace-xxx
+   * --block-hspace: 2em;
    * --labelsep: 0.5em;
    * 
    * =
@@ -290,6 +290,18 @@ body {
    * --heavyrule: 2;
    * --lightrule: 1;
    */
+   
+  /* List properties */
+  --block-vspace: var(--twothird-lineskip);
+  --block-hspace: 2em;
+  --labelsep: 0.5em;
+  
+  --list-itemsep-x-tight: 0;
+  --list-itemsep-tight: calc(0.25 * var(--one-lineskip));
+  --list-itemsep-normal: var(--half-lineskip);
+  --list-itemsep-loose: calc(0.75 * var(--one-lineskip));
+  --list-itemsep-x-loose: var(--one-lineskip);
+  
   /* Table rule properties */
   --table-aboverulesep: 0.4ex;
   --table-belowrulesep: 0.65ex;
@@ -1223,12 +1235,12 @@ p + p {
 /* Add space before simple text-lines/paraagraphs */
 .addvspace{
   padding-top: 0.5em;
-  padding-top: var(--vspace);
+  padding-top: var(--vspace-thin);
 }
 
 .appendvspace{
   padding-bottom: 0.5em;
-  padding-bottom: var(--vspace);
+  padding-bottom: var(--vspace-thin);
 }
 
 
@@ -1242,44 +1254,78 @@ p + p {
  */
 
 ul, ol, dl {
-    /* originally, I had this at onelineskip? */
-    --parsep: var(--onethird-lineskip);
-    --l-block-margin: 2.5em;
-    --r-block-margin: 2.5em;
-    --labelsep: 0.5em;
-    display: block;
-    margin: 14.52pt 2.5em;
-    margin: var(--parsep) var(--r-block-margin) var(--parsep) var(--l-block-margin);
+  /* Memoir, P141
+   * --vspace formulae is \topsep + \parskip [+ \partopsep]
+   * Set in Memoir with this comment,
+   * For the larger sizes I have set \cs{topsep} to 2/3\cs{onelineskip}
+   * ... (\parskip is 0pt plus X R.C.)
+   * At 12pt, 9pt.4,5pt at 12pt, near enough
+   * \partopsep is used to adjust spacing for various tightnesses
+   * default - 0.2\onelineskip
+   * firmlist - 0
+   * firmlist* - 0.1\onelineskip
+   * tightlist - 0
+   * tightlist* - {0.5\onelineskip
+   * The above is not a good scale, so, we have scale of 5,
+   * x-tight (tight) 0.5
+   * tight (firm)    0.4
+   * default         0.3
+   * loose           0.2
+   * x-loose         0.1
+   * But it looks excessive to me. Probably a reset someplace.
+   * So I do this... I go far, axe scaling...
+   */
+  
+  /* margin is very complex in Memoir. It is based in LateX. It is used 
+   * to calculate embedded depth, which reduces as depth increases.
+   * \leftmargin, \rightmargin
+   * \leftmargin is 29pt
+   * Memoir sets outer default at 2em
+   */
+
+  display: block;
+  margin: 8pt 2em;
+  margin: var(--block-vspace) var(--block-hspace);
 }
 
-/* If narrow, trim horizontal margins */
-/* TODO: Why not working at 77rem?? */
-/* That said, --break-width-formatting is a viable value */
-@media screen and (max-width: 44rem) {
-  ul, ol, dl {
-  /*
-    margin-right: 0;
-    margin-left: 1.333em;
-    */
-    --l-block-margin: 1.333em;
-    --r-block-margin: 0;
-  }
+/* TODO: General */
+.vspace-zero {
+  margin-top: 0;
+  margin-bottom: 0;
 }
+
 
 li, dd {
-  --itemsep: var(--onethird-lineskip);
-  margin-bottom: 4.835pt;
-  margin-bottom: var(--itemsep);
+  /*
+   * itemsep is \itemsep + \parsep
+   * Memoir note:
+   * For the larger sizes I have set... \cs{parsep} to 1/2\cs{topsep}.
+   * So, \parsep is 1/2 topsep i.e. calc(var(--onethird-lineskip))
+   * \itemsep is used to adjust nested lists and looseness,
+   * firm - {0.5\itemsep}
+   * tight - 0
+   * \itemsep is hard to find, but in LaTeX is set to \topsep. 
+   * Involved, or what? 
+   * x-tight (tight) 0.0
+   * tight (firm)    0.5
+   * default         1.0
+   * loose           1.5
+   * x-loose         2.0
+   * But it looks excessive to me. Probably a reset someplace.
+   * So I do this...
+   */
+  margin-bottom: 6pt;
+  margin-bottom: var(--list-itemsep-normal);
 }
 
 /* Do not want last item bottom margin to overlay maybe thinner list frame */
-/* TODO: Don't like this CSS */
+/* TOPONDER: Don't like this CSS */
 ol li:last-child, ul li:last-child, dl li:last-child {
   margin-bottom: 0;
 }
 
 /* should be runin on 'dt', but not reliabile in Mozilla. float will 
- * work for single lines.
+ * work ok.
  */
 dt {
     font-weight: bold;
@@ -1287,58 +1333,24 @@ dt {
     float: left;
 }  
 
-ol.x-tight, ul.x-tight, dl.x-tight {
-  margin-top: 7.26pt;
-  margin-bottom: 7.26pt;
-  --parsep: var(--half-lineskip);
-}
-
-ol.x-tight li, ul.x-tight li, dl.x-tight dd {
+.list-x-tight li, .list-x-tight dd {
   margin-bottom: 0;
-  --itemsep: 0;
+  margin-bottom: var(--list-itemsep-x-tight);
 }
 
-ol.tight, ul.tight, dl.tight {
-  margin-top: 5.059pt;
-  margin-bottom: 5.059pt;
-  --parsep: calc(0.417 * var(--onelineskip));
+.list-tight li, .list-tight dd {
+  margin-bottom: 3pt;
+  margin-bottom: var(--list-itemsep-tight);
 }
 
-ol.tight li, ul.tight li, dl.tight dd {
-  margin-bottom: 2.42pt;
-  --itemsep: calc(0.1667 * var(--onelineskip));
+.list-loose li, .list-loose dd {
+  margin-bottom: 9pt;
+  margin-bottom: var(--list-itemsep-loose);
 }
 
-
-/* loose-spaced list */
-/* margin bottom more reliable for floats.
- * outer list margins hold overall position. 
- */
- /*TODO
-  * x Bottom margin spill spoiling the loose versions
-  * Spacing curves seem wrong anyhow
-  * x-tight does march Memoir tight. But the only one.
-  */
-ol.loose, ul.loose, dl.loose {
-  margin-top: 3.63pt;
-  margin-bottom: 3.63pt;
-  --parsep: calc(0.25 * var(--onelineskip));
-}
- 
-ol.loose li, ul.loose li, dl.loose dd {
-  margin-bottom: 10.89pt;
-  --itemsep: calc(0.75 * var(--onelineskip));
-}
-
-ol.x-loose, ul.x-loose, dl.x-loose {
-  margin-top: 2.425pt;
-  margin-bottom: 2.425pt;
-  --parsep: calc(0.167 * var(--onelineskip));
-}
- 
-ol.x-loose li, ul.x-loose li, dl.x-loose dd {
-  margin-bottom: 14.42pt;
-  --itemsep: var(--onelineskip);
+.list-x-loose li, .list-x-loose dd {
+  margin-bottom: 12pt;
+  margin-bottom: var(--list-itemsep-x-loose);
 }
 
 
@@ -1798,7 +1810,8 @@ blockquote {
     top: var(--twohalf-lineskip);
     /* margins must go. Pad a little for list elements */
     margin: 0;
-    padding: var(--vspace) 0;
+    padding: 0.5em;
+    padding: var(--vspace-thin) 0;
     background-color: #fff;
   }
   

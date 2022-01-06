@@ -84,7 +84,7 @@
     // get all submenus
     const smList = document.getElementsByClassName("toolbar-submenu");
 
-    // First an ESC killer (I allow for that R.C.)
+    // An ESC killer (I allow for that R.C.)
     document.addEventListener('keydown', function (e) {
         /* Esc */
         if (e.keyCode === 27) {
