@@ -17,20 +17,20 @@
  * - Avoid breaks in footers
  */
 body {
-    page-break-before: always;
+  page-break-before: always;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    page-break-after: avoid;
+  page-break-after: avoid;
 }
 
 table, figure, spanblock, ol, ul, dl {
-    page-break-after: avoid;
-    page-break-inside: avoid;
+  page-break-after: avoid;
+  page-break-inside: avoid;
 }
 
 article > footer, section > footer {
-    page-break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 /* for printing, hide navbars */
@@ -68,6 +68,8 @@ body {
  * 720
  * 576
  * 540
+ * 
+ * Original was  <640:16pt, <900 or hi-res:18pt, 20pt
  */
 @media screen and (min-height: 570px) {
   /* mid-res screen 1280x720 18pt */
@@ -354,16 +356,16 @@ body {
     8pt --tiny
  */
  
- --x-huge: calc(2.5 * var(--scaled-fs)); 
- --huge: calc(2.083 * var(--scaled-fs)); 
- --xx-large: calc(1.667 * var(--scaled-fs)); 
- --x-large: calc(1.417 * var(--scaled-fs)); 
- --large: calc(1.167 * var(--scaled-fs)); 
- --normal: calc(1 * var(--scaled-fs)); 
- --small: calc(0.917 * var(--scaled-fs)); 
- --x-small: calc(0.833 * var(--scaled-fs)); 
- --xx-small: calc(0.75 * var(--scaled-fs)); 
- --tiny: calc(0.667 * var(--scaled-fs));
+  --x-huge: calc(2.5 * var(--scaled-fs)); 
+  --huge: calc(2.083 * var(--scaled-fs)); 
+  --xx-large: calc(1.667 * var(--scaled-fs)); 
+  --x-large: calc(1.417 * var(--scaled-fs)); 
+  --large: calc(1.167 * var(--scaled-fs)); 
+  --normal: calc(1 * var(--scaled-fs)); 
+  --small: calc(0.917 * var(--scaled-fs)); 
+  --x-small: calc(0.833 * var(--scaled-fs)); 
+  --xx-small: calc(0.75 * var(--scaled-fs)); 
+  --tiny: calc(0.667 * var(--scaled-fs));
 
 /* 14pt REM Scaling (can use REMS against 14pt base)
     36pt --x-huge
@@ -486,35 +488,35 @@ body {
  * (not for reading/phrasal text) 
  */
 .paper-stock {
-    display: block;
+  display: block;
 }
 
 /* Designed for a sidecol */
 .paper-stock-inner-margins-cols, .paper-cols {
-    max-width: 77rem;
-    margin: 0 auto;
+  max-width: 77rem;
+  margin: 0 auto;
 }
 
 /* Full width text (no cols) 
  * This is narrowed a to make a readable linelength. Which makes no 
- * difference to responsiveness, since colums are not involved,
+ * difference to responsiveness, since columns are not involved,
  * and the margin break is narrower (on column-width) anyhow.
  */
 .paper-stock-inner-margins-web, .paper-web {
-    max-width: 54rem;
-    margin: 0 auto;
+  max-width: 54rem;
+  margin: 0 auto;
 }
 
 /* A4 width text (no cols) */
 .paper-stock-inner-margins-a4, .paper-a4 {
-    max-width: 210mm;
-    margin: 0 auto;
+  max-width: 210mm;
+  margin: 0 auto;
 }
 
 /* Column width text (no cols) */
 .paper-stock-inner-margins-column, .paper-column {
-    max-width: 44rem;
-    margin: 0 auto;
+  max-width: 44rem;
+  margin: 0 auto;
 }
 
 
@@ -523,23 +525,23 @@ body {
  * Whatever that is, this is the responsive solution
  */
 .margins-narrower {
-    padding: 2rem 7rem;
+  padding: 2rem 7rem;
 }
 
 .margins-narrow {
-    padding: 2rem 8rem;
+  padding: 2rem 8rem;
 }
 
 .margins-normal {
-    padding: 2rem 9rem;
+  padding: 2rem 9rem;
 }
 
 .margins-wide {
-    padding: 2rem 10rem;
+  padding: 2rem 10rem;
 }
 
 .margins-wider {
-    padding: 2rem 11rem;
+  padding: 2rem 11rem;
 }
  
 /* TODO: These are overrun by later margin themes */
@@ -551,7 +553,11 @@ body {
    * Trim top/extend bottom
    * (these are the papers and cols that carry text margins)
    */
-  .paper-web, .paper-a4, .paper-column, .col-2, .col-5 {
+  .paper-web, 
+  .paper-a4, 
+  .paper-column, 
+  .col-2, 
+  .col-5 {
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: var(--twothird-lineskip);
@@ -560,41 +566,6 @@ body {
 }
 
 /* layouts */
-/*
-.layout-responsive-horizontal-top > * {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.layout-responsive-horizontal-middle > * {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.layout-vertical-middle > * {
-  margin-left: auto;
-  margin-right: auto;
-}
-*/
-.col-top {
-  display: inline-block;
-  vertical-align: top;
-} 
-
-.col-middle {
-  display: inline-block;
-  vertical-align: middle;
-} 
-
-.colblock-top > * {
-  display: block;
-}
-
-.colblock-middle > * {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /*
 .print-fixed-margin-mdvl {
@@ -611,14 +582,7 @@ body {
 /* containers */
 .col-fixed-margin-vertical {
     padding: 8rem 0;
-} 
-
-/*
-.container-fluid-margin-horizontal {
-    max-width: 74rem;
-    margin: 0 auto;
 }
-*/
 
 .col-2,.col-5 {
   display: block;
@@ -868,7 +832,6 @@ h4 {
 h5 {
   font-size: var( --normal);
   margin: 3.25ex 0 1em;
-
 }
 
 h6 {
@@ -1201,7 +1164,7 @@ h5::after, h6::after {
  * locked to figure, but paragraphing is different.  
  */
 spanblock {
-    display: block;
+  display: block;
 }
 
 /* inherit pre font because this is primarily typographical, and 'pre' 
@@ -1227,8 +1190,8 @@ p + p {
 
 /* class to kill indented paragraphing (useful on blockquotes) */
 .blockparagraph p {
-    text-indent: 0;
-    margin-top: 6pt;
+  text-indent: 0;
+  margin-top: 6pt;
 }
 
 
@@ -1328,9 +1291,9 @@ ol li:last-child, ul li:last-child, dl li:last-child {
  * work ok.
  */
 dt {
-    font-weight: bold;
-    margin-right: 0.5em;
-    float: left;
+  font-weight: bold;
+  margin-right: 0.5em;
+  float: left;
 }  
 
 .list-x-tight li, .list-x-tight dd {
@@ -1774,7 +1737,7 @@ blockquote {
 .submenu-anchor-open
 {
   display: block;
-  /* One lineskip by 1rem is the simplest padding I can tthink of
+  /* One lineskip by 1rem is the simplest padding I can think of
    * to act as default. Prime for overiding. Bear in mind that
    * submenu drop is twohalf-lineskip. And that header size may be 
    * controlled by the logo.
