@@ -1,6 +1,6 @@
 body {
   /* FORTEST: illegal fontsize */
-  --fontsize:16pt;
+   --fontsize:14pt; 
 }
 
 

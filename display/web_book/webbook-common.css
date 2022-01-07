@@ -62,33 +62,56 @@ body {
  * scaling.    
  */
 /*
- * My 16:9 resolutions,
+ * My 16:9 vertical resolutions,
  * 1080
  * 900
+ * 810
+ * 768
  * 720
  * 576
  * 540
  * 
  * Original was  <640:16pt, <900 or hi-res:18pt, 20pt
+ * Now 12pt, 16pt 20pt
+ *  -140 for non-viewport space
+ *  that would be range,
+ * 940 - 400 = 540
+ * three steps? Each step,
+ * 540/4=135
+ * So changes at
+ * 400+135=535
+ * 670
+ * 805
+ * value step is
+ * 12-22/3 = 3.333
+ * 12
+ * 15.333/12 = 1.277
+ * 18.667/12 = 1.5
+ * 22/12 = 1.833
+ * 535 * 1.45
+ * 670 * 1.9
+ * 805 * 2.35
  */
-@media screen and (min-height: 570px) {
-  /* mid-res screen 1280x720 18pt */
-
+@media screen and (min-height: 535px) {
+  /* mid-res screen e,g, 960x720 14pt */
   body {
-    font-size: 16pt;
-    --fontscale: 1.333;
+    font-size: 15.333pt;
+    --fontscale: 1.277;
   }
-
 }
  
-@media screen and (min-height: 660px) {
-  /* hi-res screen 1440x810 20pt */
-
+@media screen and (min-height: 670px) {
   body {
-    font-size: 20pt;
-    --fontscale: 1.666;
+    font-size: 18.667pt;
+    --fontscale: 1.5;
   }
-
+}
+@media screen and (min-height: 805px) {
+  /* hi-res screen e.g. 1920x1080 22pt */
+  body {
+    font-size: 22pt;
+    --fontscale: 1.833;
+  }
 }
 
 @media
