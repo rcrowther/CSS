@@ -687,9 +687,6 @@ h1.article {
  * bianchi, bringhurst, crosshead, default, dowding, komalike, memman, 
  * niglike, tandh, and wilsondob
  * 
- * The chapter titles bianchi, chappell, culver, demo3, southall,
- * have no corresponding title sets.
- *
  * A few missing. brotherton too simple, thatcher too complex, others 
  * use graphics packages.
  */
@@ -711,7 +708,7 @@ h1.article {
   border-bottom: solid black 1px;
 }
 
-.bringhurst {
+h1.bringhurst {
   font-size: var( --x-large);
   text-transform: lowercase;
   font-weight: normal;
@@ -740,7 +737,7 @@ h1.article {
   margin: var(--beforeskip) 0 var(--afterskip);
 }
 
-.crosshead {
+h1.crosshead {
   --beforeskip: var(--two-lineskip);
   --afterskip: var(--two-lineskip);
   font-size: var(--xx-large);
@@ -751,11 +748,8 @@ h1.article {
 /* Too hard for now */
 .dash {}
 
-/* As used in the manual. In Menoir, it's called 'demo3', and is from 
- * traces the third attempt. In this CSS it is unified with the heafline
- * set 'memman' 
- */
-.memman {
+/* As used in the manual*/
+h1.memman {
   --beforeskip: 0;
   --afterskip: var(--two-lineskip);
   font-family:sans;
@@ -768,7 +762,7 @@ h1.article {
   margin: var(--beforeskip) 0 var(--afterskip);
 }
 
-.dowding {
+h1.dowding {
   --beforeskip: var(--two-lineskip);
   --afterskip: var(--onehalf-lineskip);
   font-weight: normal;
@@ -777,7 +771,7 @@ h1.article {
   margin: var(--beforeskip) 0 var(--afterskip);
 }
 
-.komalike {
+h1.komalike {
   --beforeskip: var(--two-lineskip);
   --afterskip: var(--onehalf-lineskip);
   font-family: sans;
@@ -785,11 +779,7 @@ h1.article {
   margin: var(--beforeskip) 0 var(--afterskip);
 }
 
-.magazine {
-  text-align: center;
-}
-
-.ntglike {
+h1.ntglike {
   --beforeskip: 50pt;
   font-size: var( --x-large);
   margin-top: var(--beforeskip);
@@ -798,7 +788,7 @@ h1.article {
 /* Cambridge book, or close */
 /* Roman family=nonsense. Uses baselineskip? */
 /* Currently bad */
-.southall {
+h1.southall {
   --beforeskip: 36pt;
   --afterskip: calc(5 * var(--onelineskip));
   font-weight: normal;
@@ -807,7 +797,7 @@ h1.article {
   margin: var(--beforeskip) 0 var(--afterskip);
 }
 
-.tandh {
+h1.tandh {
   --beforeskip: var(--onelineskip);
   --afterskip: var(--two-lineskip);
   margin: var(--beforeskip) 0 var(--afterskip);  
@@ -821,7 +811,7 @@ h1.article {
   text-align: center;
 }
 
-.wilsondob {
+h1.wilsondob {
   --beforeskip: var(--two-lineskip);
   --afterskip: var(--four-lineskip);
   font-weight: normal;
@@ -880,299 +870,305 @@ h6 + p {
 
 
 
-/* Bringhurst */
-/*
-h2 {
+/* memman */
+
+2.memman{
   font-weight: normal;
-  text-transform: lowercase;
   font-variant: small-caps;
-  margin: var(--onelineskip) 0  var(--onelineskip);
+  margin: calc(1.333 * var(--onelineskip)) 0 var(--twothird-lineskip);
 }
 
-h3 {
+3.memman {
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
+}
+
+4.memman {
   font-weight: normal;
   font-style: italic;
-  margin: var(--onelineskip) 0  var(--onelineskip);
+  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
 
-h4 {
-  font-weight: normal;
-  text-transform: lowercase;
-  font-variant: small-caps;
-  margin: var(--onelineskip) 0  1em;
-}
-
-h5 {
+5.memman {
   font-weight: normal;
   font-style: italic;
-  margin: var(--onelineskip) 0  1em;
+  margin: var(--onelineskip) 0 1em;
 }
 
-h6 {
+6.memman {
   font-weight: normal;
   font-style: italic;
-  margin: var(--onelineskip) 0  1em;
+  margin: var(--onelineskip) 0 1em;
 }
-
-h5::after, h6::after {
+5.memman::after, h6::after {
   content: ".";
 }
-*/
+
+
+/* Bringhurst */
+
+h2.bringhurst {
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  margin: var(--onelineskip) 0  var(--onelineskip);
+}
+
+h3.bringhurst {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0  var(--onelineskip);
+}
+
+h4.bringhurst {
+  font-weight: normal;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  margin: var(--onelineskip) 0  1em;
+}
+
+h5.bringhurst {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0  1em;
+}
+
+h6.bringhurst {
+  font-weight: normal;
+  font-style: italic;
+  margin: var(--onelineskip) 0  1em;
+}
+
+h5.bringhurst::after, h6::after {
+  content: ".";
+}
+
 
 /* crosshead */
-/*
-h2 {
+
+h2.crosshead {
   font-weight: normal;
   text-transform: uppercase;
   text-align: center;
   margin: calc(1.25 * var(--onelineskip)) 0 calc(0.75 * var(--onelineskip));
 }
-h3 {
+h3.crosshead {
   text-align: center;
   margin: calc(1.25 * var(--onelineskip)) 0 calc(0.75 * var(--onelineskip));
 }
-h4 {
+h4.crosshead {
   font-weight: normal;
   text-transform: lowercase;
   font-variant: small-caps;
   text-align: center;
   margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
-h5 {
+h5.crosshead {
   font-weight: normal;
   font-style: italic;
   text-align: center;
   margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
-h6 {
+h6.crosshead {
   font-weight: normal;
   text-transform: lowercase;
   font-variant: small-caps;
   margin: var(--onelineskip) 0 1em;
 }
-*/
+
 
 /* dowding */
-/*
-h2 {
+
+h2.dowding {
   font-weight: normal;
   text-transform: uppercase;
   text-align: center;
   margin: var(--two-lineskip) 0 var(--onelineskip);
 }
-h3 {
+h3.dowding {
   font-weight: normal;
   text-transform: lowercase;
   font-variant: small-caps;
   text-align: center;
   margin: calc(1.2 * var(--onelineskip)) 0 calc(0.8 * var(--onelineskip));
 }
-h4 {
+h4.dowding {
   font-weight: normal;
   font-style: italic;
   text-align: center;
   margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
-h5 {
+h5.dowding {
   font-weight: normal;
   font-style: italic;
   margin: var(--onelineskip) 0 1em;
 }
-h6 {
+h6.dowding {
   font-weight: normal;
   font-style: italic;
   margin: var(--onelineskip) 0 1em;
 }
-h5::after, h6::after {
+h5.dowding::after, h6::after {
   content: ".";
 }
-*/
+
 
 /* komalike */
-/*
-h2 {
+
+h2.komalike {
   font-family: sans;
   font-size: var( --x-large);
   margin: 3.5ex 0 2.3ex;
 }
-h3 {
+h3.komalike {
   font-family: sans;
   font-size: var( --large);
   margin: 3.5ex 0 2.3ex;
 }
-h4 {
+h4.komalike {
   font-family: sans;
   margin: 3.25ex 0 1.5em;
 }
-h5 {
+h5.komalike {
   font-family: sans;
   margin: 3.25ex 0 1em;
 }
-h6 {
+h6.komalike {
   font-family: sans;
   margin: 3.25ex 0 1em;
 }
-*/
+
 
 /* Magzine */
+
+
+/* H1 default spacing */
 /* TODO: needs checking against some sources (but feels ok) */
-/*
-h2 {
+h1.magazine {
+  text-align: center;
+}
+
+h2.magazine {
   font-weight: normal;
   text-align:center;
   text-transform: uppercase;
   margin: calc(3.25 * var(--onelineskip)) 0 calc(1 * var(--onelineskip));
 }
-h3 {
+h3.magazine {
   margin: calc(1.25 * var(--onelineskip)) 0 var(--half-lineskip);
 }
-h4 {
+h4.magazine {
   font-weight: normal;
   text-transform: uppercase;
   font-variant: small-caps;
   margin: var(--one-lineskip) 0 var(--onethird-lineskip);
 }
-h5 { 
+h5.magazine { 
   font-weight: normal;
   text-transform: lowercase;
   font-variant: small-caps;
   margin: var(--onelineskip) 0  0;
 }
 
-h6 {
+h6.magazine {
   font-weight: normal;
   font-style: italic;
   margin: var(--onelineskip) 0  0;
 }
-*/
 
-/* memman */
-/*
-h2{
-  font-weight: normal;
-  font-variant: small-caps;
-  margin: calc(1.333 * var(--onelineskip)) 0 var(--twothird-lineskip);
-}
-
-h3 {
-  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
-}
-
-h4 {
-  font-weight: normal;
-  font-style: italic;
-  margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
-}
-
-h5 {
-  font-weight: normal;
-  font-style: italic;
-  margin: var(--onelineskip) 0 1em;
-}
-
-h6 {
-  font-weight: normal;
-  font-style: italic;
-  margin: var(--onelineskip) 0 1em;
-}
-h5::after, h6::after {
-  content: ".";
-}
-*/
 
 /* ntglike */
-/*
-h2 {
+
+h2.ntglike {
   font-size: var( --large);
   margin: var(--two-lineskip) 0 var(--half-lineskip);
 }
-h3 {
+h3.ntglike {
   font-size: var( --normal);
   margin: var(--onelineskip) 0 calc(0.01 * var(--onelineskip));
 }
-h4 {
+h4.ntglike {
   font-weight: normal;
   font-style: oblique;
   margin: var(--onelineskip) 0 var(--half-lineskip);
 }
-h5 {
+h5.ntglike {
   font-weight: normal;
   font-style: oblique;
   margin: 3.25ex 0 1em;
 }
-h6 {
+h6.ntglike {
   font-weight: normal;
   font-style: oblique;
   margin: 3.25ex 0 1em;
 }
-*/
+
 
 /* tandh */
-/*
-h2 {
+
+h2.tandh {
   font-weight: normal;
   text-transform: uppercase;
   margin: var(--two-lineskip) 0 var(--onelineskip);
 }
-h3 {
+h3.tandh {
   font-size: var( --x-large);
   font-weight: normal;
   font-style: italic;
   margin: calc(1.2 * var(--onelineskip)) 0 calc(0.8 * var(--onelineskip));
 }
-h4 {
+h4.tandh {
   font-size: var( --normal);
   margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
-h5 {
+h5.tandh {
   font-weight: normal;
   font-style: italic;
   margin: var(--onelineskip) 0 1em;
 }
-h6 {
+h6.tandh {
   font-weight: normal;
   font-style: italic;
   margin: var(--onelineskip) 0 1em;
 }
-h5::after, h6::after {
+h5.tandh::after, h6::after {
   content: ".";
 }
 */
 
 /* wilsondob */
-/*
-h2 {
+
+h2.wilsondob {
   font-weight: normal;
   text-transform: uppercase;
   margin: calc(1.333 * var(--onelineskip)) 0 var(--twothird-lineskip);
 }
-h3 {
+h3.wilsondob {
   font-size: var( --x-large);
   font-weight: normal;
   font-style: italic;
   margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
-h4 {
+h4.wilsondob {
   font-weight: normal;
   text-transform: lowercase;
   font-variant: small-caps;
   margin: var(--twothird-lineskip) 0 var(--onethird-lineskip);
 }
-h5 {
+h5.wilsondob {
   font-weight: normal;
   font-style: italic;
   margin: var(--onelineskip) 0 1em;
 }
-h6 {
+h6.wilsondob {
   font-weight: normal;
   font-style: italic;
   margin: var(--onelineskip) 0 1em;
 }
 
-h5::after, h6::after {
+h5.wilsondob::after, h6::after {
   content: ".";
 }
-*/
+
 
 
 

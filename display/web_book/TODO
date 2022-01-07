@@ -13,8 +13,8 @@ x Test font sizing changes
 x Decide font break points
 x Check break poinrs
 
-Rename respecting SMACSS
-- TOC
+xRename respecting SMACSS
+x- TOC
 
 Menus
 x - Book 
@@ -36,6 +36,8 @@ x Check font-family
 List of missing chapter titles
 
 List of missing headline sets
+
+The before/afterskip in titles seems too heavy an implementation.
 
 x (provisonal) Magazine titles
 
