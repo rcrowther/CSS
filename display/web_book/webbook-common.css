@@ -490,8 +490,11 @@ body {
 .site-title {
   font-size: var(--xx-large);
   text-align: center;
-  padding: 14.52pt 0 1em;
+/*  padding: 14.52pt 0 1em;
   padding: var(--onelineskip) 0 1em;
+  */
+  margin:  var(--onelineskip) 0 1em;
+  
 }
 
 
@@ -574,7 +577,7 @@ body {
 /* Less than narrow/column sizes */    
 @media screen and (max-width: 44rem) {
   /* Make left/right padding narrow.
-   * Trim top/extend bottom
+   * Trim top/extend bottom a little
    * (these are the papers and cols that carry text margins)
    */
   .paper-web, 
@@ -585,7 +588,7 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: var(--twothird-lineskip);
-    padding-bottom: var(--four-lineskip);
+    padding-bottom: var(--one-lineskip);
   }
 }
 
