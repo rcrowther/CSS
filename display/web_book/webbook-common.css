@@ -1273,7 +1273,6 @@ ul, ol, dl {
    * \leftmargin is 29pt
    * Memoir sets outer default at 2em
    */
-
   display: block;
   margin: 8pt 2em;
   margin: var(--block-vspace) var(--block-hspace);
@@ -1286,7 +1285,7 @@ ul, ol, dl {
 }
 
 
-li, dd {
+li {
   /*
    * itemsep is \itemsep + \parsep
    * Memoir note:
@@ -1302,21 +1301,53 @@ li, dd {
    * default         1.0
    * loose           1.5
    * x-loose         2.0
-   * But it looks excessive to me. Probably a reset someplace.
-   * So I do this...
+   * But that looks excessive to me. Probably a reset someplace.
+   * So I do this... set standard sep sizes.
    */
-  margin-bottom: 6pt;
-  margin-bottom: var(--list-itemsep-normal);
+   /* Needs interspacing code. But I figure first child is as efficient 
+    * as checking the type of the previous element and, arguably, what I
+    * want to say 
+    */
+  margin-top: 6pt;
+  margin-top: var(--list-itemsep-normal);
+}
+
+.list-x-tight li {
+  margin-top: 0;
+  margin-top: var(--list-itemsep-x-tight);
+}
+
+.list-tight li {
+  margin-top: 3pt;
+  margin-top: var(--list-itemsep-tight);
+}
+
+.list-loose li {
+  margin-top: 9pt;
+  margin-top: var(--list-itemsep-loose);
+}
+
+.list-x-loose li {
+  margin-top: 12pt;
+  margin-top: var(--list-itemsep-x-loose);
+}
+
+li:first-child {
+  margin-top: 0;
 }
 
 /* Do not want last item bottom margin to overlay maybe thinner list frame */
 /* TOPONDER: Don't like this CSS */
+/*
 ol li:last-child, ul li:last-child, dl li:last-child {
   margin-bottom: 0;
 }
+*/
 
-/* should be runin on 'dt', but not reliabile in Mozilla. float will 
- * work ok.
+/* Definition lists */
+/* Should be runin on 'dt', but not reliabile in Mozilla. float will 
+ * work ok. However, that means bottom margins (unable to interspace) 
+ * and a last-child selector. https://css-tricks.com/run-in/
  */
 dt {
   font-weight: bold;
@@ -1324,26 +1355,42 @@ dt {
   float: left;
 }  
 
-.list-x-tight li, .list-x-tight dd {
+dd {
+  margin-bottom: 6pt;
+  margin-bottom: var(--list-itemsep-normal);
+}
+
+.list-x-tight dd {
   margin-bottom: 0;
   margin-bottom: var(--list-itemsep-x-tight);
 }
 
-.list-tight li, .list-tight dd {
+.list-tight dd {
   margin-bottom: 3pt;
   margin-bottom: var(--list-itemsep-tight);
 }
 
-.list-loose li, .list-loose dd {
+.list-loose dd {
   margin-bottom: 9pt;
   margin-bottom: var(--list-itemsep-loose);
 }
 
-.list-x-loose li, .list-x-loose dd {
+.list-x-loose dd {
   margin-bottom: 12pt;
   margin-bottom: var(--list-itemsep-x-loose);
 }
 
+/* Do not want last item bottom margin to overlay maybe thinner list frame */
+/* TOPONDER: Don't like this CSS */
+dd:last-child {
+  margin-bottom: 0;
+}
+
+/*
+ol li:last-child, ul li:last-child, dl li:last-child {
+  margin-bottom: 0;
+}
+*/
 
 
 /* Illustrations */
@@ -1703,6 +1750,81 @@ blockquote {
     /* content:'\2025'; */
 }
 
+
+/* Breadcrumb */
+
+/* Breadcrumb */
+.bcrumb {
+  margin: 0;
+  font-variant: small-caps;
+}
+
+.bcrumb-li {
+  display: inline-block; 
+}
+
+.bcrumb-li+.bcrumb-li:before {
+  content: ">";
+}
+
+.bcrumb-a {
+  display:inline-block;
+  padding: var(--onelineskip)  0.5em;
+  text-decoration: none; 
+}
+
+/*
+.bcrumb-a:hover {
+    color: #996423;
+}
+*/
+
+/* breadcrumb themes */
+/* NB: a lot in common with the webbook-book menu themes? */
+
+/* Coloured boxes */
+/* forceful, maybe for site navigation */
+.colorbox .bcrumb-a {
+  margin: 0 0.75rem;
+  color: black;
+  /* Light, slightly muddy beige */
+  /* background-color: #f0ebd8; */
+  /* orange */   
+  background-color: orange;
+}
+
+/*  Underlined */
+/* classic web shape, but subtle */
+.bcrumb.w3 {
+  font-variant: normal;
+}
+
+.w3 .bcrumb-a {
+  text-decoration: underline;
+}
+
+.w3 .bcrumb-a:hover 
+{
+  /* purple red */
+  color: #b85051;
+}
+
+/* no decoration, hover underline */
+/* With no decoration, this theme is not intended to be used without 
+ * support. The idea is, further HTML/CSS will provide styling for 
+ * selected anchors/buttons. Whenever visible, like radio buttons, the
+ * navbar will always have at least one anchor/button selected. Thus, 
+ * clearly indicated as an anchor.
+ */ 
+.selector .bcrumb-a {
+  color:black;
+}
+.selector .bcrumb-a:hover {
+  text-decoration: underline;
+
+  /* purple red */
+  color: #b85051;
+}
 
 
 /* Toolbar */
