@@ -1,6 +1,8 @@
+/* Fontset needs changing */
 body {
-  /* FORTEST: illegal fontsize */
-   --fontsize: 14pt; 
+  --fontsize: 14pt; 
+  --beforeskip: 36pt;
+  --afterskip: 24pt;
 }
 
 

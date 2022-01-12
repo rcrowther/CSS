@@ -493,7 +493,8 @@ body {
 /*  padding: 14.52pt 0 1em;
   padding: var(--onelineskip) 0 1em;
   */
-  margin:  var(--onelineskip) 0 1em;
+  margin: 24pt 0 1em;
+  margin: var(--two-lineskip) 0 1em;
   
 }
 
@@ -552,23 +553,23 @@ body {
  * Whatever that is, this is the responsive solution
  */
 .margins-narrower {
-  padding: 2rem 5rem;
+  padding: 1rem 5rem 2rem;
 }
 
 .margins-narrow {
-  padding: 2rem 7rem;
+  padding: 1rem 7rem 2rem;
 }
 
 .margins-normal {
-  padding: 2rem 9rem;
+  padding: 1rem 9rem 2rem;
 }
 
 .margins-wide {
-  padding: 2rem 10rem;
+  padding: 1rem 10rem 2rem;
 }
 
 .margins-wider {
-  padding: 2rem 11rem;
+  padding: 1rem 11rem 2rem;
 }
  
 /* TODO: These are overrun by later margin themes */

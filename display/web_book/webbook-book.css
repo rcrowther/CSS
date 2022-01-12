@@ -1,4 +1,9 @@
 
+/* Useful web elision */
+h1 {
+  --beforeskip: 36pt;
+  --afterskip: 24pt;
+}
 
 /*
  * The book variant handles everything as default.
