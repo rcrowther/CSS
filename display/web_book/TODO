@@ -48,3 +48,7 @@ x Failing breaks on lists
 Check illumination spacing strategy
 
 x Rebuild test-plain
+
+TOC collapse on list changes
+
+x (none to do) Narrow breadcrumb selectors 
