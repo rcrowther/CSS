@@ -45,10 +45,32 @@ x Consider \verb (no, for escaping text. and HTML QUOTE is ok)
 
 x Failing breaks on lists
 
-Check illumination spacing strategy
+x Check illumination spacing strategy
 
 x Rebuild test-plain
 
 TOC collapse on list changes
 
 x (none to do) Narrow breadcrumb selectors 
+
+##########
+Introduce a prepend/append hspace
+Afterplace breadcrumb markers
+Consider breadcrumb styles
+Make compact magazine style
+Kill definition horizontal list spacing on small screens?
+Reduce all horizontal list and figure spacing on small screens
+
+== lists
+Need a figure-like spacer to align left-right, for menus/lists. Or margin?
+Centred tables are a problem if used for lists
+
+== Buttpms
+Breadcrumbs
+Toolbar
+Vertical
+Horizontal
+breaking
+stanalone
+
+Buttons Work  with styles? In racks?

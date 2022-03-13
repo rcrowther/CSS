@@ -49,6 +49,8 @@
         this.subMenuShrinkList = [];
     }
 
+    /*
+     * now unused
     function hasClassName(elem, targetName) {
         var classNames = elem.className != undefined? elem.className.split(" ") : [];
         for (var j = 0, jl = classNames.length; j < jl; j++) {
@@ -58,18 +60,27 @@
         }
         return false;        
     }
+    */
 
-    // Get the first menu above te given submenu, and higher submenus.
+    // Get the dropmenu elements above the given dropmenu,
+    // all theway to dropmenu-root.
     // Faster to get parents than children
     function findSubMenuParentInfo(element) {
         const r = new SubMenuData(element);
         function recurse(elem) {
             var p = elem.parentNode;
             if (!p) {return};
-            if(hasClassName(p, "toolbar-submenu")) {
+            const cn = p.className
+            if (cn == undefined) {
+                return;
+            };
+            
+            if(cn.slice(0, 8) == "dropmenu") {
+            //if(hasClassName(p, "submenu")) {
                 r.parentSubmenus.push(p);
             }
-            if(hasClassName(p, "toolbar-menu")) {
+            if(cn.slice(0, 13) == "dropmenu-root") {
+            //if(hasClassName(p, "menu")) {
                 r.menu = p;
                 return;
             }
@@ -82,7 +93,7 @@
 
 
     // get all submenus
-    const smList = document.getElementsByClassName("toolbar-submenu");
+    const smList = document.getElementsByClassName("dropmenu");
 
     // An ESC killer (I allow for that R.C.)
     document.addEventListener('keydown', function (e) {
@@ -100,7 +111,7 @@
         const openAnchor = sm.previousElementSibling;
 
         // Should have one of these. If not, don't bother
-        if (openAnchor.className == "menu-anchor-open" || openAnchor.className == "submenu-anchor-open") {
+        if (openAnchor.className.slice(0, 18) == "dropmenu-root-open" || openAnchor.className.slice(0, 13) == "dropmenu-open") {
             // 
             openAnchor.onclick = function() {
                 // Don't try if it's expanded

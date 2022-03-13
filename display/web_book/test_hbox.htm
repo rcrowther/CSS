@@ -1,0 +1,332 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>WebBook-HBox</title>    
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="normalize_8-0-1.css">
+    <link rel="stylesheet" type="text/css" href="webbook-common.css">
+    <link rel="stylesheet" type="text/css" href="webbook-themes.css">
+    <script src="webbook_menu.js" defer></script>
+  </head>
+
+  <body>
+      <article class="paper-web margins-normal">
+
+
+      <header class="sitetitle">
+        <h1 class="title">HBox</h1>
+        <div class="data xx-small">
+          <author>Robert Crowther</author>
+          <date>July 2016</date>
+        </div>
+      </header>
+
+      <h2>Button Rack</h2>
+
+        <p>
+          While the hbox described below is good for layout like 
+          left/right positioning and variable-sized contents, if you
+          need a hbox for buttons oroother objects, use button-rack. 
+          It's simple to layout, and expands full-width on a 
+          small-screen (which the hboxes can not), It can align left, 
+          right or, as here, center,
+        </p>
+      <ul class="buttonbox-center">
+          <li class="buttonbox-item"><a href="#" class="button-nl">Arts</a></li>
+          <li class="buttonbox-item"><a href="#" class="button-nl">Graphic</a></li>
+          <li class="buttonbox-item"><a href="#" class="button-nl">Textile</a></li>
+          <li class="buttonbox-item"><a href="#" class="button-nl">Weaving</a></li>
+      </ul> 
+      <p>
+          The above was worked in a list. If the sematics are ok, it can 
+          be done on a div full of anchors---saves on html, clearer to 
+          read,
+      </p>
+      <div class="buttonbox-center">
+          <a href="#" class="buttonbox-item button-nl">Arts</a>
+          <a href="#" class="buttonbox-item button-nl">Graphic</a>
+          <a href="#" class="buttonbox-item button-nl">Textile</a>
+          <a href="#" class="buttonbox-item button-nl">Weaving</a>
+      </div> 
+        <p>
+            There's themes available. Here's theme-buttonbox-colorbox,
+        </p>
+      <div class="buttonbox-center theme-buttonbox-colorbox">
+          <a href="#" class="buttonbox-item button-nl">Arts</a>
+          <a href="#" class="buttonbox-item button-nl">Graphic</a>
+          <a href="#" class="buttonbox-item button-nl">Textile</a>
+          <a href="#" class="buttonbox-item button-nl">Weaving</a>
+      </div>
+                   
+      <h2> HBox Basics</h2>
+        <p>
+        Webbook has another concept for horizontal box layout. This is 
+        more complexity for little use unless you want broken 
+        positioning e.g. left/right placement, or dropdown menus.
+        </p>
+      <p>
+          These classes can not be used on lists. Lists come with 
+          awkward preset spacings. Lists add too much extra HTML 
+          structure, and their preset spacing is too much to kill.
+      </p>
+        <p>
+        Three base boxes are provided, with alignment in different 
+        directions. Contents can be near-anything, classed as 
+        'hbox-item'. Box-items take on the size of their contents.
+        All are responsive. They break on paper-web width. Left,
+        </p>
+        <div class="hbox-left">
+          <div class="hbox-item">
+            Archeology
+          </div>
+          <div class="hbox-item">
+            French
+          </div>
+          <div class="hbox-item">
+            Temp Agencies
+          </div>
+        </div>
+        <p>
+          center,
+        </p>
+        <div class="hbox-center">
+          <div class="hbox-item">
+            Archeology
+          </div>
+          <div class="hbox-item">
+            French
+          </div>
+          <div class="hbox-item">
+            Temp Agencies
+          </div>
+        </div>
+        <p>
+          right,
+        </p> 
+        <div class="hbox-right">
+          <div class="hbox-item">
+            Archeology
+          </div>
+          <div class="hbox-item">
+            French
+          </div>
+          <div class="hbox-item">
+            Temp Agencies
+          </div>
+        </div>
+
+      
+      <h2>The container box</h2>
+      <p>
+          There is an extra hbox, called hbox-fill. On it's own, 
+          horizontal space is even-across, which is rarely welcome,
+      </p>
+      <div class="hbox-fill">
+          <div class="hbox-item">
+            Archeology
+          </div>
+          <div class="hbox-item">
+            French
+          </div>
+          <div class="hbox-item">
+            Temp Agencies
+          </div>
+      </div>
+      <p>
+          The intended use of hbox-fill is as a container for other 
+          hboxes. and standalone hbox-items.
+      </p>
+      <div class="hbox-fill">
+        <div class="hbox-left">
+          <div class="hbox-item">
+            Archeology
+          </div>
+          <div class="hbox-item">
+            French
+          </div>
+          <div class="hbox-item">
+            Inigo
+          </div>
+        </div>
+        <div class="hbox-right">
+          <div class="hbox-item">
+            Meek
+          </div>
+          <div class="hbox-item">
+            Temp Agencies
+          </div>
+        </div>
+      </div>
+      <p>
+        Items can work downward, by not using the hbox classes,
+      </p>
+      <div class="hbox-fill">
+        <div class="hbox-left">
+        <ul>
+          <li>
+            Archeology
+          </li>
+          <li>
+            French
+          </li>
+          <li>
+            Inigo
+          </li>
+        </ul>
+        </div>
+          <div class="hbox-right">
+        <ul>
+          <li>
+            Meek
+          </li>
+          <li>
+            Temp Agencies
+          </li>
+        </ul>
+        </div>
+      </div>
+
+    <h2>Other items</h2>
+      <p>
+        Buttons are an agreed button-like spacing. So hbox-items
+        can be links, and use button classes. button-ll would be the 
+        usual choice horizontally,
+      </p>
+      <div class="hbox-left">
+          <div class="hbox-item button-ll">LOGO</div>
+          <a href='#' class="hbox-item button-ll">Archeology</a>
+          <a href='#' class="hbox-item button-ll">Temp Agencies</a>
+      </div>
+      <p>
+        ...but looks fat vertically. The class
+        hbox-button breaks from high to low, or make your own 
+        responsive size,
+      </p>          
+      <div class="hbox-left">
+          <div class="hbox-item hbox-button">LOGO</div>
+          <a href='#' class="hbox-item hbox-button">Archeology</a>
+          <a href='#' class="hbox-item hbox-button">Temp Agencies</a>
+      </div>
+      <p>
+        The class "hbox-item-narrow-screen-remove" will do as it says, 
+        remove an item on narrow screens,
+      </p>    
+      <div class="hbox-left">
+          <img src="logo.svg" class="hbox-item-narrow-screen-remove hbox-button" style="width:100px;"/>
+          <a href='#' class="hbox-item hbox-button">Archeology</a>
+          <a href='#' class="hbox-item hbox-button">Temp Agencies</a>
+      </div>      
+      
+    <h2>Menus</h2>
+      <p>
+        A menu needs link buttons. So anchors with button classes, here 
+        hbox-button, in a left/right layout,
+      </p>
+
+      <div class="hbox-fill">
+        <div class="hbox-left">
+            <a href="#" class="hbox-item hbox-button">Archeology</a>
+            <a href="#" class="hbox-item hbox-button">Inigo</a>
+        </div>
+        <div class="hbox-right">
+            <a href="#" class="hbox-item hbox-button">Temp Agencies</a>
+        </div>
+      </div>
+                  
+    <h2>Drop Menus</h2>
+      <p>
+        A drop menu can also be built. This needs the HTML form defined 
+        below, and the included snippet of JS. 
+      </p>
+      <p>
+        For narrow/vertical display the usual size for menu buttons is 
+        button-sl. For narrow/vertical consistency, all buttons should 
+        be the same size. But in the horizontal direction, the 
+        horizontal buttons probably need more vertical size. hbox-button
+        has the same wide-display width as button-sl and button-nl, so 
+        can be used for root menu items. Drop menu items will use
+        button-sl or button-nl. If you want to construct your own 
+        breaking button for another horizontal width, keep it the same 
+        width as the drop menu sizes, or text alignment will break,
+      </p>    
+
+        <div class="hbox-left menu-ruled">
+          <div class="hbox-item-narrow-screen-remove hbox-button x-large">LOGO</div>
+          <a href="#" class="hbox-item hbox-button">A</a>
+          <a href="#" class="hbox-item hbox-button">Menu</a>
+          <div class="hbox-item dropmenu-root">
+            <a class="dropmenu-root-open hbox-button">Outline</a>
+            <div class="dropmenu">
+                <a class="dropmenu-open button-sl">Authors</a>
+                <div class="dropmenu dropmenu-shift-left">
+                  <a href="#" class="button-sl">Hugo</a>
+                  <a href="#" class="button-sl">Dante</a>
+                  <a href="#" class="button-sl">Fitzgerald</a>
+                </div>
+              <a href="#" class="button-sl">Cookery</a>
+              <a href="#" class="button-sl">Fishing</a>
+            </div>
+          </div>
+          <a href="#" class="hbox-item hbox-button">About</a>
+        </div>
+      <p>
+      Dropdown menus usually imply a site topbar. This will be 
+      highly customised, so no themes are available. Start with the 
+      color and images, work from there,
+      </p>
+        <div class="hbox-left" style="background-color:MediumSeaGreen; color:white;">
+          <a href="#" class="hbox-item hbox-button">Archeology</a>
+          <div class="dropmenu-root hbox-item">
+            <a class="dropmenu-open hbox-button">Authors</a>
+            <div class="dropmenu" style="background-color: DarkOliveGreen;
+color: #fff;">
+              <a href="#" class="button-sl">Hugo</a>
+              <a href="#" class="button-sl">Dante</a>
+              <a href="#" class="button-sl">Fitzgerald</a>
+            </div>
+          </div>
+          <a class="hbox-item hbox-button">About</a>
+        </div>
+
+    <h2>Breadcrumbs</h2>
+      <p>
+        Breadcrumbs are a special kind of menu.  They would usually use a 
+        hbox-left-wrap with button-zs. Unlike menus, common CSS does not 
+        provide a modifiable class system. It gives an optional base 
+        theme-bcrumb for a list,
+      </p>
+      <p>
+        Again, don't use list HTML,
+      </p>  
+      <div class="hbox-left-wrap theme-bcrumb">
+        <div><a href="#">Arts</a></div>
+        <div><a href="#">Graphic</a></div>
+        <div><a href="#">Textile</a></div>
+        <div><a href="#">Weaving</a></div>
+      </div> 
+    <p>
+      Further breadcrumb themes are available e.g. 
+      theme-bcrumb-selector,
+    </p>  
+      <div class="hbox-left-wrap theme-bcrumb theme-bcrumb-selector">
+        <div><a href="#">Arts</a></div>
+        <div><a href="#">Graphic</a></div>
+        <div><a href="#">Textile</a></div>
+        <div><a href="#">Weaving</a></div>
+      </div> 
+    <p>
+      Use as much as you want.
+    </p>
+    </article>
+    
+    
+    <footer class="paper-web margins-wide" style="text-align:center;">
+        <p>Original model for most formatting, however crude the translation, is <a href="http://anorien.csc.warwick.ac.uk/mirrors/CTAN/macros/latex/contrib/memoir/memman.pdf">'Memoir'</a> </p>
+        <p style="text-indent: 0;">HTML/CSS by Robert Crowther, 2022</p>
+    </footer>
+
+  </body>
+</html>

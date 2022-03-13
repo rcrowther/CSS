@@ -137,13 +137,24 @@ body {
  * Primo for overriding.
 */
 
+
+
+@font-face {
+  font-family: "Calistoga";
+  /* deliver the weights--- they are lower and lesser */
+  /* src: url('/static/fonts/Vollkorn-VariableFont_wght-1.woff2') format('woff2'); */
+  src: url('/static/fonts/Calistoga-Regular.ttf');
+  font-display: swap;
+}
+
+
 body {
   /* List of Palatino-likes, degrading. Palatino is a commercial font,
    * and Palatino-likes are not well-regarded. However, Palatino is 
    * common in books, provided in LaTeX, and has several platform
    * approximations ("DejaVu" Linux/free, "Book Antiqua" MS) 
    */
-  font-family: Palatino, "Book Antiqua", "DejaVu Serif", Georgia, serif;
+  font-family: Calistoga, Palatino, "Book Antiqua", "DejaVu Serif", Georgia, serif;
   background-color: lightgrey;
 
   /* Custom properties for base values.
@@ -1763,281 +1774,194 @@ blockquote {
 }
 
 
+/* Breadcrumb */
 
-
-/* Buttons */
-/*
- * ! move to top when assured
- */ 
-
- body {
- --text-vspace-small: var(--onethird-lineskip);
- --text-vspace-normal: var(--half-lineskip);
- --text-vspace-large: var(--onelineskip);  
- --text-hspace-small: 0.5em;
- --text-hspace-normal: 1em;
- --text-hspace-large: 1.5em;
- --button-spacing-vertical: var(--text-vspace-small);
- --button-spacing-horizontal: var(--text-hspace-small);
+/* Breadcrumb */
+.bcrumb {
+  margin: 0;
+  font-variant: small-caps;
 }
 
-.button-zs,
-.button-zn,
-.button-sn,
-.button-nn,
-.button-nl,
-.button-ll {
-  display: inline-block;
+.bcrumb-li {
+  display: inline-block; 
 }
+
+.bcrumb-li+.bcrumb-li:before {
+  content: ">";
+}
+
+.bcrumb-a {
+  display:inline-block;
+  padding: var(--onelineskip)  0.5em;
+  text-decoration: none; 
+}
+
 /*
- (zero height, narrow width e.g. breadcrumb) 
+.bcrumb-a:hover {
+    color: #996423;
+}
 */
-.button-zs {
-  padding:0 var(--text-hspace-small);
-}
-/*
-( zero height, notmal wide button e.g. filter)
-*/
-.button-zn {
-  padding:0 var(--text-hspace-normal);
-}
-/*
-(small-height, normal width)
-*/
-.button-sn {
-  padding:var(--text-vspace-small) var(--text-hspace-normal);
-}
-/*
-(submenu)
-*/
-.button-sl {
-  padding:var(--text-vspace-small) var(--text-hspace-large);
-}
-/*
-(normal height/width e.g. small toolbar)
-*/
-.button-nn {
-  padding:var(--text-vspace-normal) var(--text-hspace-normal);
-}
-/*
-(normal height, wide e.g. general button)
-*/
-.button-nl {
-  padding:var(--text-vspace-normal) var(--text-hspace-large);
-}
-/*
-(large height/width e.g. standard toolbar)
-*/
-.button-ll {
-  padding:var(--text-vspace-large) var(--text-hspace-large);
+
+/* breadcrumb themes */
+/* NB: a lot in common with the webbook-book menu themes? */
+
+/* Coloured boxes */
+/* forceful, maybe for site navigation */
+.colorbox .bcrumb-a {
+  margin: 0 0.75rem;
+  color: black;
+  /* Light, slightly muddy beige */
+  /* background-color: #f0ebd8; */
+  /* orange */   
+  background-color: orange;
 }
 
-
-
-/* ButtonBox */
-.buttonbox-left, 
-.buttonbox-right,
-.buttonbox-center {
-  display: block;
+/*  Underlined */
+/* classic web shape, but subtle */
+.bcrumb.w3 {
+  font-variant: normal;
 }
 
-.buttonbox-left {
-  text-align: left;
+.w3 .bcrumb-a {
+  text-decoration: underline;
 }
 
-.buttonbox-center {
-  text-align: center;
-}
-
-.buttonbox-right {
-  text-align: right;
-}
-
-.buttonbox-item {
-  display: block;
-  margin: var(--button-spacing-vertical) 0;
-}
-
-.buttonbox-item > a {
-  display: block;
-}
-
-.buttonbox-item-narrow-screen-remove {
-  display: none;
-}
-  
-@media screen and (min-width: 77rem) {
-  .buttonbox-item,
-  .buttonbox-item-narrow-screen-remove {
-    display: inline-block;
-    margin: 0 var(--button-spacing-horizontal);
-  }
-}
-
-
-/* HBox */
-/*
- * Note that hboxes inside toolbars can grow.
- */ 
-.hbox-left,
-.hbox-center,
-.hbox-right,
-.hbox-fill 
+.w3 .bcrumb-a:hover 
 {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  /* purple red */
+  color: #b85051;
 }
 
-.hbox-left {
-  justify-content: flex-start;
+/* no decoration, hover underline */
+/* With no decoration, this theme is not intended to be used without 
+ * support. The idea is, further HTML/CSS will provide styling for 
+ * selected anchors/buttons. Whenever visible, like radio buttons, the
+ * navbar will always have at least one anchor/button selected. Thus, 
+ * clearly indicated as an anchor.
+ */ 
+.selector .bcrumb-a {
+  color:black;
 }
 
-.hbox-center {
-  justify-content: center;
+.selector .bcrumb-a:hover {
+  text-decoration: underline;
+
+  /* purple red */
+  color: #b85051;
 }
 
-.hbox-right {
-  justify-content: flex-end;
-}
 
-/* special-wrapping flexbox */
-.hbox-left-wrap {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-}
+/* Toolbar */
+/* NOTE: The stock setup is for narrow-screen. See the
+ * media selector below for the wide-screen CSS
+ */
+.toolbar {
+  /* TOCONSIDER: must be inline-block, or it spills list and other 
+   * margins? 
 
-.hbox-item {
-  /* Horizontal positioning is handled by flexbox. This is here to 
-   * encourage display uniformity
+  display: inline-block;
    */
   display: block;
-  position: relative;
+     
+  /* Thread of space at top/bottom, parindent margin.
+   * Surplus to purity, but gives space for lists to work in,
+   * and useful base for themes. 
+   */
+  padding: var(--onethird-lineskip) var(--parindent);
 }
 
-.hbox-item-narrow-screen-remove {
-  display: none;
-  position: relative;
-}
-
-/* A responsive button, small/normal to large/large */
-.hbox-button {
-  padding: var(--text-vspace-small) var(--text-hspace-normal);
-}
-
-@media screen and (min-width: 77rem) {
-  .hbox-button {
-    padding:var(--text-vspace-large) var(--text-hspace-large);
-  }
-}
-
-
-@media screen and (min-width: 77rem) {
-  .hbox-center,
-  .hbox-right,
-  .hbox-left,
-  .hbox-fill {
-   flex-direction: row;
-   align-items: center;
-  }
+.toolbar-item {
+  display: block;
   
-  .hbox-item-narrow-screen-remove {
-    display: block;
-  }
+  /* kill stock settings */
+  margin: 0;
+  padding: 0;
 }
 
-/*
- * Will fill a hbox as best can, hard left to hard right.
- * Items that can not grow (the default) are evenly distributed, hard 
- * left to hard right.
- * * All toobars can grow.
- */
-.hbox-fill {
-  justify-content: space-between;
+
+.toolbar-item-narrow-screen-remove {
+  display: none;
 }
 
-.hbox-logo-text {
+.toolbar-logo-img {
+  /* block and height for images.
+   */
+  display: block;
+  height: 4rem;
+}
+
+.toolbar-logo-txt {
   /* inline for text.
    */
   display: inline;
 }
 
+/* We leave narrow-screen as mostly default list CSS, it's ok */
+.toolbar-menu, .toolbar-submenu {
+  list-style: none;
+}
+.toolbar-submenu {
+  /* initially not displayed */
+  display: none;
+}
 
-
-/* Dropmenu */
-
-.dropmenu-root-open::after,
-.dropmenu-open::after {
-  /* Sign for submenus
+.menu-anchor, 
+.menu-anchor-open,
+.submenu-anchor,
+.submenu-anchor-open
+{
+  display: block;
+  /* One lineskip by 1rem is the simplest padding I can think of
+   * to act as default. Prime for overiding. Bear in mind that
+   * submenu drop is twohalf-lineskip. And that header size may be 
+   * controlled by the logo.
+   */
+  padding: var(--one-lineskip) 1rem;
+  cursor: pointer;
+}
+  
+.menu-anchor-open::after,
+.submenu-anchor-open::after {
+  /* Sign to submenus
    */
   content: "\00a0\00a0\25BE";
 }
 
-.dropmenu {
-  /* initially not displayed */
-  display: none;
-  margin-left: var(--block-hspace);
-} 
-
-.dropmenu-root > a,
-.dropmenu > a {
-  display: block;
-  cursor: pointer;
-}
-
-
-
 @media screen and (min-width: 77rem) {
 
-  .dropmenu {
+  .toolbar {
+    /* must be block in widescreen, or it will not center */
+    display: block;
+  }
+
+  .toolbar-item, .toolbar-item-narrow-screen-remove {
+    display: inline-block;
+    vertical-align: middle;
+    border-top: 0;
+    position: relative;
+  }
+
+  .toolbar-submenu {
     position: absolute;
     z-index: 8;
     top: var(--twohalf-lineskip);
-    
-    /* margin left must go 
-     * (anything else, go with the flow) 
-     */
-    margin-left: 0;
-
-    /* background color on absolutes is transparent. Assert something */
+    /* margins must go. Pad a little for list elements */
+    margin: 0;
+    padding: 0.5em;
+    padding: var(--vspace-thin) 0;
     background-color: #fff;
   }
-
-  .dropmenu-shift-right {
+  
+  .submenu-shift-right {
     left: 100%;
     top: 0;
   }
   
-  .dropmenu-shift-left {
+  .submenu-shift-left {
     right: 100%;
     top: 0;
   }
 }
-
-
-
-
-/* Breadcrumb */
-.theme-bcrumb {
-  font-variant: small-caps;
-}
-/*
-.theme-bcrumb > div {
-  display: inline-block; 
-}
-*/
-.theme-bcrumb > div > a {
-  /* Thats button-zs */
-  padding:0 var(--text-hspace-small);
-  display: inline-block;
-}
-
-.theme-bcrumb > div:after {
-  content: ">";
-}
-
 
 
 

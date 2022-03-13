@@ -1,0 +1,130 @@
+/* ButtonBox */
+
+/* Default, for the somber */
+.theme-buttonbox-default a {
+  border: 1px inset lightgray;
+  font-weight: bold;
+  background-color: black; 
+  color: white;
+  text-decoration: none;
+}
+
+.theme-buttonbox-default a:hover {
+  background-color:dimgrey;
+}
+
+
+/* Empty, for the sober */
+.theme-buttonbox-empty a {
+  border: 1px solid black;
+  text-decoration:none;
+  color: black;
+}
+
+.theme-buttonbox-empty a:hover {
+  border-left: 8px solid;
+  border-right: 8px solid;
+}
+
+
+/* Colourbox */
+/* forceful, maybe for site navigation */
+.theme-buttonbox-colorbox a {
+/*
+  margin: 0 0.75rem;
+  padding-top: var(--onethird-lineskip);
+*/
+  border: 1px inset saddlebrown;
+  text-decoration: none;
+  color: black;
+  /* Light, slightly muddy beige */
+  /* background-color: #f0ebd8; */
+  /* orange */   
+  background-color: orange;
+}
+
+.theme-buttonbox-colorbox a:hover {
+  background-color: GoldenRod;
+}
+
+
+/*  Underlined */
+/* classic web shape, but subtler */
+.theme-buttonbox-w3 a:hover 
+{
+  /* purple red */
+  color: #b85051;
+}
+
+/* Selector */
+/* With no decoration, this theme is not intended to be used without 
+ * other visual clues.
+ */ 
+.theme-buttonbox-selector a {
+  text-decoration: none; 
+  color:black;
+}
+
+.theme-buttonbox-selector a:hover {
+  text-decoration: underline;
+
+  /* purple red */
+  color: #b85051;
+}
+
+
+/* breadcrumb themes */
+/* NB: a lot in common with the webbook-book menu themes? */
+
+/*
+.bcrumb-a:hover {
+    color: #996423;
+}
+*/
+
+
+/* Colourbox */
+/* forceful, maybe for site navigation */
+.theme-bcrumb-colorbox > div > a {
+  margin: 0 var(--vspace-thin);
+  padding-top: 0.25em;
+  border: 1px inset saddlebrown;
+  text-decoration: none; 
+  color: black;
+  /* Light, slightly muddy beige */
+  /* background-color: #f0ebd8; */
+  /* orange */   
+  background-color: orange;
+}
+
+.theme-bcrumb-colorbox > div > a:hover {
+  background-color: GoldenRod;
+}
+
+/*  Underlined */
+/* classic web shape, but subtler */
+.theme-bcrumb-w3 {
+  font-variant: normal;
+}
+
+.theme-bcrumb-w3 a:hover 
+{
+  /* purple red */
+  color: #b85051;
+}
+
+/* Selector */
+/* With no decoration, this theme is not intended to be used without 
+ * other visual clues.
+ */ 
+.theme-bcrumb-selector a {
+  text-decoration: none; 
+  color:black;
+}
+
+.theme-bcrumb-selector a:hover {
+  text-decoration: underline;
+
+  /* purple red */
+  color: #b85051;
+}
