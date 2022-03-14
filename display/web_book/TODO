@@ -54,9 +54,9 @@ TOC collapse on list changes
 x (none to do) Narrow breadcrumb selectors 
 
 ##########
-Introduce a prepend/append hspace
-Afterplace breadcrumb markers
-Consider breadcrumb styles
+? Introduce a prepend/append hspace
+x Afterplace breadcrumb markers
+x Consider breadcrumb styles
 Make compact magazine style
 Kill definition horizontal list spacing on small screens?
 Reduce all horizontal list and figure spacing on small screens
@@ -66,11 +66,10 @@ Need a figure-like spacer to align left-right, for menus/lists. Or margin?
 Centred tables are a problem if used for lists
 
 == Buttpms
-Breadcrumbs
-Toolbar
-Vertical
-Horizontal
-breaking
-stanalone
-
-Buttons Work  with styles? In racks?
+x Breadcrumbs
+x Toolbar
+x Vertical
+x Horizontal
+x breaking
+x stanalone
+x Buttons Work  with styles? In racks?

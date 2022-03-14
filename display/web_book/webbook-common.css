@@ -1834,41 +1834,41 @@ blockquote {
 
 
 
-/* ButtonBox */
-.buttonbox-left, 
-.buttonbox-right,
-.buttonbox-center {
+/* HPos */
+.hpos-left, 
+.hpos-right,
+.hpos-center {
   display: block;
 }
 
-.buttonbox-left {
+.hpos-left {
   text-align: left;
 }
 
-.buttonbox-center {
+.hpos-center {
   text-align: center;
 }
 
-.buttonbox-right {
+.hpos-right {
   text-align: right;
 }
 
-.buttonbox-item {
+.hpos-item {
   display: block;
   margin: var(--button-spacing-vertical) 0;
 }
 
-.buttonbox-item > a {
+.hpos-item > a {
   display: block;
 }
 
-.buttonbox-item-narrow-screen-remove {
+.hpos-item-narrow-screen-remove {
   display: none;
 }
   
 @media screen and (min-width: 77rem) {
-  .buttonbox-item,
-  .buttonbox-item-narrow-screen-remove {
+  .hpos-item,
+  .hpos-item-narrow-screen-remove {
     display: inline-block;
     margin: 0 var(--button-spacing-horizontal);
   }
@@ -1922,13 +1922,28 @@ blockquote {
   position: relative;
 }
 
-/* A responsive button, small/normal to large/large */
+
+/* Responsive buttons */
+
 .hbox-button {
-  padding: var(--text-vspace-small) var(--text-hspace-normal);
+/*var(--one-lineskip)0.667rem; 1rem;
+*/
+  padding: var(--text-vspace-small) var(--text-hspace-small);
 }
 
 @media screen and (min-width: 77rem) {
   .hbox-button {
+    padding:var(--text-vspace-normal) var(--text-hspace-normal);
+  }
+}
+
+/* A responsive button, small/normal to large/large */
+.hbox-button-l {
+  padding: var(--text-vspace-normal) var(--text-hspace-normal);
+}
+
+@media screen and (min-width: 77rem) {
+  .hbox-button-l {
     padding:var(--text-vspace-large) var(--text-hspace-large);
   }
 }
@@ -1979,6 +1994,8 @@ blockquote {
   /* initially not displayed */
   display: none;
   margin-left: var(--block-hspace);
+  /* For small menus, may want to comment */
+  padding: var(--text-vspace-small) 0;
 } 
 
 .dropmenu-root > a,

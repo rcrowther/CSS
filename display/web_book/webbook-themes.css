@@ -1,7 +1,7 @@
-/* ButtonBox */
+/* Hpos */
 
 /* Default, for the somber */
-.theme-buttonbox-default a {
+.theme-hpos-default a {
   border: 1px inset lightgray;
   font-weight: bold;
   background-color: black; 
@@ -9,19 +9,19 @@
   text-decoration: none;
 }
 
-.theme-buttonbox-default a:hover {
+.theme-hpos-default a:hover {
   background-color:dimgrey;
 }
 
 
 /* Empty, for the sober */
-.theme-buttonbox-empty a {
+.theme-hpos-empty a {
   border: 1px solid black;
   text-decoration:none;
   color: black;
 }
 
-.theme-buttonbox-empty a:hover {
+.theme-hpos-empty a:hover {
   border-left: 8px solid;
   border-right: 8px solid;
 }
@@ -29,7 +29,7 @@
 
 /* Colourbox */
 /* forceful, maybe for site navigation */
-.theme-buttonbox-colorbox a {
+.theme-hpos-colorbox a {
 /*
   margin: 0 0.75rem;
   padding-top: var(--onethird-lineskip);
@@ -43,14 +43,14 @@
   background-color: orange;
 }
 
-.theme-buttonbox-colorbox a:hover {
+.theme-hpos-colorbox a:hover {
   background-color: GoldenRod;
 }
 
 
 /*  Underlined */
 /* classic web shape, but subtler */
-.theme-buttonbox-w3 a:hover 
+.theme-hpos-w3 a:hover 
 {
   /* purple red */
   color: #b85051;
@@ -60,12 +60,12 @@
 /* With no decoration, this theme is not intended to be used without 
  * other visual clues.
  */ 
-.theme-buttonbox-selector a {
+.theme-hpos-selector a {
   text-decoration: none; 
   color:black;
 }
 
-.theme-buttonbox-selector a:hover {
+.theme-hpos-selector a:hover {
   text-decoration: underline;
 
   /* purple red */

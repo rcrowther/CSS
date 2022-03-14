@@ -3,7 +3,7 @@
 <html>
 
   <head>
-    <title>WebBook-HBox</title>    
+    <title>HBox|WebBook</title>    
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="normalize_8-0-1.css">
@@ -24,48 +24,66 @@
         </div>
       </header>
 
-      <h2>Button Rack</h2>
-
+        <p>
+          The layout tools on this page position page 
+          elements horizontally. HPos and HBox break to vertical layout 
+          on a small screen. The BCrumb theme wraps.
+        </p>
+        <p>
+          The tools are not designed for HTML lists. Lists carry
+          generic formatting, and add superfluous HTML elements. Use
+          divs/spans/images etc. 
+        </p>
+        
+        
+      <h2>HPos</h2>
         <p>
           While the hbox described below is good for layout like 
           left/right positioning and variable-sized contents, if you
-          need a hbox for buttons oroother objects, use button-rack. 
-          It's simple to layout, and expands full-width on a 
-          small-screen (which the hboxes can not), It can align left, 
-          right or, as here, center,
+          need an hbox for buttons or oother objects, use hpos. 
+          It's simple to layout and expands full-width on a 
+          small-screen. The disadvantage, as will clearly show with the
+          overfilled examples below, is that it wraps badly. That's why
+          it's called HPos. It's mainly for, say, aligning a free button
+          centrally on a page.
         </p>
-      <ul class="buttonbox-center">
-          <li class="buttonbox-item"><a href="#" class="button-nl">Arts</a></li>
-          <li class="buttonbox-item"><a href="#" class="button-nl">Graphic</a></li>
-          <li class="buttonbox-item"><a href="#" class="button-nl">Textile</a></li>
-          <li class="buttonbox-item"><a href="#" class="button-nl">Weaving</a></li>
+        <p>
+          HPos can align left, right or, as here, center,
+        </p>
+      <ul class="hpos-center">
+          <li class="hpos-item"><a href="#" class="button-nl">Arts</a></li>
+          <li class="hpos-item"><a href="#" class="button-nl">Graphic</a></li>
+          <li class="hpos-item"><a href="#" class="button-nl">Textile</a></li>
+          <li class="hpos-item"><a href="#" class="button-nl">Weaving</a></li>
       </ul> 
       <p>
-          The above was worked in a list. If the sematics are ok, it can 
-          be done on a div full of anchors---saves on html, clearer to 
-          read,
+          The above was worked in a list. If the sematics are ok, the 
+          classes can be applied to a div full of anchors---spares 
+          html, clearer to read,
       </p>
-      <div class="buttonbox-center">
-          <a href="#" class="buttonbox-item button-nl">Arts</a>
-          <a href="#" class="buttonbox-item button-nl">Graphic</a>
-          <a href="#" class="buttonbox-item button-nl">Textile</a>
-          <a href="#" class="buttonbox-item button-nl">Weaving</a>
+      <div class="hpos-center">
+          <a href="#" class="hpos-item button-nl">Arts</a>
+          <a href="#" class="hpos-item button-nl">Graphic</a>
+          <a href="#" class="hpos-item button-nl">Textile</a>
+          <a href="#" class="hpos-item button-nl">Weaving</a>
       </div> 
         <p>
-            There's themes available. Here's theme-buttonbox-colorbox,
+            Themes are available. Here's theme-hpos-colorbox,
         </p>
-      <div class="buttonbox-center theme-buttonbox-colorbox">
-          <a href="#" class="buttonbox-item button-nl">Arts</a>
-          <a href="#" class="buttonbox-item button-nl">Graphic</a>
-          <a href="#" class="buttonbox-item button-nl">Textile</a>
-          <a href="#" class="buttonbox-item button-nl">Weaving</a>
+      <div class="hpos-center theme-hpos-colorbox">
+          <a href="#" class="hpos-item button-nl">Arts</a>
+          <a href="#" class="hpos-item button-nl">Graphic</a>
+          <a href="#" class="hpos-item button-nl">Textile</a>
+          <a href="#" class="hpos-item button-nl">Weaving</a>
       </div>
                    
       <h2> HBox Basics</h2>
         <p>
         Webbook has another concept for horizontal box layout. This is 
-        more complexity for little use unless you want broken 
-        positioning e.g. left/right placement, or dropdown menus.
+        more complexity. The advantage is it can create broken 
+        positioning e.g. left/right placement. Also, it will not 
+        wrap---it simply over-expands. And it is better for the 
+        dropdown menus classes described further down.
         </p>
       <p>
           These classes can not be used on lists. Lists come with 
@@ -76,8 +94,11 @@
         Three base boxes are provided, with alignment in different 
         directions. Contents can be near-anything, classed as 
         'hbox-item'. Box-items take on the size of their contents.
-        All are responsive. They break on paper-web width. Left,
+        All are responsive. They break on paper-web width. 
         </p>
+      <p>
+        Left,
+      </p>
         <div class="hbox-left">
           <div class="hbox-item">
             Archeology
@@ -90,7 +111,7 @@
           </div>
         </div>
         <p>
-          center,
+          Center,
         </p>
         <div class="hbox-center">
           <div class="hbox-item">
@@ -104,7 +125,7 @@
           </div>
         </div>
         <p>
-          right,
+          Right,
         </p> 
         <div class="hbox-right">
           <div class="hbox-item">
@@ -161,7 +182,9 @@
         </div>
       </div>
       <p>
-        Items can work downward, by not using the hbox classes,
+        Items can work downward, by not using the hbox classes. 
+        Unfortunately, the lists are currently center-aligned, for menu 
+        purpose, so currently you will need to make your own solution,
       </p>
       <div class="hbox-fill">
         <div class="hbox-left">
@@ -201,38 +224,39 @@
           <a href='#' class="hbox-item button-ll">Temp Agencies</a>
       </div>
       <p>
-        ...but looks fat vertically. The class
-        hbox-button breaks from high to low, or make your own 
-        responsive size,
+        ...but looks fat vertically. The class hbox-button-l breaks 
+        from high to low(l=large horizontal display size). There's also 
+        a hbox-button which is tighter. Examples here use hbox-button-l. 
+        Or make your own responsive size,
       </p>          
       <div class="hbox-left">
-          <div class="hbox-item hbox-button">LOGO</div>
-          <a href='#' class="hbox-item hbox-button">Archeology</a>
-          <a href='#' class="hbox-item hbox-button">Temp Agencies</a>
+          <div class="hbox-item hbox-button-l">LOGO</div>
+          <a href='#' class="hbox-item hbox-button-l">Archeology</a>
+          <a href='#' class="hbox-item hbox-button-l">Temp Agencies</a>
       </div>
       <p>
         The class "hbox-item-narrow-screen-remove" will do as it says, 
         remove an item on narrow screens,
       </p>    
       <div class="hbox-left">
-          <img src="logo.svg" class="hbox-item-narrow-screen-remove hbox-button" style="width:100px;"/>
-          <a href='#' class="hbox-item hbox-button">Archeology</a>
-          <a href='#' class="hbox-item hbox-button">Temp Agencies</a>
+          <img src="logo.svg" class="hbox-item-narrow-screen-remove hbox-button-l" style="width:6em;"/>
+          <a href='#' class="hbox-item hbox-button-l">Archeology</a>
+          <a href='#' class="hbox-item hbox-button-l">Temp Agencies</a>
       </div>      
       
     <h2>Menus</h2>
       <p>
         A menu needs link buttons. So anchors with button classes, here 
-        hbox-button, in a left/right layout,
+        hbox-button-l, in a left/right layout,
       </p>
 
       <div class="hbox-fill">
         <div class="hbox-left">
-            <a href="#" class="hbox-item hbox-button">Archeology</a>
-            <a href="#" class="hbox-item hbox-button">Inigo</a>
+            <a href="#" class="hbox-item hbox-button-l">Archeology</a>
+            <a href="#" class="hbox-item hbox-button-l">Inigo</a>
         </div>
         <div class="hbox-right">
-            <a href="#" class="hbox-item hbox-button">Temp Agencies</a>
+            <a href="#" class="hbox-item hbox-button-l">Temp Agencies</a>
         </div>
       </div>
                   
@@ -245,7 +269,7 @@
         For narrow/vertical display the usual size for menu buttons is 
         button-sl. For narrow/vertical consistency, all buttons should 
         be the same size. But in the horizontal direction, the 
-        horizontal buttons probably need more vertical size. hbox-button
+        horizontal buttons probably need more vertical size. hbox-button-l
         has the same wide-display width as button-sl and button-nl, so 
         can be used for root menu items. Drop menu items will use
         button-sl or button-nl. If you want to construct your own 
@@ -254,11 +278,11 @@
       </p>    
 
         <div class="hbox-left menu-ruled">
-          <div class="hbox-item-narrow-screen-remove hbox-button x-large">LOGO</div>
-          <a href="#" class="hbox-item hbox-button">A</a>
-          <a href="#" class="hbox-item hbox-button">Menu</a>
+          <div class="hbox-item-narrow-screen-remove hbox-button-l x-large">LOGO</div>
+          <a href="#" class="hbox-item hbox-button-l">A</a>
+          <a href="#" class="hbox-item hbox-button-l">Menu</a>
           <div class="hbox-item dropmenu-root">
-            <a class="dropmenu-root-open hbox-button">Outline</a>
+            <a class="dropmenu-root-open hbox-button-l">Books</a>
             <div class="dropmenu">
                 <a class="dropmenu-open button-sl">Authors</a>
                 <div class="dropmenu dropmenu-shift-left">
@@ -270,7 +294,7 @@
               <a href="#" class="button-sl">Fishing</a>
             </div>
           </div>
-          <a href="#" class="hbox-item hbox-button">About</a>
+          <a href="#" class="hbox-item hbox-button-l">About</a>
         </div>
       <p>
       Dropdown menus usually imply a site topbar. This will be 
@@ -278,9 +302,9 @@
       color and images, work from there,
       </p>
         <div class="hbox-left" style="background-color:MediumSeaGreen; color:white;">
-          <a href="#" class="hbox-item hbox-button">Archeology</a>
+          <a href="#" class="hbox-item hbox-button-l">Archeology</a>
           <div class="dropmenu-root hbox-item">
-            <a class="dropmenu-open hbox-button">Authors</a>
+            <a class="dropmenu-open hbox-button-l">Authors</a>
             <div class="dropmenu" style="background-color: DarkOliveGreen;
 color: #fff;">
               <a href="#" class="button-sl">Hugo</a>
@@ -288,7 +312,7 @@ color: #fff;">
               <a href="#" class="button-sl">Fitzgerald</a>
             </div>
           </div>
-          <a class="hbox-item hbox-button">About</a>
+          <a class="hbox-item hbox-button-l">About</a>
         </div>
 
     <h2>Breadcrumbs</h2>
@@ -318,7 +342,7 @@ color: #fff;">
         <div><a href="#">Weaving</a></div>
       </div> 
     <p>
-      Use as much as you want.
+      Use as many of these classes as move you close to aims.
     </p>
     </article>
     
