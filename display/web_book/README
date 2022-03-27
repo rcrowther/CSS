@@ -57,7 +57,7 @@ One paper, ''paper-cols' allows a side column. It should have two child containe
 That's all that is currently allowable.
 
 == Margins
-Round every content container you will want margins. Note that I say ''content container'. If the paper is a simple one, the margins class can be applied directly to it. But if the paper is ''paper-cols', then the margins should be applied to the column containers, not the paper. A small set is available,
+Round every content container you will want margins. Note that I say ''content container'. If the paper is a simple one, the margins class can be applied directly to it. But if the paper is ''paper-cols', then the margins should be applied to the column containers, not the paper. The margins should always be on the same element as the paper, otherwise their responsive collapse for small screens will not be triggered. A small set is available,
 ++
 - margins-fluid
 - margins-narrower
@@ -86,7 +86,7 @@ Having an invisible typeblock is very common web idiom, especially so stock widt
 === Layout Responsiveness
 Under web page width, for paper-cols and the cols, the cols will reorganise as full-width vertical blocks.
 
-Under column page width, margins will shrink to a minimal size.
+Under column page width, margins will shrink to a minimal size. This is set by --responsive-border
 
 
 == Toolbar/Menu
@@ -113,6 +113,8 @@ Menus involve several classes, so here is an example,
                     <li><a href="/earphones" class="submenu-anchor">Summary</a></li>
     ...
 
+== Figures and divblocks
+Figures are for illustrations that work with the text, divblocks are asides. All tables and illustrative images should go in a figure or divblock element.
 
 #################################################################
 == Changes  from sources

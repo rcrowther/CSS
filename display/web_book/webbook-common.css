@@ -342,6 +342,11 @@ body {
 /* Font Sizing */
 /* 12pt Scaling */
 body {
+/* The responsive border is used whenever 
+ * a border is collapsed for responsive reason.
+ * It should always be in rems, so it maintains consistent sizing.
+ */
+  --responsive-border: 1rem;
 
 /* 11pt Scaling (can use REMS against 11pt base) 
     25pt --x-huge
@@ -586,8 +591,8 @@ body {
   .paper-column, 
   .col-2, 
   .col-5 {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--responsive-border);
+    padding-right: var(--responsive-border);
     padding-top: var(--twothird-lineskip);
     padding-bottom: var(--one-lineskip);
   }
@@ -1855,7 +1860,7 @@ blockquote {
 
 .hpos-item {
   display: block;
-  margin: var(--button-spacing-vertical) 0;
+  margin: var(--button-spacing-vertical) var(--responsive-border);
 }
 
 .hpos-item > a {
@@ -1871,6 +1876,8 @@ blockquote {
   .hpos-item-narrow-screen-remove {
     display: inline-block;
     margin: 0 var(--button-spacing-horizontal);
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -1915,6 +1922,8 @@ blockquote {
    */
   display: block;
   position: relative;
+  margin-left: var(--responsive-border);
+  margin-right: var(--responsive-border);
 }
 
 .hbox-item-narrow-screen-remove {
@@ -1954,8 +1963,13 @@ blockquote {
   .hbox-right,
   .hbox-left,
   .hbox-fill {
-   flex-direction: row;
-   align-items: center;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .hbox-item {
+    padding-left: 0;
+    padding-right: 0;
   }
   
   .hbox-item-narrow-screen-remove {

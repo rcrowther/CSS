@@ -1,37 +1,9 @@
-x Basic titles
-
-x No, it must scale.... Can use font sizes rather then REM proportions?
-
-x Defaults for custom properties? commas, etc?
-x Fallback for custom properties
-x Overriding custom properties?
-- At what level???
-
-x Test font sizing changes
- x- add 11pt ratios
-
-x Decide font break points
-x Check break poinrs
+= TODO
+--responsive-border extended to figures?
 
 xRename respecting SMACSS
-x- TOC
 
-Menus
-x - Book 
-x - Plain
-x Handle inner containers
-x Handle submenu
-x Use img icon
-x Wheres the outer trim going?
-x JS
-x Submenu openers in submenus should not be styled as menu items
-x Find common pieces
 
-x Lost wide lists?
-
-x Check font-face local()
-
-x Check font-family
 
 List of missing chapter titles
 
@@ -39,37 +11,11 @@ List of missing headline sets
 
 The before/afterskip in titles seems too heavy an implementation.
 
-x (provisonal) Magazine titles
-
-x Consider \verb (no, for escaping text. and HTML QUOTE is ok)
-
-x Failing breaks on lists
-
-x Check illumination spacing strategy
-
-x Rebuild test-plain
 
 TOC collapse on list changes
 
-x (none to do) Narrow breadcrumb selectors 
-
-##########
-? Introduce a prepend/append hspace
-x Afterplace breadcrumb markers
-x Consider breadcrumb styles
 Make compact magazine style
 Kill definition horizontal list spacing on small screens?
 Reduce all horizontal list and figure spacing on small screens
 
-== lists
-Need a figure-like spacer to align left-right, for menus/lists. Or margin?
-Centred tables are a problem if used for lists
 
-== Buttpms
-x Breadcrumbs
-x Toolbar
-x Vertical
-x Horizontal
-x breaking
-x stanalone
-x Buttons Work  with styles? In racks?
