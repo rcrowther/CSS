@@ -1188,6 +1188,25 @@ h5::after, h6::after {
 
 /* General text */
 
+/* Utility */
+/* Will hide text and shrink it's size to zero.
+ * Containing boxes without padding will collapse. 
+ * However, unlike display:none, the element will ramin in the DOM,
+ */
+.hide-collapse-text {
+  visibility: hidden;
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive padding, Handy, for example, for items in hpos */
+.responsive-padding {
+  padding-right: var(--responsive-border);
+  padding-left: var(--responsive-border);
+}
+
+
 /* elements */
 
 /* There is a \date command in book titling \maketitle P67.
@@ -1474,7 +1493,7 @@ figure + p, spanblock + p {
    */
   .ilsn-x-narrow, .ilsn-xx-narrow {
     padding: 14.52pt 5em;
-    padding: var(--onelineskip) var(--parindent-x-large);
+    padding: var(--onelineskip) var(--parindent-large);
   }
 }
 
