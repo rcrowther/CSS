@@ -614,7 +614,7 @@ body {
 /* TOCONSIDER */
 /* containers */
 .col-fixed-margin-vertical {
-    padding: 8rem 0;
+    padding: 0;
 }
 
 .col-2,.col-5 {
@@ -635,6 +635,10 @@ body {
     display: inline-block;
     width: 55rem;
     vertical-align: top;
+  }
+  
+  .col-fixed-margin-vertical {
+    padding: 8rem 0;
   }
 }
 
